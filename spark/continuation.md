@@ -7,17 +7,15 @@
 ```
 * with continuation 
 ``` 
-function factorail(n) {
+function factorial(n) {
 	function f(n,acc) {
 		if(n==1){
+			return acc;
 		} else {
-		acc = acc * n;
-		f(n-1,acc);
+		f(n-1,acc*n);
 		}
 	}
-	var acc =1;
-	f(n,acc);
-	return acc;	
+	return factorial(n,1);	
 }
 ``` 
 continuation is passing to the next function recursion call,to calculate the result immediately when it arrive at the export of recursion.it runs without backtracking,it is faster than the traditional recursion 
