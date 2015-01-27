@@ -5,4 +5,4 @@
 2. 未完成 
 	* datepicker 默认显示时间的错误 
 3. 总结 
-	* don't make conseption  at begining of doing  sth.
+	* don't make assumption begining of doing  sth.
