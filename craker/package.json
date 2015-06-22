@@ -1,0 +1,11 @@
+{
+  "name": "craker",
+  "version": "1.0.0",
+  "description": "get some info from 1688.com",
+  "main": "index.js ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wuyunge",
+  "license": "ISC"
+}
