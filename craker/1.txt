@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html data-time="Tue Jun 23 10:32:00 CST 2015">
+  <head>
+    <meta charset="gbk" />
+    <meta name="data-spm" content="a260k" /><meta name='date' content='1434702673051'/>
+    <!--强制高级浏览器下永远带上referrer-->
+    <meta name="referrer" content="always"/>
+    <title>
+      阿里巴巴1688.com - 全球领先的采购批发平台
+    </title>
+    <meta name="description" content="阿里巴巴（1688.com）是全球企业间（B2B）电子商务的著名品牌，为数千万网商提供海量商机信息和便捷安全的在线交易市场，也是商人们以商会友、真实互动的社区平台。目前1688.com已覆盖原材料、工业品、服装服饰、家居百货、小商品等12个行业大类，提供从原料--生产--加工--现货等一系列的供应产品和服务。"/>
+    <meta name="keywords" content="阿里巴巴，采购批发，1688，行业门户，网上贸易，b2b，电子商务，内贸，外贸，批发，行业资讯，网上贸易，网上交易，交易市场，在线交易，买卖信息，贸易机会，商业信息，供求信息，采购，求购信息，供应信息，加工合作，代理，商机，行业资讯，商务服务，商务网，商人社区，网商"/>
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://m.1688.com/"/>
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://wap.1688.com/"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="dns-prefetch" href="//cbu01.alicdn.com" />
+    <link rel="shortcut icon" type="image/x-icon" href="//cbu01.alicdn.com/favicon.ico"/>
+    <link rel="search" type="application/opensearchdescription+xml" href="//astyle-src.alicdn.com/opensearch.xml" title="阿里巴巴搜索" />
+    
+        
+    
+    
+    
+    
+    
+    <base target="_blank" />
+
+<script type="text/javascript">
+var styleDomain1={"home":{"css":[],"js":["//astyle.alicdn.com/??app/home/app.config.js,fdevlib/js/gallery/jquery/jquery-latest.js,sys/js/trace/aliclick-min.js,fdevlib/js/lofty/util/cms-vm/1.0/cms-vm-jsonp.js,fdevlib/js/lofty/util/template/2.0/template.js,app/home/v2015/js/common/global.js,fdevlib/js/lofty/lang/observer.js,app/home/v2015/js/module/layout.js,app/home/v2015/js/module/tip-topbanner.js,fdevlib/js/lofty/util/cookie/1.0/cookie.js,fdevlib/js/lofty/util/misc/1.0/misc.js,fdevlib/js/lofty/alicn/subcookie/1.0/subcookie.js,fdevlib/js/lofty/alicn/alitalk/1.0/alitalk-shunt.js,fdevlib/js/lofty/alicn/aliuser/1.0/aliuser.js,fdevlib/js/lofty/alicn/browser-update/1.0/browser-update.js,sys/js/universal/alibar/merge-v5.js,sys/js/universal/alibar/standard-v5.js,sys/js/universal/alibar/v5.js,fdevlib/js/lofty/lang/class.js,fdevlib/js/lofty/lang/attribute.js,fdevlib/js/lofty/lang/pluginhost.js,fdevlib/js/lofty/lang/base.js,fdevlib/js/lofty/ui/widget/1.0/widget.js?_v=2624bd7a84aa9a6f69e685102871b277.js","//astyle.alicdn.com/??fdevlib/js/lofty/util/misc/2.0/misc.js,fdevlib/js/lofty/util/template/2.0/tplhandler.js,fdevlib/js/lofty/alicn/suggestion/3.0/core.js,fdevlib/js/lofty/ui/flash/1.0/flash.js,fdevlib/js/lofty/util/storage/1.0/storage.js,fdevlib/js/lofty/alicn/suggestion/3.0/history.js,fdevlib/js/lofty/util/json/1.0/json.js,fdevlib/js/lofty/alicn/suggestion/3.0/input.js,fdevlib/js/lofty/alicn/suggestion/3.0/noinput.js,fdevlib/js/lofty/alicn/suggestion/3.0/suggestion.js,fdevlib/js/lofty/alicn/suggestion/3.0/wiki/input.js,fdevlib/js/lofty/alicn/suggestion/3.0/wiki/noinput.js,fdevlib/js/lofty/alicn/suggestion/3.0/wiki/suggestion.js,app/home/v2015/js/module/masthead.js,app/home/v2015/js/module/nav-main.js,app/home/v2015/js/module/nav-sub.js,fdevlib/js/lofty/util/webp/1.0/webp.js,fdevlib/js/lofty/util/exposure/1.0/exposure.js,fdevlib/js/lofty/util/datalazyload/2.0/datalazyload.js,fdevlib/js/lofty/ui/tabs/2.0/tabs.js?_v=19022909d3d15062ef19d3aa223eee52.js","//astyle.alicdn.com/??app/home/v2015/js/module/main-slider.js,app/home/v2015/js/module/promation-slider.js,fdevlib/js/lofty/alicn/now/1.0/now.js,app/home/v2015/js/module/user-info.js,app/home/v2015/js/module/helper.js,fdevlib/js/lofty/util/cms-vm/1.0/cms-vm.js,app/home/v2015/js/common/cms-vm-sync.js,app/home/v2015/js/module/offer-total.js,app/home/v2015/js/module/theme-market.js,sys/js/logist/logist-fdev5.js,fdevlib/js/lofty/ui/dragdrop/1.0/dragdrop.js,fdevlib/js/lofty/ui/dialog/1.0/dialog.js,app/home/v2015/js/module/interest-supplier.js,app/home/v2015/js/module/industry.js,app/home/v2015/js/module/community.js,app/home/v2015/js/module/supplier.js,app/home/v2015/js/module/latest-view.js,app/home/v2015/js/module/banner.js,app/home/v2015/js/module/star-area.js,app/home/v2015/js/module/footer.js,app/home/v2015/js/module/v-bar.js?_v=e891d01906f70ffcd6e44124b4baf7fd.js"]}};
+</script>
+
+<link rel="stylesheet" href="//astyle.alicdn.com/app/home/v2015/css/merge.css?_v=1451329212dafe42e63e315c471260ae.css" /></head>
+  <body class="layout-1190" data-spm="635" data-zuanzhan="yes"><script type=text/javascript>var dmtrack_c='{-}'; var dmtrack_pageid='7ca1a8130a9368211435026861';
+(function(d){var t=d.createElement('script');t.type='text/javascript';t.async=true;t.src='//astyle-src.alicdn.com/sys/js/beacon/cnb.js';d.getElementsByTagName('head')[0].appendChild(t);}(document));</script>
+<noscript><img src="//dmtracking.1688.com/b.jpg?cD0yJnU9e3d3dy4xNjg4LmNvbSUyZn0mbT17R0VUfSZzPXsyMDB9JnI9ey19JmE9ey19JmI9LSZjPXstfQo=&ver=40&pageid=7ca1a8130a9368211435026861&time=1435026861" width="1" height="1" style="display:none"></noscript>
+      <script type=text/javascript> var _SPM_a='{-}'; var _SPM_b='{-}';var _SPM_app_name='{-}';var _SPM_template_path='{-}';</script>
+<script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&&asid=AQAAAACtxYhVZv5rOQAAAAA0NvyTRhhjJw==&aat=&abi=&abb=&",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_b2b.js")
+</script>
+
+    
+             
+        <div id="doc-container" class="global_adapt">
+       <div id="alibar" class="alibar2013 mod-alibar fd-clr" data-spm="1998491066">
+                <div id="alibar" data-width='response' data-bgcolor="white" style="height:29px;background:#fff;border-bottom:1px solid #ddd;">
+  <div id="alibar-v4">
+  </div>
+</div>      </div>
+      
+      
+            <div class="masthead_ctn mod-spm" data-spm="1998256240">
+        
+<div id="masthead" class="layout fd-clr"  data-spm="1998096057">
+  
+    <div class="ali-logo fd-left">
+    <a target="_self" title="阿里巴巴" href="http://www.1688.com/" class="main-logo"></a>
+  </div>
+  
+  <a href="http://3g.1688.com/?tracelog=wireless_indexcode" class="qr_code">
+    <span class="text">&nbsp;&nbsp;下载手机阿里</span>
+    <span class="img"></span>
+  </a>
+  <a class="ask-price fd-right" href="http://go.1688.com/buyoffer/post_offer.htm?tracelog=bing_post_visit_1688search&source_type=1688search&formtype=full" title="发布询价单" target="_blank">发布询价单</a>
+  <div class="ali-search fd-right">
+    <ul class="alisearch-type fd-clr">
+      <li class="first current fd-left" data-alisearch-url="http://www.1688.com/" data-type="alisearch-product" data-config="{action:'http://s.1688.com/selloffer/offer_search.htm',placeholder:'输入产品名称',suggest:true,type:'offer'}">
+        <a title="产品" href="http://www.1688.com/" data-spm-click="gostr=/1688hjlj;locaid=dc1" >产品</a>
+      </li>
+      <li class="fd-left" data-alisearch-url="http://page.1688.com/cp/cp1.html" data-type="alisearch-company" data-config="{action:'http://s.1688.com/company/company_search.htm',placeholder:'输入供应商名称、地区、主营产品等',suggest:true,type:'company'}">
+        <a title="供应商" href="http://page.1688.com/cp/cp1.html" data-spm-click="gostr=/1688hjlj;locaid=dg2">供应商</a>
+      </li>
+      <li class="fd-left" data-type="alisearch-buy" data-alisearch-url="http://go.1688.com/hall.htm" data-config="{action:'http://s.1688.com/newbuyoffer/buyoffer_search.htm',placeholder:'输入产品名称',suggest:true,type:'offer'}">
+        <a title="求购" href="http://page.1688.com/cp/cp8.html" data-spm-click="gostr=/1688hjlj;locaid=dq3">求购</a>
+      </li>
+      <li class="fd-left" data-type="alisearch-buyer" data-config="{action:'http://s.1688.com/buyer/buyer_search.htm',placeholder:'输入采购商公司名称、采购产品等'}">
+        <a title="采购商" href="#" data-spm-click="gostr=/1688hjlj;locaid=dc4"
+>采购商</a>
+      </li>
+      <li class="fd-left" data-type="alisearch-info" data-alisearch-url="http://baike.1688.com/" data-config="{action:'http://s.1688.com/wiki/wiki_search.htm',placeholder:'输入您的生意问题',suggest:true,type:'info'}">
+        <a title="生意经" href="http://baike.1688.com/" data-spm-click="gostr=/1688hjlj;locaid=ds5">生意经</a>
+      </li>
+    </ul>
+    <form action="http://s.1688.com/selloffer/offer_search.htm" target="_self" onsubmit="return false">
+      <input id="alisearch-keywords" class="empty" accesskey="s" autocomplete="off" maxlength="50" name="keywords" placeholder="输入产品名称"/>
+      <button type="button" id="alisearch-submit" data-spm-click="gostr=/1688hjlj;locaid=ds6">搜 索</button>
+      <div class="fd-hide" id="hidden_propoty"></div>
+      <input type="hidden" id="" name="n" value="y">
+      <input type="hidden" name="spm" value="a260k.635.1998096057.d1">
+    </form>
+    <div class="fd-hide">
+            
+                        <a class="vip-hot-keyword" href="http://tgc.1688.com/tgc/gzsth.html?tracelog=searchpro_key_000000">小批量加工</a>
+            
+                        <a class="preinstall" data-alisearch-url="http://tgc.1688.com/tgc/gzsth.html?tracelog=searchpro_list_000000" data-placeholder="限时1元加工最新秋冬款">限时1元加工最新秋冬款</a>
+          </div>
+  </div>
+</div>        <div class="fd-clr layout mod-spm" data-spm="1998256241">
+          
+
+<div class="sub-nav-title fd-left">行业市场</div>
+<ul class="nav-main fd-left">
+  <li class="words-3" data-intro='["知名产地","一手货源"]'><a href="http://ye.1688.com/">产业带</a></li>
+  <li class="words-4" data-intro='["各国特色","全球优选"]'><a href="http://in.1688.com/">全球货源</a></li>
+  <li class="words-2" data-intro='["爆款底价","包邮包换"]'><a href="http://huopin.1688.com/"  class="huopin">&nbsp;</a></li>
+  <li class="words-4" data-intro='["全网首发","源头订货"]'><a href="http://ding.1688.com/">新品快订</a></li>
+  <li class="words-3" data-intro='["加工定制","找工厂"]'><a href="http://tgc.1688.com/">淘工厂</a></li>
+  <li class="words-4 dljm" data-intro='["认证商家","利润保障"]'><a href="http://daili.1688.com/">代理加盟</a></li>
+  <li class="split-line"><span></span></li>
+  <li class="words-4 cgsc" data-intro='["通用耗材","一站购齐"]'><a href="http://caigou.1688.com/">采购商城</a></li>
+  <li class="words-5 dqycg" data-intro='["名企专业","大额采购"]'><a href="http://mingqi.1688.com/">大企业采购</a></li>
+  <li class="split-line"><span></span></li>
+  <li class="words-4 yshy" data-intro='["聚人脉","聚买卖"]'><a href="http://club.1688.com/">以商会友</a></li>
+  <li class="words-3" data-intro='["解决您的","生意难题"]'><a href="http://baike.1688.com/">生意经</a></li>
+</ul>        </div>
+      </div>
+      <div class="mod-spm" data-spm="1998523571"></div>
+      <div class="fd-clr layout firstScreen">
+        <div id="hp_first_screen_left_2015" class="fd-left mod-spm" data-spm="1998256242">
+          
+<ul id="nav-sub" class="mod-spm" data-spm="1998214976">
+    <li class="fd-clr subnav_fzny" data-vm="subnav_content_fzny"><i class="iconfont">&#xe605;</i><a href="http://fuzhuang.1688.com/nvzhuang">女装</a><span>/</span><a href="http://fuzhuang.1688.com/nanzhuang">男装</a><span>/</span><a href="http://fuzhuang.1688.com/neiyi">内衣</a></li>
+  <li class="fd-clr subnav_xbps" data-vm="subnav_content_xbps"><i class="iconfont">&#xe615;</i><a href="http://fuzhuang.1688.com/xie">鞋靴</a><span>/</span><a href="http://fuzhuang.1688.com/xiangbao">箱包</a><span>/</span><a href="http://fuzhuang.1688.com/peijian">配饰</a></li>
+  <li class="fd-clr subnav_ydhw" data-vm="subnav_content_ydhw"><i class="iconfont">&#xe618;</i><a href="http://sport.1688.com/">运动户外</a></li>
+  <li class="fd-clr subnav_tzmy" data-vm="subnav_content_tzmy"><i class="iconfont">&#xe612;</i><a href="http://muying.1688.com/muyingyongpin">母婴用品</a><span>/</span><a href="http://muying.1688.com/tongzhuang">童装</a><span>/</span><a href="http://muying.1688.com/wanju">玩具</a></li>
+  <li class="fd-clr subnav_rybh" data-vm="subnav_content_rybh"><i class="iconfont">&#xe60f;</i><a href="http://enjoy.1688.com/gongyilipin">工艺品</a><span>/</span><a href="http://home.1688.com/">百货</a><span>/</span><a href="http://enjoy.1688.com/chongwuyuanyi">宠物</a></li>
+  <li class="fd-clr subnav_qcyp" data-vm="subnav_content_qcyp"><i class="iconfont">&#xe60e;</i><a href="http://auto.1688.com/">汽车用品</a></li>
+  <li class="fd-clr subnav_spny" data-vm="subnav_content_spny"><i class="iconfont">&#xe610;</i><a href="http://food.1688.com/">食品</a><span>/</span><a href="http://xian.1688.com/">源生鲜</a></li>
+  <li class="fd-clr subnav_jfjz" data-vm="subnav_content_jfjz"><i class="iconfont">&#xe60a;</i><a href="http://jia.1688.com/">家纺家饰</a><span>/</span><a href="http://jiazhuang.1688.com/">家装建材</a></li>
+  <li class="fd-clr subnav_mzrh" data-vm="subnav_content_mzrh"><i class="iconfont">&#xe60d;</i><a href="http://mei.1688.com/">美妆日化</a></li>
+  <li class="fd-clr subnav_smjd" data-vm="subnav_content_smjd"><i class="iconfont">&#xe611;</i><a href="http://3c.1688.com/">数码家电</a></li>
+  <li class="fd-clr subnav_dgdq" data-vm="subnav_content_dgdq"><i class="iconfont">&#xe602;</i><a href="http://ee.1688.com/">电工电气</a><span>/</span><a href="http://af.1688.com/">安防</a></li>
+  <li class="fd-clr subnav_bz" data-vm="subnav_content_bz"><i class="iconfont">&#xe601;</i><a href="http://bz.1688.com/">包装</a><span>/</span><a href="http://xingzheng.1688.com/">行政办公</a></li>
+  <li class="fd-clr subnav_zmdz" data-vm="subnav_content_zmdz"><i class="iconfont">&#xe619;</i><a href="http://light.1688.com/" >照明</a><span>/</span><a href="http://ec.1688.com/">电子</a></li>
+  <li class="fd-clr subnav_jxwj" data-vm="subnav_content_jxwj"><i class="iconfont">&#xe609;</i><a href="http://jd.1688.com/">机械</a><span>/</span><a href="http://industry.1688.com/wujin">五金</a><span>/</span><a href="http://industry.1688.com/yiqi">仪表</a></li>
+  <li class="fd-clr subnav_xshggc" data-vm="subnav_content_xshggc"><i class="iconfont">&#xe614;</i><a href="http://plas.1688.com/">橡塑</a><span>/</span><a href="http://chem.1688.com/">化工</a><span>/</span><a href="http://steel.1688.com/">钢材</a></li>
+  <li class="fd-clr subnav_fzpg" data-vm="subnav_content_fzpg"><i class="iconfont">&#xe603;</i><a href="http://fangzhi.1688.com/">纺织皮革</a></li>
+</ul>
+<div class="floatLayer fd-clr">
+  <div class="floatLayer_text fd-left"></div>
+  <div class="floatLayer_img fd-left"></div>
+</div>        </div>
+        <div id="hp_first_screen_center_2015" class="fd-left mod-spm" data-spm="1998256243">
+          
+
+
+
+
+<div id="main_slider" class="mod-spm" data-spm="1998214974">
+  <a href="#" class="prev"></a>
+  <a href="#" class="next"></a>
+  <ul class="tab-content">
+            <li class="tab-b current">
+          <a href="http://tgc.1688.com/tgc/gzsth.html?
+tracelog=ad_index_760x300_a_20150623_tgc" class="leftright">
+             	<img class="main-img" src="https://cbu01.alicdn.com/cms/upload/2015/242/843/2348242_171834281.jpg"/>
+        <img class="left-img" src="https://cbu01.alicdn.com/cms/upload/2015/542/743/2347245_171834281.png" style="z-index:1 ;width:760px"/>
+        <img class="right-img" src="https://cbu01.alicdn.com/cms/upload/2015/952/343/2343259_171834281.png" style="z-index:2 ;width:760px"/>
+            </a>
+    </li>
+          <li class="tab-b">
+          <a href="http://caigou.1688.com/page/scwjgj.html?
+tracelog=ad_index_760x300_b_20150623_caigou" class="leftright">
+              <img class="main-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/474/153/2351474_1806427080.jpg"/>
+        <img class="left-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/174/443/2344471_1806427080.png" style="z-index:2 ;width:760px"/>
+        <img class="right-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/274/443/2344472_1806427080.png" style="z-index:1 ;width:760px"/>
+            </a>
+    </li>
+          <li class="tab-b">
+          <a href="http://muying.1688.com/tzqctxtk/20150601/index.html?
+tracelog=ad_index_760x300_c_20150601_my" class="leftright">
+              <img class="main-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/298/813/2318892_1428245009.jpg"/>
+        <img class="left-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/487/423/2324784_1428245009.png" style="z-index:1 ;width:760px"/>
+        <img class="right-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/308/123/2321803_1428245009.png" style="z-index:2 ;width:760px"/>
+            </a>
+    </li>
+          <li class="tab-b">
+          <a href="http://fushi.1688.com/huodong/peishi/hanban.html?tracelog=ad_index_760x300_d_20150623_peishi" class="leftright">
+              <img class="main-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/114/643/2346411_1666677412.jpg"/>
+        <img class="left-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/204/353/2353402_1666677412.png" style="z-index:1 ;width:760px"/>
+        <img class="right-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/734/543/2345437_1666677412.png" style="z-index:2 ;width:760px"/>
+            </a>
+    </li>
+          <li class="tab-b">
+          <a href="http://mei.1688.com/hudong/chaozhuang.html?tracelog=ad_index_760x300_e_20150623_meizrh" class="leftright">
+              <img class="main-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/634/343/2343436_1487718487.png"/>
+        <img class="left-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/734/343/2343437_1487718487.png" style="z-index:1 ;width:760px"/>
+        <img class="right-img" data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/644/943/2349446_1487718487.png" style="z-index:2 ;width:760px"/>
+            </a>
+    </li>
+    </ul>
+  <ul class="tab-title tab-title-size-5">
+      <li class="tab-t"><span></span></li>
+      <li class="tab-t"><span></span></li>
+      <li class="tab-t"><span></span></li>
+      <li class="tab-t"><span></span></li>
+      <li class="tab-t"><span></span></li>
+    </ul>
+</div>          
+<div id="promation_slider" class="mod-spm" data-spm="1998214975">
+  <a href="#" class="prev disabled"></a>
+  <a href="#" class="next"></a>
+  <div class="promation-tab-content">
+    <ul>
+      <li class="tab-b fd-clr current">
+        
+<a class="jiaodian-img first-img" href="http://page.1688.com/623nvzhuangneiyi.html?tracelog=ad_index_161x230_1a_20150623_xinggongchang">
+  <img src="https://cbu01.alicdn.com/cms/upload/2015/204/643/2346402_660173832.jpg"/>
+  <div class="text text11">
+    <p class="one">
+    <span>伙拼</span>
+      <span class="max">爆款</span>
+      <span>盘点</span>
+      <span></span>
+    </p>
+    <p>全场1元起</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://ding.1688.com/?tracelog=ad_index_161x230_1b_20150623_kuaiding">
+  <img src="https://cbu01.alicdn.com/cms/upload/2015/350/843/2348053_2093447082.jpg" />
+  <div class="text text12">
+    <p class="one">
+      <span>夏秋</span>
+      <span class="max">新品</span>
+      <span>潮首发</span>
+    </p>
+      <p>快订全场包物流</p>
+  </div>
+</a>        
+<a  class="jiaodian-img" href="http://caigou.1688.com/page/scwjgj.html">
+  <img src="https://cbu01.alicdn.com/cms/upload/2015/274/343/2343472_1806427080.jpg" />
+  <div class="text text13">
+    <p class="one">
+        <span>五金工具</span>
+            <span>全网</span>
+      <span class="max">低价</span>
+    </p>
+    <p>包邮热抢中</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://in.1688.com/page/qiang/index.html?tracelog=ad_index_161x230_1d_20150623_jinkoumeizhuang">
+  <img src="https://cbu01.alicdn.com/cms/upload/2015/214/143/2341412_798857838.jpg"/>
+  <div class="text text14">
+    <p class="one">
+      <span>美妆夏日</span>
+      <span class="max">特卖</span>
+    </p>
+    <p>最高爆赚5倍</p>
+  </div>
+</a>        <a class="jiaodian-img last-img" href="http://enjoy.1688.com/pinpai.html?tracelog=ad_index_161x230_1e_20150623_chongwu">
+  <img src="https://cbu01.alicdn.com/cms/upload/2015/979/413/2314979_1547760746.jpg" />
+  <div class="text text15">
+    <p class="one">
+       <span></span>
+      <span class="max">宠物</span>
+      <span>品牌聚</span>
+    </p>
+    <p>实力大牌每周见</p>
+  </div>
+</a>      </li>
+      <li class="tab-b fd-clr">
+        <a class="jiaodian-img first-img" href="http://xian.1688.com/huodong/baisemangguo.html?tracelog=ad_index_161x230_2a_20150623_baihuo">
+  <img data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/732/743/2347237_1701987199.jpg"/>
+  <div class="text text21">
+    <p class="one">
+      <span>百里挑一好</span>
+      <span class="max">芒果</span>
+      <span></span>
+    </p>
+    <p>满5赠1不封顶</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://s.1688.com/import/offer_search.htm?keywords=%CA%D6%B9%A4%D4%ED&n=y&tracelog=ad_index_161x230_2b_20150623_jinkoumeizhuang">
+  <img data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/110/043/2340011_798857838.jpg" />
+  <div class="text text22">
+    <p class="one">
+      <span></span>
+      <span class="max">异域</span>
+      <span>风情手工皂</span>
+      </p>
+    <p>有机护理新生活</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://muying.1688.com/mydljm.html? tracelog=ad_index_161x230_2c_20150623_my">
+  <img data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/554/443/2344455_539852167.jpg"/>
+  <div class="text text23">
+    <p class="one">
+      <span>母婴</span>
+      <span class="max">精品</span>
+      <span>货源</span>
+      </p>
+    <p>代理加盟</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://in.1688.com/page/japan.html?tracelog=ad_index_161x230_2d_20150623_jinkou">
+  <img data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/841/923/2329148_1275993196.png" />
+  <div class="text text24">
+    <p class="one">
+      <span>品质</span>
+         <span class="max">进口</span>
+      <span>货</span>
+    </p>
+    <p>销路不用愁</p>
+  </div>
+</a>        <a class="jiaodian-img last-img" href="http://muying.1688.com/promotion/wanju/dongman.html?
+tracelog=ad_index_161x230_2e_20150623_my">
+  <img data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/401/233/2332104_1696144395.jpg" />
+  <div class="text text25">
+    <p class="one">
+      <span>暑期动漫</span>
+      <span class="max">剧透</span>
+      <span></span>
+    </p>
+    <p>30天包退货</p>
+  </div>
+</a>      </li>
+      <li class="tab-b fd-clr">
+        <a class="jiaodian-img first-img" href="http://fuzhuang.1688.com/xie?spm=a260k.635.1998214979.4.IzjNX8?tracelog=ad_index_161x230_3a_20150620_xiexue">
+  <img src="https://cbu01.alicdn.com/cms/upload/2015/709/613/2316907_130262736.jpg" />
+  <div class="text text31">
+    <p class="one">
+      <span>潮流时髦</span>
+      <span class="max">凉鞋</span>
+       <span></span>
+    </p>
+    <p>夏季爆款清仓</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://muying.1688.com/626tz/index.html?tracelog=ad_index_161x230_3b_20150620_my">
+  <img data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/598/123/2321895_1428245009.jpg"/>
+  <div class="text text32">
+    <p class="one">
+      <span></span>
+      <span>年中童装</span>
+       <span class="max">清仓</span>
+      <span></span>
+    </p>
+    <p>原产地特价清仓</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://muying.1688.com/xiatongche.html?tracelog=ad_index_161x230_3C_20150623_my">
+  <img data-lazy-src="http://cbu01.alicdn.com/cms/upload/2015/654/243/2342456_539852167.jpg"/>
+  <div class="text text33">
+    <p class="one">
+      <span>童车</span>
+      <span class="max">产地</span>
+      <span>货</span>
+    </p>
+    <p>品质好货开抢</p>
+  </div>
+</a>        <a class="jiaodian-img" href="http://caigou.1688.com/?spm=a260k.635.1998256241.7.DJuWo2">
+   <img src="https://cbu01.alicdn.com/cms/upload/2015/100/153/2351001_1806427080.jpg" />
+  <div class="text text34">
+    <p class="one">
+      <span>品牌灯</span>
+      <span class="max">低价</span>
+       <span>采</span>
+    </p>
+    <p>商城品质保障</p>
+  </div>
+</a>        <a class="jiaodian-img last-img" href="http://chem.1688.com/tz/index.html?tracelog=ad_index_161x230_3e_20150623_jingxi">
+  <img data-lazy-src="https://cbu01.alicdn.com/cms/upload/2015/004/743/2347400_1505755342.jpg"/>
+  <div class="text text35">
+    <p class="one">
+      <span>精细的</span>
+       <span class="max">搭配</span>
+      <span></span>
+    </p>
+    <p>才能更省钱</p>
+  </div>
+</a>      </li>
+    </ul>
+  </div>
+</div>        </div>
+        <div id="hp_first_screen_right_2015" class="fd-left mod-spm" data-spm="1998256244">
+          
+<div class="user_info_area">
+</div>          
+<div class="ali_help">
+  <ul class="help_tab_title auto_justify_layout">
+    <li class="tab-t current" style="width:24px;"><a href="http://rule.1688.com/?tracelog=aliguize_sy">公告</a></li>
+    <li class="tab-t" style="width:24px;"><a href="http://rule.1688.com/?tracelog=aliguize_sy">规则</a></li>
+    <li class="tab-t"><a href="http://114.1688.com/newbie/buyer.htm">买家入门</a></li>
+    <li class="tab-t"><a href="http://114.1688.com/newbie/seller.htm">卖家入门</a></li>
+    <span class="help_current_bar"  style="width:24px;"></span>
+  </ul>
+  <ul class="help_tab_body">
+    <li class="tab-b current">
+      <ul class="help_ali_reg">
+  <li><a href="http://club.1688.com/threadview/46832618.htm">[公告]1688力推实力商家</a></li> 
+  <li><a href="http://club.1688.com/threadview/46686530.htm">[公告]1688全球货源平台上线</a></li>
+  <li><a href="http://club.1688.com/threadview/46621582.htm">[公告]阿里吴敏芝透露B类方向 </a></li>
+  </ul>    </li>
+    <li class="tab-b">
+      <ul class="help_ali_reg">
+   <li><a href="http://rule.1688.com/cases/expose.htm?tracelog=sy_notice_2_20150519">4月严重违规诚信通会员公示</a></li>
+  <li><a href="http://rule.1688.com/rule/detail/2493.htm?tracelog=sy_notice_1_20150415">[通知]“WONDERFLOWER”电热水器的管控</a></li>
+   <li><a href="http://rule.1688.com/rule/detail/2286.htm?tracelog=sy_notice_3">[公告]手机卡400电话等的管控通知</a></li> 
+   </ul>    </li>
+    <li class="tab-b">
+      <div class="help_buyer fd-clr">
+  <a href="http://114.1688.com/newbie/course/34.htm" class="line-2">绑定<br/>支付宝</a>
+  <span></span>
+  <a href="http://114.1688.com/newbie/course/36.htm" class="line-1">找产品</a>
+  <span></span>
+  <a href="http://114.1688.com/newbie/course/37.htm" class="line-2">下单<br/>购买</a>
+</div>    </li>
+    <li class="tab-b">
+      <div class="help_seller fd-clr">
+  <a href="http://114.1688.com/newbie/course/25.htm" class="line-2">发公司<br/>介绍</a>
+  <span></span>
+  <a href="http://114.1688.com/newbie/course/26.htm" class="line-2">开通<br/>旺铺</a>
+  <span></span>
+  <a href="http://114.1688.com/newbie/course/27.htm" class="line-2">发布<br/>产品</a>
+</div>    </li>
+  </ul>
+</div>          <div class="flag_icon fd-clr">
+  <a class="insurance fd-left" title="买家保障" href="http://page.1688.com/buyerprotection/buyer.html"></a>
+  <a class="security fd-left" title="安全交易" href="http://view.1688.com/cms/services/aliguide/bd_zfb.html?tracelog=kf_2011_quickway_aqjy"></a>
+  <a class="authentication fd-left" title="商家认证" href="http://page.1688.com/trust/rztx.html"></a>
+</div>          
+<div class="offer_total_count" data-total="221237911" data-increase="3949630">
+  <span class="title">昨日商品总数</span>
+  <ul class="num auto_justify_layout" title="昨日商品总数">
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li class="split"></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li class="split"></li>
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div></div></li>
+  </ul>
+</div>
+          <ul class="soft_link auto_justify_layout">
+  <li class="ww">
+    <a href="http://wangwang.1688.com/">阿里旺旺</a>
+  </li>
+  <li class="sj">
+    <a href="http://3g.1688.com/?tracelog=index_wirelesshome">手机阿里</a>
+  </li>
+  <li class="sp">
+    <a href="http://video.1688.com/">视频</a>
+  </li>
+</ul>        </div>
+      </div>
+      
+      <ul class="feature_market layout auto_justify_layout">
+        <li class="area_market mod-spm" data-spm="1998256245">
+          <div class="title">
+  <i></i>
+  <a href="http://ye.1688.com/">地域市场</a>
+</div>
+<ul class="content auto_justify_layout">
+  <li>
+    <a href="http://yiwu.1688.com/index.html?tracelog=cyd_sy_new_1688dysc1_1031">义乌百货</a>
+  </li>
+  <li>
+    <a href="http://wenzhou.1688.com/?tracelog=cyd_sy_new_1688dysc2_1031">温州鞋服</a>
+  </li>
+  <li class="last">
+    <a href="http://humen.1688.com/index.html?tracelog=cyd_sy_new_1688dysc3_1031">虎门女装</a>
+  </li>
+  <li>
+    <a href="http://zhengzhou.1688.com/index.html?tracelog=cyd_sy_new_1688dysc6_1031">郑州女裤</a>
+  </li>
+  <li>
+    <a href="http://foshan.1688.com/?tracelog=cyd_sy_new_1688dysc7_1128">佛山童装</a>
+  </li>
+  <li class="last">
+    <a href="http://yongk.ye.1688.com/?tracelog=cyd_sy_new_1688dysc8_1128">永康五金</a>
+  </li>
+</ul>        </li>
+        <li class="global_offer mod-spm" data-spm="1998523572">
+          <div class="title">
+  <i></i>
+  <a href="http://in.1688.com/">全球货源</a>
+</div>
+<ul class="content auto_justify_layout">
+  <li>
+    <a href="http://in.1688.com/page/qiang/index.html">爆品限时享批</a>
+  </li>
+  <li>
+    <a href="http://s.1688.com/import/offer_search.htm?keywords=%C1%E3%CA%B3&n=y">进口休闲零食</a>
+  </li>
+  <li class="last">
+    <a href="http://s.1688.com/import/offer_search.htm?keywords=%BE%C6&n=y">夏季冰爽酒水</a>
+  </li>
+  <li>
+    <a href="http://s.1688.com/import/-CEC0C9FABDED.html?originalCountry=KR&n=y">韩国姨妈巾</a>
+  </li>
+  <li>
+    <a href="http://s.1688.com/import/-CCA9B9FAB9A4D2D5.html?spm=a26qs.7705462.d4920497.6.DL3iwd&cps=1&originalCountry=TH&n=y">泰国工艺礼品</a>
+  </li>
+  <li class="last">
+    <a href="http://in.1688.com/page/global-europe.html">欧洲食品大赏</a>
+  </li>
+</ul>        </li>
+        <li class="procurement_platform mod-spm" data-spm="1998256246">
+          <div class="title">
+  <i></i>
+  <a href="http://caigou.1688.com">采购平台</a>
+</div>
+<ul class="content auto_justify_layout">
+  <li>
+    <a  href="http://caigou.1688.com/page/bprm.html">爆品热卖会</a>
+  </li>
+  <li>
+    <a  href="http://s.1688.com/caigou/offer_search.htm?spm=b26110225.7145030.1998489863.175.VMwDtu&caigouCategoryId=39014">老板最爱包材</a>
+  </li>
+  <li class="last">
+    <a href="http://s.1688.com/caigou/offer_search.htm?spm=b26110225.7145030.1998489863.88.VMwDtu&caigouCategoryId=39063">电工电气正品</a>
+  </li>
+    <li>
+    <a href="http://caigou.1688.com/page/scwjgj.html">五金工具包邮</a>
+  </li>
+   <li>
+    <a href="http://caigou.1688.com/page/lbhd.html?tracelog=caigoulbhd">劳保用品7折起</a>
+  </li>
+  
+   <li class="last">
+    <a href="http://s.1688.com/caigou/offer_search.htm?keywords=%B0%EC%B9%AB&n=y?tracelog=cgpt07">办公用品低价</a>
+  </li>
+</ul>        </li>
+        <li class="theme_market mod-spm" data-spm="1998256247">
+          
+<div class="title">
+  <i></i>
+  <h3>主题市场</h3>
+</div>
+<ul class="content auto_justify_layout">
+  <li>
+    <a href="http://ls.1688.com/">零售通</a>
+  </li>
+  <li>
+    <a href="http://yang.1688.com/">免费拿样</a>
+  </li>
+  <li>
+    <a href="http://tao.1688.com/">淘货源</a>
+  </li>
+  <li class="default">
+    <a href="http://fashion.1688.com/">潮风尚市场</a>
+  </li>
+  <li class="default">
+    <a href="http://fuzhuang.1688.com/brand/nvzhuang">女装品牌馆</a>
+  </li>
+  <li class="default">
+    <a href="http://goods.1688.com/">镇厂之宝</a>
+  </li>
+</ul>        </li>
+      </ul>
+
+      <div id="industry_ctn" class="industry_default_cls mod-spm" data-spm="1998397139">
+        
+<style>
+  #industry_ctn .tag_img{display:none;}
+</style>
+<div id="industry_head" class="layout">
+  <h2>行业市场</h2>
+  <style>
+  #industry_head_activity_ctn{
+  	position:absolute;
+    left:110px;
+    top:17px;
+  }
+  #industry_head_activity_ctn span{
+    color:#888;
+  }
+  #industry_head_activity_ctn .title{
+    margin-right:10px;
+  }
+  #industry_head_activity_ctn a{
+    color:#555;
+    margin-right:30px;
+  }
+  #industry_head_activity_ctn a.belong{
+    margin-right:8px !important;
+  }
+</style>
+<div id="industry_head_activity_ctn" class="mod-spm" data-spm="1998397136">
+  <span class="title">今日活动：</span><a href="http://s.1688.com/selloffer/offer_search.htm?city=%B9%E3%D6%DD&priceStart=30&industryFlag=clothing&uniqfield=pic_tag_id&province=%B9%E3%B6%AB&keywords=%C5%AE%D7%B0&from=industrySearch&filt=y&n=y&filt=y#_fb_top" class="belong">[女装]</a><a href="http://s.1688.com/selloffer/offer_search.htm?city=%B9%E3%D6%DD&priceStart=30&industryFlag=clothing&uniqfield=pic_tag_id&province=%B9%E3%B6%AB&keywords=%C5%AE%D7%B0&from=industrySearch&filt=y&n=y&filt=y#_fb_top">女装广州货源 一手潮货性价比高
+  </a><a href="http://muying.1688.com/" class="belong">[童装母婴]</a><a href="http://muying.1688.com/promotion/tongchebaohuan.html">品质童车出行专场</a>
+</div>  <a id="industry_set_btn" href="#">设置我感兴趣的行业</a>
+  <div id="industry_set_choice">
+  </div>
+</div>      </div>
+      
+      <div class="community_ctn layout mod-spm" data-spm="1998256249">
+        	  </div>
+      
+      
+      <div class="interest_supplier_ctn layout mod-spm" data-spm="1998256250">
+              </div>
+      
+      <div class="latest_view_ctn layout mod-spm" data-spm="1998256251">
+              </div>
+      
+      <div class="gg_banner fd-clr layout mod-spm" data-spm="1998256252">
+              </div>
+      
+            
+<div class="hp_footer_outer mod-spm" data-spm="1998396936">
+  <div class="hp_footer_inner layout">
+    <div id="ali_service"></div>
+    <div id="footer-v1">
+      <ul class="footer-ali-group auto_justify_layout" style="width:990px">
+        <li class="len72">
+          <a rel="nofollow" href="http://www.alibabagroup.com/cn/global/home" title="阿里巴巴集团">阿里巴巴集团</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len84">
+          <a href="http://www.alibaba.com/" title="阿里巴巴国际站">阿里巴巴国际站</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len28">
+          <a href="http://www.1688.com/?tracelog=cnindex_sep_home_bottom" title="1688">1688</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len60">
+          <a href="http://mai.aliexpress.com" title="全球速卖通">全球速卖通</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len36">
+          <a rel="nofollow" href="http://www.taobao.com/" title="淘宝网">淘宝网</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len24">
+          <a rel="nofollow" href="http://www.tmall.com/" title="天猫">天猫</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len36">
+          <a rel="nofollow" href="http://ju.taobao.com/" title="聚划算">聚划算</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len24">
+          <a rel="nofollow" href="http://www.etao.com/" title="一淘">一淘</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len84">
+          <a href="http://www.alitrip.com/" title="阿里旅行 · 去啊">阿里旅行 · 去啊</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len48">
+          <a rel="nofollow" href="http://www.alimama.com/" title="阿里妈妈">阿里妈妈</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len24">
+          <a rel="nofollow" href="http://kanbox.com/?ref=1688" title="酷盘">酷盘</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len24">
+          <a rel="nofollow" href="http://www.xiami.com/" title="虾米">虾米</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len60">
+          <a rel="nofollow" href="http://www.aliyun.com/" title="阿里云计算">阿里云计算</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len38">
+          <a rel="nofollow" href="http://www.yunos.com/" title="YunOS">YunOS</a>
+        </li>
+      </ul>
+      <ul class="footer-ali-group auto_justify_layout" style="width:447px">
+        <li class="len48">
+          <a rel="nofollow" href="http://aliqin.tmall.com/" title="阿里通信">阿里通信</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len24">
+          <a rel="nofollow" href="http://www.net.cn/" title="万网">万网</a>
+        </li>
+        <li class="separation">|</li>
+        <li style="width:20px">
+          <a rel="nofollow" href="http://www.uc.cn/" title="UC">UC</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len36">
+          <a rel="nofollow" href="http://www.alipay.com/" title="支付宝">支付宝</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len24">
+          <a rel="nofollow" href="https://www.laiwang.com/" title="来往">来往</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len48">
+          <a rel="nofollow" href="https://11main.com/" title="11 Main">11 Main</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len24">
+          <a rel="nofollow" href="http://www.dingtalk.com/?lwfrom=20150130161950940" title="钉钉">钉钉</a>
+        </li>
+        <li class="separation">|</li>
+        <li class="len48">
+          <a rel="nofollow" href="http://www.alijk.com" title="阿里健康">阿里健康</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>      
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253694386'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1253694386' type='text/javascript'%3E%3C/script%3E"));</script>
+      <!-- user defined footer -->     </div>
+
+<script type="text/javascript" src="//astyle.alicdn.com/??fdevlib/js/lofty/port/lofty.js,fdevlib/js/app/async/async.js,app/home/v2015/js/common/app.js?_v=57208121992d3c6bb04353c2bdf66604.js"></script></body>
+</html>

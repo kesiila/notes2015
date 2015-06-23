@@ -2,27 +2,41 @@
 var http = require('http');
 var    _ = require('lodash');
 var   fs = require('fs');
+var Promise = require('bluebird');
+var    $ = require('jquery');
+var   ng = require('nodegrass');
+var   hp = require('htmlparser');
+var   m$ = require('./parse.js');
 
-var selector = '';
+var CATALOG_SELECTOR = '.subnav_content_fzny a';
+
+var handle0 = new hp.defaultHandler(function(err, dom) {
+    if(err)
+        throw err
+    else
+        console.log('parse done');
+});
 
 function getCatalogUrls() {
-    http.get('www.1688.com',function(err,data){
+    ng.get('www.1688.com',function(data, status, headers){
         if(err) throw err;
-        var keyAndUrls = $(selctor);
+        var keyAndUrls = $(data).find(CATALOG_SELECTOR);
         var res = _.chain(keyAndUrls)
             .map(function (item) {
                 return {
-                  key: item.innerHTML,
-                  url: getHref(item)
+                  key: $(item).innerHTML,
+                  url: $(item).href
                  }
          }).value();
-         fs.writeFile(CATALOG_PATH, res, 'w', function mayHaveFnHere(){});
+       //  fs.writeFile(CATALOG_PATH, res, 'w', function mayHaveFnHere(){});
+    }, 'gbk').on('error', function(err) {
+        if (err) throw err;
     });
 }
 //ul.sm-offerShopwindow>li.sm-offerShopwindow-item>.title>a
 function getItemUrls(array) {
     _.forEach(function (item) {
-        http.get(item.url,function(err, data) {
+        ng.get(item.url,function(err, data) {
             if(err) throw err;
             if(data == null) throw new Error('has wrong (key,url) : ( ' +
                                             url.key + ',' + url + ')');
@@ -65,3 +79,4 @@ function reSort(array) {
 function writeToExcel(excel_path,data) {
     http.writeFile(excel_path,data, 'w', function mayNeedFn() {})
 }
+
