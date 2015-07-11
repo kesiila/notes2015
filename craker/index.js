@@ -9,6 +9,7 @@ var   hp = require('htmlparser');
 var   m$ = require('./parse.js');
 
 var CATALOG_SELECTOR = '.subnav_content_fzny a';
+var     CATALOG_PATH = './txt'
 
 var handle0 = new hp.defaultHandler(function(err, dom) {
     if(err)

@@ -1,8 +1,8 @@
-
-
-var    $ = require('./parser.js');
-var   fs = require('fs');
-var iconv= require('iconv-lite');
+'use strict';
+var    assert = require('assert');
+var         $ = require('./parser.js');
+var        fs = require('fs');
+var     iconv = require('iconv-lite');
 
 fs.readFile('./1.txt', function (err, data) {
     if(err)
@@ -10,7 +10,8 @@ fs.readFile('./1.txt', function (err, data) {
     else {
         var str = iconv.decode(data, 'utf8')
         console.log(str);
-        console.log($.find($.parse(str)[2],'#promation_slider'));
+        var temp = $.find($.parse(str)[2],'.floatLayer_text')[0];
+        console.log(temp)
+        console.log($.find(temp, 'a'));
     }
-
 });
