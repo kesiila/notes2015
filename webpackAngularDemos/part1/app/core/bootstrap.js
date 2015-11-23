@@ -8,6 +8,10 @@ require('./vendor')(); // run an empty function
 // load the main app file
 var appModule = require('../index');
 
+if(MODE.production) {
+   require('.config/production')(appModule);
+}
+
 //replaces ng-app="appName"
 
 angular.element(document).ready(function () {

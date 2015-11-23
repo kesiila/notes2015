@@ -4,6 +4,8 @@
     "globals": {
     	"angular": true,
         "console": true,
-        "document": true
+        "document": true,
+        "globals": true,
+        "require": true
     }
 }

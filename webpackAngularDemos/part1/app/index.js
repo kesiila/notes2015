@@ -10,5 +10,6 @@ function printMessage (status) {
 printMessage('working');
 
 module.exports = angular.module('app', [
-    'lumx'
+    'lumx',
+    require('./core/layout').name
 ]);
