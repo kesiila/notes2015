@@ -1,0 +1,21 @@
+<div class="cascading-wapper">
+    <input ng-model="value" ng-focus="open('show')" placeholder="选择{{label}}" type="text" class="form-control" required/>
+
+    <div ng-show="show" class="cascading">
+
+        <!-- 分类选项 -->
+        <ul ng-hide="showAll">
+            <li ng-repeat="data in datas" ng-click="set.choose(data.type,data.cnName)"
+                ng-class="{true: 'active'}[key == data.type]">
+                {{ data.cnName }}
+            </li>
+        </ul>
+
+        <div class="footer clearfix">
+            <div class="pull-right">
+                <!-- <button ng-click="set.clear()" class="btn btn-link btn-sm">清空</button> -->
+                <button ng-click="open('hide')" class="btn btn-success btn-sm">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

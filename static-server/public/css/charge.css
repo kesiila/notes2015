@@ -1,0 +1,84 @@
+button.btn-cherrying {
+  color: #fff;
+  background-color: #F57403;
+  outline: 1px solid #D86E0F;
+  border: 1px solid #f57403;
+  border-radius: 0px;
+}
+button.btn-cherrying:hover,
+button.btn-cherrying:focus {
+  color: #fff;
+  background-color: #FB8318;
+  border: 1px solid #FAA65A;
+}
+.charge__header {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.charge__header ul li.charge__header__item {
+  display: block;
+  padding: 5px;
+}
+.charge__header ul li.charge__header__item .item__left {
+  display: inline-block;
+  padding-right: 5px;
+}
+.charge__header ul li.charge__header__item .item__right {
+  padding-left: 5px;
+  display: inline-block;
+}
+.charge__content {
+  margin-left: 25px;
+  padding: 5px;
+}
+.charge__content .content__title {
+  font-size: 16px;
+  color: #000000;
+  line-height: 2em;
+}
+.charge__content .content__body {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+.charge__content .content__body .charge__amount {
+  background-color: #f1f1f1;
+  padding: 15px;
+}
+.charge__content .content__body .amount__title {
+  font-size: 14px;
+  line-height: 2em;
+}
+.charge__content .content__body ul {
+  margin-left: 10px;
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.charge__content .content__body ul li.amount_item {
+  margin-right: 30px;
+  font-size: 14px;
+  line-height: inherit;
+  display: inline-block;
+}
+.charge__content .content__body ul li.amount_item .earn_score {
+  display: inline-block;
+}
+.charge__content .content__body ul li.amount_item .pay_money {
+  color: #aaa;
+  display: inline-block;
+}
+.charge__content .content__body .amount__footer .left {
+  display: inline-block;
+  padding: 5px;
+}
+.charge__content .content__body .amount__footer .left .left_earn_score {
+  color: red;
+}
+.charge__content .content__body .amount__footer .left .left_pay_money {
+  color: #aaa;
+}
+.charge__content .content__body .amount__footer .right {
+  display: inline-block;
+  padding: 5px;
+}

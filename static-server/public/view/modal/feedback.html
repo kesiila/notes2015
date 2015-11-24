@@ -1,0 +1,81 @@
+<div class="modal-header">
+    <h4 class="modal-title" style="padding-left: 25px;padding-top: 10px;">在线反馈
+        <i class="pull-right icon-close cursor" style="margin-top: 2px;margin-right: 5px;color: #555;"
+           ng-click="close()"></i>
+    </h4>
+</div>
+<div class="modal-body" style="padding-bottom: 0px;padding-bottom: 0px;padding-left: 0px;">
+    <form wt-form-validate="{blurTrig:true,showMsg:false}" name="feedback_form"
+          novalidate class="form-horizontal wt-form" style="padding-right: 20px;">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">联系人：</label>
+            <div class="col-xs-9">
+                <input class="form-control" type="text" placeholder="填写你的名称"
+                       name="feedback_name" ng-model="$parent.name"
+                       required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">联系邮箱：</label>
+            <div class="col-xs-9">
+                <input class="form-control" type="email" placeholder="联系邮箱"
+                       name="feedback_email" ng-model="$parent.email"
+                       />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">主题：</label>
+            <div class="col-xs-9">
+                <select ng-model="category" style="padding-left: 10px;" ng-options="category for category in categoryList">
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">反馈内容：</label>
+            <div class="col-xs-9">
+                <textarea class="form-control"  placeholder="反馈内容"
+                       name="feedback_content" ng-model="$parent.content"
+                       rows="5"
+                       required>
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3"></label>
+            <div class="col-xs-9">
+                <button wt-form-submit="js_submit(feedback_form)" type="button" class="btn btn-success"
+                        data-loading-text="提交中..." loading-status="is_registering">提交
+                </button>
+<!--                <button  class="btn btn-danger" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=800023125&o=www.bonday.cn&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"
+border="0">QQ咨询</button>-->
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer" style="text-align: left;padding-left: 40px">
+    <h4 class="footer-head"
+            style="font-size: 18px;padding-bottom: 5px;">棒呆交流群
+        <span class="text-muted fs_14 ml_5" style="color:#555">(与更多留学人一起前行)</span>
+    </h4>
+    <div class="feed_back_wrapper" style="right:42px;bottom:42px;position:absolute;" ng-if="">
+        <div class="support label-info">
+            <a href="#"
+               onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=800023125&o=www.bonday.cn&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"
+               border="0">
+                <div class="qq-wrapper">
+                    <img src="/img/icon-qq.png" alt="加载中"/>
+                </div>
+                <span>客服</span>
+            </a></div>
+    </div>
+    <ul class="list-inline">
+        <li class="text-muted fs_14" style="color:#555">加入QQ群：</li>
+        <li class="fs_18 ml_10">280802349</li>
+        <li class="fs_18">426023180</li>
+        <li class="fs_18">278228604</li>
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>解除授权</h3>
+</div>
+<div class="popbox-body w_300">
+   <span>
+       解除后该应用将不能进入棒呆，必须重新授权才可以进入。
+   </span>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_decommissioning()" data-loading-text="解除中..." loading-status="is_decommissioning" class="btn btn-danger mr_15">确定解除</button>
+    <button ng-click="js_close()" class="btn btn-cancel">取消</button>
+</div>

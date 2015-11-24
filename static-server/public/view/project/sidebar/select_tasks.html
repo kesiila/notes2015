@@ -1,0 +1,25 @@
+<div class="prj_sidebar_step_body" ng-controller="browse_task_ctrl">
+	<input type="text" autofocus="" ng-model="search_user_input"  wt-enter="js_get_task(search_user_input)"
+		placeholder="搜索活动" class="form-control help-block" />
+	<ul class="prj_sidebar_step_menu">
+		<li class="member-item"
+			ng-repeat="task in tasks | filterTasks:search_user_input"><a
+			href="javascript:;" tabindex="-1" ng-click="js_toggle_task(task)">
+            <i wt-show="task.watched"
+               class="more_gray icon-ok"></i><i class="more_gray" ng-class="{true:'icon-user',false:'icon-home'}[task.name.length>0]"></i>
+            <span title="联系人:{{ task.name }}" ng-bind-html="task.name|highlight:search_user_input:caseSensitive"></span>
+            <span title="公司名:{{ task.company }}" ng-show="!task.name">{{ task.company|abbrevition:20  }}</span>
+        </a></li>
+		</a></li>
+		<li class="divider"></li>
+		<li><a href="javascript:;"
+               style="text-align: center"
+			ng-show="has_more && part_loading_done" ng-click="load_tasks_more()"
+			data-loading-text="加载中..." loading-status="!part_loading_done">加载更多...</a></li>
+		<li><a href="javascript:;" ng-click="js_watch_all(tasks,edit_mail)"
+			class="ng-binding"><i class="icon-xx"></i> <span
+				ng-bind="{true:'添加全部活动',false:'所有活动已添加'}[edit_mail.tasks.length < tasks.length]"></span>
+				({{ edit_mail.tasks.length }}/{{ tasks.length }})</a></li>
+	</ul>
+
+</div>

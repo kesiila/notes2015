@@ -1,0 +1,220 @@
+<div class="height-noheader mailbox-click-other-donot-hide" wt-stop-propagation="click">
+<div class="mod_navbar center-block">
+    <div class="title">
+        <h3>
+            <i class="icon-pencil-square-o mr_10"></i>开发信定制
+        </h3> <span class="small text-muted">(输入你的信息，哆哆神笔自动为你写开发信)</span>
+    </div>
+    <div class="main">
+        <div class="pull-right">
+            <a href="javascript:;" class="mr_10" tooltip-placement="bottom" style="line-height: 59px"
+               ng-click="$root.global.show_generatorbox=false"
+               tooltip="收起"> 收起<i class="icon-chevron-up" style="line-height: 59px"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div wt-scroll>
+<dl class="frame" style="width: 1200px;margin-left:auto;margin-right: auto;">
+    <dt>
+    <div>
+           <span class="title">
+                   <div class="help-inlineblock ng-scope">
+                       <div lass="help-inlineblock" class="ng-binding">神笔哆哆</div>
+                   </div>
+           </span>
+    </div>
+    <!--        <ul class="tabs">
+                <li>
+                    <a class="active" href="javascript:;">神笔哆哆</a>
+                </li>
+            </ul>-->
+    <dd>
+        <div class="rightpanel-wrapper">
+            <div class="template-generator-wrapper-new">
+                <div class="template-generator">
+                    <!--   <h3 class="text-center" ng-show="$root.global.is_outter">神笔哆哆</h3>
+                       <h5 class="text-center text-muted" ng-show="$root.global.is_outter">输入你的信息，哆哆神笔自动为你写开发信</h5>-->
+
+                    <div class="container pos_relative"
+                         ng-class="{true:'generator-fold',false:'generator-unfold'}[newGenerator.fold_or_not==true]">
+                        <div class="left-side pos_relative">
+                            <!--                        <textarea name="" id="" ng-model="content" tabindex="2"
+                                                                                 class="fullscreen-mk-content-textarea"></textarea>-->
+                            <ul>
+                                <li>
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        公司名称
+                                    </label> <input class="form-control" type="text"
+                                                    ng-model="variables.company_name"
+                                                    placeholder="Shanghai Hinic Textile Machinery Co., Ltd."/>
+
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                                <li>
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        公司产品
+                                    </label> <input class="form-control" type="text"
+                                                    ng-model="variables.company_products"
+                                                    placeholder="Textile Machinery, Sewing Machinery，Rapier Weaving Machine"/>
+
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                                <li>
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        成立时间
+                                    </label> <input class="form-control" type="text"
+                                                    ng-model="variables.create_time"
+                                                    placeholder="2001.12.5"/>
+
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                                <li>
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        现有活动
+                                    </label> <input class="form-control" type="text"
+                                                    ng-model="variables.customer_now"
+                                                    placeholder="Premier Textiles, iXPOS"/>
+
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                                <li>
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        产品认证
+                                    </label> <input class="form-control" type="text"
+                                                    ng-model="variables.product_certification"
+                                                    placeholder="CE, GMC"/>
+
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                                <li>
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        质量体系
+                                    </label> <input class="form-control" type="text" ng-model="variables.QS"
+                                                    placeholder="ISO9001:2000"/>
+
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                                <li>
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        验厂证书
+                                    </label> <input class="form-control" type="text"
+                                                    ng-model="variables.inspection_certificate"
+                                                    placeholder="SGS，WRAP Gold"/>
+
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                                <li ng-show="false">
+                                    <label class="control-label p_0"><i class="mr_5 ai-gray"></i>
+                                        <strong>针对活动类型</strong>
+                                    </label>
+
+                                    <div class="multi-check">
+                                        <input type="checkbox"/> <span><strong>价格敏感型</strong></span>
+                                        <input type="checkbox"/> <span><strong>注重质量型</strong></span>
+                                        <input type="checkbox"/> <span><strong>注重款式型</strong></span>
+                                    </div>
+                                    <div class="clear" style="clear:both"></div>
+                                </li>
+                            </ul>
+                            <div class="generator-trigger pos_absolute cursor text-muted"
+                                 ng-click="newGenerator.toggle_generator()">
+                                <i ng-class="{true:'icon-angle-right',false:'icon-angle-left'}[newGenerator.fold_or_not==true]"></i>
+                            </div>
+                            <div class="clear" style="clear:both"></div>
+                        </div>
+                        <div class="right-side"
+                             ng-class="{true:'generator-edit-preview'}[newGenerator.edit_or_preview =='edit']">
+                            <div class="wne-title"><input type="text" class="wne-title-input" placeholder="邮件标题"
+                                                          ng-model="title"
+                                                          tabindex="1"
+                                                          ng-show="newGenerator.edit_or_preview =='edit'"
+                                                          required wtAutofocus>
+
+                                <div class="wne-title-input" style="min-height: 41px"
+                                     ng-hide="newGenerator.edit_or_preview =='edit'">{{ title }}
+                                </div>
+                                <div class="title-seperator-line"></div>
+                            </div>
+                            <div class="edit-box">
+                                <div class="wne-toolbar edit-box-hover-show js-popbox" role="toolbar">
+                                    <a class="icon-bold"
+                                       ng-click="execEditorCmd($event, 'cmd-bold')"
+                                       ng-show="!inPreview" href="javascript:;"></a> <a
+                                        class="icon-italic" ng-click="execEditorCmd($event, 'cmd-italic')"
+                                        ng-show="!inPreview"
+                                        href="javascript:;">
+                                </a>
+                                    <a class="icon-quote-left"
+                                       ng-click="execEditorCmd($event, 'cmd-blockquote')"
+                                       ng-show="!inPreview" href="javascript:;">
+                                    </a>
+                                    <a class="icon-list-ul"
+                                       ng-click="execEditorCmd($event, 'cmd-unorder-list')"
+                                       ng-show="!inPreview"
+                                       href="javascript:;">
+                                    </a>
+                                    <a class="icon-list-ol" ng-click="execEditorCmd($event, 'cmd-order-list')"
+                                       ng-show="!inPreview"
+                                       href="javascript:;">
+                                    </a>
+                                    <a class="icon-link" ng-click="execEditorCmd($event, 'cmd-insert-link')"
+                                       ng-show="!inPreview"
+                                       href="javascript:;">
+                                    </a>
+                                    <a class="icon-picture" ng-click="execEditorCmd($event, 'cmd-insert-image')"
+                                       ng-show="!inPreview"
+                                       href="javascript:;">
+                                    </a>
+
+                                    <a class="icon-plus-sign-alt"
+                                       ng-click="execEditorCmd($event, 'cmd-insert-variable')"
+                                       ng-show="!inPreview"
+                                       href="javascript:;">
+                                    </a>
+
+                                    <a class="icon-minus"
+                                       ng-click="execEditorCmd($event, 'cmd-horizontal-line')"
+                                       ng-show="!inPreview"
+                                       href="javascript:;"></a>
+                                    <a
+                                            ng-class="{false:'icon-eye-open', true:'icon-eye-close'}[inPreview]"
+                                            ng-click="flipPreview()" href="javascript:;"></a>
+                                    <!--                <a class="" ng-click="generate()">变</a>-->
+                                    <a class="icon-fullscreen"
+                                       ng-click="goFullscreen()"
+                                       href="javascript:;">
+                                    </a>
+                                </div>
+                                <textarea name="" id="" ng-model="content" tabindex="2"
+                                          placeholder="正文"
+                                          class="wnd-content-textarea"></textarea></div>
+                            <div class="html-box">
+                                <div class="result markdown" ng-bind-html-unsafe="html"></div>
+                            </div>
+                            <div class="right-side-footer">
+                                <button class="btn btn-success pull-left" ng-click="newGenerator.generate()">
+                                    再来一篇
+                                </button>
+                                <button class="btn btn-default pull-right mlr_5" data-loading-text="保存中..."
+                                        loading-status="is_save_ing"
+                                        ng-click="newGenerator.show_save_template()">保存
+                                </button>
+                                <button class="btn btn-default pull-right mlr_5"
+                                        ng-click="newGenerator.toggle_edit()">
+                                    <span ng-hide="newGenerator.edit_or_preview =='edit'">编辑</span>
+                                    <span ng-show="newGenerator.edit_or_preview =='edit'">完成编辑</span>
+                                </button>
+                                <div class="clear" style="clear:both"></div>
+                            </div>
+                            <div class="clear" style="clear:both"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dd>
+    </dt>
+</dl>
+</div>
+</div>

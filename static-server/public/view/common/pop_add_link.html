@@ -1,0 +1,20 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>插入链接</h3>
+</div>
+<div class="popbox-body w_300">
+    <form class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" name="insert_link_form" role="form" novalidate>
+        <div class="form-group">
+            <label class="control-label">文字：</label>
+
+            <input type="text" autofocus="" class="form-control" name="link_text" ng-model="link_text" placeholder="链接文字" required="">
+        </div>
+        <div class="form-group">
+            <label class="control-label">地址：</label>
+            <input type="text" class="form-control" name="link_address" ng-model="link_address" placeholder="链接地址" required="">
+        </div>
+        <div class="form-group">
+            <button wt-form-submit="js_insert_link(insert_link_form)" type="button" class="btn btn-success">插入</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,152 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-dashboard mr_10"></i>统计信息</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+                </div>
+            </div>
+        </div>
+        <div class="main-content dashboard-panel height-nonav" wt-scroll>
+            <div class="center-right-panel">
+                <div class="center-panel">
+                    <div class="center-panel-inner">
+                        <dl class="frame">
+                            <dt>
+                            <ul class="tabs">
+                                <li><a
+                                        ng-class="{true: 'active'}[current_type.code == defaultType.code]"
+                                        href="javascript:;" ng-click="selectByType(defaultType)"> 全部
+                                </a></li>
+                                <li ng-repeat="type in types"><a
+                                        ng-class="{true: 'active'}[current_type.code == type.code]"
+                                        href="javascript:;" ng-click="selectByType(type)">
+                                    {{type.cnName}} </a></li>
+                                <h4 class="pr_10  mr_15" ng-show="global.loading_done" title="活动数目">
+                                    <span class="pull-right lh_100p label label-info">{{totalItems}}</span>
+                                </h4>
+                            </ul>
+                            </dt>
+                            <dd class="p_0">
+                                <wtProjectProgramsList></wtProjectProgramsList>
+                            </dd>
+                        </dl>
+                        <dl class="frame" ng-show="">
+                            <h4 class="widget">最新动态</h4>
+
+                            <div class="part-loading mt_20" data-ng-hide="part_loading_done"></div>
+                            <div data-ng-show="part_loading_done">
+                                <div class="box-panel-body">
+                                    <div class="empty-panel noborder"
+                                         data-ng-show="feeds.length == 0">
+                                        <i class="icon-time"></i><br>
+                                        <span>没有最新动态</span>
+                                    </div>
+                                    <div class="feed-list">
+                                        <div class="wt-row feed-item" ng-class="{'active':feed.objectId == locator.show_detail_feed_id}" ng-repeat="feed in feeds">
+                                            <wt-feed></wt-feed>
+                                        </div>
+                                    </div>
+                                    <div class="mt_20 text-center" data-ng-show="feeds.length > 0">
+                                        <a href="/feed">查看全部动态</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </dl>
+                    </div>
+                </div>
+                <div class="right-panel">
+
+                    <div class="box-panel my-tasks-overview">
+                        <div class="hello-body">
+                            <h4 class="widget">快捷功能</h4>
+                        </div>
+                        <ul style="padding-top: 20px">
+                            <li class="noborder w_30p">
+                                <a href="/customer" target="_blank">
+                                    <div class="quick_icon">
+                                        <i class="icon-search"></i>
+                                    </div>
+                                    <p style="padding-top: 5px;margin-bottom: 0px">查找活动</p></a>
+                            </li>
+                            <li class="noborder w_30p">
+                                <a href="/customer/import">
+                                    <div class="quick_icon">
+                                        <i class="icon-cloud-upload"></i>
+                                    </div>
+                                    <p style="padding-top: 5px;margin-bottom: 0px">导入活动</p>
+                                </a>
+                            </li>
+                            <li class="noborder w_30p">
+                                <a href="/posts/add">
+                                    <div class="quick_icon">
+                                        <i class="icon-pencil-square-o"></i>
+                                    </div>
+                                    <p style="padding-top: 5px;margin-bottom: 0px">新建话题</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="box-panel my-tasks-overview">
+                        <div class="box-panel-header hello-body">
+                            <wt-avatar member="global.me" size="50" wt-disable-drag></wt-avatar>
+                            <div class="hello-right">
+                                <h4>{{global.me.display_name}}, {{hi_greetings}}</h4><br>
+                                <span>{{show_date}}</span>
+                            </div>
+                        </div>
+
+                        <div class="box-panel-body">
+                            <ul>
+                                <li class="tasks-uncompleted">
+                                    <!--<a href="/tasks?type=1">-->
+                                    <a href="/tasks?type=0">
+                                        <span class="count" data-ng-show="!vm.overview">
+                                           <i class="icon-refresh"></i>
+                                        </span>
+                                        <span class="count"
+                                              data-ng-show="vm.overview">{{vm.overview.customer_count}}</span>
+                                        <span class="text">已有活动</span>
+                                    </a>
+                                </li>
+                                <li class="tasks-expired">
+                                    <a href="/mail">
+                                        <span class="count" data-ng-show="!vm.overview">
+                                           <i class="icon-refresh"></i>
+                                        </span>
+                                        <span class="count"
+                                              data-ng-show="vm.overview">{{vm.overview.mail_count}}</span>
+                                        <span class="text">已发话题</span>
+                                    </a>
+                                </li>
+                                <li class="tasks-completed noborder">
+                                    <a href="/templates">
+                                        <span class="count" data-ng-show="!vm.overview">
+                                           <i class="icon-refresh"></i>
+                                        </span>
+                                        <span class="count" data-ng-show="vm.overview">{{vm.overview.template_count}}</span>
+                                        <span class="text">已有评论</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="box-panel my-tasks-overview" align="center">
+                        <div class="box-panel-header hello-body" style="border: none;margin: 0px;">
+                            <div class="hello-right">
+                                <h4>棒呆交流群：<span style="color:  #d84c31;">28080333</span>
+                                    <span  style="color:  #d84c31;padding-left: 10px">2732348604</span></h4><br>
+                                <span>参与棒呆产品开发，交流棒呆使用心得</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

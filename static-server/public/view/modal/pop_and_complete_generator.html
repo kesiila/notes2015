@@ -1,0 +1,35 @@
+<div class="click-other-dont-hide">
+    <div class="modal-header" style="background-color: #5cb85c;">
+        <h4 class="modal-title" style="color:#fff;padding-left: 20px;">保存模板
+            <i class="pull-right icon-close cursor"
+               style="margin-top: 5px;margin-right: 5px;color: #fff;font-size: 16px"
+               ng-click="generateModalCtrl.close()"></i>
+        </h4>
+    </div>
+    <div class="modal-body" style="padding-left: 0px;">
+        <div class="center-block">
+            <div class="form-group ptb_10">
+                <lable class="col-xs-3 h_38 lh-40 fs_16 text-center control-label" style="vertical-align: middle">模板名称
+                </lable>
+                <div class="col-xs-9">
+                    <input class="form-control" placeholder="输入一个模板名称~" ng-model="generateModalCtrl.autoTitle"
+                           type="text"/>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="form-group pt_10">
+                <label class="col-xs-3 control-label"></label>
+
+                <div class="col-xs-9">
+                    <input type="checkbox" ng-model="generateModalCtrl.isUsedMost"
+                           style="vertical-align: middle;margin-top: -3px;margin-left: 1px"/>
+                    <span class="ml_5 mr_15">设为默认邮件模板</span>
+                    <button class="ml_15 btn btn-success" ng-click="generateModalCtrl.save_template()">
+                        下一步
+                    </button>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </div>
+</div>

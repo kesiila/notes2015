@@ -1,0 +1,29 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>查看邮箱</h3>
+</div>
+<form name="add_task_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+      class="wt-form" novalidate role="form">
+
+    <div class="ml_15 mb_10 mt_20">
+        查看邮箱需消耗{{-$root.scoreConfig.collectCustomer}}个积分！
+    </div>
+    <div class="ml_15 mb_10 color-active" ng-if="2100==errcode">
+        积分不足，无法查看！<a href='/page/scorerule.html' target="_blank">如何获取积分？</a>
+    </div>
+    <div class="ml_15 mb_10 color-active" ng-if="500==errcode">
+        后台错误，查看失败！
+    </div>
+
+    <div class="popbox-footer" data-ng-hide="send_success">
+        <button ng-click="js_see_email()" ng-disabled="1*$root.global.me.score + 1*$root.scoreConfig.collectCustomer< 0"
+                data-loading-text="查看中..." loading-status="paing" class="btn btn-success float_left">确定</button>
+        <button ng-click="js_close(result)" class="btn">取消</button>
+    </div>
+    <div class="popbox-body" data-ng-show="send_success">
+    <p class="alert alert-success">查看成功！</p>
+</div>
+</form>
+
+
+

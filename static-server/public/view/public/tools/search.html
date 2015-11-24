@@ -1,0 +1,348 @@
+
+<div class="layout_content prj_panel" ng-if ng-controller="google_search_ctrl">
+    <div class="height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3>
+                    <a href="javascript:;" class="js-popbox"
+                       data-placement="bottom" data-align="left"
+                       title="谷歌留学专搜">
+                        <img src="/img/tools/icon_google.png" style="margin-bottom: 5px;"/>
+                        谷歌留学专搜
+                    </a>
+                </h3>
+            </div>
+            <!--<div class="main">
+                <div class="toolbar_panel pull-right" ng-show="global.loading_done">
+                    <button class="btn  btn-danger mr_15" ng-click="js_serach_other()"><i class="icon-search mr_5"></i>搜本站活动
+                    </button>
+                </div>
+            </div>-->
+        </div>
+        <div class="rightpanel-wrapper" style="width: 700px;margin-left:auto;margin-right: auto">
+            <div class="height-nonav">
+                <div class="alert alert-warning text-center"
+                     style="padding: 10px;margin:10px 15px">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <span>友情提示：当谷歌页面打不开时，请重新刷新本页后再次搜索.</span>&nbsp;
+                </div>
+                <dl class="frame pos_relative" style="min-height: 250px">
+                    <dt ng-show="property.service_ok">
+                        <span class="title"><img src="/img/tools/logo_google.png"/>
+                        </span>
+                    <ul class="tabs">
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[property.tab_type=='customer']"
+                               ng-click="handle.choose_search_type('customer')">搜活动</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="cursor pull-left"
+                               ng-class="{true:'active'}[property.tab_type=='key_words']"
+                               ng-click="handle.choose_search_type('key_words')">海关提单
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[property.tab_type=='contacts']"
+                               ng-click="handle.choose_search_type('contacts')">搜联系人</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[property.tab_type=='email']"
+                               ng-click="handle.choose_search_type('email')">搜邮箱</a>
+                        </li>
+                    </ul>
+                    </dt>
+
+                    <dd class="task-list-panel pt_0" ng-show="property.service_ok">
+                        <div ng-show="property.tab_type=='key_words'" class="form-group text-center mt_15 pt_15"
+                             style="width: 450px;height:auto;margin: 20px auto;padding-top: 30px;">
+                            <input type="text" ng-model="queryCondition.industry" wt-enter="handle.key_words_shearch()"
+                                   class="form-control col-xs-9" placeholder="产品名称"
+                                   style="width: 360px;height: 40px;display: inline-block;"/>
+                            <!--<div ng-show="property.show_industry_search_history" style="position: relative;margin-left: 50px">
+                                &lt;!&ndash; 采购商类型 &ndash;&gt;
+                                <div align="left"
+                                     style="box-shadow: 0 6px 12px rgba(0, 0, 0, .175);padding:15px;top:40px;width: 420px;position: absolute;z-index:100;background: #fff;">
+                                    <div class="cursor"
+                                         ng-repeat="procurement_type in property.industry_search_history track by $index"
+                                         ng-click="js_serach_other($index)">
+                                        &lt;!&ndash;<i ng-class="{false:'icon-xx',true:'icon-ok'}[procurement_type==queryCondition.procurement_type]"></i>&ndash;&gt;
+                                        <a ng-class="{true:'active'}[procurement_type==queryCondition.procurement_type]">{{procurement_type[0]}} &nbsp;({{procurement_type[1]}})</a>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <button class="btn btn-primary" type="button" ng-click="handle.key_words_shearch()">
+                                <i class="icon-search fs_20"></i>
+                            </button>
+                        </div>
+                        <div ng-show="property.tab_type=='email'"
+                             style="width: 450px;height:auto;padding: 0px;margin: 0 auto;">
+                            <input wt-enter="handle.many_conditions_shearch()" type="text" placeholder="公司名称"
+                                   ng-model="queryCondition.company_name" class="form-control"
+                                   style="width: 450px;height: 40px;margin-top: 25px;padding: 5px;"/>
+                            <input wt-enter="handle.many_conditions_shearch()" type="text" placeholder="公司网址"
+                                   ng-model="queryCondition.company_web" class="form-control"
+                                   style="width: 450px;height: 40px;margin-top: 15px;padding: 5px;"/>
+                            <input wt-enter="handle.many_conditions_shearch()" type="text" placeholder="联系人"
+                                   ng-model="queryCondition.contacts" class="form-control"
+                                   style="width: 450px;height: 40px;margin-top: 15px;padding: 5px;"/>
+                        </div>
+
+                        <div ng-show="property.tab_type=='contacts'"
+                             style="width: 450px;height:auto;padding: 0px;margin: 0 auto;">
+                            <input wt-enter="handle.many_conditions_shearch()" type="text" placeholder="公司名称"
+                                   ng-model="queryCondition.company_name" class="form-control"
+                                   style="width: 450px;height: 40px;margin-top: 25px;padding: 5px;"/>
+                        </div>
+
+                        <div ng-show="property.tab_type=='customer'"
+                             style="width: 450px;height:auto;padding: 0px;margin: 0 auto;position: relative;">
+                            <input type="text"
+                                   ng-click="property.show_procurement_type=true"
+                                   ng-model="queryCondition.procurement_type" placeholder="选择采购类型"
+                                   class="form-control"
+                                   style="width: 120px;height: 40px;margin-top: 25px;padding: 5px;float: left;"/>
+                            <input wt-enter="handle.many_conditions_shearch()" type="text" placeholder="产品名称"
+                                   ng-model="queryCondition.industry" class="form-control ml_10"
+                                   style="width: 320px;height: 40px;margin-top: 25px;padding: 5px;float: left;"/>
+
+                            <div style="position: relative;">
+                                <i class="cursor pull-left"
+                                   ng-click="property.show_procurement_type=!property.show_procurement_type"
+                                   style="color:#B5B5B5;position: relative;z-index:100;left:100px;top:-30px;font-size: 24px;"
+                                   ng-class="{true:'icon-caret-up',false:'icon-caret-down'}[property.show_procurement_type]"></i>
+
+                                <div ng-mouseleave="property.show_procurement_type=false">
+                                    <!-- 采购商类型 -->
+                                    <div ng-show="property.show_procurement_type" align="left"
+                                         style="box-shadow: 0 6px 12px rgba(0, 0, 0, .175);padding:15px;width: 120px;top:70px;position: absolute;z-index:100;background: #fff;">
+                                        <div class="cursor"
+                                             ng-repeat="procurement_type in property.procurement_types track by $index"
+                                             ng-click="handle.choose_procurement_type($index)">
+                                            <!--<i ng-class="{false:'icon-xx',true:'icon-ok'}[procurement_type==queryCondition.procurement_type]"></i>-->
+                                            <a ng-class="{true:'active'}[procurement_type==queryCondition.procurement_type]">{{procurement_type}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="width: 450px;font-size: 14px;height: 40px;line-height: 40px;margin-top: 15px;">
+                                <label class="cursor"><input ng-model="property.no_b2b" class="ng-valid ng-dirty"
+                                                             type="checkbox"
+                                                             style="width:12px;height:12px;margin-right: 5px;"/>去除B2B网站和黄页</label>
+                                <label class="ml_20 cursor"><input ng-model="property.no_zh"
+                                                                   class="ng-valid ng-dirty" type="checkbox"
+                                                                   style="width:12px;height:12px;margin-right: 5px;"/>去除国内网站</label>
+                                <label class="ml_20 cursor"><input ng-model="property.unconcerned"
+                                                                   class="ng-valid ng-dirty" type="checkbox"
+                                                                   style="width:12px;height:12px;margin-right: 5px;"/>去除无关网站</label>
+                            </div>
+                        </div>
+
+                        <div class="text-center" style="width: 450px;height:auto;padding: 0px;margin: 20px auto;">
+                            <button ng-hide="property.tab_type=='key_words'" class="btn google_btn" type="button"
+                                    style="font-size:16px;height: 40px;width:450px;margin-top: 20px;"
+                                    ng-click="handle.many_conditions_shearch()">
+                                <i class="icon-search fs_20" style="margin-right: 20px;"></i>搜索
+                            </button>
+                        </div>
+
+                        <div align="left" ng-show="property.tab_type=='key_words' || property.tab_type=='customer'"
+                             style="width: 450px;height:auto;padding: 0px;margin: 20px auto;">
+                            本站活动：
+                            <!-- 采购商类型 -->
+                            <div class="cursor"
+                                 ng-repeat="procurement_type in property.industry_search_history track by $index"
+                                 ng-click="js_serach_other($index)">
+                                <!--<i ng-class="{false:'icon-xx',true:'icon-ok'}[procurement_type==queryCondition.procurement_type]"></i>-->
+                                <a ng-class="{true:'active'}[procurement_type==queryCondition.procurement_type]">{{procurement_type[0]}}
+                                    &nbsp;({{procurement_type[1]}})</a>
+                            </div>
+                        </div>
+
+                        <!--<div class="pos_absolute text-center text-muted"
+                             style="margin-left:-30px;bottom:15px;width: 100%">棒呆专为留学人定制的搜索器
+                            <span ng-click="addFavorite(document.location.href,document.title);" class="ml_15 cursor"
+                                  style="color:#d14836"><i class="icon-star">收藏本页</i></span></div>-->
+
+                        <div class="pull-right"
+                             style="margin-left:-30px;bottom:15px;">
+                            <span ng-click="addFavorite(document.location.href,document.title);" class="ml_15 cursor"
+                                  style="color:#d14836"><i class="icon-star">收藏本页</i></span></div>
+                    </dd>
+                    <div class="form-group" ng-show="!property.service_ok">
+                        <div class="error-panel">
+                            <i class="imgicon-warning"></i><br/><br/>
+                            <span>Google服务暂不可用，请刷新页面重试！</span>
+                        </div>
+                    </div>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="layout_content prj_panel" ng-controller="google_search_ctrl">
+    <div class="height-noheader">
+        <div class="forum-panel" >
+            <div class="forum-container">
+                <div class="rightpanel-wrapper" style="width: 1024px;margin-left:auto;margin-right: auto">
+                    <div class="height-nonav clearfix">
+
+                        <div class="row "  >
+                            <span class="jiathis_style_24x24 pull-right" style="display: inline-block;">
+                                <a class="jiathis_button_qzone" title="分享到QQ空间"></a>
+                                <a class="jiathis_button_weixin" title="分享到微信"></a>
+                                <a class="jiathis_button_tsina" title="分享到新浪微博"></a>
+                                <a href="http://www.jiathis.com/share?uid=2006672" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" title="更多" target="_blank"></a>
+                                <a class="jiathis_counter_style" style="display: none;"></a>
+                            </span>
+                            <script type="text/javascript" >
+                                var jiathis_config={
+                                    title:"轻松做留学，就上棒呆！",
+                                    data_track_clickback:true,
+                                    siteNum:15,
+                                    sm:"email,renren,tsohu,feixin,kaixin001,cqq,tieba,hi,tianya,baidu,alibaba,hexun,douban,qq,ishare",
+                                    summary:"",
+                                    shortUrl:false,
+                                    hideMore:false
+                                }
+                                $(function(){
+                                    setTimeout(function(){
+                                        jiathis_config={summary:"棒呆谷歌搜索，是专为留学人打造的国外活动搜索工具，不仅可以顺利访问谷歌进行搜索，还集成了多项高级搜索功能，如根据行业搜索特定类型活动，" +
+                                        "根据网址搜索邮箱，根据公司搜联系人等，能够帮助广大留学业务员搜索到自己需要的活动。"}},500);
+                                })
+                            </script>
+                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2006672" charset="utf-8"></script>
+                        </div>
+
+                        <div class="row" style="margin-top: 75px">
+                            <div class="input-group col-sm-6 col-sm-push-3">
+                                <div style="background: url('/img/tools/google_log.png') no-repeat;background-size:269px 95px;height:95px;width:269px;margin: 0 auto"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom: 20px;margin-bottom: 20px; margin-top: 24px">
+                            <div class="input-group col-sm-8 col-sm-push-2" style="width:610px;left:207px;"><input class="form-control" type="text"
+                                                                                   ng-model="queryCondition.pure_search_input"
+                                                                                   wt-enter="handle.pure_google_search()"
+                                                                                   wt-autofocus="true"/><span
+                                    class="input-group-btn">
+                            <button class="btn btn-primary" type="button"
+                                    ng-click="handle.pure_google_search()"><i class="icon-search" style="font-size:20px"></i>
+                            </button>
+                            </span></div>
+                        </div>
+                        <div class="row block-advanced-search" style="padding-top: 40px;">
+                            <div class="block-advanced-search__title clearfix pl_15 pr_15 mb_10"
+                                 style="border-bottom: solid 1px #e1e1e1">
+                                <h4 class="pull-left">高级搜索区</h4>
+                                <a href="javascript:;" ng-click="property.search_block_visible=!property.search_block_visible" class="pull-right mb_10 mt_10">{{ {true:'收起',false:'展开'}[!property.search_block_visible] }}</a>
+                            </div>
+                            <div class="block-advanced-search__content" ng-show="!property.search_block_visible">
+                                <div class="__content--right col-sm-6 row">
+                                    <form class="search-item col-sm-12 mb_10 pb_10">
+                                        <div class="search-item__title">
+                                            <h4 style="font-size: 16px">搜活动</h4>
+                                        </div>
+                                        <div class="search-item__input input-group input-group-sm">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown" aria-expanded="false">{{
+                                                    queryCondition.procurement_type }} <span
+                                                            class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li ng-repeat="type in property.procurement_types"
+                                                        ng-click="handle.choose_procurement_type($index)">
+                                                        <a href="#"><i class="icon-ok"
+                                                                       wt-show="type==queryCondition.procurement_type"></i>{{type}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <input class="form-control" placeholder="产品名称"
+                                                   wt-enter="handle.many_conditions_search()"
+                                                   ng-model="queryCondition.search_customer__industry"
+                                                   type="text"/><span
+                                                class="input-group-btn">
+                                                                    <button class="btn" type="button"
+                                                                            ng-disabled="!queryCondition.search_customer__industry"
+                                                                            ng-class="{true:'btn-default',false:'btn-primary'}[!queryCondition.search_customer__industry]"
+                                                                            ng-click="handle.many_conditions_search()">
+                                                                        <i class="icon-search" style="font-size:16px"></i>
+                                                                    </button>
+                                                                    </span></div>
+                                    </form>
+                                    <form class="search-item col-sm-12 mb_10 pb_10">
+                                        <div class="search-item__title">
+                                            <h4 style="font-size: 16px">搜海关提单</h4>
+                                        </div>
+                                        <div class="search-item__input input-group input-group-sm"><input
+                                                ng-model="queryCondition.industry" wt-enter="handle.key_words_search()"
+                                                class="form-control" placeholder="产品名称"
+                                                type="text"/><span
+                                                class="input-group-btn">
+                                                                    <button class="btn" type="button"
+                                                                            ng-disabled="!queryCondition.industry"
+                                                                            ng-class="{true:'btn-default',false:'btn-primary'}[!queryCondition.industry]"
+                                                                            ng-click="handle.key_words_search()">
+                                                                        <i class="icon-search" style="font-size:16px"></i>
+                                                                    </button>
+                                                                    </span></div>
+                                    </form>
+                                    <form class="search-item col-sm-12 mb_10 pb_10">
+                                        <div class="search-item__title">
+                                            <h4 style="font-size: 16px">搜联系人</h4>
+                                        </div>
+                                        <div class="search-item__input input-group input-group-sm"><input
+                                                ng-model="queryCondition.company_name"
+                                                class="form-control" placeholder="公司名" wt-enter="handle.many_conditions_search('contacts')"
+                                                type="text"/><span
+                                                class="input-group-btn">
+                                                                    <button class="btn" type="button"
+                                                                            ng-disabled="!queryCondition.company_name"
+                                                                            ng-class="{true:'btn-default',false:'btn-primary'}[!queryCondition.company_name]"
+                                                                            ng-click="handle.many_conditions_search('contacts')">
+                                                                        <i class="icon-search" style="font-size:16px"></i>
+                                                                    </button>
+                                                                    </span></div>
+                                    </form>
+                                </div>
+                                <div class="__content--left col-sm-6 pull-right">
+                                    <form class="search-item col-sm-12 row pull-right">
+                                        <div class="search-item__title ml_15 pl_15">
+                                            <h4 style="font-size: 16px">搜邮箱</h4>
+                                        </div>
+                                        <div class="search-item__input form-group pull-right row input-group-sm col-sm-12">
+                                            <input class="form-control" placeholder="公司名" type="text"
+                                                   wt-enter="handle.many_conditions_search('email')"
+                                                   ng-model="queryCondition.search_mail__company_name"/>
+                                        </div>
+                                        <div class="search-item__input form-group pull-right row input-group-sm col-sm-12">
+                                            <input
+                                                    ng-model="queryCondition.search_mail__company_web"
+                                                    class="form-control" placeholder="公司网址"
+                                                    wt-enter="handle.many_conditions_search('email')"
+                                                    type="text"/></div>
+                                        <div class="search-item__input form-group pull-right row input-group-sm col-sm-12">
+                                            <input
+                                                    ng-model="queryCondition.search_mail__contacts"
+                                                    wt-enter="handle.many_conditions_search('email')"
+                                                    class="form-control" placeholder="联系人"
+                                                    type="text"/></div>
+                                        <div class="search-item__search_button ml_15 pl_15">
+                                            <button class="btn btn-default btn-sm pull-right" type="button" style="padding-top:5px;padding-bottom: 5px;"
+                                                    ng-disabled="!queryCondition.search_mail__company_name && !queryCondition.search_mail__company_web && !queryCondition.search_mail__contacts"
+                                                    ng-class="{true:'btn-default',false:'btn-primary'}[!queryCondition.search_mail__company_name && !queryCondition.search_mail__company_web && !queryCondition.search_mail__contacts]"
+                                                    ng-click="handle.many_conditions_search('email')"> <i class="icon-search" style="font-size:16px"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

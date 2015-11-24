@@ -1,0 +1,53 @@
+<div class="public_right_sidebar" wt-sidebar-toggle="global.right_sidebar_is_fold" >
+    <div class="public_sidebar">
+        <div class="public_sidebar_title">
+            <span>留学工具</span>
+        </div>
+        <div class="public_sidebar_main" data-height="119" wt-scroll style="height: 770px;">
+            <div>
+                <ul class="sidebar_tool">
+                    <li class="tool_list tool_google" ng-class="{true: 'active'}[global.header_menu == 'google_search']">
+                        <a class="public_sidebar_font" target="_blank"  ng-href="/tools/search" >
+                            <div><img ng-if="global.header_menu != 'google_search'"
+                                      src="/img/tools/sidebar_google.png">
+                                <img ng-if="global.header_menu == 'google_search'"
+                                     src="/img/tools/sidebar_google_select.png">
+                            </div>
+                            <span>谷歌</span>
+                        </a>
+                    </li>
+                    <li class="tool_list tool_mail_check" ng-class="{true: 'active'}[global.header_menu == 'mail_check']">
+                        <a class="public_sidebar_font"  target="_blank" ng-href="/email-verify" >
+                            <div><img ng-if="global.header_menu != 'mail_check'"
+                                      src="/img/tools/sidebar_mail_check.png">
+                                <img ng-if="global.header_menu == 'mail_check'"
+                                     src="/img/tools/sidebar_mail_check_select.png"></div>
+                            <span>邮箱验证</span>
+                        </a>
+                    </li>
+                    <li class="tool_list tool_spam_check" ng-class="{true: 'active'}[global.header_menu == 'spam_check']">
+                        <a class="public_sidebar_font" target="_blank"  ng-href="/spam_check"  >
+                            <div><img  ng-if="global.header_menu != 'spam_check'" src="/img/tools/sidebar_spam.png">
+                                <img  ng-if="global.header_menu == 'spam_check'"
+                                     src="/img/tools/sidebar_spam_select.png"></div>
+                            <span>Spam</span>
+                        </a>
+                    </li>
+                    <li class="tool_list tool_generator" ng-class="{true: 'active'}[global.header_menu == 'generator']">
+                        <a class="public_sidebar_font" target="_blank"  ng-href="/template/generator" >
+                            <div><img  ng-if="global.header_menu != 'generator'"
+                                      src="/img/tools/sidebar_generator_mail.png">
+                                <img  ng-if="global.header_menu == 'generator'"
+                                     src="/img/tools/sidebar_generator_mail_select.png"></div>
+                            <span>智能邮件</span>
+                        </a>
+                    </li>
+                    <li class="tool_list tool_feedback">
+                        <wt-feedback class="pos_absolute" ></wt-feedback>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hr public_sidebar_footer"></div>
+    </div>
+</div>

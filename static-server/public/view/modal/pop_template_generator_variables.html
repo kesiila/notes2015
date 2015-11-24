@@ -1,0 +1,112 @@
+<div class="modal-header" style="background-color: #5cb85c;">
+    <h4 class="modal-title" style="color:#fff;padding-left: 25px;padding-top: 10px;">定制我的开发信
+        <i class="pull-right icon-close cursor" style="color:#fff;margin-top: 2px;margin-right: 5px;"
+           ng-click="close()"></i>
+    </h4>
+</div>
+<div class="modal-body">
+    <div class="text-center pb_10">
+        <h5><strong>填写下方关键信息，神笔哆哆为你自动生成优质开发信</strong></h5>
+    </div>
+    <form wt-form-validate="{blurTrig:true,showMsg:false}" name="feedback_form"
+          novalidate class="form-horizontal wt-form" style="padding-right: 20px;">
+        <div class="form-group">
+            <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                <span class="text-muted small pr_10">(必填)</span>公司名称
+            </label>
+
+            <div class="col-xs-9">
+                <input class="form-control" type="text"
+                                           ng-model="variables.company_name"
+                                           placeholder="示例:Shanghai Hinic Textile Machinery Co., Ltd."/></div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                <span class="text-muted small pr_10">(必填)</span>公司产品
+            </label>
+
+            <div class="col-xs-9"><input class="form-control" type="text"
+                                           ng-model="variables.company_products"
+                                           placeholder="示例:Textile Machinery, Sewing Machinery，Rapier Weaving Machine"/>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                成立时间
+            </label>
+
+            <div class="col-xs-9"><input class="form-control" type="text"
+                                           ng-model="variables.create_time"
+                                           placeholder="示例:2001.12.5"/></div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                现有活动
+            </label>
+
+            <div class="col-xs-9"><input class="form-control" type="text"
+                                           ng-model="variables.customer_now"
+                                           placeholder="示例:Premier Textiles, iXPOS"/></div>
+        </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                    产品认证
+                </label>
+
+                <div class="col-xs-9"><input class="form-control" type="text"
+                                               ng-model="variables.product_certification"
+                                               placeholder="示例:CE, GMC"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                    质量体系
+                </label>
+
+                <div class="col-xs-9"><input class="form-control" type="text" ng-model="variables.QS"
+                                             placeholder="示例:ISO9001:2000"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                    验厂证书
+                </label>
+
+                <div class="col-xs-9"><input class="form-control" type="text"
+                                               ng-model="variables.inspection_certificate"
+                                               placeholder="示例:SGS，WRAP Gold"/></div>
+            </div>
+        <div class="form-group">
+            <label class="col-xs-3 text-right control-label p_0">生产能力</label>
+
+            <div class="col-xs-9">
+                <input type="text" class="form-control" ng-model="variables.prodcutivePower"
+                       placeholder="示例:100MT/Year" required/>
+            </div>
+        </div>
+        <div class="form-group" ng-show="false">
+            <label class="control-label col-xs-3 text-right p_0"><i class="mr_5 ai-gray"></i>
+                <strong>针对活动类型</strong>
+                </label>
+
+            <div class="multi-check col-xs-9">
+            <input type="checkbox"/> <span><strong>价格敏感型</strong></span>
+                    <input type="checkbox"/> <span><strong>注重质量型</strong></span>
+                    <input type="checkbox"/> <span><strong>注重款式型</strong></span>
+                </div>
+            </div>
+
+        <div class="form-group">
+            <label class="col-xs-3"></label>
+            <div class="col-xs-9 text-right">
+                <button wt-form-submit="js_submit(feedback_form)" type="button" class="btn btn-success"
+                        ng-disabled="!variables.company_name||!variables.company_products"
+                        ng-click="submit()"
+                        data-loading-text="保存中..." loading-status="outterScope.is_save_ing">保存
+                </button>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    </form>
+</div>

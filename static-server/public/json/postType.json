@@ -1,0 +1,23 @@
+{
+    "data":
+        [
+            {"code" : "01","cnName" : "问答库",
+                "children":
+                    [
+                        {"code" : "0001","cnName" : "开发活动"},
+                        {"code" : "0002","cnName" : "活动跟进"},
+                        {"code" : "0003","cnName" : "活动维护"},
+                        {"code" : "0004","cnName" : "邮件技巧"},
+                        {"code" : "0005","cnName" : "风险控制"},
+                        {"code" : "0006","cnName" : "外贸营销"},
+                        {"code" : "0007","cnName" : "外贸展会"},
+                        {"code" : "0008","cnName" : "出口流程"},
+                        {"code" : "0009","cnName" : "自我成长"},
+                        {"code" : "0010","cnName" : "外贸案例"}
+                    ]
+            }
+        ],
+	"label":"问答分类",
+	"version":"1.0",
+	"copyright":"@2014 上海思蓄力教育科技有限公司"
+}

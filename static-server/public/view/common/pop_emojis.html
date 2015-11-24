@@ -1,0 +1,12 @@
+<div class="popbox-body emoji-box" ng-mousedown="js_mousedown($event)" style="max-height: 250px;">
+    <ul class="popbox-item">
+        <li ng-click="js_insert_emoji(emoji)" ng-repeat="emoji in emojis">
+            <a href="javascript:"><img class='emoji' ng-src="/img/emoji/{{ emoji }}.png"/></a>
+        </li>
+    </ul>
+    <ul class="pagination pagination-sm">
+        <li ng-repeat="emoji_group in emoji_groups" ng-class="{true:'active'}[current == $index]">
+            <a href="javascript:;" ng-click="js_to_page($index)">{{$index+1 }}</a>
+        </li>
+    </ul>
+</div>

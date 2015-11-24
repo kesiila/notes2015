@@ -1,0 +1,102 @@
+<div ng-controller="detail_post_ctrl">
+    <div class="forum-heading clearfix">
+        <!--<div class="part-loading mt_60" wt-loading-done="detail_loading_done"></div>-->
+        <h3 class="pull-left" id="post_name" style="line-height: 1.7em;color: #000">
+            {{post.name}}
+            <a href="javascript:;" ng-show="post.praised==0" ng-click="praise(post)" title="赞一个"><i class="icon-thumbs-up-alt ml_10"></i></a>
+            <i ng-show="post.praised==1" class="icon-thumbs-up-alt ml_10" title="已赞"></i>
+        </h3>
+
+        <div class="thread-counts pr_10 text-right pull-right">
+            <!--收藏按钮-->
+            <button class="btn btn-sm mt_12 btn-danger" wt-stop-propagation="click" ng-hide="post.collected" ng-click="post_collect(post)">关注</button>
+            <button class="btn btn-sm mt_12 btn-default disabled sm-font-color" ng-show="global.is_login && post.collected && post.uid!=global.me.uid">已关注</button>
+
+            <!--<button ng-if="post.praised==0" class="btn btn-sm mt_12 btn-danger" wt-stop-propagation="click" ng-click="praise(post)" title="赞一个">赞</button>
+
+            <button ng-if="post.praised==1" class="btn btn-sm mt_12 sm-font-color disabled" style="color: #000;font-family: '黑体'" ng-click="praise(post)" title="赞一个">已赞</button>-->
+
+            <button ng-if="global.is_login && global.me.role==0" class="btn btn-sm mt_12 btn-danger" wt-stop-propagation="click" ng-click="del_post($event,post)" title="删除">删除</button>
+        </div>
+
+        <!--<ul class="nav nav-pills detail pull-right">
+            &lt;!&ndash;<li><a href="javascript:;" ng-click="hide_detail()" title="去问答列表">&ndash;&gt;
+                &lt;!&ndash;列表&ndash;&gt;
+            &lt;!&ndash;</a></li>&ndash;&gt;
+            <li class="ui-button" style="font-size: 16px;color: #CE4D30;">
+                &lt;!&ndash;<a href="javascript:;" ng-show="post.collected==0" ng-click="post_collect(post)" title="收藏">收藏</a>
+                <a href="javascript:;" class="disabled" ng-show="global.is_login && post.collected==1" title="已拥有">已拥有</a>&ndash;&gt;
+            </li>
+            <li class="ui-button" ng-if="global.is_login && global.me.role==0" style="font-size: 16px;">
+                <a href="javascript:;" ng-click="del_entity(post.post_id,'post','')" title="删除"><i class="icon-trash"></i></a>
+            </li>
+        </ul>-->
+    </div>
+
+    <div class="article-meta sm-font-color mt_12 mb_10">
+
+        <wt-avatar member="post.owner" size="30" class="js-popbox pr_0" name="true" data-align="right"> </wt-avatar>
+
+        <span class="published">|&nbsp;{{post.create_date | fromNow}}</span>
+
+        <span>|&nbsp;{{post.type_name || "全部"}}</span>
+
+        <span>|&nbsp;{{post.click_count}}次阅读</span>
+
+        <span>|&nbsp;{{post.comment_count>=0?post.comment_count:0}}次评论</span>
+
+        <span>|&nbsp;{{post.collect_count>=0?post.collect_count:0}}人关注</span>
+
+        <span>|&nbsp;{{post.praiser_count>=0?post.praiser_count:0}}人点赞</span>
+
+    </div>
+
+    <div class="thread-list mr_45">
+        <div class="thread-item slide-trigger">
+            <div class="ml_30 mr_45">
+                <div class="markdown" wt-markdown='post.content'></div>
+            </div>
+            <div style="border-bottom: 1px solid #E1E1E1;line-height: 24px;margin-top: 40px;" align="center">
+                <div class="sm-font-color fs_20 pull-left">评论</div>
+
+                <!-- JiaThis Button BEGIN -->
+                <div class="fs_20" style="display: inline;">分享到：</div>
+                <span class="jiathis_style_24x24" style="display: inline-block;">
+                    <a class="jiathis_button_qzone" title="分享到QQ空间"></a>
+                    <a class="jiathis_button_tsina" title="分享到新浪微博"></a>
+                    <a class="jiathis_button_tqq" title="分享到腾讯微博"></a>
+                    <a class="jiathis_button_weixin" title="分享到微信"></a>
+                    <a class="jiathis_button_fav" title="添加到收藏夹"></a>
+                    <a href="http://www.jiathis.com/share?uid=2006672" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" title="更多" target="_blank"></a>
+                    <a class="jiathis_counter_style"></a>
+
+                    <!--<a class="jiathis_button_qzone" title="分享到QQ空间"></a>
+                    <a class="jiathis_button_weixin" title="分享到微信"></a>
+                    <a class="jiathis_button_tsina" title="分享到新浪微博"></a>
+                    <a class="jiathis_button_tqq" title="分享到腾讯微博"></a>
+                    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>-->
+                </span>
+                <script type="text/javascript" >
+//                    var jiathis_config={title:"轻松做留学，就上棒呆！"};
+                    var jiathis_config={
+                        title:"轻松做留学，就上棒呆！",
+                        data_track_clickback:true,
+                        siteNum:15,
+                        sm:"email,renren,tsohu,feixin,kaixin001,cqq,tieba,hi,tianya,baidu,alibaba,hexun,douban,qq,ishare",
+                        summary:"",
+                        shortUrl:false,
+                        hideMore:false
+                    }
+                    $(function(){
+                        setTimeout(function(){jiathis_config={title:$("#post_name").text()}},500);
+                    })
+                </script>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2006672" charset="utf-8"></script>
+                <!--<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>-->
+                <!-- JiaThis Button END -->
+            </div>
+
+            <div ng-include="'/view/entity/detailed_comment_list.html'"></div>
+        </div>
+    </div>
+</div>

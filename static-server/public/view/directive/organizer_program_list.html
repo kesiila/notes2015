@@ -1,0 +1,33 @@
+
+<div class="program-list-wrapper">
+    <div class="wt-row ">
+        <h4 class="pull-right"><span>课程列表</span></h4>
+    </div>
+    <div class="empty-panel"
+         ng-show="items.length==0">
+        <i class="icon-comment"></i>
+        <br>
+        <span>
+            还没有任何课程
+        </span>
+    </div>
+    <div class="comment-list">
+        <div class="part-loading mt_20" wt-loading-done="programs_loading_done"></div>
+
+        <ul class="comments">
+            <li class="comment-item" ng-repeat="item in items">
+                <wt-avatar member="item.owner" size="40" class="comment-avatar"></wt-avatar>
+                <div class="comment">
+                    <a href="javascript:;" class="comment-name">
+                        {{item.title}}
+                    </a>
+
+                    <div>
+                        <span class="text-muted" title="起止时间">{{item.startEndDateRange}}</span>
+                        <span class="color_gray pull-right">{{item.creator.display_name}}&nbsp;创建于&nbsp;{{item.create_date|timeFullFormat}}</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

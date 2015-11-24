@@ -1,0 +1,115 @@
+<div class="layout_content" data-ng-cloak="">
+
+<div class="layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title">
+        <h3><i class="icon-user mr_10"></i>设置邮箱 黑/白 名单</h3>
+    </div>
+    <div class="main">
+        <div class="pull-right">
+
+        </div>
+    </div>
+</div>
+
+<div class="center-panel-container height-nonav" wt-scroll ng-show="global.loading_done">
+<dl class="frame" data-minheight="160">
+    <dt>
+        <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+
+    </dt>
+    <dd>
+        <div data-ng-hide="part_loading_done" class="part-loading mt_20"></div>
+        <div data-ng-show="part_loading_done">
+            <div class="panel-section col-xs-8 pl_0">
+                <h4>添加邮箱</h4>
+                <form class="pull-right" action="/api/mails/address/export/white" name="export" method="get">
+                    <button type="submit" class="btn btn-primary p_5">导出白名单</button>
+                </form>
+                <form class="pull-right mr_15" action="/api/mails/address/export/black" name="export" method="get">
+                    <button type="submit" class="btn btn-danger p_5 ml_10">导出黑名单</button>
+                </form>
+            </div>
+            <div class="panel-section">
+
+                <div class="col-xs-8 pl_0">
+                    <textarea required="" ng-click="clear_set_mails()" ng-blur="set_mind_info()" class="message form-control help-block" rows="10" ng-model="mail_list">
+                    </textarea>
+                    <br>
+
+                    <button class="btn btn-success mr_15" ng-click="set_invalid_mails('false')"
+                            loading-status="is_setting" data-loading-text="保存中...">存入黑名单
+                    </button>
+
+                    <button class="btn btn-success mr_15" ng-click="set_invalid_mails('true')"
+                            loading-status="is_setting" data-loading-text="保存中...">存入白名单
+                    </button>
+
+                    <form class="btn-group pull-left mr_15" method="POST" enctype="multipart/form-data" file-upload="blacks">
+                            <span class="btn btn-danger fileinput-button" ng-class="{'disabled':isUpload}">
+                                <i class="icon-plus"></i>
+                                <span>导入黑名单</span>
+                                <input type="file" name="black_mails">
+                            </span>
+                    </form>
+                    <form class="btn-group" method="POST" enctype="multipart/form-data" file-upload="whites">
+                            <span class="btn btn-primary fileinput-button" ng-class="{'disabled':isUpload}">
+                                <i class="icon-plus"></i>
+                                <span>导入白名单</span>
+                                <input type="file" name="white_mails">
+                            </span>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </dd>
+    <dd>
+        <div data-ng-show="part_loading_done">
+            <div class="panel-section">
+                <h4>检查邮箱（先后检查是否在黑/白名单，都不在就通过网络检查是否有效，无效就加入黑名单）</h4>
+            </div>
+            <div class="panel-section">
+
+                <div class="col-xs-8 pl_0">
+                    <input ng-model="check_email" type="email" style="width:100%;" class="form-control"
+                           placeholder="请输入检测邮件地址" required/>
+                    <br>
+                    <button ng-disabled="!check_email"
+                            class="btn btn-success mr_15" ng-click="email_validate()"
+                            loading-status="is_checking" data-loading-text="检测中...">检测
+                    </button>
+                    <button ng-disabled="!check_email"
+                            class="btn btn-success mr_15" ng-click="removeBlackMailList()"
+                            loading-status="is_moveing" data-loading-text="移出中...">移出
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </dd>
+   <!-- <dd>
+        <div data-ng-show="part_loading_done">
+            <div class="panel-section">
+                <h4>检测邮件地址是否有效(失效邮箱自动加入黑名单)</h4>
+            </div>
+            <div class="panel-section">
+
+                <div class="col-xs-8 pl_0">
+                    <input ng-model="to_check_email" type="email" style="width:100%;" class="form-control"
+                           placeholder="请输入检测邮件地址" required/>
+                    <br>
+                    <button ng-disabled="!to_check_email"
+                            class="btn btn-success mr_15" ng-click="email_validate()"
+                            loading-status="to_checking" data-loading-text="检测中...">检测
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </dd>-->
+
+</dl>
+</div>
+</div>
+</div>

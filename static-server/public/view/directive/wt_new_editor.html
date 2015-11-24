@@ -1,0 +1,231 @@
+<div class="wt-new-editor">
+    <div ng-show="!isFullscreen && !isMini">
+        <!--        <div class="wne-title"><input type="text" class="wne-title-input" placeholder="邮件标题" ng-model="title"
+                                              tabindex="1"
+                                              required wtAutofocus>
+
+                    <div class="title-seperator-line"></div>
+                </div>-->
+        <div class="gollum-editor-wrrapper pos_absolute" ng-show="false" style="top:-38px; width: 100%">
+            <div class="gollum-editor">
+                <div class="gollum-editor-function-bar clearfix active" ng-show="false">
+                    <div class="gollum-editor-function-buttons" title="{{ {true:'预览时不可用'}[inPreview] }}">
+                        <div class="btn-group mr_10">
+                            <a class="btn btn-min function-button function-bold" title="粗体"
+                               ng-click="execEditorCmd($event, 'cmd-bold')" ng-disabled="inPreview"><span>粗体</span></a>
+                            <a class="btn btn-min function-button function-italic" title="斜体"
+                               ng-click="execEditorCmd($event, 'cmd-italic')"
+                               ng-disabled="inPreview"><span>斜体</span></a>
+                            <a class="btn btn-min function-button function-code" title="代码"
+                               ng-click="execEditorCmd($event, 'cmd-code')" ng-disabled="inPreview"><span>代码</span></a>
+                        </div>
+                        <div class="btn-group mr_10">
+                            <a class="btn btn-min function-button function-ul" title="无序列表"
+                               ng-click="execEditorCmd($event, 'cmd-unorder-list')"
+                               ng-disabled="inPreview"><span>无序列表</span></a>
+                            <a class="btn btn-min function-button function-ol" title="有序列表"
+                               ng-click="execEditorCmd($event, 'cmd-order-list')"
+                               ng-disabled="inPreview"><span>有序列表</span></a>
+                            <a class="btn btn-min function-button function-blockquote" title="引用"
+                               ng-click="execEditorCmd($event, 'cmd-blockquote')"
+                               ng-disabled="inPreview"><span>引用</span></a>
+                            <a class="btn btn-min function-button function-hr" title="水平分割线"
+                               ng-click="execEditorCmd($event, 'cmd-horizontal-line')"
+                               ng-disabled="inPreview"><span>水平分割线</span></a>
+                        </div>
+                        <div class="btn-group mr_10">
+                            <a class="btn btn-min function-button function-h1"
+                               ng-click="execEditorCmd($event, 'cmd-h1')"
+                               title="标题1" ng-disabled="inPreview"><span>标题1</span></a>
+                            <a class="btn btn-min function-button function-h2"
+                               ng-click="execEditorCmd($event, 'cmd-h2')"
+                               title="标题2" ng-disabled="inPreview"><span>标题2</span></a>
+                            <a class="btn btn-min function-button function-h3"
+                               ng-click="execEditorCmd($event, 'cmd-h3')"
+                               title="标题3" ng-disabled="inPreview"><span>标题3</span></a>
+                        </div>
+                        <div class="btn-group mr_10">
+                            <a class="btn btn-min function-button js-popbox function-link" data-placement="bottom"
+                               ng-click="execEditorCmd($event, 'cmd-insert-link')" ng-disabled="inPreview"
+                               title="链接"><span>插入链接</span></a>
+                            <a class="btn btn-min function-button js-popbox function-image" data-placement="bottom"
+                               ng-click="execEditorCmd($event, 'cmd-insert-image')" ng-disabled="inPreview"
+                               title="图片"><span>插入图片</span></a>
+                        </div>
+                        <div class="btn-group mr_10">
+                            <a class="btn btn-min" style="padding: 3px 10px 4px 10px" title="插入变量"
+                               ng-click="execEditorCmd($event, 'cmd-insert-variable')" ng-disabled="inPreview"><span>插入变量</span></a>
+                        </div>
+                        <div class="btn-group insert-part ng-hide">
+                            <a class="dropdown-toggle btn btn-min"
+                               style="padding-top: 3px;padding-bottom: 4px;padding-left: 8px" data-toggle="dropdown"
+                               title="插入变量" href="javascript:;"><span>插入变量</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="function-recipients" href=""><span>收件人</span></a></li>
+                                <li><a class="function-sender" href=""><span>发件人</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gollum-editor-function-buttons pull-right">
+                        <div class="btn-group back-forward ng-hide mr_15">
+                            <a class="btn btn-min backward"
+                               style="padding:7px 8px 6px 8px;"
+                               title="上一条">
+                                <i class="icon-backward"></i></a>
+                            <a class="btn btn-min forward"
+                               style="padding:7px 8px 6px 8px;"
+                               title="下一条"><i class="icon-forward"></i>
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-min" style="line-height: 1em"
+                               title="{{ {true:'取消',false:'预览'}[inPreview] }}" wt-stop-propagation="click"
+                               ng-click="flipPreview()"
+                               wt-hint-once="" content="查看邮件发给活动是什么效果"
+                               hint-name="tasks_preview_first_hint" placement="top">
+                                {{ {true:'取消',false:'预览'}[inPreview] }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar-content-container">
+            <div class="wne-toolbar js-popbox" role="toolbar"
+                 style="background-color: #ffffff;opacity:1"
+                    >
+            </div>
+            <div class="wne-toolbar js-popbox" role="toolbar" ng-hide="$root.global.is_outter">
+                <button class="btn btn-warning pos_absolute fs_16"
+                        title="换一篇？"
+                        wt-click-hide=""
+                        style="left: -110px;margin-top:-5px;padding:10px 10px;vertical-align: middle"
+                        ng-show="!inPreview&&generator.show && false"
+                        ng-click="generator.get_one()">
+                    <i class="icon-refresh fs_16 mr_5"></i>再写一篇
+                </button>
+                <a class="icon-bold" ng-click="execEditorCmd($event, 'cmd-bold')" ng-show="!inPreview"
+                   href="javascript:;"></a>
+
+                <a class="icon-italic" ng-click="execEditorCmd($event, 'cmd-italic')" ng-show="!inPreview"
+                   href="javascript:;">
+                </a>
+                <a class="icon-quote-left"
+                   ng-click="execEditorCmd($event, 'cmd-blockquote')" ng-show="!inPreview" href="javascript:;">
+                </a>
+                <a class="icon-list-ul"
+                   ng-click="execEditorCmd($event, 'cmd-unorder-list')" ng-show="!inPreview"
+                   href="javascript:;">
+                </a>
+                <a class="icon-list-ol" ng-click="execEditorCmd($event, 'cmd-order-list')" ng-show="!inPreview"
+                   href="javascript:;">
+                </a>
+                <a class="icon-link" ng-click="execEditorCmd($event, 'cmd-insert-link')" ng-show="!inPreview"
+                   href="javascript:;">
+                </a>
+                <a class="icon-picture" ng-click="execEditorCmd($event, 'cmd-insert-image')" ng-show="!inPreview"
+                   href="javascript:;">
+                </a>
+
+                <a ng-show="" class="icon-plus-sign-alt" ng-click="execEditorCmd($event, 'cmd-insert-variable')"
+                   ng-show="!inPreview"
+                   href="javascript:;">
+                </a>
+
+                <a class="icon-minus" ng-click="execEditorCmd($event, 'cmd-horizontal-line')" ng-show="!inPreview"
+                   href="javascript:;"></a>
+                <a ng-class="{false:'icon-eye-open', true:'icon-eye-close'}[inPreview]"
+                   ng-click="flipPreview()" href="javascript:;"></a>
+                <a class="icon-fullscreen"
+                   ng-click="goFullscreen()"
+                   href="javascript:;">
+                </a>
+            </div>
+            <div class="fullscreeen-btn-container">
+                <button class="fullscreen-btn" ng-click="goFullscreen()"><i class="icon-double-angle-left"></i></button>
+            </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="wnd-content front">
+                        <textarea class="wnd-content-textarea" name="" placeholder="请输入内容"
+                                  ng-model="content" tabindex="2"> </textarea></div>
+                    <div class="wnd-content-html markdown back ">
+                        <div ng-bind-html-unsafe="html" class="back-background"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="isFullscreen">
+        <div class="fullscreen-editing">
+            <div class="wne-toolbar">
+                <ul class="tool-btn-group js-popbox">
+                    <li ng-click="cancelFullscreen()"><a>返</a></li>
+                </ul>
+                <ul class="tool-btn-group js-popbox">
+                    <li ng-click="execEditorCmd($event, 'cmd-h1')"><a href="javascript:;">h1</a></li>
+                    <li ng-click="execEditorCmd($event, 'cmd-h2')"><a href="javascript:;">h2</a></li>
+                    <li ng-click="execEditorCmd($event, 'cmd-h3')"><a href="javascript:;">h3</a></li>
+                </ul>
+                <ul class="tool-btn-group js-popbox">
+                    <li ng-click="execEditorCmd($event, 'cmd-bold')"><a class="icon-bold" href="javascript:;"></a>
+                    </li>
+                    <li ng-click="execEditorCmd($event, 'cmd-italic')"><a class="icon-italic" href="javascript:;"></a>
+                    </li>
+                    <li ng-click="execEditorCmd($event, 'cmd-blockquote')"><a class="icon-quote-left"
+                                                                              href="javascript:;"></a></li>
+                    <li ng-click="execEditorCmd($event, 'cmd-code')"><a href="javascript:;">{&nbsp }</a></li>
+                </ul>
+                <ul class="tool-btn-group js-popbox">
+                    <li ng-click="execEditorCmd($event, 'cmd-unorder-list')"><a class="icon-list-ul"
+                                                                                href="javascript:;"></a></li>
+                    <li ng-click="execEditorCmd($event, 'cmd-order-list')"><a class="icon-list-ol"
+                                                                              href="javascript:;"></a></li>
+                    <li ng-click="execEditorCmd($event, 'cmd-horizontal-line')"><a class="icon-minus"
+                                                                                   href="javascript:;"></a></li>
+                </ul>
+                <ul class="tool-btn-group js-popbox">
+                    <li ng-click="execEditorCmd($event, 'cmd-insert-link')"><a class="icon-link"
+                                                                               href="javascript:;"></a></li>
+                    <li ng-click="execEditorCmd($event, 'cmd-insert-image')"><a class="icon-picture"
+                                                                                href="javascript:;"></a></li>
+                    <li ng-show="" ng-click="execEditorCmd($event, 'cmd-insert-variable')"><a class="icon-plus-sign-alt"
+                                                                                              href="javascript:;"></a>
+                    </li>
+                    <!--  <li ng-click="generate()"><a class="" href="javascript:;">变</a></li>-->
+                </ul>
+                <!--                <ul class="tool-btn-group">
+                                    <li class="save-command">
+                                        <button class="btn btn-success " ng-click="execEditorCmd($event, 'cmd-save')"
+                                                data-loading-text="保存中..." loading-status="is_saving">保存
+                                        </button>
+                                    </li>
+                                </ul>-->
+            </div>
+            <!--            <div class="wne-title" ng-show="!isMini"><input type="text" class="fullscreen-title-input"
+                                                                        placeholder="邮件标题"
+                                                                        ng-model="title" tabindex="1" wtAutofocus>
+
+                            <div class="title-seperator-line"></div>
+                        </div>-->
+            <div class="left-right-container">
+                <div class="left-side"><textarea name="" ng-model="content" tabindex="2" placeholder="请输入内容"
+                                                 class="fullscreen-mk-content-textarea"></textarea></div>
+                <div class="right-side">
+                    <div class="html-box">
+                        <div class="result markdown" ng-bind-html-unsafe="html"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="isMini && !hideMini">
+        <div class="mini-container">
+            <div class="mini-toolbar js-popbox" role="toolbar"><a class="icon-link"
+                                                                  ng-click="execEditorCmd($event, 'cmd-insert-link')"
+                                                                  ng-show="!inPreview" href="javascript:;"></a> <a
+                    class="icon-fullscreen" ng-click="goFullscreen()" href="javascript:;"></a></div>
+            <div class="mini-content "><textarea class="mini-content-textarea" ng-model="content" placeholder="请输入内容"
+                                                 tabindex="3"> </textarea></div>
+        </div>
+    </div>
+</div>

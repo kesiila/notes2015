@@ -1,0 +1,18 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>同步图片链接
+        <!--     <span ng-if="task.uid !=global.me.uid">取消收藏</span>-->
+    </h3>
+</div>
+<div class="popbox-body">
+    <span>同步此图片链接到其他课程下 <br/>
+    </span>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_ensure(task)" loading-status="is_saving" data-loading-text="请求中..." class="btn btn-danger float_left">
+        <span>确定同步</span>
+    </button>
+    <button  ng-click="js_close()" class="btn pull-right">
+        <span >取消</span>
+    </button>
+</div>

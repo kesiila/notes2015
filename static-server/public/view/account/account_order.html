@@ -1,0 +1,77 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-database mr_10"></i>我的订单</h3>
+            </div>
+        </div>
+        <div class="center-panel-container height-nonav" wt-scroll>
+            <dl class="frame" data-minheight="160">
+                <dt>
+                <ul class="tabs">
+                    <li>
+                        <a class="active" href>
+                            充值记录
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/account/myscore" >
+                            我的积分
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/account_charge">积分充值</a>
+                    </li>
+                </ul>
+                </dt>
+                <dd >
+                    <div class="table-list" >
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th width="5%">NO.</th>
+                                <th>事件</th>
+                                <!-- 状态有已充值与未充值-->
+                                <th>充值状态</th>
+                                <th>时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-show="vm.tag.order_list.length >0 " ng-repeat="order in vm.tag.order_list">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{order.subject}}</td>
+                                    <td >
+                                        <a ng-if="order.isPaid==0" style="color:#d84c31" href="/account_charge/{{order.objectId}}" >未支付</a>
+                                        <span ng-if="order.isPaid==1" >已支付</span>
+                                    </td>
+                                    <td style="text-align:right">{{order.create_date| fromNow}}</td>
+                                </tr>
+                                <tr data-ng-show="vm.tag.order_list.length  == 0 && root.global.loading_done"><td colspan="4" align="center">还没有任何充值记录</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="pull-right" wt-pagination="security_pagination_opts"></div>
+                    </div>
+
+                    <div class="clearfix pager-wapper" >
+                        <div class="category-pager pull-right" ng-show="numPages > 1">
+                            <pagination ng-model="vm.tag.queryCondition.currentPage"
+                                        total-items="vm.tag.totalItems"
+                                        items-per-page="vm.tag.queryCondition.itemsPerPage"
+                                        ng-change="vm.tag.pageChanged()"
+                                        max-size="5"
+                                        rotate="false"
+                                        direction-links="true"
+                                        previous-text="上一页"
+                                        next-text="下一页"
+                                        boundary-links="true"
+                                        first-text="首页"
+                                        last-text="尾页"
+                                        num-pages="numPages">
+                            </pagination>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

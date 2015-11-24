@@ -1,0 +1,40 @@
+<div ng-controller="entity_orders_ctrl">
+	<div class="entity-title "
+		ng-include="'/view/entity/user/user_title.html'"></div>
+	<wt-tadges task="task"></wt-tadges>
+	<div class="wt-row ">
+		<h4 class="pull-right">
+			<span href="javascript:;" data-ng-click="js_to_order()">用户订单</span> <span
+				ng-if="orders.length>0">({{orders.length}})</span>
+		</h4>
+	</div>
+	    <div class="empty-panel"
+            ng-show="orders.length==0">
+        <i class="icon-barcode"></i>
+        <br>
+        <span>
+            还没有任何订单
+        </span>
+    </div>
+ 
+	<div class="entity-list">
+		<div class="part-loading mt_20"
+			wt-loading-done="loading_done"></div>
+
+		<ul class="entitys">
+			<li class="entity-item" id="entity_item_{{order.eid}}"
+				ng-repeat="order in orders">
+
+				<div class="entity">
+					<a href="javascript:;" class="entity-name"> {{order.eid}} 
+					</a> <span class="entity-meta"> <span
+						data-ng-class="{true:'date',false:''}[entity.type==1&&global.is_login == true]">{{order.create_date
+							| fromNow }}</span>
+					</span>
+
+					<div class="current-entity" wt-markdown='order.title | abbrevition:200'></div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+<div wt-scroll="">
+   <div ng-controller="testCtrl" class="p_20">
+       <h4>U-Editor As Directive</h4>
+       <!--<div id="ueditor" wt-u-editor="" content="edit_template__content"></div>-->
+
+       <hr/>
+       <h4><strong>viewModle in controller</strong></h4>
+
+       <strong>$scope.edit_tempalte__content :</strong>
+       <p ng-bind-html="edit_template__content"></p>
+
+       <button class="btn btn-success" ng-click="showCurrentContent()">current_content</button>
+
+       <button class="btn btn-danger" ng-click="anotherValue()">anotherValue</button>
+
+       <div class="w_600 h_38">
+           <wt-baidu-map options="mapOptions"></wt-baidu-map>
+       </div>
+   </div>
+
+   <div>
+       <ul>
+
+           <li ng-repeat='project in hello_projects_info' style="border: 1px solid #ddd">
+               <div class='row'>
+                   <div class='col-xs-3'>{{project.name}}</div>
+               <div class='col-xs-9'>
+                   <ul>
+                       <li ng-repeat='static in project.badges'>{{static[0]}} ---- {{static[1]}}</li>
+                   </ul>
+               </div>
+               </div>
+           </li>
+           <li style="border: 1px solid #ddd">
+               <div class='row'>
+                   <div class="col-xs-3">总数目</div>
+                   <div class='col-xs-9'>
+                       <ul>
+                           <li ng-repeat="static in total">{{static[0]}} ---- {{static[1]}}</li>
+                       </ul>
+                   </div>
+               </div>
+           </li>
+       </ul>
+   </div>
+</div>

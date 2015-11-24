@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h4 class="modal-title">邮件预览</h4>
+    <a href="javascript:;" ng-click="modal_close()"><i class="icon-close"></i></a>
+</div>
+<div class="modal-body">
+    <div class="address_info clearfix" style="background-color: #f4f6f8;margin: -20px -20px 0px -20px;padding:10px 20px;
+    border-bottom: 1px solid #e5e5e5">
+        <div class="row col-sm-12" style="padding-bottom: 4px"><strong>{{mail_info.title_info}}</strong></div>
+        <div class="row">
+            <div class="address_info__declarative_info col-sm-1 text-right" style="color: #a8adaa;">To:</div>
+            <div class="col-sm-11 row" style="color:#7f7f7f;">{{ mail_info.recipient_info }}</div>
+        </div>
+        <div class="row">
+            <div class="address_info__declarative_info col-sm-1 text-right" style="color: #a8adaa">From:</div>
+            <div class="col-sm-11 row" style="color:#7f7f7f;">{{ mail_info.sender_info }}</div>
+        </div>
+    </div>
+    <div class="content_info" style="padding-top: 4px;padding-bottom: 4px;padding-left: 8px">
+        <span wt-markdown="mail_info.content_info"></span>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default pull-left" ng-click="click.previous()" data-ng-disabled="!property.hasPrevious" ng-show="property.groupSend">上一篇</button>
+    <button class="btn btn-default pull-left" ng-click="click.next()" data-ng-disabled="!property.hasNext" ng-show="property.groupSend">下一篇</button>
+    <button class="btn btn-default pull-right" ng-click="modal_close()">关闭</button>
+</div>

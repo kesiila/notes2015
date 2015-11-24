@@ -1,0 +1,71 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>更多选项</h3>
+        </div>
+        <div class="popbox-body fixed-width-260">
+            <ul class="popbox-menu">
+                <li><a href="javascript:;" ng-click="js_step(3)">
+                    <i class="icon-share"></i> 数据导出</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="javascript:;" ng-click="js_step(1)"><i class="icon-envelope"></i> 通过邮件创建话题</a></li>
+            </ul>
+        </div>
+    </li>
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>通过邮件创建话题</h3>
+        </div>
+        <div class="popbox-body fixed-width-260">
+            <ul class="popbox-menu">
+                <li>
+                    <a href="javascript:;">
+                        发送邮件到以下地址
+                        <input type="text" ng-model="email" class="form-control help-block"
+                               wt-click-select readonly="readonly"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <strong>邮件标题</strong>
+                        <br/>
+                        <span class="text-muted pl_20">话题：这里写话题的标题</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <strong>邮件正文</strong>
+                        <br/>
+                        <span class="text-muted pl_20">话题内容，支持Markdown语法</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/guide" target="_blank">
+                        <i class="icon-question-sign"></i> 查看更多帮助
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li ng-switch-when="3" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>数据导出</h3>
+        </div>
+        <div class="popbox-body fixed-width-260">
+            <ul class="popbox-menu">
+                <li>
+                    <a href="/api/projects/{{project.info.pid}}/posts/exports?format=json"
+                       target="_blank">
+                        <i class="icon-code"></i> JSON数据
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>

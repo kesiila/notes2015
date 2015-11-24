@@ -1,0 +1,54 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>选择已有图片</h3></div>
+        <div class="max-h300" wt-scroll>
+            <div class="popbox-body ">
+                <ul class="popbox-menu">
+                    <div class="part-loading mt_12" wt-loading-done="images_loading_done"></div>
+                    <li ng-repeat="image in images" ng-click="js_select_image(image)" class="ng-scope"><a
+                            class="file-item-li-menu file-picfile" href="javascript:;">
+                        <img ng-src="{{image.path | wtBox}}" alt="{{image.name}}"> <span class="file-name ng-binding">{{image.name}}</span>
+                    </a></li>
+                    <li class="empty-menu" ng-show="images.length == 0">本地没有任何图片</li>
+                </ul>
+            </div>
+        </div>
+    </li>
+    <li ng-switch-default class="popbox-step-li">
+        <div class="max-h300" wt-scroll>
+            <div class="popbox-body">
+                <ul class="popbox-menu">
+                    <li ng-click="js_show_images()"><a href="javascript:;" class="ng-scope"><i
+                            class="mr_5"></i>选择已有图片</a></li>
+                    <li class="ng-scope file-item-li-menu file-picfile" ng-click="js_upload_image()"><a
+                            href="javascript:;"> <i class="mr_5"></i> {{{true:"正在上传中...",false:"本地上传"}[uploading_done ==
+                        false]}} </a>
+
+                        <form name="file_upload" class="hide" action="{{action_url}}" method="POST"
+                              enctype="multipart/form-data" data-file-upload="file_upload_option"><input type="file"
+                                                                                                         id="file_upload"
+                                                                                                         name="files[]"
+                                                                                                         title="添加附件"/>
+                        </form>
+                    </li>
+                    <li ng-show="error_msg.length > 0">
+                        <div class="alert alert-danger">{{error_msg}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+         <!--<div class="popbox-body"> -->
+             <!--<ul class="popbox-menu">-->
+                 <!--<li><a ng-click="js_show_images()"><i class="mr_5"></i>选择已有图片</a></li> -->
+                 <!--<li>-->
+                     <!--<a ng-click="js_upload_image()"><i class="mr_5"></i>{{{true:"正在上传中...",false:"本地上传"}[uploading_done == false]}}</a> -->
+                     <!--<form name="file_upload" class="hide" action="{{action_url}}" method="POST" enctype="multipart/form-data" data-file-upload="file_upload_option"> -->
+                         <!--<input type="file" id="file_upload" name="files[]" title="添加附件"/> -->
+                     <!--</form> </li> -->
+             <!--</ul> -->
+         <!--</div> -->
+    </li>
+</ul>

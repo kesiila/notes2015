@@ -1,0 +1,31 @@
+<div>
+    <div class="modal-header" style="background-color: #5cb85c;">
+        <h4 class="modal-title" style="color:#fff;padding-left: 20px;">选择类别
+            <i class="pull-right icon-close cursor"
+               style="margin-top: 5px;margin-right: 5px;color: #fff;font-size: 16px"
+               ng-click="close()"></i>
+        </h4>
+    </div>
+    <div class="modal-body" style="padding: 30px">
+        <div>
+            <span class="label block-inline mb_10 fs_14 cursor mlr_5"
+                  ng-class="{true:'label-success',false:'label-default'}[currentCatalog.code == catalog.code]"
+                  ng-repeat="catalog in outterScope.catalogs" ng-click="set_template_catalog(catalog)">{{catalog.cnName}}</span>
+        </div>
+        <div class="form-group pt_10">
+            <label for="" class="col-xs-3 control-label"></label>
+
+            <div class="col-xs-9">
+                <input type="checkbox" ng-model="modal.set_as_default"
+                       style="vertical-align: middle;margin-top: -3px"/>
+                <span class="ml_5 mr_15">设为默认邮件模板</span>
+                <button class="ml_15 btn btn-success"
+                        ng-disabled="!currentCatalog.code"
+                        ng-click="save_template(currentCatalog)">
+                    下一步
+                </button>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</div>

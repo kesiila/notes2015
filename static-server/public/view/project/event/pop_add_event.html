@@ -1,0 +1,114 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>新建日程</h3>
+        </div>
+        <div class="popbox-body" ng-if="selected_projects.length == 0 && show_project_select">
+            <div class="alert alert-warning">你还没有可以新建日程的项目。</div>
+        </div>
+        <div class="max-h500" wt-scroll>
+            <form ng-if="selected_projects.length > 0 || !show_project_select" name="new_event_form"
+                  wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate role="form">
+                <div class="popbox-body pop-add-event">
+                    <textarea wt-enter="js_save_event(new_event_form)"
+                              name="event_name" ng-model="new_event.name"
+                              placeholder="新的日程安排" class="form-control" required
+                              wt-focus/>
+
+                    <div class="section-group" ng-if="show_project_select">
+                        <lable>项目：</lable>
+                        <select ng-change="js_change_project()" ng-model="new_event.pid"
+                                class="form-control project-select"
+                                ng-options="project.pid as project.name group by project.team_id for project in selected_projects"
+                                wt-team-name></select>
+                    </div>
+                    <div class="section-group">
+                        <lable>开始：</lable>
+                        <input name="start_date" ng-model="new_event.start_date" placeholder="" type="text"
+                               class="form-control control-first" data-ng-click="js_to_set_date('start_date')"
+                               readonly required/> <select ng-model="new_event.start_hour"
+                                                           ng-options="time for time in start_hour_sections"
+                                                           class="form-control hour-select"></select> <span
+                            class="separation">:</span> <select ng-model="new_event.start_minute"
+                                                                ng-options="time for time in start_minute_sections"
+                                                                class="form-control minute-select"></select></div>
+                    <div class="section-group">
+                        <lable class="">结束：</lable>
+                        <input name="end_date" ng-model="new_event.end_date" placeholder="" type="text"
+                               class="form-control control-first" data-ng-click="js_to_set_date('end_date')" readonly
+                               required/> <select ng-model="new_event.end_hour"
+                                                  ng-options="time for time in end_hour_sections"
+                                                  class="form-control hour-select"
+                                                  ng-change="js_change_end_hour()"></select> <span
+                            class="separation">:</span> <select ng-model="new_event.end_minute"
+                                                                ng-options="time for time in end_minute_sections"
+                                                                class="form-control minute-select"></select></div>
+                    <div class="section-group">
+                        <lable>位置：</lable>
+                        <input name="event_location" ng-model="new_event.location" placeholder="位置(可选)" type="text"
+                               class="form-control location-input"/></div>
+                    <div class="section-group">
+                        <lable>重复：</lable>
+                        <select ng-model="new_event.repeat_interval"
+                                ng-options="interval.desc for interval in repeat_intervals"
+                                class="form-control location-input"></select></div>
+                    <div class="section-group">
+                        <lable>参与人：</lable>
+                        <ul class="entity-members">
+                            <li data-ng-repeat="member in new_event.attendees"><a href="javascript:;">
+                                <wt-avatar member="member" faceclass="plr_5" size="40"></wt-avatar>
+                            </a></li>
+                            <li><a class="avatar-add js-popbox" href="javascript:;" ng-click="js_to_attendee($event)"
+                                   data-placement="left"> <span class="o"> <i class="icon-plus"></i> </span> </a></li>
+                        </ul>
+                    </div>
+                    <div class="section-group">
+                        <button wt-form-submit="js_save_event(new_event_form)" data-loading-text="保存中..."
+                                class="btn btn-success mr_15" loading-status="new_event.is_saving">确定
+                        </button>
+                        <button ng-click="js_close()" class="btn">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </li>
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>{{set_date_title}}</h3></div>
+        <div class="popbox-body">
+            <wt-full-datepicker default-date="current_date" set-date="js_set_date(date)"
+                                min-date="min_date"></wt-full-datepicker>
+        </div>
+    </li>
+    <li ng-switch-when="2" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>参与人</h3></div>
+        <div class="popbox-bodywrapper" wt-scroll>
+            <div class="popbox-body"><input type="text" ng-model="search_user_input" placeholder="搜索成员"
+                                            class="form-control help-block"/> <br>
+
+                <div class="part-loading" ng-show="loading_members"></div>
+                <ul class="popbox-menu" data-ng-hide="loading_members">
+                    <li class="member-item" ng-repeat="member in members | filterMembers:search_user_input"><a
+                            href="javascript:;" tabindex="-1" ng-click="js_toggle_member(member)" class="text-nowarp">
+                        <i ng-class="{0: 'icon-xx', 1: 'icon-ok'}[member.assigned]" class="color_gray"></i>
+                        <wt-avatar member="member" name="true" faceclass="plr_5" atname="true" size="30"></wt-avatar>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hr" ng-show="!loading_members"></div>
+        <div class="popbox-footer popbox-footer-splite" ng-show="!loading_members">
+            <a class="action-item popbox-footer-splite-left" href="javascript:;" ng-click="js_add_all(0)">
+                <span>全部添加</span> </a>
+            <a class="action-item popbox-footer-splite-right" href="javascript:;" ng-click="js_step(0)">
+                <span>确定</span>({{ new_event.attendees.length }}/{{members.length }})
+            </a>
+        </div>
+    </li>
+</ul>

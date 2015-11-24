@@ -1,0 +1,78 @@
+
+
+<div class="layout_content">
+
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-bar-chart mr_10"></i>活动简报</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+
+                </div>
+            </div>
+        </div>
+        <div class="rightpanel-wrapper task-graph-panel" ng-show="global.loading_done">
+            <div class="height-nonav" wt-scroll>
+                <div class="tasks-graph-overview">
+                    <h4>我的活动简报</h4>
+                    <ul>
+                        <li class="tasks-total">
+                            <span class="count">{{user_graph.overview.total}}</span>
+                            <span class="text">总活动</span>
+                        </li>
+                        <li class="tasks-completed">
+                            <span class="count">{{user_graph.overview.completed}}</span>
+                            <span class="text">完成活动</span>
+                        </li>
+                        <li class="tasks-uncompleted">
+                            <span class="count">{{user_graph.overview.uncompleted}}</span>
+                            <span class="text">私有活动</span>
+                        </li>
+                        <li class="tasks-expired noborder">
+                            <span class="count">{{user_graph.overview.expired}}</span>
+                            <span class="text">分享活动</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="graph-panel">
+                    <div class="graph-list">
+                        <div class="graph-item">
+                            <h4>今日完成活动</h4>
+                            <div class="graph-container">
+                                <div class="entry-tasks">
+                                    <wt-task ng-repeat="task in user_graph.daily" task="task"
+                                             class="slide-trigger" hide-action="true"
+                                             task-entry-id="{{task.entry_id}}"
+                                             ng-click="locator.to_task(task.pid, task.tid, true)"></wt-task>
+                                    <div class="graph-empty-panel noborder" ng-show="user_graph.daily.length==0">
+                                        <i class="icon-check"></i><br/>
+                                        <span>没有完成活动</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="graph-item" ng-show="part_loading_done">
+                            <h4>本周活动进展</h4>
+                            <div class="btn-group title">
+                                <a title="上一周" href="javascript:;"
+                                   ng-click="to_prev_week()"><i class="icon-chevron-left"></i></a>
+                                <span>{{graph_week_date}}</span>
+                                <a title="下一周" href="javascript:;" ng-disabled="disable_next_week"
+                                   ng-click="to_next_week()"><i class="icon-chevron-right"></i></a>
+                            </div>
+                            <div class="graph-container" id='week_tasks_graph'></div>
+                        </div>
+
+                        <div class="part-loading h_38" ng-show="!part_loading_done"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout_content_sidebar height-noheader">
+        <ng-include src="'/view/dashboard/tasks_left_menu.html'"></ng-include>
+    </div>
+</div>

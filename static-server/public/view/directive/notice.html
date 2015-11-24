@@ -1,0 +1,22 @@
+<div class="notice-item-inner slide-trigger" ng-click="js_click_notice()">
+    <div class="column column-read">
+        <a href="javascript:;" ng-show="!notice.is_read" class="icon-envelope" title="标为已读"
+           ng-click="js_set_notice_read($event,notice)">
+        </a>
+        <a href="javascript:;" ng-show="notice.is_read" class="icon-envelope-alt" title="消息已读">
+        </a>
+    </div>
+    <div class="column column-sender">
+        <wt-avatar member="notice.sender" name="true" size="30"></wt-avatar>
+    </div>
+    <div class="column column-action">
+        <h4>{{action}}</h4>
+        <span class="entity">
+            <i class="{{type_icon.icon}}"></i>
+            <span ng-bind-html-unsafe="display_entity.name"></span>
+        </span>
+    </div>
+    <div class="column column-datetime">
+        <span>{{notice.published | fromNow}}</span>
+    </div>
+</div>

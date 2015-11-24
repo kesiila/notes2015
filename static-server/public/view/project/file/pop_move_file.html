@@ -1,0 +1,18 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>移动文件到</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+<div class="popbox-body fixed-width-260">
+    <ul class="popbox-menu">
+        <li ng-repeat="folder in folders">
+            <a href="javascript:;" ng-click="js_move_to(folder)">
+                <span class="icon" ng-class="{true:'icon-ok',false:''}[folder.selected == 1]"></span>
+                <span>{{folder.name}}</span>
+            </a>
+        </li>
+        <li ng-show="folders==0">
+            <div class="empty-menu">没有其它文件夹</div></li>
+    </ul>
+</div>
+</div>

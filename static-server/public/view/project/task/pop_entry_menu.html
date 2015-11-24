@@ -1,0 +1,298 @@
+<ul class="popbox-step" ng-switch on="step">
+<li ng-switch-default class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>列表选项</h3>
+    </div>
+    <div class="popbox-body">
+        <ul class="popbox-menu">
+            <li>
+                <a href="javascript:;" ng-click="js_top_open_add_task_composer($event)">
+                    <i class="icon-xx"></i> 新建活动
+                </a>
+            </li>
+            <li>
+                <a ng-click="js_step(6)">
+                    <i class="icon-xx"></i> 批量操作活动
+                </a>
+            </li>
+<!--             <li>
+                <a ng-click="js_archived_all()">
+                    <i class="icon-archive"></i> 归档完成活动
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:;" ng-click="js_step(1)">
+                    <i class="icon-xx"></i> 重命名
+                </a>
+            </li>
+            <li>
+                <a ng-click="js_watcher_entry_toggle()" href="javascript:;">
+                    <i class="icon-xx"></i> 关注
+                    <span class="text-muted small-tip ng-scope" ng-if="entry.is_watched">
+                        <i class="color_gray icon-ok"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="divider"></li>
+ --><!--             <li>
+                <a href="javascript:;" ng-click="js_step(11)">
+                    <i class="icon-ellipsis-horizontal"></i> 更多操作
+                </a>
+            </li>
+     -->    </ul>
+    </div>
+</li>
+<li ng-switch-when="1" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>重命名列表</h3>
+    </div>
+    <form name="edit_entry_form" wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate>
+        <div class="popbox-body">
+
+            <input name="entry_name" type="text" ng-model="entry_name" placeholder="列表名" class="w_260 form-control"
+                   required
+                   autofocus/>
+        </div>
+        <div class="popbox-footer">
+            <button wt-form-submit="js_change_name(edit_entry_form, entry_name)"
+                    data-loading-text="保存中..." class="btn btn-success mr_15"
+                    loading-status="is_save_ing">确定
+            </button>
+            <button ng-click="js_close(result)" class="btn float_left">取消</button>
+        </div>
+    </form>
+</li>
+<li ng-switch-when="4" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(11)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>归档列表</h3>
+    </div>
+    <div class="popbox-body">
+        <span>列表归档后活动不能再被修改，<br>可以在归档项中重新打开</span>
+
+    </div>
+    <div class="popbox-footer">
+        <button ng-click="js_archive_entry()" class="btn btn-success">确定归档</button>
+    </div>
+</li>
+<li ng-switch-when="5" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>删除列表</h3>
+    </div>
+    <div class="popbox-body">
+        <!--<span>列表删除后会放在回收站，可以在回收站选择<br/>恢复或者彻底删除。</span>-->
+        <span>警告：列表删除后会将无法找回！</span>
+    </div>
+    <div class="popbox-footer">
+        <button ng-click="js_del_entry()" class="btn btn-danger">确定删除</button>
+    </div>
+</li>
+
+<li ng-switch-when="6" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3 style="color: #333;opacity: 1.0;">批量操作</h3>
+    </div>
+    <div class="popbox-body">
+        <ul class="popbox-menu" ng-hide="entry.tasks.length == 0">
+            <li>
+                <a href="javascript:;" ng-click="js_to_move()">
+                    <i class="icon-share-alt"></i> 移动活动
+                </a>
+            </li>
+<!--             <li class="divider"></li>
+            <li>
+                <a href="javascript:;" ng-click="js_to_assign()">
+                    <i class="icon-user"></i> 分配活动
+                </a>
+            </li>
+ -->            <li>
+                <a href="javascript:;" ng-click="js_to_set_label()">
+                    <i class="icon-tag"></i> 设置组内标记
+                </a>
+            </li>
+<!--             <li>
+                <a href="javascript:;" ng-click="js_step(10)">
+                    <i class="icon-time"></i> 设置截至时间
+                </a>
+            </li>
+ -->        </ul>
+        <ul class="popbox-menu" ng-show="entry.tasks.length == 0">
+            <li>
+                <div class="empty-menu-nomin-h">该列表下没有可操作的活动</div>
+            </li>
+        </ul>
+    </div>
+
+</li>
+
+<li ng-switch-when="7" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(6)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>移动活动到</h3>
+    </div>
+    <div class="popbox-bodywrapper" wt-scroll>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li ng-repeat="entry in entries">
+                    <a href="javascript:;" ng-click="js_move_to(entry)">
+                        <i ng-class="{true:'icon-ok',false:'icon-xx'}[entry.move_selected == 1]" class="color_gray"></i>
+                        <span>{{entry.name}}</span>
+                    </a>
+                </li>
+                <li ng-show="entries.length == 0">
+                    <div class="empty-menu-nomin-h">没有可以移动的列表</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</li>
+
+<li ng-switch-when="8" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(6)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>分配活动</h3>
+    </div>
+    <div class="popbox-bodywrapper" wt-scroll>
+        <div class="popbox-body">
+            <input type="text" autofocus ng-model="search_user_input" placeholder="搜索成员"
+                   class="form-control help-block"/>
+            <br>
+            <ul class="popbox-menu">
+                <li class="member-item" ng-repeat="member in members | filterMembers:search_user_input">
+                    <a href="javascript:;" tabindex="-1" ng-click="js_toggle_member(member)">
+                        <i ng-class="{0: 'icon-xx', 1: 'icon-ok'}[member.assigned_all]" class="color_gray"></i>
+
+                        <wt-avatar member="member" name="true" atname="true" faceclass="plr_5" size="30"></wt-avatar>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</li>
+
+<li ng-switch-when="9" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(6)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>设置组内标记</h3>
+    </div>
+    <div class="popbox-body">
+        <ul class="popbox-menu">
+            <li class="label-item" ng-repeat="label in labels">
+                <a href="javascript:;" tabindex="-1" class="js-toggle-label-filter" ng-click="js_toggle_label(label)">
+                        <span class="task-label {{label.name}}-label text-center">
+                            <i ng-class="icon-xx" class="icon-white"></i>
+                        </span>
+                    <span class="label-name">{{label.desc}}</span>
+                </a>
+            </li>
+            <li ng-show="labels==0">
+                <div class="empty-menu">还未定义组内标记</div>
+            </li>
+            <li class="divider"></li>
+            <li><a ng-click="js_to_set_labels()"><i class="icon-tags"></i> 定义组内标记</a></li>
+        </ul>
+    </div>
+</li>
+<li ng-switch-when="9.1" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(9)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>定义组内标记</h3>
+    </div>
+
+    <ng-include src="'/view/project/task/pop_mod_set_labels.html'"></ng-include>
+</li>
+<li ng-switch-when="10" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(6)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>设置截止日期</h3>
+    </div>
+    <div class="popbox-body">
+        <input ng-model="task.expire_date" type="hidden"/>
+        <ul class="list-inline m_0">
+            <li>
+                <a href="javascript:;" ng-click="js_set_expire_date('today')">今天</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="javascript:;" ng-click="js_set_expire_date('tomorrow')">明天</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="javascript:;" ng-click="js_set_expire_date('week')">本周</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="javascript:;" ng-click="js_set_expire_date('next_week')">下周</a>
+            </li>
+            <li>|</li>
+            <li>
+                <a href="javascript:;" ng-click="js_set_expire_date('month')">本月</a>
+            </li>
+        </ul>
+        <div wt-datepicker="expire_date"></div>
+
+    </div>
+    <div class="popbox-footer">
+        <a class="btn btn-success mr_15" ng-click="js_set_expire(expire_date)">确定</a>
+        <!--<a class="btn" ng-click="js_cancel_expire()">取消截止时间</a>-->
+    </div>
+</li>
+
+<li ng-switch-when="11" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>更多操作</h3>
+    </div>
+    <div class="popbox-body">
+        <ul class="popbox-menu">
+<!--             <li>
+                <a href="javascript:;" ng-click="js_to_copy_entry()">
+                    <i class="icon-copy"></i> 拷贝
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:;" ng-click="js_step(4)">
+                    <i class="icon-archive"></i> 归档
+                </a>
+            </li>
+ -->            <li>
+                <a ng-click="js_step(5)" href="javascript:;">
+                    <i class="icon-trash"></i> 删除
+                </a>
+            </li>
+        </ul>
+    </div>
+</li>
+
+<li ng-switch-when="12" class="popbox-step-li">
+    <div class="popbox-header">
+        <button class="back icon-chevron-left" ng-click="js_step(11)"></button>
+        <button class="cancel icon-remove" ng-click="js_close()"></button>
+        <h3>拷贝列表</h3>
+    </div>
+    <div class="popbox-body w_300">
+        <input name="entry_name" wt-enter="js_copy_entry(new_entry)" ng-model="new_entry.name" placeholder="列表名"
+               type="text" class="form-control w_260" required autofocus/>
+    </div>
+    <div class="popbox-footer">
+        <a class="btn btn-success mr_15" ng-click="js_copy_entry(new_entry)" data-loading-text="正在创建..." loading-status="is_copying">确定</a>
+        <a class="btn" ng-click="js_step(11)">取消</a>
+    </div>
+</li>
+</ul>

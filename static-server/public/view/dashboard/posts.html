@@ -1,0 +1,197 @@
+<div class="layout_content">
+<div class="layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title">
+        <h3>
+            <i class="icon-book mr_10"></i>
+            我的问答
+        </h3>
+        <!-- 按内容分类查询模板内容 -->
+        <!--<div class="btn-group ml_15">-->
+            <!--<a class="btn  dropdown-toggle" data-toggle="dropdown" href="javascript:;" tooltip="选择分类">-->
+                <!--<span>{{current_type.cnName}}<i class="icon-caret-down ml_5"/></span>-->
+            <!--</a>-->
+
+            <!--<ul class="dropdown-menu dropdown-menu-right">-->
+
+                <!--<li>-->
+                    <!--<a  href="javascript:;" ng-click="choosePostByType(postType0)">-->
+                        <!--<i ng-class="{true:'icon-ok',false:'icon-xx'}[current_type.type == 0]"></i>全部-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li ng-repeat="postType in postTypes">-->
+                    <!--<a ng-class="{'active':current_type.type == postType.type }"-->
+                       <!--href="javascript:;"-->
+                       <!--ng-click="choosePostByType(postType)">-->
+                        <!--<i ng-class="{true:'icon-ok',false:'icon-xx'}[current_type.type == postType.type]"></i>{{postType.cnName}}-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+    </div>
+
+    <div class="main" ng-if="!class_view_type">
+        <div class="toolbar_panel pull-right">
+            <button class="btn btn-danger mr_15"
+                    ng-click="show_add_post()" type="button"
+                    wt-permission="[permission,project.info.curr_role,1,2]">新建问答
+            </button>
+
+            <div class="btn-group js-popbox mr_15">
+                    <!--按创建时间-->
+                    <button class="btn ptb_11" ng-click="sortMyPostsDates()"
+                            data-toggle="tooltip" data-placement="bottom"
+                            title="{{currentMyPostSortItem.name}}{{ {true:' 降序 ',false:' 升序 '}[isDESC==true] }}排列">
+                        <span><i ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[isDESC==true]"></i></span>
+                    </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="height-nonav" wt-scroll>
+
+<div ng-if="is_creat_post">
+    <ng-include src="'/view/project/post/add_or_edit_post.html'"></ng-include>
+</div>
+
+    <div class="layout_split_panel">
+
+        <dl class="frame" data-minheight="160">
+
+            <!-- 按问答类别分类 -->
+            <dt ng-if="class_view_type">
+                <ul class="tabs">
+                    <li>
+                        <a ng-class="{true: 'active'}[contentType == 0]"
+                           href="javascript:;" ng-click="choosePostType(0)"> 全部
+                        </a>
+                    </li>
+                    <li ng-repeat="postType in postTypes">
+                        <a ng-class="{true: 'active'}[contentType == postType.type]"
+                           href="javascript:;"
+                           ng-click="choosePostType(postType.type)">
+                            {{postType.cnName}}
+                        </a>
+                    </li>
+                </ul>
+            </dt>
+
+            <!-- 按创建下载分类 -->
+            <dt ng-if="!class_view_type">
+                <ul class="tabs">
+                    <li>
+                        <a ng-class="{'active':areaType==0}" href="javascript:;"
+                           ng-click="postSwitch(0)">
+                            我全部的
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{'active':areaType==3}" href="javascript:;"
+                           ng-click="postSwitch(3)">
+                            我关注的
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{'active':areaType==1}" href="javascript:;"
+                           ng-click="postSwitch(1)">
+                            我私有的
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{'active':areaType==2}" href="javascript:;"
+                           ng-click="postSwitch(2)">
+                            我分享的
+                        </a>
+                    </li>
+                </ul>
+            </dt>
+
+            <!-- 正文，模板列表部分 -->
+            <dd class="p_0">
+
+                <div class="empty-panel" ng-show="posts.length == 0">
+                    <i class="icon-list-alt"></i>
+                    <br/>
+                    <!--<span>还没有任何问答</span>-->
+                    <h4>还没有任何问答,
+                        <a ng-if="areaType==0 || areaType==3" style="color: #d84c31;" href="/post" target="_blank">去收藏问答！</a>
+                        <a ng-if="areaType==1" style="color: #d84c31;" href="javascript:;" ng-click="show_add_post()">立即创建问答！</a>
+                        <a ng-if="areaType==2" style="color: #d84c31;" href="javascript:;" ng-click="postSwitch(1)">去分享问答，挣取积分！</a>
+                    </h4>
+                </div>
+
+                <div class="template-panel">
+                    <div class="thread-list  pl_25 pr_25">
+                        <div class="wt-row thread-item slide-trigger cursor"
+                             ng-class="{'active':post.post_id == locator.show_detail_post_id}"
+                             ng-click="locator.to_post(projects[0].pid,post.post_id,false)"
+                             ng-repeat="post in posts">
+
+                            <div class="col-sm-12 thread-item-inner">
+                                <div class="row">
+                                    <div class="col-sm-12 ">
+                                        <div class="row primary">
+                                            <div class="col-sm-12 thread-title pos_relative">
+                                                <h4  class="col-sm-5">
+                                                    <a href="javascript:;">
+                                                        <span title="问答名称">{{post.name|abbrevition:32}}</span>
+                                                    </a>
+                                                </h4>
+                                                <div class="col-sm-3 pull-left text-muted" style="margin-top: 10px">
+                                                    <span title="问答类别" ng-if="!!post.typeName">{{post.typeName || "全部"}}</span>
+                                                </div>
+                                                <!--<div class="col-sm-4 pull-left text-muted" style="margin-top: 10px" class="{{post.status|statusToClass}}">-->
+                                                    <!--<span title="当前状态"> {{post.status|statusToString}}</span>-->
+                                                <!--</div>-->
+                                            </div>
+                                        </div>
+                                        <div class="row sm-font-color secondary">
+                                            <div class="col-sm-5">
+                                                <span class="ml_15">{{post.target.content|abbrevition:30}}</span>
+                                            </div>
+
+                                            <wt-badges-post class="col-sm-3"  style="margin-top: -3px;" post="post"></wt-badges-post>
+
+                                            <div class="col-sm-4 text-right more_light_gray pull-right">
+                                                <span title="创建时间">{{post.create_date | fromNow}} </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix pager-wapper" ng-hide="numPages==1">
+                        <div class="category-pager pull-right">
+                            <pagination ng-model="currentPage"
+                                        total-items="totalItems"
+                                        items-per-page="itemsPerPage"
+                                        max-size="5"
+                                        rotate="false"
+                                        direction-links="true"
+                                        previous-text="上一页"
+                                        next-text="下一页"
+                                        boundary-links="true"
+                                        first-text="首页"
+                                        last-text="尾页"
+                                        num-pages="numPages">
+                            </pagination>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+    </div>
+</div>
+</div>
+<!--左边栏-->
+<!--<div class="layout_right_sidebar height-noheader">-->
+<!--<ng-include src="'/view/project/sidebar/sidebar.html'"></ng-include>-->
+<!--</div>-->
+</div>

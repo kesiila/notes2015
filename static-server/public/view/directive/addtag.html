@@ -1,0 +1,36 @@
+<div>
+    <div class="task-badges" style="padding-left: 31px">
+	<span class="task-badge" ng-repeat="tag in entity.tags track by $index" style="padding: 0 5px;">
+		{{tag.name}} <a class="icon-action icon-remove" href="javascript:;"
+                            ng-show="!global.is_outter" wt-permission="[permission,project.info.curr_role,1,2]"
+                        data-ng-click="js_del_tag(entity, tag)" title="移除该标签"></a>
+	</span>
+    </div>
+    <br>
+    <div class="new-tag"
+         ng-show="global.is_outter==false">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(entity)"
+           wt-tracker="Task Panel|Main|Add Attachments"
+           ng-hide="entity.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="entity.is_add_tag_edit"
+             wt-show-edit="entity.is_add_tag_edit">
+            <div>
+
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, task, tag)' }"
+                       wt-enter="js_add_tag(entity, tag)" placeholder="输入标签(最长8个字符)" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="Task Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(entity, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(entity)">取消
+            </button>
+        </div>
+    </div>
+    </div>
+</div>

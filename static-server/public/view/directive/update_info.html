@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <span ng-transclude></span>
+    <div class="ng-hide pos_relative" style="z-index: 100;font-size: 14px" wt-stop-propagation="click">
+        <div class="box-shadow pos_absolute">
+            <span class="outer_triangle"><span class="inner_triangle"></span></span>
+            <div class="row">
+                <div class="col-xs-12" ng-repeat="content in contents">{{content.property}}<span class="color_gray">{{content.oddValue}}</span>改为{{content.newValue}}</div>
+            </div>
+        </div>
+    </div>
+</div>

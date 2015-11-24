@@ -1,0 +1,58 @@
+<div ng-controller="comment_ctrl">
+    <div class="entity-title " ng-include="'/view/entity/project/project_title.html'">
+    </div>
+	<wt-tadges task="task"></wt-tadges>
+    <div class="wt-row ">
+    <h4 class="pull-right"><span href="javascript:;" data-ng-click="js_to_comment()">评论</span> <span ng-if="comments.length>0">({{comments.length}})</span></h4>
+    </div>
+<!--     <div class="empty-panel"
+            ng-show="comments.length==0">
+        <i class="icon-comment"></i>
+        <br>
+        <span>
+            还没有任何评论
+        </span>
+    </div>
+ -->    <div class="comment-list" >
+    <div class="part-loading mt_20" wt-loading-done="comments_loading_done"></div>
+
+    <ul class="comments">
+        <li class="comment-item" id="comment_item_{{comment.cid}}" ng-repeat="comment in comments"
+            repeat-done="js_repeat_done()">
+            <wt-avatar member="comment.owner" size="40" class="comment-avatar"></wt-avatar>
+
+            <div class="comment">
+                <a href="javascript:;" class="comment-name">
+                    {{comment.owner.display_name}}
+                </a>
+                <span class="comment-meta">
+                    <span data-ng-class="{true:'date',false:''}[comment.type==1&&global.is_login == true]">{{comment.create_date | fromNow }}</span>
+                    <a wt-permission="[permission,project.info.curr_role,1,3]" href="javascript:;"
+                       wt-tracker="Comment Panel|List|Edit Comment-Reply Menu"
+                       data-ng-click="js_reply_comment(comment)" class="comment-action"
+                       ng-if="comment.type==1&&global.is_login == true">回复</a>
+                    <a wt-permission="[permission,project.info.curr_role,1,3]" href="javascript:;"
+                       wt-tracker="Comment Panel|List|Edit Comment-Delete Menu"
+                       data-ng-click="js_pop_delete_comment($event,comment)" class="comment-action js-popbox"
+                       ng-if="global.me.role=='system' ||  global.me.role=='admin' || (comment.owner.uid == global.me.uid)">删除</a>
+
+                </span>
+
+                <div class="current-comment" wt-markdown='comment.message'>
+                </div>
+                <ul class="comment-attachments">
+                    <wt-attachment ng-repeat="file in comment.files"></wt-attachment>
+                </ul>
+
+                <div class="edit-controls clearfix" id="div_comment_{{ comment.cid }}" ng-show="comment.is_edit"
+                     wt-show-edit="comment.is_edit">
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div id="new_comment_{{xtype}}" class="new-comment" wt-permission="[permission,project.info.curr_role,1,3]" ng-show="global.is_login == true">
+        <wt-comment save-comment="js_save_comment(comment)" pastefile-comment="js_pastefile_comment(comment)"></wt-comment>
+
+    </div>
+</div>
+</div>

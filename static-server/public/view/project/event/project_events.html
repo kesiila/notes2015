@@ -1,0 +1,77 @@
+<div class="prj_panel layout_content">
+
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main text-center">
+                     <span id="calendar_title_warp">
+                            <a href="javascript:;" ng-click="prev()"
+                               wt-tracker="Project Event Page|Nav|Goto Prev">
+                                <i class="icon-chevron-left"></i>
+                            </a>
+                            <h4 id="calendar_title" class="help-inline p_0"></h4>
+                            <a href="javascript:;" ng-click="next()"
+                               wt-tracker="Project Event Page|Nav|Goto Next">
+                                <i class="icon-chevron-right"></i>
+                            </a>
+                        </span>
+
+                    <div class="toolbar_panel pull-right">
+                        <div class="btn-group js-popbox mr_15" data-placement="bottom" data-align="right"
+                             wt-permission="[permission,project.info.curr_role,1,2]">
+                            <button class="btn btn-danger" id="btn_new_event"
+                                    wt-tracker="Project Event Page|Nav|Open Pop Add Task"
+                                    wt-new-event="js_new_event_success(event)">新建日程
+                            </button>
+                            <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                               wt-tracker="Project Event Page|Nav|Add Event-More">
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" wt-new-event="js_new_event_success(event)"
+                                       wt-tracker="Project Event Page|Nav|Add Event-More-Event">
+                                        <i class="icon-xx"></i> 新建日程</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" id="btn_new_task" wt-click="js_show_task_pop($event)"
+                                       wt-tracker="Project Event Page|Nav|Add Event-More-Task">
+                                        <i class="icon-xx"></i> 新建活动</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="btn-group mr_15">
+                            <button class="btn" ng-class="{true: 'active'}[calendar_view=='month']"
+                                    ng-click="changeView('month')"
+                                    wt-tracker="Project Event Page|Nav|Switch View Month">月
+                            </button>
+                            <button class="btn" ng-class="{true: 'active'}[calendar_view=='basicWeek']"
+                                    ng-click="changeView('basicWeek')"
+                                    wt-tracker="Project Event Page|Nav|Switch View Week">周
+                            </button>
+                        </div>
+                        <button class="btn js-popbox" data-placement="bottom" data-align="right"
+                                wt-permission="[permission,project.info.curr_role,1,2]"
+                                wt-tracker="Project Event Page|Nav|Toggle Pop More"
+                                ng-click="js_show_more_menu($event)">
+                            更多&nbsp;<i class="icon-caret-down"></i>
+                        </button>
+                    </div>
+                </div>
+        </div>
+        <div class="event-panel height-nonav" wt-scroll>
+            <dl class="frame" data-minheight="160">
+                <div id="calendar"
+                     calendar="myCalendar"
+                     ui-calendar="calendarConfig"
+                     ng-model="calendarEventSources">
+                </div>
+            </dl>
+        </div>
+    </div>
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

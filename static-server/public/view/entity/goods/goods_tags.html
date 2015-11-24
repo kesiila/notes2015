@@ -1,0 +1,53 @@
+<div>
+	<div class="entity-title "
+		ng-include="'/view/entity/goods/goods_title.html'"></div>
+	<div class="wt-row" style="border-bottom: 0px">&nbsp;</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>包含权限</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, goods,'permission')"
+			wt-hint-once="" content="设置活动权限"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-goods-tags goods="goods" tagtype="permission"></wt-goods-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>商品类型</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, goods,'')"
+			wt-hint-once="" content="设置活动权限"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-goods-tags goods="goods" tagtype="default"></wt-goods-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>推广位置</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, goods,'ad')"
+			wt-hint-once="" content="设置推广位置"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-goods-tags goods="goods" tagtype="ad"></wt-goods-tags>
+	</div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="common_sidebar height-noheader"
+	wt-sidebar-toggle="right_sidebar_is_fold">
+    <div class="common_sidebar_main" data-height="119" wt-scroll>
+        <div>
+            <ul class="common_sidebar_module">
+                <li><a href="javascript:;"  ng-click="js_new_mail()" title="给所选用户发信">
+                    <i class="icon-envelope"></i><br />发邮件
+                </a></li>发
+                <li ng-show="type==1"><a href="javascript:;" ng-click="js_batch_share()" title="分享所选用户到公海">
+                    <i class="icon-share"></i><br />分享
+                </a></li>
+                <li><a  href="javascript:;" ng-click="js_assign_label($event)">
+                        <i class="icon-tag"></i><br />标签
+                </a></li>
+<!--                <li><a ng-href="/project/{{pid}}/task" title="任务(Shift+T)">
+                    <i class="icon-move"></i><br />移动
+                </a></li>
+                <li><a ng-href="/project/{{pid}}/task" title="任务(Shift+T)">
+                    <i class="icon-remove"></i><br />删除
+                </a></li>-->
+             </ul>
+        </div>
+        <div class="hr collapse_hide"></div>
+        <div>
+            <h4 ng-hide="right_sidebar_is_fold">已选择活动({{selectedCustomers.length}})<a class="pull-right mr_10" href="javascript:;" ng-click="clearAll()">清除全部</a></h4>
+            <ul class="common_sidebar_step"
+                ng-if="!right_sidebar_is_fold">
+                <li class="common_sidebar_step_li">
+                    <div class="common_sidebar_step_body animate-sidebarbody-slide">
+                        <ul class="common_sidebar_step_menu">
+                            <li ng-repeat="customer in selectedCustomers">
+                                 <a ng-mouseover="customer.showIcon=true" ng-mouseleave="customer.showIcon=false"><i class="icon-user"></i>{{customer.name}}
+                                    <span ng-show="customer.showIcon" class="pull-right small-icon"  ng-click="toggle(customer)"><i class="icon-remove"></i></span></a>
+                            </li>
+                        </ul>
+                        <div class="hr"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<h2  ng-click="js_show_editor(order)"
+	wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{order.title}}">{{order.title|abbrevition:30}}</span>
+	<p>
+		<em title="订单生成时间" ng-if="order.create_date" style="margin-left: 0px">
+			<i class="icon-flag" ng-show="order.is_edit "></i>
+		生成时间: {{order.create_date | timefullFormatZHCN}} </em>
+	</p>
+
+	<p>
+		<em title="付款时间" ng-if="order.pay_date">
+			<i class="icon-flag" ng-show="order.is_edit "></i>
+		付款时间:{{order.pay_date | timefullFormatZHCN}} </em>
+	</p>
+</h2>

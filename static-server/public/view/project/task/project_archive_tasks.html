@@ -1,0 +1,124 @@
+<div class="layout_content prj_panel">
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main">
+                <div class="toolbar_panel pull-right">
+                    <a href="/project/{{pid}}/task" class="btn"
+                       wt-tracker="Project Archive Page|Nav|GoBack Task">
+                        <i class="icon-caret-left mr_5"></i>返回
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="height-nonav" wt-scroll>
+
+            <dl class="frame archive" data-minheight="160">
+                <dt>
+                    <span class="title">归档活动</span>
+                    <ul class="tabs">
+                        <li>
+                            <a ng-class="{'task': 'active'}[archived_view]" href="javascript:;"
+                               ng-click="js_archive_view_toggle('task')">
+                                活动
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-class="{'entry': 'active'}[archived_view]" href="javascript:;"
+                               ng-click="js_archive_view_toggle('entry')">
+                                列表
+                            </a>
+                        </li>
+                    </ul>
+                </dt>
+                <dd>
+                <div class="empty-panel" ng-show="archived_view == 'task' && tasks.length == 0 && global.loading_done">
+                    <i class="icon-check"></i><br/>
+                    <span>还没有归档活动</span>
+                </div>
+                <div class="empty-panel"
+                     ng-show="archived_view == 'entry' && entries.length == 0 && global.loading_done">
+                    <i class="icon-columns"></i><br/>
+                    <span>还没有归档列表</span>
+                </div>
+                <div class="archived_panel">
+                    <div class="archived_entries_panel" ng-show="archived_view == 'entry'">
+                        <div class="wt-row" ng-repeat="entry in entries"
+                             wt-tracker="Project Archive Page|Main|View Archive Task">
+                            <div class="column column-icon">
+                                <i class="icon-columns"></i>
+                            </div>
+                            <div class="column column-name">
+                                {{entry.name}}
+                            </div>
+                            <div class="column column-date">
+                                {{entry.update_date | timeFormatZHCN}}
+                            </div>
+                            <div class="column column-action">
+                                <a href="javascript:;" ng-click="js_unarchive_entry($event, entry.entry_id)"
+                                   wt-permission="[permission,project.info.curr_role,1,2]" title="激活列表"
+                                   tooltip="激活列表" tooltip-placement="bottom">
+                                    <i class="icon-mail-reply"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-list-panel" ng-show="archived_view == 'task'">
+
+                        <div class="group-list" ng-show="tasks.length > 0">
+                            <hr/>
+                            <div class="group-item" ng-repeat="task in tasks">
+                                <div class="group-header" ng-show="task.is_show_date">
+                                    <span>{{task.update_date | dateFormatZHCN}}</span>
+                                </div>
+
+                                <div class="group-task-item slide-trigger"
+                                     ng-class="{true: 'active'}[task.tid==locator.show_detail_task_id]"
+                                     ng-click="locator.to_task(task.pid, task.tid, false)">
+                                    <div class="task-main">
+                                        <a href="javascript:;" ng-click="js_complete_task($event, task)"
+                                           class="task-check">
+                                            <i ng-class="{0: 'icon-check-empty', 1: 'icon-check-sign'}[task.completed]"></i>
+                                        </a>
+                                        <span class="task-title">{{task.name}}</span>
+
+                                        <a class="js-popbox task-action" href="javascript:;"
+                                           ng-click="js_show_entry_menu($event, task)"
+                                           data-placement="left" wt-permission="[permission,project.info.curr_role,1,2]"
+                                           tooltip="激活" tooltip-placement="bottom">
+                                            <i class="icon-mail-reply"></i>
+                                        </a>
+
+                                    </div>
+                                    <wt-badges task="task"></wt-badges>
+                                    <div class="task-members">
+                                        <wt-avatar ng-repeat="member in task.members" class="mr_5" member="member"
+                                                   size="30"></wt-avatar>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="loading-more-panel">
+                            <button ng-show="!has_no_more && !loading_tasks && global.loading_done == true"
+                                    class="btn" ng-click="load_archived_tasks_more()"
+                                    data-loading-text="加载中..."
+                                    loading-status="loading_notice">加载更多...
+                            </button>
+                            <div class="load-more part-loading" ng-show="!has_no_more && loading_tasks"></div>
+                        </div>
+
+                    </div>
+                </div>
+                </dd>
+            </dl>
+
+
+        </div>
+    </div>
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>

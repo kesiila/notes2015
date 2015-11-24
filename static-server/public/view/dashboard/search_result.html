@@ -1,0 +1,211 @@
+<div class="layout_content">
+
+
+	<div class="layout_content_main no_sidebar height-noheader">
+		<div class="mod_navbar">
+			<div class="title">
+				<h3>
+					<i class="icon-search mr_10"></i>搜索结果
+				</h3>
+			</div>
+			<div class="main">
+				<div class="pull-right"></div>
+			</div>
+		</div>
+		<div class="rightpanel-wrapper" ng-show="global.loading_done">
+
+			<div class="height-nonav seach-panel task-list-panel" wt-scroll>
+
+				<dl class="frame" data-minheight="160">
+					<div class="search">
+						<!--                         <div class="checkbox">
+                            <label>
+                                <input ng-model="is_hide_archived" type="checkbox"> 隐藏归档活动
+                            </label>
+                        </div>
+ -->
+						<div class="input-group" wt-enter="js_search()">
+							<input type="text" ng-model="keywords"
+								class="form-control col-lg-6" /> <span class="input-group-btn">
+								<button class="btn btn-success" type="button"
+									data-ng-click="js_search()">搜索</button>
+							</span>
+						</div>
+					</div>
+					<dt>
+
+						<ul class="tabs">
+							<li class="menu"><a
+								ng-class="{true: 'active'}[current_type=='all']"
+								href="javascript:;" ng-click="js_filter_result('all')"> 全部 </a>
+							</li>
+							<li class="menu"><a
+								ng-class="{true: 'active'}[current_type == 'task']"
+								href="javascript:;" ng-click="js_filter_result('task')"> 活动
+							</a></li>
+<!-- 							<li class="menu"><a
+								ng-class="{true: 'active'}[current_type == 'mail']"
+								href="javascript:;" ng-click="js_filter_result('mail')"> 邮件
+							</a></li>
+							<li class="menu"><a
+								ng-class="{true: 'active'}[current_type == 'template']"
+								href="javascript:;" ng-click="js_filter_result('template')">
+									模板 </a></li>
+							<li class="menu"><a
+								ng-class="{true: 'active'}[current_type == 'post']"
+								href="javascript:;" ng-click="js_filter_result('post')"> 问答
+							</a></li>
+							<li class="menu"><a
+								ng-class="{true: 'active'}[current_type == 'file']"
+								href="javascript:;" ng-click="js_filter_result('file')"> 文件
+							</a></li>
+ -->							<!--                     <li class="menu" >
+                        <a ng-class="{true: 'active'}[current_type == 'page']" href="javascript:;" ng-click="js_filter_result('page')">
+                            文档
+                        </a>
+                    </li>
+ -->
+						</ul>
+
+					</dt>
+					<dd>
+						<div class="empty-panel height-nonav"
+							ng-show="show_empty && !loading_result && global.loading_done"
+							ng-cloak>
+							<i class="icon-search"></i><br /> <span>没有搜索结果</span>
+						</div>
+						<div class="part-loading" data-ng-show="loading_result"></div>
+						<div class="group-list"
+							data-ng-hide="loading_result || show_empty">
+							<div class="group-item"
+								data-ng-show="tasks.length > 0 && (current_type == 'all' || current_type == 'task')">
+								<div class="group-header">
+									<span>活动</span> <span class="badge ml_20">{{ {true:
+										(tasks | filter: {archived:0}).length, false:
+										tasks.length}[!!is_hide_archived] }}</span>
+								</div>
+								<div class="group-tasks-list">
+									<div class="group-task-item slide-trigger"
+										ng-click="locator.to_task(task.pid, task.tid, true)"
+										ng-repeat="task in tasks"
+										ng-hide="task.archived == 1 && !!is_hide_archived">
+										<div class="task-main">
+											<a href="javascript:;" class="task-check"> <i
+												ng-class="{0: 'icon-check-empty', 1: 'icon-check-sign'}[task.completed]"></i>
+
+											</a> <span class="task-title"
+												ng-bind-html="task.name | highlight:keywords:caseSensitive"></span><span
+												class="task-title"
+												ng-bind-html="task.company | highlight:keywords:caseSensitive"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="group-item"
+								data-ng-show="files.length > 0 && (current_type == 'all' || current_type == 'file')">
+								<div class="group-header">
+									<span>文件</span> <span class="badge ml_20">{{files.length}}</span>
+								</div>
+								<div class="group-tasks-list">
+									<div class="group-task-item slide-trigger"
+										ng-click="js_show_file(file)" ng-repeat="file in files">
+										<div class="task-main">
+											<a href="javascript:;" class="task-check"> <i
+												ng-class="{true:'icon-file',false:'icon-folder-close-alt'}[(file.type | isFile)]"></i>
+
+											</a> <span class="task-title"> <span
+												ng-bind-html="file.name | highlight:keywords:caseSensitive"></span>
+												<span ng-if="!(file.type | isFile)">{{file.project_name}}</span>
+											</span>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="group-item"
+								data-ng-show="posts.length > 0 && (current_type == 'all' || current_type == 'post')">
+								<div class="group-header">
+									<span>问答</span> <span class="badge ml_20">{{posts.length}}</span>
+								</div>
+								<div class="group-tasks-list">
+									<div class="group-task-item slide-trigger"
+										ng-click="locator.to_post(post.pid, post.post_id, true)"
+										ng-repeat="post in posts">
+										<div class="task-main">
+											<a href="javascript:;" class="task-check"> <i
+												class="icon-list-alt"></i>
+											</a> <span class="task-title"
+												ng-bind-html-unsafe="post.name | highlight:keywords:caseSensitive"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="group-item"
+								data-ng-show="templates.length > 0 && (current_type == 'all' || current_type == 'template')">
+								<div class="group-header">
+									<span>模板</span> <span class="badge ml_20">{{templates.length}}</span>
+								</div>
+								<div class="group-tasks-list">
+									<div class="group-task-item slide-trigger"
+										ng-click="locator.to_template(template.pid, template.template_id, true)"
+										ng-repeat="template in templates">
+										<div class="task-main">
+											<a href="javascript:;" class="task-check"> <i
+												class="icon-list-alt"></i>
+											</a> <span class="task-title"
+												ng-bind-html-unsafe="template.name | highlight:keywords:caseSensitive"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="group-item"
+								data-ng-show="pages.length > 0 && (current_type == 'all' || current_type == 'page')">
+								<div class="group-header">
+									<span>文档</span> <span class="badge ml_20">{{pages.length}}</span>
+								</div>
+								<div class="group-tasks-list">
+									<div class="group-task-item slide-trigger"
+										ng-click="locator.to_page(page.pid, page.page_id, true)"
+										ng-repeat="page in pages">
+										<div class="task-main">
+											<a href="javascript:;" class="task-check"> <i
+												class="icon-file-text-alt"></i>
+											</a> <span class="task-title"
+												ng-bind-html-unsafe="page.name | highlight:keywords:caseSensitive"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="group-item"
+								data-ng-show="mails.length > 0 && (current_type == 'all' || current_type == 'mail')">
+								<div class="group-header">
+									<span>邮件</span> <span class="badge ml_20">{{mails.length}}</span>
+								</div>
+								<div class="group-tasks-list">
+									<div class="group-task-item slide-trigger"
+										ng-click="locator.to_mail(mail.mail_id)"
+										ng-repeat="mail in mails">
+										<div class="task-main">
+											<a href="javascript:;" class="task-check"> <i
+												class="icon-envelope-alt"></i>
+											</a> <span class="task-title"
+												ng-bind-html-unsafe="mail.subject | highlight:keywords:caseSensitive"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</dd>
+				</dl>
+
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+
+
+<div class="layout_content">
+    <div class="layout_content_sidebar height-noheader">
+        <ng-include src="'/view/team/team_admin_sidebar.html'"></ng-include>
+    </div>
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-cogs mr_10"></i>团队设置</h3>
+                <span class="color_gray ml_15">{{team.name}}</span>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+
+                </div>
+            </div>
+        </div>
+        <div class="center-panel-container" data-ng-show="team">
+            <div class="panel-section">
+                <div class="center-box normal-box">
+                    <i class="center-box-icon icon-gift"></i>
+                    <h5>使用代金券充值</h5>
+                    <input wt-enter="js_redeem_coupon()" wt-focus-event="js_redeem_coupon_focus()"
+                           ng-model="coupon_code"
+                           type="text" class="form-control" placeholder="请输入代金券序列号"/>
+                    <p class="alert alert-danger" data-ng-show="redeem_coupon_error.length > 0">
+                        <i class="icon-remove-sign"></i> {{redeem_coupon_error}}
+                    </p>
+                    <button class="btn btn-success btn-block" ng-click="js_redeem_coupon()"
+                            data-loading-text="正在充值..."
+                            loading-status="is_redeeming">确认充值
+                    </button>
+                    <span class="tips">如需帮助，请拨打 010-84787492 联系我们</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="explore-page" ng-show="">
+    <div class="left">
+        <div class="left-nav box-shadow" style="padding:10px 0px">
+            <h3 class="pl_10">
+                <span ng-class="{true:'active'}[vm.current_tab == 'cloud']" ng-click="vm.showList('cloud')"> <a
+                        href="javascript:;">标签云</a></span>
+                <span ng-class="{true:'active'}[vm.current_tab == 'list']" ng-click="vm.showList('list')">
+                    <a href="javascript:;">标签列表</a>
+                </span>
+            </h3>
+
+            <form>
+                <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+                <div class="search">
+                    <input wt-enter="tagclick({tagName:vm.tagName})" ng-model="vm.tagName"
+                           typeahead="state for state in vm.tags | filter:$viewValue | limitTo:8" placeholder="查找tag"
+                           type="text">
+                    <button>
+                        <i class="icon-search" ng-click="tagclick({tagName:vm.tagName})"></i>
+                    </button>
+                </div>
+            </form>
+            <div id="discovery_hot_tags" ng-show="vm.current_tab == 'cloud'">
+                <ul class="list-inline" style="margin:0 10px 10px 20px">
+                    <li ng-repeat="tag in tags" ng-click="tagclick({tagName:tag.name})">
+                        <a href="javascript:;" class="{{ tag.size }}">{{ tag.name |abbrevition:20}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="vm.current_tab == 'list'">
+                <ul style="margin:0 10px 10px 20px">
+                    <li ng-repeat="tag in tags" ng-click="tagclick({tagName:tag.name})">
+                        <a href="javascript:;">{{ tag.name |abbrevition:24}}
+                            <span class="pull-right ai-red">({{ tag.count }})</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

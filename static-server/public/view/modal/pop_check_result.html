@@ -1,0 +1,31 @@
+<div class="check_result">
+    <div class="check_header">
+        <h4>检测结果</h4>
+        <i class="pull-right icon-close cursor" style="margin-top: 5px;margin-right: 15px;color: #fff;font-size: 20px" ng-click="close()">
+        </i>
+    </div>
+    <div class="check_body">
+        <div class="check_body__header">
+            <div class="check_body__title">本次检测内容的垃圾指数为:<span style="color:#d84c31;font-size: 24px;padding-left: 5px">{{totalScore}}</span></div>
+            <div class="check_second__title">
+                <span>（垃圾指数越高，邮件进入垃圾箱的几率就越大）</span>
+            </div>
+        </div>
+        <div class="check_body__ul">
+            <ul>
+                <li class="row">
+                    <div class="words col-sm-4 text-center">敏感词</div>
+                    <div class="counts col-sm-4 text-center">出现次数</div>
+                    <div class="weight col-sm-4 text-center">敏感词评分</div>
+                </li>
+                <li class="row" ng-repeat="res in results">
+                    <div class="words col-sm-4 text-center">{{ res.key}}</div>
+                    <div class="counts col-sm-4 text-center">{{res.count}} </div>
+                    <div class="weight col-sm-4 text-center" style="color:#d84c31">{{ res.weight}}</div>
+                </li>
+            </ul>
+        </div>
+        <p style="  text-align: center;font-size: 12px">请根据以上的检测结果修改你的邮件标题或者内容，
+            <a href class="show_underline" ng-click="sensitiveWord()" style=" color: #257db9;display: inline" >修改方法看这里</a></p>
+    </div>
+</div>

@@ -1,0 +1,301 @@
+<div class="layout_content">
+<div class="layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title">
+        <h3><i class="icon-user mr_10"></i>帐户设置</h3>
+    </div>
+    <div class="main">
+        <div class="pull-right">
+
+        </div>
+    </div>
+</div>
+
+<div class="center-panel-container height-nonav" wt-scroll ng-show="global.loading_done">
+<dl class="frame" data-minheight="160">
+<dt>
+    <!--<span class="title">-->
+    <!--基本设置-->
+    <!--</span>-->
+    <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+
+</dt>
+<dd>
+<div data-ng-show="part_loading_done">
+<!--<div class="panel-section">-->
+<!--<p>-->
+<!--<wt-avatar member="global.me" size="80" wt-disable-drag class="mr_15"></wt-avatar>-->
+<!--你可以选择png/jpg图片（180*180）作为头像-->
+<!--</p>-->
+<!--<form name="file_upload" action="{{action_url}}"-->
+<!--method="POST" enctype="multipart/form-data"-->
+<!--data-ng-app="fa" data-file-upload="avatar_upload_option"-->
+<!--class="help-inline p_0 m_0 w_300">-->
+<!--<span class="fileinput-button btn-local-upload mr_15 w_300">-->
+<!--<span class="btn w_120">-->
+<!--<span ng-show="!upload_enabled"><i-->
+<!--class="icon-spinner icon-spin icon-large"></i> 上传中</span>-->
+<!--<span ng-show="upload_enabled">修改头像<input type="file" name="files[]"-->
+<!--title="上传新头像"/></span>-->
+<!--</span>-->
+<!--</span>-->
+<!--</form>-->
+<!--<hr/>-->
+<!--</div>-->
+<div class="panel-section">
+    <h4>修改个人资料</h4>
+</div>
+<div class="panel-section">
+
+    <form name="user_info_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+          class="form-horizontal wt-form w_660"
+          novalidate>
+        <!--<div class="popbox-body pb_0">-->
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0">昵称：</label>
+
+            <div class="col-xs-10">
+                <input type="text" class="form-control" ng-model="display_name" placeholder="姓名" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0">所属公司/SOHO：</label>
+
+            <div class="col-xs-10">
+                <input type="text" class="form-control" ng-model="companyName" placeholder="所属公司/SOHO" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0"></label>
+
+            <div class="col-xs-10">
+                <button ng-disabled="!display_name || !companyName || (display_name == user_info.display_name && companyName == user_info.companyName)"
+                        class="btn btn-success mr_15" ng-click="js_user_update()"
+                        loading-status="is_updating" data-loading-text="保存中...">保存
+                </button>
+                <!--<button ng-click="js_step(1)" class="btn">取消</button>-->
+            </div>
+        </div>
+        <!--</div>-->
+    </form>
+    <hr/>
+</div>
+
+<div class="panel-section">
+    <h4>选择所在行业</h4>
+</div>
+<div class="panel-section">
+
+    <form name="user_trade_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+          class="form-horizontal wt-form w_660"
+          novalidate>
+        <!--<div class="popbox-body pb_0">-->
+
+        <div class="form-group">
+
+            <label class="col-xs-2 control-label p_0">所在行业：</label>
+
+            <div class="col-xs-10">
+                <ul>
+                    <li>
+                        <wt-cascading flag="flag" first="currentMainIndustryName"
+                                      firstkey="currentMainIndustryCode"
+                                      second="currentSubIndustryName"
+                                      secondkey="currentSubIndustryCode"
+                                      source="json/industry.json"
+                                ></wt-cascading>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0"></label>
+
+            <div class="col-xs-10">
+                <button ng-disabled="!currentMainIndustryCode || (currentMainIndustryCode == user_info.f_tradecode && currentSubIndustryCode == user_info.s_tradeCode)"
+                        ng-click="user_change_trade()" class="btn btn-success mr_15"
+                        loading-status="is_updating" data-loading-text="保存中...">保存
+                </button>
+            </div>
+        </div>
+        <!--</div>-->
+    </form>
+    <hr/>
+</div>
+
+<div class="panel-section">
+    <h4>修改密码</h4>
+</div>
+<div class="panel-section">
+    <form name="user_pwd_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+          class="form-horizontal wt-form w_660" novalidate>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0">原密码：</label>
+
+            <div class="col-xs-10">
+                <input ng-change="clearPwdErr()" type="password" class="form-control" ng-model="oddPwd"
+                       placeholder="原密码" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0">新密码：</label>
+
+            <div class="col-xs-10">
+                <input ng-change="clearPwdErr()" ng-blur="checkTPwd()" type="password" class="form-control"
+                       ng-model="pwd1" placeholder="请输入新密码" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0">重复密码：</label>
+
+            <div class="col-xs-10">
+                <input ng-change="clearPwdErr()" ng-blur="checkTPwd()" type="password" class="form-control"
+                       ng-model="pwd2" placeholder="再次输入新密码"/>
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="pwd_err">
+            <label class="col-xs-2 control-label p_0"></label>
+
+            <div class="col-xs-10">
+                <div class="alert alert-danger mb_0">
+                    <i class="icon-remove-sign"></i> {{pwd_err}}
+                </div>
+            </div>
+        </div>
+        <div class="form-group" ng-show="change_pwd_success">
+            <label class="col-xs-2 control-label p_0"></label>
+
+            <div class="col-xs-10">
+                <div class="alert alert-success mb_0">
+                    <i class="icon-ok mr_5"></i> 修改密码成功。
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0"></label>
+
+            <div class="col-xs-10">
+                <button ng-disabled="!oddPwd || !pwd1 || !pwd2 || pwd_err"
+                        ng-click="user_change_pwd()"
+                        class="btn btn-success mr_15" data-loading-text="保存中..."
+                        loading-status="is_changing_pwd">保存
+                </button>
+            </div>
+        </div>
+    </form>
+    <hr/>
+</div>
+
+
+<div class="panel-section">
+    <h4>配置邮件地址</h4>
+</div>
+
+<div class="panel-section">
+
+    <form name="user_email_form" class="form-horizontal wt-form w_660" novalidate>
+
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0">注册邮箱地址：</label>
+
+            <div class="col-xs-10">
+                <table width="100%">
+                    <tr>
+                        <td align="left" width="100%">
+                            <input ng-model="email" type="email" style="width:100%;" class="form-control"
+                                   placeholder="请输入注册邮箱地址，需注意输入格式" required/>
+                        </td>
+                        <!--<td align="right">-->
+                        <!--<input ng-disabled="!email" style="margin-left:20px;" class="btn btn-success mr_15" type="button" value="发送测试邮件">-->
+                        <!--</td>-->
+                        <td align="right">
+                            <button ng-click="user_change_email(1)" ng-disabled="!email || (email == user_info.email)"
+                                    style="margin-left:20px;" class="btn btn-success mr_15" loading-status="is_updating"
+                                    data-loading-text="保存中...">
+                                保存
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-2 control-label p_0">邮件回复地址：</label>
+
+            <div class="col-xs-10">
+                <table width="100%">
+                    <tr>
+                        <td align="left" width="100%">
+                            <input ng-model="reply_email" type="email" style="width:100%;" class="form-control"
+                                   placeholder="请输入邮件回复地址，需注意输入格式" required/></td>
+                        <!--<td align="right">-->
+                        <!--<input ng-disabled="!reply_email" style="margin-left:20px;" class="btn btn-success mr_15" type="button" value="发送测试邮件">-->
+                        <!--</td>-->
+                        <td align="right">
+                            <button ng-click="user_change_email(0)"
+                                    ng-disabled="!reply_email || (reply_email == user_info.reply_email)"
+                                    style="margin-left:20px;" class="btn btn-success mr_15"
+                                    loading-status="is_updating" data-loading-text="保存中...">
+                                保存
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </form>
+    <hr/>
+</div>
+
+<!--<div>-->
+<!--<div class="panel-section">-->
+<!--<h4>修改邮箱地址</h4>-->
+<!--</div>-->
+<!--<div class="panel-section">-->
+
+<!--</div>-->
+
+<!--<div class="panel-section" ng-if="email_step == 3">-->
+<!--<form name="user_new_email_form" wt-form-validate="{blurTrig:false,showMsg:false}"-->
+<!--class="wt-form w_660" novalidate>-->
+<!--<p>当前邮箱地址为：{{global.me.email}}</p>-->
+
+<!--<input name="new_email" autofocus="" type="email" class="form-control"-->
+<!--ng-model="new_email"-->
+<!--placeholder="新邮箱地址"-->
+<!--required-->
+<!--wt-remote-unique-check="{url:'/api/user/email/check?email={{new_email}}'}"/></br>-->
+
+<!--<div class="alert alert-danger mt_10"-->
+<!--ng-show="user_new_email_form.$errors.length > 0">-->
+<!--<i class="icon-remove-sign"></i> {{user_new_email_form.$errors[0]}}-->
+<!--</div>-->
+
+<!--<div class="alert alert-info" data-ng-hide="send_success">-->
+<!--<i class="icon-info-sign mr_5"></i> 系统会发送确认邮件到您的新邮箱中，请查收后点击邮件中的地址完成修改。-->
+<!--</div>-->
+<!--<div class="alert alert-success" data-ng-show="send_success">-->
+<!--<i class="icon-ok mr_5"></i> 系统已经成功发送邮件到您的新邮箱中，请查收后点击邮件中的地址完成修改。-->
+<!--</div>-->
+<!--<button wt-form-submit="js_user_change_email(user_new_email_form, new_email)"-->
+<!--class="btn btn-success mr_15" data-loading-text="发送中..."-->
+<!--loading-status="is_sending_email">发送确认邮件-->
+<!--</button>-->
+<!--<button type="button" data-ng-click="js_change_email_step(1)"-->
+<!--class="btn mr_15">取消-->
+<!--</button>-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</form>-->
+
+<!--</div>-->
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>

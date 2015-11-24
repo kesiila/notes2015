@@ -1,0 +1,12 @@
+{
+    "data":
+        [
+            {"code" : "user","cnName" : "一般用户","children":[]},
+            {"code" : "enterprise","cnName" : "机构用户","children":[]},
+            {"code" : "system","cnName" : "系统用户","children":[]},
+            {"code" : "administrator","cnName" : "管理员","children":[]}
+        ],
+	"label":"账号类型",
+	"version":"1.0",
+	"copyright":"@2014 上海思蓄力教育科技有限公司"
+}

@@ -1,0 +1,235 @@
+<div class="layout_content prj_panel">
+	<div class="layout_content_main height-noheader">
+		<div class="mod_navbar">
+			<ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+			<div class="main">
+				<div class="toolbar_panel pull-right" ng-show="global.loading_done">
+					<button class="btn dropdown-toggle btn-danger mr_15" ng-click="js_show_add_mail()"   
+						wt-permission="[permission,project.info.curr_role,1,2]">新建邮件
+					</button>
+					<!--<div class="btn-group" ng-controller="mail_filter_ctrl">-->
+						<!--<button class="btn">-->
+							<!--<i class="icon-sort-by-alphabet-alt"></i>-->
+						<!--</button>-->
+						<!--<a class="btn dropdown-toggle mr_15" data-toggle="dropdown"-->
+							<!--href="javascript:;"><i class="icon-caret-down"></i></a>-->
+						<!--<ul class="dropdown-menu pull-right">-->
+							<!--<li ng-repeat="item in filter_items"><a href=""-->
+								<!--ng-click="js_select_filter(item)"> <i-->
+									<!--class="{{ {true:'color_gray icon-ok',false:'icon-xx'}[item.is_selected]}}"></i>{{-->
+									<!--item.name }}-->
+							<!--</a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+<!-- 					<button class="btn js-popbox" data-placement="bottom"
+						data-align="right" ng-click="js_show_more_menu($event)"
+						wt-permission="[permission,project.info.curr_role,1,2]">
+						更多&nbsp;<i class="icon-caret-down"></i>
+					</button>
+ -->					<button class="btn ptb_11" ng-click="js_right_sidebar_toggle($event)">
+						<i ng-class="{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]"></i>
+					</button>
+
+				</div>
+			</div>
+		</div>
+
+        <div class="rightpanel-wrapper">
+        <div class="height-nonav" wt-scroll>
+
+            <div wt-slide-show="show_add_mail"
+             slide-change="js_slide_change(value)">
+                <ng-include src="'/view/project/mail/add_or_edit_mail.html'"></ng-include>
+            </div>
+        <dl class="frame" data-minheight="160">
+            <!--<dt>
+                <span class="title">邮件</span>
+            <ul class="tabs">
+                <li><a data-ng-class="{'active':current_tab == 0}"
+                       href="javascript:;" ng-click="js_change_tab(0)">全部</a></li>
+                <li><a data-ng-class="{'active':current_tab == 1}"
+                       href="javascript:;" ng-click="js_change_tab(1)">已打开的</a></li>
+                <li><a data-ng-class="{'active':current_tab == 2}"
+                       href="javascript:;" ng-click="js_change_tab(2)">已回复的</a></li>
+            </ul>
+            </dt>
+            <dd class="pt_0">
+                <div class="empty-panel"
+                     ng-show="part_loading_done && mails != null && mails.length == 0 && !show_add_mail_empty">
+                    <i class="icon-list-alt"></i><br /> <span>还没有任何邮件</span>
+                </div>
+
+                <div class="mail-panel">
+                    <div class="mail-list">
+                        <div class="wt-row right_click_trigger mail-item js-popbox"
+                             data-placement="bottom" data-align="left"
+                             ng-class="{'border-notop':$index == 0,'active':mail.mail_id == locator.show_detail_mail_id}"
+                             ng-repeat="mail in mails" mail-id="{{mail.mail_id}}">
+
+                            <div class="column column-owner">
+                                <wt-avatar member="mail.owner" size="30" name="true"
+                                           class="mail-avatar"></wt-avatar>
+                            </div>
+
+                            <div class="column column-main slide-trigger"
+                                 ng-click="locator.to_email(mail.pid, mail.mail_id, false)">
+                                <h4>
+                                    <a class="name" href="javascript:;">{{ mail.name }}<i
+                                            class="icon-paper-clip" ng-show="mail.attachments_count > 0"></i></a>
+                                </h4>
+									<span class="text-muted pull-right" title="收信人">{{
+										mail.to }} </span>
+                            </div>
+                            <div class="column column-date">
+                                <span class="date">{{mail.create_date | fromNow}}</span>
+                            </div>
+                            <div class="column column-meta">
+                                <a href="javascript:;" class="mail-action js-popbox"
+                                   wt-permission="[permission,project.info.curr_role,1,2]"
+                                   ng-click="js_show_mail_menu($event,mail)"
+                                   data-placement="left" data-align="auto"> <i
+                                        ng-class="{true:'icon-play-circle',false:'icon-xx'}[mail.owner.uid == global.me.uid]"
+                                        class="icon-play-circle"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    &lt;!&ndash;<div class="loading-more-panel">
+                        <div class="part-loading" data-ng-hide="part_loading_done">
+                        </div>
+                        <button class="btn" ng-show="has_more && part_loading_done"
+                                wt-tracker="Mail Page|Main|Load More"
+                                ng-click="js_load_more($event);">加载更多</button>
+                    </div>&ndash;&gt;
+                </div>
+            </dd>-->
+            <dt>
+                <!--<span class="title"  wt-show="mails.length >0">
+                     <a href="javascript:;" class="checkbox" style="padding-left: 30px; margin-right: -24px;">
+                        <label>
+                              <input ng-click="toggleAll(mails)" title="全选" ng-model="selectAll" type="checkbox"/>
+                        </label>
+                     </a>
+                </span>-->
+                <span class="title">邮件追踪</span>
+                <ul class="tabs">
+                    <li>
+                        <a href="javascript:;" class="cursor pull-left" ng-class="{'active':current_tab==0}"
+                           ng-click="js_change_tab(0)">全部&nbsp;<span ng-show="mails_count.allCount>0">({{mails_count.allCount}})</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="cursor pull-left" ng-class="{'active':current_tab==1}"
+                           ng-click="js_change_tab(1)">已打开的&nbsp;<span ng-show="mails_count.openedCount>0">({{mails_count.openedCount}})</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="cursor pull-left"  ng-class="{'active':current_tab==2}"
+                           ng-click="js_change_tab(2)">未打开的&nbsp;<span ng-show="mails_count.notOpenedCount>0">({{mails_count.notOpenedCount}})</span>
+                        </a>
+                    </li>
+                </ul>
+            </dt>
+
+        <dd class="task-list-panel pt_0">
+            <div class="load-more part-loading" ng-show="!part_loading_done"></div>
+            <div class="empty-panel noborder"
+                 ng-show="part_loading_done && mails.length == 0">
+                <i class="icon-envelope"></i> <br>
+                <h4>还没有任何邮件!</h4>
+            </div>
+            <div class="task-list"  ng-show="part_loading_done && mails.length > 0"id="mail-list">
+                <div class="task-item wt-row" ng-repeat="mail in mails"
+                     ng-click="locator.to_email(mail.pid, mail.mail_id, false)"
+                     ng-class="{'active':mail.mail_id==locator.show_detail_mail_id}">
+
+                    <div class="task-item-inner slide-trigger">
+                        <!--<div class="column column-read">
+                            <div>
+                                <a href="javascript:;" class="checkbox" style="padding-left: 0px">
+                                    <label>
+                                        <input	ng-click="toggle(mail,$event)" ng-model="mail.checked" type="checkbox" />
+                                    </label>
+                                </a>
+                            </div>
+                        </div>-->
+
+                        <div class="column column-action">
+                            <h4>
+                                <span title="邮件状态">{{mail.mailStatus}}&nbsp;|&nbsp;<span class="font-14">{{mail.lastUpdateTime | timefullFormatZHCN}}</span></span>
+                            </h4>
+                        </div>
+
+                        <div class="column column-action cursor" ng-mouseleave="mail_to($index)">
+                            <div ng-mouseover="mail_to($index,mail.cid)">
+                                <h4 style="font-size: 14px;">{{mail.to}}</h4>
+                                <div ng-mouseleave="mail_to($index)" id="customer{{$index}}" class="mail-to box-shadow hide">
+                                    <div style="padding:2px 5px;;border-bottom: 1px solid #E1E1E1">
+                                        <p>国家：{{entity.countryCnName}}</p>
+                                        <p>公司：{{entity.company}}</p>
+                                        <p>联系人：{{entity.name}}</p>
+                                    </div>
+                                    <div align="center">
+                                        <a href="javascript:;" ng-click="mail_list(mail.cid,'to',$event)" title="历史邮件">
+                                            该活动所有邮件
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="column">-->
+                        <!--<h4><span class="small" title="联系人:{{task.name}}" ng-show="task.name.length>0">{{task.name|abbrevition:12}}</span>-->
+                        <!--</h4>-->
+                        <!--</div>-->
+
+                        <div class="column column-action cursor" ng-mouseleave="mail_template($index)">
+                            <div ng-mouseover="mail_template($index,mail.template)">
+                                <h4 style="font-size: 14px;">{{mail.name}}</h4>
+                                <div ng-mouseleave="mail_template($index)" id="template{{$index}}" class="mail-to box-shadow hide">
+                                    <div style="padding:2px 5px;;border-bottom: 1px solid #E1E1E1">
+                                        <p>模板名称：{{entity.name}}</p>
+                                    </div>
+
+                                    <div align="center">
+                                        <a href="javascript:;" ng-click="mail_list(mail.template,'template',$event)" title="历史邮件">
+                                            该模板所有邮件
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column column-datetime hidden-sm hidden-xs">
+                            <div  class="pt_10 text-right" style="line-height: 15px;">
+                                <span title="发送时间"  class="text-right pull-right text-ellipsis">{{mail.create_date | timefullFormatZHCN}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix pager-wapper" ng-show="part_loading_done && numPages>1">
+                <div class="category-pager pull-right">
+                    <pagination ng-model="currentPage" total-items="data_count"
+                                items-per-page="queryCondition.size" max-size="5" rotate="true"
+                                direction-links="true" previous-text="上一页" next-text="下一页"
+                                boundary-links="true" first-text="首页" last-text="尾页"
+                                num-pages="numPages" ng-show="numPages>1"></pagination>
+                </div>
+            </div>
+        </dd>
+
+
+        </dl>
+
+        </div>
+        </div>
+
+    </div>
+	<div class="layout_right_sidebar height-noheader">
+		<ng-include src="'/view/project/sidebar/sidebar.html'"></ng-include>
+	</div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

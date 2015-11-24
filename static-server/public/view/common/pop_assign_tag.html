@@ -1,0 +1,18 @@
+<div class="cascading-wapper">
+	<div class="cascading" style="max-height: 300px; padding-right: 0px"
+		wt-scroll="">
+			<ul>
+				<li ng-repeat="tag in tags"
+					ng-if="tagtype==tag.type"><a href="javascript:;"
+					class="js-toggle-label-filter" ng-click="js_toggle_tag(tag)"> <span
+						class="task-label blue-label text-center"> <i
+							ng-class="{0: 'icon-xx', 1: 'icon-ok'}[tag.assigned]"
+							class="icon-white" style="line-height: 24px;"></i>
+					</span> <span class="label-name">{{tag.cnName}}</span>
+				</a></li>
+			</ul>
+	</div>
+</div>
+
+
+

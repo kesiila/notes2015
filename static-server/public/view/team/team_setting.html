@@ -1,0 +1,49 @@
+<div class="layout_content" ng-hide="permission  == 64">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-sitemap mr_10"></i>{{team.name}}</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+                </div>
+            </div>
+        </div>
+        <div class="rightpanel-wrapper height-nonav" wt-scroll>
+
+            <div class="center-panel-container" data-ng-show="global.loading_done">
+                <dl class="frame" data-minheight="160">
+                    <dt>
+                        <span class="title">退出团队</span>
+                    </dt>
+                    <dd>
+                        <div class="single-panel-section">
+                            <div class="single-panel-section-content">
+                                <form class="wt-form" name="quit_team_form" wt-form-validate="{blurTrig:false,showMsg:false}" style="margin:0">
+                                    <div class="form-group">
+                                        该操作不可撤销，退出团队后，您将不能访问该团队的一切数据，请谨慎操作，输入团队完整名称确认。
+                                    </div>
+                                    <div class="form-group alert alert-warning" data-ng-show="unique_admin_prjs.length > 0">
+                                        您在当前团队中有{{unique_admin_prjs.length}}个项目是唯一负责人，如果您退出当前团队，这些项目将无法添加新成员，请谨慎操作。
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="quit_team_input_name" type="text" class="form-control w_360 help-block" ng-model="temp_name"
+                                               placeholder="输入团队完整名称" wt-enter="js_quit_team(quit_team_form,name, temp_name)">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-danger float_left" ng-disabled="temp_name != name"
+                                                wt-form-submit="js_quit_team(quit_team_form,name, temp_name)" data-loading-text="退出中..."
+                                                loading-status="is_quiting">确认并退出团队
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'/view/team/team_not_found.html'"></ng-include>

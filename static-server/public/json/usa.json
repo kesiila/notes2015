@@ -1,0 +1,1673 @@
+{
+  "data": [
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "伯明翰",
+          "code": "301001001",
+          "briefCode": "Birmingham",
+          "enName": "Birmingham",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "蒙哥马利",
+          "code": "301001002",
+          "briefCode": "Montgomery",
+          "enName": "Montgomery",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "亨次维尔",
+          "code": "301001003",
+          "briefCode": "Huntsville",
+          "enName": "Huntsville",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "土斯卡鲁沙",
+          "code": "301001004",
+          "briefCode": "Tuscaloosa",
+          "enName": "Tuscaloosa",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "木比耳",
+          "code": "301001005",
+          "briefCode": "Mobile",
+          "enName": "Mobile",
+          "type": ""
+        }
+      ],
+      "cnName": "亚拉巴马州",
+      "code": "301001",
+      "briefCode": "AL",
+      "enName": "Alabama",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "朱诺",
+          "code": "301002001",
+          "briefCode": "Juneau",
+          "enName": "Juneau",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "安克拉奇",
+          "code": "301002002",
+          "briefCode": "Anchorage",
+          "enName": "Anchorage",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "费尔班克斯",
+          "code": "301002003",
+          "briefCode": "Fairbanks",
+          "enName": "Fairbanks",
+          "type": ""
+        }
+      ],
+      "cnName": "阿拉斯加州",
+      "code": "301002",
+      "briefCode": "AK",
+      "enName": "Alaska",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "菲尼克斯",
+          "code": "301003001",
+          "briefCode": "Phoenix",
+          "enName": "Phoenix",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "吐桑",
+          "code": "301003002",
+          "briefCode": "Tucson",
+          "enName": "Tucson",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "孟沙",
+          "code": "301003003",
+          "briefCode": "Mesa",
+          "enName": "Mesa",
+          "type": ""
+        }
+      ],
+      "cnName": "亚利桑那州",
+      "code": "301003",
+      "briefCode": "AZ",
+      "enName": "Arizona",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "小石城",
+          "code": "301004001",
+          "briefCode": "Little Rock",
+          "enName": "Little Rock",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "菲页维尔",
+          "code": "301004002",
+          "briefCode": "Fayetteville",
+          "enName": "Fayetteville",
+          "type": ""
+        }
+      ],
+      "cnName": "阿肯色州",
+      "code": "301004",
+      "briefCode": "AR",
+      "enName": "Arkansas",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "萨克拉门托",
+          "code": "301005001",
+          "briefCode": "Sacramento",
+          "enName": "Sacramento",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "索诺马",
+          "code": "301005002",
+          "briefCode": "Sonoma",
+          "enName": "Sonoma",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "圣荷西",
+          "code": "301005003",
+          "briefCode": "San Jose",
+          "enName": "San Jose",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "洛杉矶",
+          "code": "301005004",
+          "briefCode": "Los Angeles",
+          "enName": "Los Angeles",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "圣地亚哥",
+          "code": "301005005",
+          "briefCode": "San Diego",
+          "enName": "San Diego",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "旧金山",
+          "code": "301005006",
+          "briefCode": "San Francisco",
+          "enName": "San Francisco",
+          "type": ""
+        }
+      ],
+      "cnName": "加利福尼亚州",
+      "code": "301005",
+      "briefCode": "CA",
+      "enName": "California",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "丹佛",
+          "code": "301006001",
+          "briefCode": "Denver",
+          "enName": "Denver",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "波尔德",
+          "code": "301006002",
+          "briefCode": "Boulder",
+          "enName": "Boulder",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "科罗拉多泉",
+          "code": "301006003",
+          "briefCode": "Clolrado Springs",
+          "enName": "Clolrado Springs",
+          "type": ""
+        }
+      ],
+      "cnName": "科罗拉多州",
+      "code": "301006",
+      "briefCode": "CO",
+      "enName": "Colorado",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "哈特福",
+          "code": "301007001",
+          "briefCode": "Hartford",
+          "enName": "Hartford",
+          "type": ""
+        }
+      ],
+      "cnName": "康涅狄格州",
+      "code": "301007",
+      "briefCode": "CT",
+      "enName": "Connecticut",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "多佛",
+          "code": "301008001",
+          "briefCode": "Dover",
+          "enName": "Dover",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "维明顿",
+          "code": "301008002",
+          "briefCode": "Wilmington",
+          "enName": "Wilmington",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "纽华克",
+          "code": "301008003",
+          "briefCode": "Newark",
+          "enName": "Newark",
+          "type": ""
+        }
+      ],
+      "cnName": "特拉华州",
+      "code": "301008",
+      "briefCode": "DE",
+      "enName": "Delaware",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "塔拉赫西",
+          "code": "301009001",
+          "briefCode": "Tallahassee",
+          "enName": "Tallahassee",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "坦帕",
+          "code": "301009002",
+          "briefCode": "Tampa",
+          "enName": "Tampa",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "杰克逊维尔",
+          "code": "301009003",
+          "briefCode": "Jacksonville",
+          "enName": "Jacksonville",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "迈阿密",
+          "code": "301009004",
+          "briefCode": "Miami",
+          "enName": "Miami",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "根斯维尔",
+          "code": "301009005",
+          "briefCode": "Gainesville",
+          "enName": "Gainesville",
+          "type": ""
+        }
+      ],
+      "cnName": "佛罗里达州",
+      "code": "301009",
+      "briefCode": "FL",
+      "enName": "Florida",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "亚特兰大",
+          "code": "301010001",
+          "briefCode": "Atlanta",
+          "enName": "Atlanta",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "哥伦布",
+          "code": "301010002",
+          "briefCode": "Columbus",
+          "enName": "Columbus",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "美昆",
+          "code": "301010003",
+          "briefCode": "Macon",
+          "enName": "Macon",
+          "type": ""
+        }
+      ],
+      "cnName": "乔治亚州",
+      "code": "301010",
+      "briefCode": "GA",
+      "enName": "Georgia",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "檀香山",
+          "code": "301011001",
+          "briefCode": "Honolulu",
+          "enName": "Honolulu",
+          "type": ""
+        }
+      ],
+      "cnName": "夏威夷州",
+      "code": "301011",
+      "briefCode": "HI",
+      "enName": "Hawaii",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "波夕",
+          "code": "301012001",
+          "briefCode": "Boise",
+          "enName": "Boise",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "波格太罗",
+          "code": "301012002",
+          "briefCode": "Pocatello",
+          "enName": "Pocatello",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "爱达荷泉",
+          "code": "301012003",
+          "briefCode": "Idaho Falls",
+          "enName": "Idaho Falls",
+          "type": ""
+        }
+      ],
+      "cnName": "爱达荷州",
+      "code": "301012",
+      "briefCode": "ID",
+      "enName": "Idaho",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "春田",
+          "code": "301013001",
+          "briefCode": "Springfield",
+          "enName": "Springfield",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "芝加哥",
+          "code": "301013002",
+          "briefCode": "Chicago",
+          "enName": "Chicago",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "洛克福特",
+          "code": "301013003",
+          "briefCode": "Rockford",
+          "enName": "Rockford",
+          "type": ""
+        }
+      ],
+      "cnName": "伊利诺伊州",
+      "code": "301013",
+      "briefCode": "IL",
+      "enName": "Illinois",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "印第安纳波利斯",
+          "code": "301014001",
+          "briefCode": "Indianapolis",
+          "enName": "Indianapolis",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "韦恩堡",
+          "code": "301014002",
+          "briefCode": "Fort Wayne",
+          "enName": "Fort Wayne",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "布降明顿",
+          "code": "301014003",
+          "briefCode": "Bloomington",
+          "enName": "Bloomington",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "拉法叶",
+          "code": "301014004",
+          "briefCode": "Lafayette",
+          "enName": "Lafayette",
+          "type": ""
+        }
+      ],
+      "cnName": "印第安那州",
+      "code": "301014",
+      "briefCode": "IN",
+      "enName": "Indiana",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "第蒙",
+          "code": "301015001",
+          "briefCode": "Des Moines",
+          "enName": "Des Moines",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "西达拉皮兹",
+          "code": "301015002",
+          "briefCode": "Cedar Rapids",
+          "enName": "Cedar Rapids",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "丹芬堡特",
+          "code": "301015003",
+          "briefCode": "Daven Port",
+          "enName": "Daven Port",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "衣阿华城",
+          "code": "301015004",
+          "briefCode": "Iowa City",
+          "enName": "Iowa City",
+          "type": ""
+        }
+      ],
+      "cnName": "衣阿华州",
+      "code": "301015",
+      "briefCode": "IA",
+      "enName": "Iowa",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "托皮卡",
+          "code": "301016001",
+          "briefCode": "Topeka",
+          "enName": "Topeka",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "维契托",
+          "code": "301016002",
+          "briefCode": "Wichita",
+          "enName": "Wichita",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "堪萨斯城",
+          "code": "301016003",
+          "briefCode": "Kansas City",
+          "enName": "Kansas City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "罗伦斯",
+          "code": "301016004",
+          "briefCode": "Lawrence",
+          "enName": "Lawrence",
+          "type": ""
+        }
+      ],
+      "cnName": "堪萨斯州",
+      "code": "301016",
+      "briefCode": "KS",
+      "enName": "Kansas",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "路易斯维尔",
+          "code": "301017001",
+          "briefCode": "Louisville",
+          "enName": "Louisville",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "雷克星敦",
+          "code": "301017002",
+          "briefCode": "Lexington",
+          "enName": "Lexington",
+          "type": ""
+        }
+      ],
+      "cnName": "肯塔基州",
+      "code": "301017",
+      "briefCode": "KY",
+      "enName": "Kentucky",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "新奥尔良",
+          "code": "301018001",
+          "briefCode": "New Orleans",
+          "enName": "New Orleans",
+          "type": ""
+        }
+      ],
+      "cnName": "路易斯安那州",
+      "code": "301018",
+      "briefCode": "LA",
+      "enName": "Louisiana",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "奥古斯塔",
+          "code": "301019001",
+          "briefCode": "Augusta",
+          "enName": "Augusta",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "波特兰",
+          "code": "301019002",
+          "briefCode": "Portland",
+          "enName": "Portland",
+          "type": ""
+        }
+      ],
+      "cnName": "缅因州",
+      "code": "301019",
+      "briefCode": "LA",
+      "enName": "Louisiana",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "亚那波里斯",
+          "code": "301020001",
+          "briefCode": "Annapolis",
+          "enName": "Annapolis",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "巴尔的摩",
+          "code": "301020002",
+          "briefCode": "Baltimore",
+          "enName": "Baltimore",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "洛克威尔",
+          "code": "301020003",
+          "briefCode": "Rockville",
+          "enName": "Rockville",
+          "type": ""
+        }
+      ],
+      "cnName": "马里兰州",
+      "code": "301020",
+      "briefCode": "MD",
+      "enName": "Maryland",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "波士顿",
+          "code": "301021001",
+          "briefCode": "Boston",
+          "enName": "Boston",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "伍斯特",
+          "code": "301021002",
+          "briefCode": "Worcester",
+          "enName": "Worcester",
+          "type": ""
+        }
+      ],
+      "cnName": "麻萨诸塞州",
+      "code": "301021",
+      "briefCode": "MA",
+      "enName": "Massachusetts",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "兰辛",
+          "code": "301022001",
+          "briefCode": "Lansing",
+          "enName": "Lansing",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "底特律",
+          "code": "301022002",
+          "briefCode": "Detroit",
+          "enName": "Detroit",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "大溪城",
+          "code": "301022003",
+          "briefCode": "Grand Rapids",
+          "enName": "Grand Rapids",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "林特",
+          "code": "301022004",
+          "briefCode": "flint",
+          "enName": "flint",
+          "type": ""
+        }
+      ],
+      "cnName": "密歇根州",
+      "code": "301022",
+      "briefCode": "MI",
+      "enName": "Michigan",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "圣保罗",
+          "code": "301023001",
+          "briefCode": "Saint Paul",
+          "enName": "Saint Paul",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "明尼阿波利斯",
+          "code": "301023002",
+          "briefCode": "Minneapolis",
+          "enName": "Minneapolis",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "杜鲁司",
+          "code": "301023003",
+          "briefCode": "Duluth",
+          "enName": "Duluth",
+          "type": ""
+        }
+      ],
+      "cnName": "明尼苏达州",
+      "code": "301023",
+      "briefCode": "MN",
+      "enName": "Minnesota",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "杰克逊",
+          "code": "301024001",
+          "briefCode": "Jackson",
+          "enName": "Jackson",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "密烈地安",
+          "code": "301024002",
+          "briefCode": "Meridian",
+          "enName": "Meridian",
+          "type": ""
+        }
+      ],
+      "cnName": "密西西比州",
+      "code": "301024",
+      "briefCode": "MS",
+      "enName": "Mississippi",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "杰佛逊城",
+          "code": "301025001",
+          "briefCode": "Jefferson City",
+          "enName": "Jefferson City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "圣路易斯",
+          "code": "301025002",
+          "briefCode": "Saint Louis",
+          "enName": "Saint Louis",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "堪萨斯城",
+          "code": "301025003",
+          "briefCode": "Kansas City",
+          "enName": "Kansas City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "洛拉",
+          "code": "301025004",
+          "briefCode": "Rolla",
+          "enName": "Rolla",
+          "type": ""
+        }
+      ],
+      "cnName": "密苏里州",
+      "code": "301025",
+      "briefCode": "MO",
+      "enName": "Missouri",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "赫勒拿",
+          "code": "301026001",
+          "briefCode": "Heldna",
+          "enName": "Heldna",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "比林斯",
+          "code": "301026002",
+          "briefCode": "Billings",
+          "enName": "Billings",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "密苏拉",
+          "code": "301026003",
+          "briefCode": "Missoula",
+          "enName": "Missoula",
+          "type": ""
+        }
+      ],
+      "cnName": "蒙大拿州",
+      "code": "301026",
+      "briefCode": "MT",
+      "enName": "Montana",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "林肯",
+          "code": "301027001",
+          "briefCode": "Lincoln",
+          "enName": "Lincoln",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "奥马哈",
+          "code": "301027002",
+          "briefCode": "Omaha",
+          "enName": "Omaha",
+          "type": ""
+        }
+      ],
+      "cnName": "内布拉斯加州",
+      "code": "301027",
+      "briefCode": "NE",
+      "enName": "Nebraska",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "喀孙城",
+          "code": "301028001",
+          "briefCode": "Carson City",
+          "enName": "Carson City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "拉斯维加斯",
+          "code": "301028002",
+          "briefCode": "Las Vegas",
+          "enName": "Las Vegas",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "雷诺",
+          "code": "301028003",
+          "briefCode": "Reno",
+          "enName": "Reno",
+          "type": ""
+        }
+      ],
+      "cnName": "内华达州",
+      "code": "301028",
+      "briefCode": "NV",
+      "enName": "Nevada",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "曼彻斯特",
+          "code": "301029001",
+          "briefCode": "Manchester",
+          "enName": "Manchester",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "南雪",
+          "code": "301029002",
+          "briefCode": "Nashua",
+          "enName": "Nashua",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "朴次茅斯",
+          "code": "301029003",
+          "briefCode": "Portsmouth",
+          "enName": "Portsmouth",
+          "type": ""
+        }
+      ],
+      "cnName": "新罕布什尔州",
+      "code": "301029",
+      "briefCode": "NH",
+      "enName": "New Hampshire",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "纽瓦克",
+          "code": "301030001",
+          "briefCode": "Newark",
+          "enName": "Newark",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "泽西市",
+          "code": "301030002",
+          "briefCode": "Jersey City",
+          "enName": "Jersey City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "大西洋城",
+          "code": "301030003",
+          "briefCode": "Atlantic City",
+          "enName": "Atlantic City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "依丽沙白",
+          "code": "301030004",
+          "briefCode": "Elizabeth",
+          "enName": "Elizabeth",
+          "type": ""
+        }
+      ],
+      "cnName": "新泽西州",
+      "code": "301030",
+      "briefCode": "NJ",
+      "enName": "New Jersey",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "圣塔非",
+          "code": "301031001",
+          "briefCode": "santaFe",
+          "enName": "santaFe",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "阿布奎基",
+          "code": "301031002",
+          "briefCode": "Albuquerque",
+          "enName": "Albuquerque",
+          "type": ""
+        }
+      ],
+      "cnName": "新墨西哥州",
+      "code": "301031",
+      "briefCode": "NM",
+      "enName": "New Mexico",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "奥尔巴尼",
+          "code": "301032001",
+          "briefCode": "Albany",
+          "enName": "Albany",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "布法罗",
+          "code": "301032002",
+          "briefCode": "Buffalo",
+          "enName": "Buffalo",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "长岛",
+          "code": "301032003",
+          "briefCode": "Long Island",
+          "enName": "Long Island",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "纽约",
+          "code": "301032004",
+          "briefCode": "New York City",
+          "enName": "New York City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "罗契斯特",
+          "code": "301032005",
+          "briefCode": "Rochester",
+          "enName": "Rochester",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "绮色佳",
+          "code": "301032006",
+          "briefCode": "Ithaca",
+          "enName": "Ithaca",
+          "type": ""
+        }
+      ],
+      "cnName": "纽约州",
+      "code": "301032",
+      "briefCode": "NY",
+      "enName": "New York",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "洛利",
+          "code": "301033001",
+          "briefCode": "Raleigh",
+          "enName": "Raleigh",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "沙洛特",
+          "code": "301033002",
+          "briefCode": "Charlotte",
+          "enName": "Charlotte",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "格陵斯堡",
+          "code": "301033003",
+          "briefCode": "Greensboro",
+          "enName": "Greensboro",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "查伯山",
+          "code": "301033004",
+          "briefCode": "Chapel Hill",
+          "enName": "Chapel Hill",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "阿士维尔",
+          "code": "301033005",
+          "briefCode": "Asheville",
+          "enName": "Asheville",
+          "type": ""
+        }
+      ],
+      "cnName": "北卡罗莱纳州",
+      "code": "301033",
+      "briefCode": "NC",
+      "enName": "North Carolina",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "俾斯麦",
+          "code": "301034001",
+          "briefCode": "Bismark",
+          "enName": "Bismark",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "法哥",
+          "code": "301034002",
+          "briefCode": "Fargo",
+          "enName": "Fargo",
+          "type": ""
+        }
+      ],
+      "cnName": "北达科他州",
+      "code": "301034",
+      "briefCode": "ND",
+      "enName": "North Dakota",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "哥伦布",
+          "code": "301035001",
+          "briefCode": "Columbus",
+          "enName": "Columbus",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "克利夫兰",
+          "code": "301035002",
+          "briefCode": "Cleveland",
+          "enName": "Cleveland",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "辛辛那提",
+          "code": "301035003",
+          "briefCode": "Cincinnati",
+          "enName": "Cincinnati",
+          "type": ""
+        }
+      ],
+      "cnName": "俄亥俄州",
+      "code": "301035",
+      "briefCode": "OH",
+      "enName": "Ohio",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "俄克拉荷马城",
+          "code": "301036001",
+          "briefCode": "OklahomaCity",
+          "enName": "OklahomaCity",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "吐沙",
+          "code": "301036002",
+          "briefCode": "Tulsa",
+          "enName": "Tulsa",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "劳顿",
+          "code": "301036003",
+          "briefCode": "Lawton",
+          "enName": "Lawton",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "诺曼城",
+          "code": "301036004",
+          "briefCode": "Norman",
+          "enName": "Norman",
+          "type": ""
+        }
+      ],
+      "cnName": "俄克拉何马州",
+      "code": "301036",
+      "briefCode": "OK",
+      "enName": "Oklahoma",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "沙连",
+          "code": "301037001",
+          "briefCode": "Salem",
+          "enName": "Salem",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "波特兰",
+          "code": "301037002",
+          "briefCode": "Portland",
+          "enName": "Portland",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "尤金",
+          "code": "301037003",
+          "briefCode": "Eugene",
+          "enName": "Eugene",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "科瓦利",
+          "code": "301037004",
+          "briefCode": "Corvallis",
+          "enName": "Corvallis",
+          "type": ""
+        }
+      ],
+      "cnName": "俄勒冈州",
+      "code": "301037",
+      "briefCode": "OR",
+      "enName": "Oregon",
+      "type": ""
+    },
+    {
+      "children": [],
+      "cnName": "宾西法尼亚州",
+      "code": "301038",
+      "briefCode": "PA",
+      "enName": "Pennsylvania",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "哥伦比亚",
+          "code": "301039001",
+          "briefCode": "Columbia",
+          "enName": "Columbia",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "查理斯敦",
+          "code": "301039002",
+          "briefCode": "North Charleston",
+          "enName": "North Charleston",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "格林威尔",
+          "code": "301039003",
+          "briefCode": "Greenville",
+          "enName": "Greenville",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "阿干",
+          "code": "301039004",
+          "briefCode": "Aiken",
+          "enName": "Aiken",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "美特尔沙滨",
+          "code": "301039005",
+          "briefCode": "Myrtle Beach",
+          "enName": "Myrtle Beach",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "克伦孙",
+          "code": "301039006",
+          "briefCode": "Clemson",
+          "enName": "Clemson",
+          "type": ""
+        }
+      ],
+      "cnName": "南卡罗莱纳州",
+      "code": "301039",
+      "briefCode": "SC",
+      "enName": "South Carolina",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "苏瀑布",
+          "code": "301040001",
+          "briefCode": "Sioux Falls",
+          "enName": "Sioux Falls",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "拉皮特城",
+          "code": "301040002",
+          "briefCode": "Rapid City",
+          "enName": "Rapid City",
+          "type": ""
+        }
+      ],
+      "cnName": "南达科他州",
+      "code": "301040",
+      "briefCode": "SD",
+      "enName": "South Dakota",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "那什维尔",
+          "code": "301041001",
+          "briefCode": "Nemphis",
+          "enName": "Nemphis",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "孟菲斯",
+          "code": "301041002",
+          "briefCode": "Memphis",
+          "enName": "Memphis",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "诺克斯维尔",
+          "code": "301041003",
+          "briefCode": "Knoxville",
+          "enName": "Knoxville",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "橡岭",
+          "code": "301041004",
+          "briefCode": "Oak Ridge",
+          "enName": "Oak Ridge",
+          "type": ""
+        }
+      ],
+      "cnName": "田纳西州",
+      "code": "301041",
+      "briefCode": "TN",
+      "enName": "Tennessee",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "奥斯丁",
+          "code": "301042001",
+          "briefCode": "Austin",
+          "enName": "Austin",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "休斯顿",
+          "code": "301042002",
+          "briefCode": "Houston",
+          "enName": "Houston",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "达拉斯",
+          "code": "301042003",
+          "briefCode": "Dallas",
+          "enName": "Dallas",
+          "type": ""
+        }
+      ],
+      "cnName": "德克萨斯州",
+      "code": "301042",
+      "briefCode": "TX",
+      "enName": "Texas",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "盐湖城",
+          "code": "301043001",
+          "briefCode": "Salt Lake City",
+          "enName": "Salt Lake City",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "奥格但",
+          "code": "301043002",
+          "briefCode": "Ogden",
+          "enName": "Ogden",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "普罗伏",
+          "code": "301043003",
+          "briefCode": "Provo",
+          "enName": "Provo",
+          "type": ""
+        }
+      ],
+      "cnName": "犹他州",
+      "code": "301043",
+      "briefCode": "UT",
+      "enName": "Utah",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "勒特兰",
+          "code": "301044001",
+          "briefCode": "Rutland",
+          "enName": "Rutland",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "05702",
+          "code": "301044002",
+          "briefCode": "05702",
+          "enName": "05702",
+          "type": ""
+        }
+      ],
+      "cnName": "佛蒙特州",
+      "code": "301044",
+      "briefCode": "VT",
+      "enName": "Vermont",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "里奇蒙",
+          "code": "301045001",
+          "briefCode": "Richmond",
+          "enName": "Richmond",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "诺福克",
+          "code": "301045002",
+          "briefCode": "Norfolk",
+          "enName": "Norfolk",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "弗吉尼亚滩",
+          "code": "301045003",
+          "briefCode": "Virginia Beach",
+          "enName": "Virginia Beach",
+          "type": ""
+        }
+      ],
+      "cnName": "弗吉尼亚州",
+      "code": "301045",
+      "briefCode": "VA",
+      "enName": "Virginia",
+      "type": ""
+    },
+    {
+      "children": [],
+      "cnName": "华盛顿州",
+      "code": "301046",
+      "briefCode": "WA",
+      "enName": "Washington",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "普洛威顿斯",
+          "code": "301047001",
+          "briefCode": "Providence",
+          "enName": "Providence",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "纽保特",
+          "code": "301047002",
+          "briefCode": "Newport",
+          "enName": "Newport",
+          "type": ""
+        }
+      ],
+      "cnName": "罗得岛州",
+      "code": "301047",
+      "briefCode": "RI",
+      "enName": "Rhode Island",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "查理斯敦",
+          "code": "301048001",
+          "briefCode": "Charleston",
+          "enName": "Charleston",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "亨丁顿",
+          "code": "301048002",
+          "briefCode": "Huntington",
+          "enName": "Huntington",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "摩根当",
+          "code": "301048003",
+          "briefCode": "Morgantown",
+          "enName": "Morgantown",
+          "type": ""
+        }
+      ],
+      "cnName": "西佛吉尼亚州",
+      "code": "301048",
+      "briefCode": "WV",
+      "enName": "West Virginia",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "马迪逊",
+          "code": "301049001",
+          "briefCode": "Madison",
+          "enName": "Madison",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "密尔沃基",
+          "code": "301049002",
+          "briefCode": "Milwaukee",
+          "enName": "Milwaukee",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "拉辛",
+          "code": "301049003",
+          "briefCode": "Racine",
+          "enName": "Racine",
+          "type": ""
+        }
+      ],
+      "cnName": "威斯康星州",
+      "code": "301049",
+      "briefCode": "WI",
+      "enName": "Wisconsin",
+      "type": ""
+    },
+    {
+      "children": [
+        {
+          "children": [],
+          "cnName": "斜阳",
+          "code": "301050001",
+          "briefCode": "Cheyenne",
+          "enName": "Cheyenne",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "卡斯白",
+          "code": "301050002",
+          "briefCode": "Casper",
+          "enName": "Casper",
+          "type": ""
+        },
+        {
+          "children": [],
+          "cnName": "拉阿密",
+          "code": "301050003",
+          "briefCode": "Laramie",
+          "enName": "Laramie",
+          "type": ""
+        }
+      ],
+      "cnName": "怀俄明州",
+      "code": "301050",
+      "briefCode": "WY",
+      "enName": "Wyoming",
+      "type": ""
+    },
+    {
+      "children": [],
+      "cnName": "华盛顿特区",
+      "code": "301051",
+      "briefCode": "DC",
+      "enName": "Washington, DC",
+      "type": ""
+    }
+  ],
+  "cnName": "美国",
+  "code": "301",
+  "briefCode": "US",
+  "enName": "America",
+  "type": ""
+}

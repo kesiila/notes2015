@@ -1,0 +1,39 @@
+{
+	"score":
+    {
+        "signup":1000,
+        "login":50,
+        "recommend":300,
+
+        "collectCustomer":-10,
+        "shareCustomer":10,
+        "customercollect":2,
+
+        "sharePost":2,
+        "shareGoodPost":20,
+
+        "shareTemplate":2,
+
+        "report_err":2,
+        "update_err":3,
+
+        "recharge_30":3000,
+        "recharge_50":5500,
+        "recharge_100":12000
+    },
+    "rules":[
+        {"score":1000,"event":"成功注册帐号","url":1},
+        {"score":300,"event":"注册填写有效推荐人","url":1},
+        {"score":50,"event":"每日成功登录一次","url":1},
+        {"score":300,"event":"推荐好友注册成功","url":"/share"},
+        {"score":10,"event":"成功分享一位活动","url":"/tasks"},
+        {"score":2,"event":"分享的活动每被收藏一次","url":1},
+        {"score":2,"event":"成功分享一份问答","url":"/posts"},
+        {"score":20,"event":"分享的问答被录入精华库","url":1},
+        {"score":2,"event":"成功分享一份邮件模板","url":"/templates"},
+        {"score":20,"event":"分享的模板被录入精华库","url":1}
+    ],
+	"label":"问答类别",
+	"version":"1.0",
+	"copyright":"@2014 上海思蓄力教育科技有限公司"
+}

@@ -1,0 +1,24 @@
+\<dl class="frame add_edit_panel">
+<div class="user-edit-container">
+    <form name="user_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+        <input type="text" id="new_user_name" maxlength="100" name="user_name" autofocus ng-model="new_element.name" class="form-control help-block" placeholder="用户名*" required>
+        <input type="text" id="new_user_displayname" maxlength="100" name="user_displayname" autofocus ng-model="new_element.display_name" class="form-control help-block" placeholder="昵称*">
+        <input type="text" id="new_user_password" maxlength="100" name="user_password" autofocus ng-model="new_element.password" class="form-control help-block" placeholder="密码*">
+        <input type="text" ng-show="" id="new_user_mobile" maxlength="100" name="user_mobile" autofocus ng-model="new_element.mobile" class="form-control help-block" placeholder="手机号码">
+        <input type="email" ng-show="" id="new_user_email" maxlength="100" name="user_email" autofocus ng-model="new_element.email" class="form-control help-block" placeholder="Email">
+        <input type="text" id="new_user_avatar" maxlength="100" name="user_avator" autofocus ng-model="new_element.avatar" class="form-control help-block" placeholder="头像链接">
+        <div class="cascading-wapper mb_10">
+        <wt-cascading flag="flag" first="new_element.typeName"
+                      firstkey="new_element.code"
+                      cascad="1"
+                      label="用户类型"
+                      source="api/codes/user/all">
+        </wt-cascading>
+        </div>
+
+        <textarea ng-model="new_element.desc" type="text" wt-full-editor=""
+                  placeholder="自我介绍"></textarea>
+    </form>
+</div>
+</dl>
+

@@ -1,0 +1,46 @@
+<div class="prj_panel layout_content">
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main">
+                <div class="toolbar_panel pull-right">
+                    <div class="btn-group">
+                        <button class="btn" ng-click="js_to_graph('overview')">
+                            进度
+                        </button>
+                        <button class="btn" ng-click="js_to_graph('pulse')">
+                            周报
+                        </button>
+                        <button class="btn" ng-click="js_to_graph('daily')">
+                            日报
+                        </button>
+                        <a class="btn active" href="/project/{{project.info.pid}}/activity">活动</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="activity-panel height-nonav" wt-scroll>
+            <dl class="frame" data-minheight="160">
+                <dt>
+                <ul class="tabs" ng-controller="filter_activity_ctrl">
+                    <li ng-repeat="item in filter_items">
+                        <a href="javascript:;"
+                           ng-click="js_select_filter_item(item)"
+                           ng-class="{true:'active'}[item.selected == true]">
+                            {{item.display_name}}</a>
+                    </li>
+                </ul>
+                </dt>
+                <dd>
+                    <section ng-include="'/view/activity/activity_list.html'"></section>
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

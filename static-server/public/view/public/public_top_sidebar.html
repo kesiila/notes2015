@@ -1,0 +1,56 @@
+<div class="pub_top_sidebar" style="margin-right: auto;margin-left: auto;width: 1210px;" >
+    <div class="statistics ">
+        <span class="today_statistics" >今日统计</span>
+        <ul >
+            <li>
+                <span >收藏活动：
+                       <a href="/tasks" class="num" target="_self" >
+                             {{$root.own_statistics.task_collect}}
+                      </a>
+                </span>
+            </li>
+            <li>
+                <span >发送邮件：
+                     <a href="/mail" class="num" target="_self" >
+                         {{$root.own_statistics.mail_send}}
+                     </a>
+                </span>
+            </li>
+        </ul>
+        <span class="split_line" >|</span>
+    </div>
+    <div class="statistics ">
+        <span class="history_statistics" >历史统计</span>
+        <ul >
+            <li>
+                <span >历史邮件：
+                      <a href="/mail" class="num" target="_self" >
+                          {{$root.own_statistics.mail_all}}
+                      </a>
+                </span>
+            </li>
+            <li>
+                <span >已打开的邮件：
+                     <a href="/mail" class="num" target="_self" >
+                         {{$root.own_statistics.mail_open}}
+                     </a>
+                </span>
+            </li>
+            <li>
+                <span >我的活动：
+                     <a href="/tasks" class="num" target="_self" >
+                         {{$root.own_statistics.task_all}}
+                     </a>
+                </span>
+            </li>
+            <li>
+                <span >未开发活动：
+                     <a href="/tasks" class="num" target="_self" >
+                         {{$root.own_statistics.task_no_send}}
+                     </a>
+                </span>
+            </li>
+        </ul>
+        <span class="split_line">|</span>
+    </div>
+</div>

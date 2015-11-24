@@ -1,0 +1,25 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>分享活动</h3>
+</div>
+
+<div align="center" ng-hide="customer_can_share" style="height: 50px;line-height: 50px;">
+    公司名、邮箱和主行业都不能为空！
+</div>
+<form class="wt-form" ng-show="customer_can_share">
+    <div class="popbox-body">
+        <span>该活动将从你的私有空间分享到公共空间，<br/>所有人都可以浏览</span>
+    </div>
+    <div class="popbox-footer" data-ng-hide="share_success">
+        <button ng-click="customer_share()"
+                data-loading-text="分享中..."
+                class="btn btn-success mr_15"
+                loading-status="is_sharing">确认分享
+        </button>
+        <button ng-click="js_close()" class="btn">取消</button>
+    </div>
+    <div class="popbox-body" data-ng-show="share_success">
+        <p data-ng-show="result_code==200" class="alert alert-success">感谢您的分享,待后台审核通过，您将获得{{score}}个积分！</p>
+        <p data-ng-show="result_code!=200" class="alert alert-warning">操作失败！错误代码：{{result_code}}。</p>
+    </div>
+</form>

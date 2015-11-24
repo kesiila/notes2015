@@ -1,0 +1,12 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>{{ delete_title || "确认删除"}}</h3>
+</div>
+<div class="popbox-body w_300">
+   <span ng-bind-html="delete_message || '确认要删除此选项吗？'">
+   </span>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_sure_delete()" data-loading-text="删除中..." loading-status="is_deleting" class="btn btn-danger mr_15">确定删除</button>
+    <button ng-click="js_close()" class="btn btn-cancel">取消</button>
+</div>

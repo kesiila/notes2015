@@ -1,0 +1,40 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>上传列表</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+    <div class="popbox-body pop_global_file_upload">
+        <table class="table files mb_0 ng-cloak" data-toggle="modal-gallery" data-target="#modal-gallery">
+            <tr ng-repeat="file in pop_data.scope.queue" ng-class="{'first':$first}">
+                <td>
+                    <p class="name">
+                        <span>{{file.name}}</span>
+                        <span class="size">{{file.size | formatFileSize}}</span>
+                    </p>
+
+                    <div ng-show="file.error"><span class="label label-danger">{{file.error | fileuploadErrorInfo}}</span> </div>
+                    <div ng-hide="file.error" class="progress progress-striped active fade" ng-class="{pending: 'in'}[file.$state()]"
+                         file-upload-progress="file.$progress()">
+                        <div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}"></div>
+                    </div>
+                </td>
+                <td class="action">
+                    <!--<a href="javascript:;" ng-click="file.$submit()"-->
+                            <!--ng-hide="!file.$submit">-->
+                        <!--<span class="icon-upload">重试</span>-->
+                    <!--</a>-->
+                    <br>
+                    <a href="javascript:;" ng-click="file.$cancel()"
+                            ng-hide="!file.$cancel">
+                        取消
+                    </a>
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+
+

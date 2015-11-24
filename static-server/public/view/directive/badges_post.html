@@ -1,0 +1,9 @@
+<div class="post-badges">
+    <i ng-show="!$root.global.is_outter && !temp.is_published" ng-class="{0: 'color_gray icon-lock', 1: 'ai-green icon-unlock'}[temp.is_published]" title="{{ {0:'私有', 1: '已分享'}[temp.is_published] }}"></i>
+    <!--<i ng-show="$root.global.is_outter && temp.collected " class="ai-green icon-star" title="已收藏"></i>-->
+    <span ng-show="temp.collect_count>0" class='icon-user post-badge font_light_gray_color' title='关注量'>{{temp.collect_count}}</span>
+    <span ng-show="temp.comment_count>0" class='icon-comment-alt post-badge font_light_gray_color' title='评论数'>{{temp.comment_count}}</span>
+    <span ng-show="temp.click_count>0" class='icon-eye-open post-badge font_light_gray_color' title='浏览量'>{{temp.click_count}}</span>
+    <span ng-show="temp.praiser_count>0" class='icon-thumbs-up post-badge font_light_gray_color' title='点赞人数'>{{temp.praiser_count}}</span>
+    &nbsp;
+</div>

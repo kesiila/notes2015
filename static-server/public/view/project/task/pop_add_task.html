@@ -1,0 +1,43 @@
+<div class="popbox-header">
+	<button class="cancel icon-remove" ng-click="js_close()"></button>
+	<h3>新建活动</h3>
+</div>
+<form name="add_task_form"
+	wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form"
+	novalidate role="form">
+	<div class="popbox-body pop-add-event">
+		<div class="section-group" ng-show="entries.length > 0">
+			<lable>联系人：</lable>
+			<input class="form-control location-input ng-valid" autofocus=""
+				placeholder="输入联系人名称" required ng-model="new_task.temp_name"
+				wt-enter="js_add_task(add_task_form, new_task)"/>
+		</div>
+		<div class="section-group" ng-show="entries.length > 0">
+			<lable>Email：</lable>
+			<input class="form-control location-input" placeholder="Email"
+				ng-model="new_task.temp_email" required="" />
+		</div>
+		<div class="section-group" ng-show="entries.length > 0">
+			<lable>公司：</lable>
+			<input class="form-control location-input" placeholder="所属公司"
+				ng-model="new_task.temp_company" required="" />
+		</div>
+		<div class="section-group" ng-show="entries.length > 0">
+			<lable>列表：</lable>
+			<select class="form-control project-select" ng-model="new_task.entry" required=""
+				ng-options="entry as entry.name for entry in entries">
+			</select>
+		</div>
+		<div ng-show="entries.length == 0">
+			<p class="alert alert-info">必须创建列表后才可以创建活动哦！</p>
+			<button href="javascript:;" class="btn btn-success"
+				ng-click="js_to_add_entry_pop()">开始添加列表</button>
+		</div>
+	</div>
+	<div class="popbox-footer" ng-show="entries.length > 0">
+		<button wt-form-submit="js_add_task(add_task_form, new_task)"
+			data-loading-text="保存中..." class="btn btn-success mr_15"
+			loading-status="is_save_ing">保存</button>
+		<button ng-click="js_close(result)" class="btn">取消</button>
+	</div>
+</form>

@@ -1,0 +1,41 @@
+<div>
+	<div class="entity-title "
+		ng-include="'/view/entity/coupon/coupon_title.html'"></div>
+	<div class="wt-row" style="bcoupon-bottom: 0px">&nbsp;</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>包含权限</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, user,'permission')"
+			wt-hint-once="" content="设置活动权限
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="user" tagtype="permission"></wt-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>推广位置</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, coupon,'ad')"
+			wt-hint-once="" content="设置推广位置
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-coupon-tags coupon="coupon" tagtype="ad"></wt-coupon-tags>
+	</div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="common_sidebar height-noheader"
+	wt-sidebar-toggle="right_sidebar_is_fold">
+	<div  class="common_sidebar_main"  data-height="119" wt-scroll>
+        <tabset justified="true">
+            <tab heading="收件人">
+                <div>
+                    <h4 ng-show="selectedCustomers.length>0">已选择活动({{selectedCustomers.length}})<a class="pull-right mr_10" href="javascript:;" ng-click="clearAll()">清除全部</a></h4>
+                    <ul class="common_sidebar_step"
+                        ng-if="!right_sidebar_is_fold">
+                        <li class="common_sidebar_step_li">
+                            <div class="common_sidebar_step_body animate-sidebarbody-slide">
+                                <ul class="common_sidebar_step_menu">
+                                    <li ng-repeat="customer in selectedCustomers">
+                                        <a ng-mouseover="customer.showIcon=true" ng-mouseleave="customer.showIcon=false"><i class="icon-user"></i>{{customer.name}}
+                                            <span ng-show="customer.showIcon" class="pull-right small-icon"  ng-click="toggle(customer)"><i class="icon-remove"></i></span></a>
+                                    </li>
+                                </ul>
+                                <div class="hr"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </tab>
+            <tab heading="选择模板" ng-click="browseTemplates()">
+                <ul class="common_sidebar_step"
+                    ng-if="!right_sidebar_is_fold">
+                    <li class="common_sidebar_step_li">
+                        <div class="common_sidebar_step_body animate-sidebarbody-slide">
+                            <input class="form-control" type="text" ng-model="templateName" placeholder="请输入条件过滤">
+                            <ul class="common_sidebar_step_menu">
+                                <li ng-repeat="template in templates | filter:templateName">
+                                    <a href="javascript:;" ng-click="useTemplate(template)"><i class="icon-file-text"></i>{{template.name}}</a>
+                                </li>
+                            </ul>
+                            <div class="hr"></div>
+                        </div>
+                    </li>
+                </ul>
+            </tab>
+        </tabset>
+	</div>
+</div>

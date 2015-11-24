@@ -1,0 +1,63 @@
+<div class="prj_sidebar height-noheader outer-siderbar"
+     wt-sidebar-toggle="global.right_sidebar_is_fold" >
+    <div style="text-align: center;height: 59px;line-height: 64px;vertical-align: middle;background-color:#4897DF;color:#fff" >
+       留学工具
+    </div>
+    <div data-height="119" wt-scroll style="height: 770px;">
+        <div class="prj_sidebar_main">
+            <div >
+                <ul class="prj_sidebar_module">
+                    <li  ng-class="{true: 'active'}[global.header_menu == 'google_search']">
+                            <a class="public_sidebar_font" target="_blank"  ng-href="/tools/search" style="height: 55px;">
+                                <div><img style="margin-bottom: 3px;margin-top: 3px;"
+                                           ng-if="global.header_menu != 'google_search'"
+                                           src="/img/tools/sidebar_google.png">
+                                    <img style="margin-bottom: 3px;margin-top: 3px;"
+                                         ng-if="global.header_menu == 'google_search'"
+                                         src="/img/tools/sidebar_google_select.png">
+                                </div>
+
+                                谷歌
+                            </a>
+                    </li>
+                    <li ng-class="{true: 'active'}[global.header_menu == 'mail_check']">
+                        <a class="public_sidebar_font"  target="_blank" ng-href="/email-verify" style="padding-right:3px;padding-left:3px;height: 60px;padding-top: 9px;">
+                            <div><img style="margin-bottom: 3px;margin-top: 3px;"
+                                       ng-if="global.header_menu != 'mail_check'"
+                                       src="/img/tools/sidebar_mail_check.png">
+                                <img style="margin-bottom: 3px;margin-top: 3px;"
+                                     ng-if="global.header_menu == 'mail_check'"
+                                     src="/img/tools/sidebar_mail_check_select.png"></div>
+                            邮箱验证
+                        </a>
+                    </li>
+                    <li ng-class="{true: 'active'}[global.header_menu == 'spam_check']">
+                        <a class="public_sidebar_font" target="_blank"  ng-href="/spam_check"  style="height: 60px;padding-top: 9px;">
+                            <div><img style="margin-bottom: 2px;margin-top: 2px;"
+                                       ng-if="global.header_menu != 'spam_check'" src="/img/tools/sidebar_spam.png">
+                                <img style="margin-bottom: 2px;margin-top: 2px;"
+                                     ng-if="global.header_menu == 'spam_check'"
+                                     src="/img/tools/sidebar_spam_select.png"></div>
+                            Spam
+                        </a>
+                    </li>
+                    <li ng-class="{true: 'active'}[global.header_menu == 'generator']">
+                        <a class="public_sidebar_font" target="_blank"  ng-href="/template/generator" style="padding-right:3px;padding-left:3px;height: 60px;padding-top: 9px;">
+                            <div><img style="margin-bottom: 3px;margin-top: 3px;"
+                                       ng-if="global.header_menu != 'generator'"
+                                       src="/img/tools/sidebar_generator_mail.png">
+                                <img style="margin-bottom: 3px;margin-top: 3px;"
+                                     ng-if="global.header_menu == 'generator'"
+                                     src="/img/tools/sidebar_generator_mail_select.png"></div>
+                            智能邮件
+                       </a>
+                    </li>
+                </ul>
+            </div>
+            <div style="position: fixed;height: 69px;bottom: 0px;">
+                <wt-feedback class="pos_absolute" ></wt-feedback>
+            </div>
+        </div>
+    </div>
+    <div class="hr content_sidebar_footer_hr"></div>
+</div>

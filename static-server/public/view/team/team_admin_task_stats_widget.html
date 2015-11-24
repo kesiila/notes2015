@@ -1,0 +1,38 @@
+<div class="box-panel my-tasks-overview">
+	<div
+		ng-class="{true:'box-panel-header'}[!!(global.team_module.view | permission:current_team.permission)]"
+		class=" hello-body">
+		<div class="hello-right pb_10">
+			<h4>{{current_team.name}}</h4>
+			<br ng-if="current_team.desc !=''"> <span>
+				{{current_team.desc}}</span> <br> <span>
+				创建于{{current_team.create_date | dateFormatZHCN}}</span>
+		</div>
+	</div>
+	<div class="box-panel-body"
+		ng-if="global.team_module.view | permission:current_team.permission">
+		<ul>
+			<li class="tasks-uncompleted"><a href="javascript:;"
+				ng-click="go_to_team_task_sub_tab('uncompleted')"> <span
+					class="count" data-ng-show="!loading_overview_done"> <i
+						class="icon-refresh"></i>
+				</span> <span class="count" data-ng-show="loading_overview_done">{{team_tasks_overview.uncompleted}}</span>
+					<span class="text">待完成任务</span>
+			</a></li>
+			<li class="tasks-expired"><a href="javascript:;"
+				ng-click="go_to_team_task_sub_tab('expired')"> <span
+					class="count" data-ng-show="!loading_overview_done"> <i
+						class="icon-refresh"></i>
+				</span> <span class="count" data-ng-show="loading_overview_done">{{team_tasks_overview.expired}}</span>
+					<span class="text">过期任务</span>
+			</a></li>
+			<li class="tasks-completed noborder"><a href="javascript:;"
+				ng-click="go_to_team_task_sub_tab('completed')"> <span
+					class="count" data-ng-show="!loading_overview_done"> <i
+						class="icon-refresh"></i>
+				</span> <span class="count" data-ng-show="loading_overview_done">{{team_tasks_overview.completed}}</span>
+					<span class="text">已完成任务</span>
+			</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,275 @@
+<div data-ng-controller="entity_template_ctrl"
+     class="entity-panel template-panel" wt-dragfile="dragfile_option">
+<div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+<div class="entity-panel-wrapper" ng-show="section_loading_done">
+<div class="entity-panel-header">
+    <a class="name" href="javascript:;" ng-show="global.is_outter == false"
+       ng-click="locator.to_project(project.info.pid, 'template')"> <i
+            class="{{project.info.pic}} mr_10 icon-home"
+            ng-style="{color:project.info.bg}"></i> {{project.info.name}}&nbsp;
+    </a>
+    <ul class="nav nav-pills">
+        <li ng-show="permission==16" class="entity-warning">模板已经于
+            {{template.update_date | timeFormatZHCN}} 删除了
+        </li>
+
+        <li
+            wt-hint-once="" content="喜欢这个模板？设为默认模板，每次发邮件就默认使用，提高开发效率"
+            hint-name="templates_setdefaultmail_first_hint" placement=""
+                >
+
+            <a href="javascript:;"
+               ng-click="js_set_as_default(template)" title="设为常用模板" > <i
+                    ng-class="{true:'icon-star',false:'icon-star-empty'}[defaultTemplate == template.template_id]"
+                    class="icon-star"></i>设为默认模板
+            </a>
+        </li>
+
+        <li data-placement="bottom" class="js-popbox">
+            <a href="javascript:;" ng-show="template.isHot==0 && global.is_login && global.me.role==0"
+               ng-click="js_hot(template)"><i class="icon-book"></i>设为热门</a>
+            <a href="javascript:;" ng-show="template.isHot==1 && global.is_login && global.me.role==0"
+               ng-click="js_hot(template)"><i class="icon-book"></i>取消热门</a>
+        </li>
+
+        <li data-placement="bottom" class="js-popbox">
+            <a href="javascript:;" ng-show="global.is_login&&global.is_outter&&!template.collected"
+               ng-click="js_collect(template)"><i class="icon-book"></i>收藏</a>
+            <a href="javascript:;" class="disabled" ng-show="global.is_login&&global.is_outter&&template.collected"><i
+                    class="icon-book"></i>已收藏</a>
+        </li>
+
+        <li wt-permission="[permission,project.info.curr_role,1,2]"
+            ng-show="global.me.role==0 || (global.me.role==0 || template.collected || (template.uid ==global.me.uid)) && global.is_outter == false">
+            <a
+                    href="javascript:;"
+                    ng-class="{true:'disabled'}[global.me.role!=0 && (template.uid != global.me.uid || template.is_edit)]"
+                    ng-click="js_show_editor(template)" title="编辑"> <i
+                    class="icon-pencil"></i>编辑
+            </a></li>
+
+        <li><a href="javascript:;"
+               ng-show="global.is_outter == false"
+               ng-class="{true:'disabled'}[template.is_published==1]"
+               wt-entity-share="[permission,project.info.pid,'templates',template.template_id,template.is_published]"><i
+                class="icon-share"
+                title="{{ {true:'已分享',false:'分享'}[template.is_published==1] }}"></i>
+            {{ {true:'已分享',false:'分享'}[template.is_published==1] }}</a></li>
+
+        <li wt-permission="[permission,project.info.curr_role,1,2]"
+            ng-show="global.me.role==0 || (template.uid ==global.me.uid && global.is_outter == false)"><a
+                href="javascript:;" ng-click="del_template($event, template)"><i
+                class="icon-trash"></i>删除</a></li>
+
+        <!--
+                        <li class="divider-v"
+                            wt-permission="[permission,project.info.curr_role,1,2]"></li>
+
+                        <li class="js-popbox" data-placement="bottom"
+                            wt-permission="[permission,project.info.curr_role,1,2]"><a
+                            href="#" class="dropdown-toggle" data-toggle="dropdown"
+                            title="添加附件"> <i class="icon-paper-clip"></i>附件
+                        </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:;" class="fileinput-button"><i
+                                        class="icon-desktop"></i>本地上传 <input name="files[]" title="添加附件"
+                                        multiple="" wt-uploadfile="file_upload_option" type="file"></a>
+                                </li>
+                                <li><a href="javascript:;"
+                                    ng-click="js_show_attach($event, template)"><i
+                                        class="icon-file"></i>从项目文件选择</a></li>
+                            </ul></li>
+
+                        <li class="js-popbox" data-placement="bottom"
+                            ng-hide="permission==16"><a href="javascript:;"
+                            class="dropdown-toggle" data-toggle="dropdown" title="更多"> <i
+                                class="icon-chevron-down"></i>更多
+                        </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li wt-permission="[permission,project.info.curr_role,1,2]"><a
+                                    href="javascript:;" ng-click="js_trash($event, template)"><i
+                                        class="icon-trash"></i>删除</a></li>
+                                <li><a href="javascript:;"
+                                    wt-entity-share="[permission,project.info.pid,'templates',template.template_id]"><i
+                                        class="icon-share"></i>共享</a></li>
+                            </ul></li>
+
+         -->
+        <li class="divider-v"></li>
+
+        <li><a href="javascript:;" style="padding-top: 10px;padding-bottom: 10px;"
+               ng-click="js_close()" title="关闭">
+            <i class="icon-remove"></i>
+        </a></li>
+    </ul>
+</div>
+<div class="entity-panel-body height-nonav"
+     wt-scroll="{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}">
+    <div class="entity-content-panel ">
+        <div class="content-module editable-module">
+            <div ng-hide="template.is_edit">
+                <div class="entity-title ml_30">
+							<span class="pull-right" style="margin-right: 25px"
+                                  title="模板所属目录"> <i
+                                    class="icon-home"></i> <i class="icon-stack-base ai-gray">{{template.mainCatalogCnName}}
+                                {{template.subCatalogCnName}}</i>
+							</span>
+
+                    <h2 ng-click="js_show_editor(template)">
+                        {{template.name}}
+                    </h2>
+                </div>
+                <wt-badges-template class="ml_30" template="template"></wt-badges-template>
+
+                <wt-add-tag tag="template"></wt-add-tag>
+
+
+                <div class="ml_30 mt_15 wt-row">
+                    <label class="col-xs-2 control-label p_0"><i
+                            class="mr_5"></i>模板标题</label> {{template.summary}}
+                </div>
+
+                <div class="ml_30">
+                    <div class="markdown" wt-markdown="template.content"></div>
+                </div>
+            </div>
+            <div class="edit-section" ng-show="template.is_edit">
+                <div>
+                    <input autofocus="" ng-model="template.temp_name"
+                           wt-enter="js_update_template(template)"
+                           class="form-control help-block" placeholder="模板名称" required=""
+                           type="text">
+                    <wt-cascading
+                            source="json/templateCatalog.json"
+                            flag="flag"
+                            cascad="1"
+                            firstkey="template.temp_mainCatalogCode"
+                            first="template.temp_mainCatalogCnName"
+                            second="template.temp_subCatalogCnName"
+                            secondkey="template.temp_subCatalogCode"
+                            wt-enter="js_update_template(template)"></wt-cascading>
+                    <input autofocus="" ng-model="template.temp_summary"
+                           wt-enter="js_update_template(template)"
+                           class="form-control help-block" placeholder="模板标题" required=""
+                           type="text">
+                    <textarea wt-ctrl-enter="js_update_template(template)"
+                              insert-var="true"
+                              ng-model="template.temp_content" type="text" wt-full-editor=""
+                              placeholder="模板内容(按Ctrl + 回车键提交)"></textarea>
+                    <!--  <wt-template-editor ng-model="template.temp_content" type="text"></wt-template-editor>-->
+                </div>
+                <div class="template_watch_bar" ng-if="global.me.role==0">
+                    <label class="cursor"><input type="radio" value="00" name="f_type" ng-model="template.f_type"
+                                                 checked="checked|{{template.f_type='00'}}"/>精华库</label>
+                    <label class="cursor"><input type="radio" value="01" name="f_type" ng-model="template.f_type"
+                                                 checked="checked|{{template.f_type='01'}}" style="margin-left: 30px;"/>模板库</label>
+                </div>
+                <div class="form-group">
+                    <button ng-click="js_update_template(template)"
+                            data-loading-text="保存中..." class="btn btn-success mr_15"
+                            loading-status="is_setting_content">保存
+                    </button>
+                    <button ng-click="js_cancel_editor(template)" class="btn">取消</button>
+                </div>
+            </div>
+        </div>
+        <div class="content-module dragfile-hover-show"
+             ng-show="template.files.length &gt; 0 || global_fileupload_queue().length&gt;0">
+            <h4>
+                <i class="icon-paper-clip"></i>附件
+            </h4>
+
+            <div class="entity-attachments">
+                <ul>
+                    <wt-attachment ng-repeat="file in template.files"
+                                   del="js_del_attachment($event, file)"
+                                   del-permission="permission==1 &amp;&amp; ( project.info.curr_role==1 || project.info.curr_role==2)"></wt-attachment>
+                    <!--上传队列列表-->
+                    <wt-attachment class="attachment-progress"
+                                   ng-repeat="file in global_fileupload_queue()"></wt-attachment>
+
+                    <!--拖拽上传提示-->
+                    <li class="dragfile-hover-placeholder"><span class="name"><i
+                            class="icon-upload-alt"></i>松开上传文件</span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 				<div class="content-module">
+            <h4>
+                <i class="icon-user"></i>关注
+            </h4>
+            <div class="entity-members">
+                <ul>
+                    <li ng-repeat="member in template.watchers"><wt-avatar
+                            member="member" class="js-popbox" pop-member="member"
+                            wt-pop-member="pop_watcher_options" data-placement="bottom"
+                            data-align="left"> </wt-avatar></li>
+                    <li wt-permission="[permission,project.info.curr_role,1,2]">
+                        <a class="avatar-add js-popbox" href="javascript:;"
+                        ng-click="js_show_template_watch_pop($event, template)"
+                        data-placement="right"> <span class="o"> <i
+                                class="icon-plus"></i>
+                        </span>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+-->
+        <div class="content-module" id="posts_tab_module" ng-cloak
+             class="ng-cloak">
+            <ng-include src="'/view/common/tab_comment_activity.html'"></ng-include>
+            <br/>
+            <br/>
+        </div>
+    </div>
+    <!-- 			<div class="sidebar-panel" data-minheight="120">
+                    <div class="sidebar-module">
+                        <h4>显示内容</h4>
+                        <div class="task-labels">
+                            <button class="btn btn-block js-popbox"
+                                wt-tracker="Task Panel|Right|Setting Label"
+                                wt-permission="[permission,project.info.curr_role,1,2]"
+                                ng-click="js_show_part_1(task)" data-placement="left">
+                                <i class="icon-user"></i>基本信息 <i class="icon-ok ml_50 ng-scope"></i>
+                            </button>
+                            <button class="btn btn-block js-popbox"
+                                wt-tracker="Task Panel|Right|Setting Label"
+                                wt-permission="[permission,project.info.curr_role,1,2]"
+                                ng-click="js_show_part_2(task)" data-placement="left">
+                                <i class="icon-star"></i>发送历史 <i class="ml_50 ng-scope"></i>
+                            </button>
+                            <button class="btn btn-block js-popbox"
+                                wt-tracker="Task Panel|Right|Setting Label"
+                                wt-permission="[permission,project.info.curr_role,1,2]"
+                                ng-click="js_show_part_3(task)" data-placement="left">
+                                <i class="icon-table"></i>效率分析 <i class="ml_50 ng-scope"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-module"
+                        ng-hide="template.labels.length==0 &amp;&amp; (project.info.curr_role==3 || project.info.archived==1 || permission==32 || permission==16)">
+                        <h4>标签</h4>
+                        <div class="task-labels">
+                                                    <ul>
+                                <li class="task-label {{label.name}}-label" ng-repeat="label in task.labels">
+                                    {{label.desc}} <a class="icon-action icon-remove" href="javascript:;" data-ng-click="js_remove_label(label)" title="移除该标签"></a>
+                                </li>
+                            </ul>
+
+                            <button class="btn btn-block js-popbox"
+                                wt-tracker="Task Panel|Right|Setting Label"
+                                wt-permission="[permission,project.info.curr_role,1,2]"
+                                ng-click="js_assign_label($event, template)" data-placement="left">
+                                <i class="icon-tag"></i>设置标签
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+     -->
+</div>
+</div>
+</div>

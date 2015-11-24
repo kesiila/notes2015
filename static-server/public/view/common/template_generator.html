@@ -1,0 +1,280 @@
+<div class="layout_content" ng-show="$root.global.header_menu=='generator'">
+<div class="layout_content_main height-noheader" style="margin-right: 350px">
+    <div class="mod_navbar">
+        <div class="title">
+            <h3 style="margin-left: 10px;font-size: 21px;">
+                <a class="active" href="javascript:;"> <i class="icon-pencil mr_10"></i>智能邮件</a>
+            </h3>
+            <span style=" margin-left: 0px;color: #8a959e;">帮你自动写开发信</span>
+        </div>
+        <div class="title" style="float: right;margin-right: 15px;margin-top: 25px;" >
+            <span class="jiathis_style_24x24 pull-right" style="display: inline-block;">
+                <a class="jiathis_button_qzone" title="分享到QQ空间"></a>
+                <a class="jiathis_button_weixin" title="分享到微信"></a>
+                <a class="jiathis_button_tsina" title="分享到新浪微博"></a>
+                <a href="http://www.jiathis.com/share?uid=2006672" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" title="更多" target="_blank"></a>
+                <a class="jiathis_counter_style" style="display: none;"></a>
+            </span>
+            <script type="text/javascript" >
+                var jiathis_config={
+                    title:"轻松做留学，就上棒呆！",
+                    data_track_clickback:true,
+                    siteNum:15,
+                    sm:"email,renren,tsohu,feixin,kaixin001,cqq,tieba,hi,tianya,baidu,alibaba,hexun,douban,qq,ishare",
+                    summary:"",
+                    shortUrl:false,
+                    hideMore:false
+                }
+                $(function(){
+                    setTimeout(function(){
+                        jiathis_config={summary:"智能留学邮件模板。开发新活动的时候，不知道邮件模板怎么写？发出去的开发信都是千篇一律的？" +
+                        "找不到活动触动活动的句子?试试棒呆智能留学邮件吧，内置大量优秀句子组合，将自己的优势融入邮件当中，分分钟搞定一封优秀的邮件模板！"}},500);
+                })
+            </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2006672" charset="utf-8"></script>
+        </div>
+        <!--<span style="float: right;line-height: 60px;">-->
+            <!--<a href ><i class="icon-info-sign"></i>-->
+            <!--</a>-->
+        <!--</span>-->
+    </div>
+    <div class="rightpanel-wrapper">
+        <div class="height-nonav" wt-scroll>
+            <dl class="frame add_edit_panel">
+                <div class="mail-edit-container">
+                    <form name="mail_form" class="wt-form form-horizontal"
+                          wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+                        <!--                        <div class="form-group">
+                                                    <label class="col-sm-3" for="">发件地址</label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control" type="text"/>
+                                                    </div>
+                                                </div>-->
+                        <div class="wne-title"><input type="text" class="wne-title-input" placeholder="邮件标题" style="width: 100%;padding-top: 10px;padding-bottom: 5px;
+                        height: auto;background: #fff;font-size: 18px;font-family: 'Segoe UI Light', SegoeUILightWF, Arial, sans-serif;
+                        border: 1px solid #e3e5f1;padding-left: 10px;line-height: normal;"
+                                                      ng-model="title"
+                                                      tabindex="1"
+                                                      ng-show="newGenerator.edit_or_preview =='edit'"
+                                                      required wtAutofocus>
+
+                            <div class="wne-title-input" style="min-height: 41px"
+                                 ng-hide="newGenerator.edit_or_preview =='edit'">{{ title }}
+                            </div>
+                            <div class="title-seperator-line"></div>
+                        </div>
+                        <dd style="padding: 0px">
+                            <div>
+                                <div class="pos_relative editor-container mt_10 height-main-min-j4-new-template-by-auto-mailbox-outter">
+                                    <wt-new-editor edit-content="content"
+                                                   set-variable="js_set_template_variables()"
+                                                   has-variable="true"
+                                                   get-one="generate()"
+                                                   edit-title="edit_template.summary"></wt-new-editor>
+                                </div>
+                            </div>
+                            <div class="mail_watch_bar clearfix">
+                                <button class="btn btn-success pull-left btn-success"
+                                        ng-class="{true:'btn-default',false:'btn-success'}[newGenerator.forWho=='forCustomer']"
+                                        ng-click="show_save_template()">保存为模板
+                                </button>
+                                <button class="btn btn-success mr_15 pull-right" ng-show=""
+                                        wt-form-submit="show_save_and_send_mail(mail_form)" data-loading-text="发送中..."
+                                        ng-disabled="!content||!title||!customer_variables.company_name||!customer_variables.contact_name||!customer_variables.email"
+                                        loading-status="is_saving">发送
+                                </button>
+                            </div>
+                        </dd>
+                    </form>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<div class="layout_content_sidebar prj_sidebar height-noheader common_sidebar slide-content" style="width: 350px">
+    <ul class="layout_content_sidebar_header" style="height: 59px;">
+        <li class="mr_15" ng-class="{true:'active1'}[newGenerator.forWho=='forMe']">
+            <!-- remove content tempory-->
+            <!-- content="包含以下信息的开发信，会获得高出67.3%的活动打开率" -->
+            <a style="width:auto;border-bottom: solid 2px #e38d13 !important;"
+               href="javascript:;" ng-click="newGenerator.changeTab('forMe')"
+               wt-hint-once="" hint-name="template_setinfo_first_hint" placement="right"
+               ><span>设置我的产品和优势</span></a>
+        </li>
+        <li ng-class="{true:'active1'}[newGenerator.forWho=='forCustomer']" ng-show="">
+            <a style="width:auto;"
+               href="javascript:;" ng-click="newGenerator.changeTab('forCustomer')"><span>2.&nbsp;针对活动定制</span></a>
+        </li>
+    </ul>
+    <div class="hr" style="margin: 0px"></div>
+    <div>
+        <form class="form-horizontal" role="form" style="padding: 15px" ng-show="newGenerator.forWho=='forMe'">
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                请完善以下信息,<br/>
+                以便哆哆帮你写一篇更能触动活动的开发信
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;"
+                       for="industry"><strong class="ai-red">*</strong> 公司名称</label>
+
+                <div class="controls col-sm-9">
+                    <input class="form-control" type="text" ng-model="variables.company_name" id="industry"
+                           placeholder="示例:Shanghai Hinic Textile Machinery Co., Ltd."/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;"
+                       for="products"><strong class="ai-red">*</strong> 公司产品</label>
+
+                <div class="controls col-sm-9"  tooltip="请提供一下我的产品关键词">
+                    <input class="form-control" type="text" ng-model="variables.company_products" id="products"
+                           placeholder="示例:Textile Machinery, Sewing Machinery，Rapier Weaving Machine"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;"
+                       for="create_time">成立年数</label>
+
+                <div class="controls col-sm-9" tooltip="公司已经成立了多少年">
+                    <input class="form-control" type="text" ng-model="variables.create_time" id="create_time"
+                           placeholder="示例:30"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;"
+                       for="customer">知名活动</label>
+
+                <div class="controls col-sm-9" tooltip="看到你跟一些有实力的活动合作，会增加潜在活动对你的信心">
+                    <input class="form-control" type="text" ng-model="variables.customer_now" id="customer"
+                           placeholder="示例:Premier Textiles, iXPOS"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;"
+                       for="authentication">产品认证</label>
+
+                <div class="controls col-sm-9" tooltip="产品通过了国家认证，也会增强活动活动的信任">
+                    <input class="form-control" type="text" ng-model="variables.product_certification"
+                           id="authentication"
+                           placeholder="示例:CE, GMC"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;"
+                       for="QS">质量体系</label>
+
+                <div class="controls col-sm-9">
+                    <input class="form-control" type="text" ng-model="variables.QS" id="QS"
+                           placeholder="示例:ISO9001:2000"/>
+                </div>
+            </div>
+            <!--            <div class="form-group">
+                            <label class="col-xs-3 control-label p_0" style="padding-right: 5px; padding-left: 0px;">生产能力</label>
+
+                            <div class="col-xs-9">
+                                <input type="text" class="form-control" ng-model="variables.prodcutivePower"
+                                       placeholder="100MT/Year" required/>
+                            </div>
+                        </div>-->
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-default pull-right"
+                            ng-disabled="!variables.company_products||!variables.company_name"
+                            ng-click="save_company_info()">确定
+                    </button>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" role="form" style="padding: 15px" ng-show="newGenerator.forWho=='forCustomer'">
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                请完善以下信息,<br/>
+                以便哆哆为您定制针对该活动的开发信
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;">
+                    <strong class="ai-red">*</strong> 活动公司
+                </label>
+
+                <div class="controls col-sm-9"><input class="form-control" name="customer_company" type="text"
+                                                      ng-model="customer_variables.company_name"
+                                                      placeholder="示例:IBM." required="" ng-maxlength="50"/>
+                </div>
+            </div>
+            <div class="form-group"><label class="control-label p0 col-sm-3"
+                                           style="padding-right: 5px; padding-left: 0px;">
+                <strong class="ai-red">*</strong> 联系人
+            </label>
+
+                <div class="controls col-sm-9"><input class="form-control" type="text" name="customer_name"
+                                                      ng-model="customer_variables.contact_name"
+                                                      placeholder="示例:Barack Hussein Obama" required
+                                                      ng-maxlength="30"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label p0 col-sm-3" style="padding-right: 5px; padding-left: 0px;">
+                    <strong class="ai-red">*</strong> 活动邮箱
+                </label>
+
+                <div class="controls col-sm-9"><input class="form-control" name="customer.email"
+                                                      type="email"
+                                                      ng-model="customer_variables.email"
+                                                      required
+                                                      wt-regex="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                                      placeholder="示例:xxx@xxxx.com"/></div>
+            </div>
+
+            <div class="form-group"><label class="control-label p0 col-sm-3"
+                                           style="padding-right: 5px; padding-left: 0px;">
+                活动产品
+            </label>
+
+                <div class="controls col-sm-9"><input class="form-control" type="text"
+                                                      ng-model="customer_variables.products"
+                                                      placeholder="示例: guided missile"/></div>
+            </div>
+            <div class="form-group"><label class="control-label p0 col-sm-3"
+                                           style="padding-right: 5px; padding-left: 0px;">
+                活动类型
+            </label>
+
+                <div class="controls col-sm-9"><input class="form-control" type="text"
+                                                      ng-model="customer_variables.type"
+                                                      placeholder="示例:historical,leading"/></div>
+            </div>
+            <div class="form-group"><label class="control-label p0 col-sm-3"
+                                           style="padding-right: 5px; padding-left: 0px;">
+                活动特色
+            </label>
+
+                <div class="controls col-sm-9"><input class="form-control" type="text"
+                                                      ng-model="customer_variables.feature"
+                                                      placeholder="示例:dominance feature"/></div>
+            </div>
+
+            <div class="form-group"><label class="control-label p0 col-sm-3"
+                                           style="padding-right: 5px; padding-left: 0px;">
+                活动国家
+            </label>
+
+                <div class="controls col-sm-9"><input class="form-control" type="text"
+                                                      ng-model="customer_variables.country"
+                                                      placeholder="示例:USA"/></div>
+            </div>
+            <div class="form-group">
+                <div class="controls col-sm-9 col-sm-offset-3">
+                    <button class="btn pull-right btn-default"
+                            ng-disabled="!customer_variables.company_name||!customer_variables.contact_name||!customer_variables.email"
+                            loading-status="newGenerator.company_info_is_save_ing" data-loading-text="保存中..."
+                            ng-click="newGenerator.custom_customer_info_click()">确定
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--发送邮件成功后的提示-->
+<ng-include ng-show="$root.show_mail_prompt" src="'/view/common/mail_prompt.html'"></ng-include>
+</div>

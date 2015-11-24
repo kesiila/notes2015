@@ -1,0 +1,78 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>文件夹选项</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li><a href="javascript:;" ng-click="js_step(1)"><i class="icon-xx"></i> 重命名</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:;" ng-click="js_step(3)"><i class="icon-xx"></i> 设置图标</a></li>
+                <li class="divider"></li>
+                <li><a ng-click="js_step(2)" href="javascript:;"><i class="icon-trash"></i> 删除</a></li>
+            </ul>
+        </div>
+    </li>
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>重命名文件夹</h3>
+        </div>
+        <form name="edit_folder_form" wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate>
+            <div class="popbox-body">
+
+                <input name="folder_name" type="text" class="form-control help-block" ng-model="folder_name" placeholder="文件夹名" autofocus required/>
+
+            </div>
+            <div class="popbox-footer">
+                <button wt-form-submit="js_change_name(edit_folder_form, folder_name)"
+                        data-loading-text="保存中..."
+                        class="btn btn-success mr_15"
+                        loading-status="is_save_ing">确定
+                </button>
+                <button ng-click="js_close(result)" class="btn">取消</button>
+            </div>
+        </form>
+    </li>
+    <li ng-switch-when="2" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>删除文件夹</h3>
+        </div>
+        <div class="popbox-body">
+            <!--<span>文件夹及其文件删除后会放在回收站，可以在回收站<br/>选择恢复或者彻底删除。</span>-->
+            <span>警告：文件夹删除后会将无法找回！</span>
+        </div>
+        <div class="popbox-footer">
+            <button ng-click="js_del_folder()" class="btn btn-danger">确定删除</button>
+        </div>
+    </li>
+    <li ng-switch-when="3" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>设置图标</h3>
+        </div>
+        <div class="popbox-bodywrapper">
+            <div class="popbox-body">
+                <div class="part-loading" ng-show="prj_files_loading"></div>
+                <ul class="popbox-menu">
+                    <li ng-repeat="folder_icon in folder_icons" ng-click="js_set_folder_icon(folder_icon)">
+                        <a class="folder-item-li-menu"
+                           href="javascript:;">
+                            <img ng-src="{{folder_icon.path | wtBox}}"/>
+                            <span class="text-muted small-tip" ng-if="folder_icon.ext == folder.ext">
+                                <i class="color_gray icon-ok"></i>
+                            </span>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+
+</ul>

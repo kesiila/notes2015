@@ -1,0 +1,22 @@
+<div class="cascading-wapper">
+    <div>
+        <input ng-model="name" ng-focus="open()" placeholder="选择{{label}}" type="text" class="form-control" />
+        <i class="pull-right cursor" ng-class="{true:'icon-caret-up',false:'icon-caret-down'}[show]" ng-click="open()" style="position: relative;left:-10px;top:-25px;"></i>
+    </div>
+    <div ng-show="show" class="cascading">
+        <span class="small-icon icon-close" ng-click="show=false"></span>
+        <ul>
+            <li style="margin-right: -4px;width: 110px;"><a ng-click="firstAllClick()" href="javascript:;"  ng-class="{'active':firstkey ==''}">全部{{ label }}</a></li>
+            <li ng-repeat="item in main" ng-click="setMain(item)" style="width: 110px">
+                <a href="javascript:;" ng-class="{'active': firstkey == item.code}" >{{ item.cnName }}</a></a>
+            </li>
+        </ul>
+
+        <ul ng-show="children.length>0">
+            <li style="margin-right: -4px;width: 110px;"><a ng-click="secondAllClick()" href="javascript:;"  ng-class="{'active':secondkey ==''}">全部</a></li>
+            <li ng-repeat="item in children" ng-click="setChild(item)"  style="width: 110px">
+                <a href="javascript:;" ng-class="{'active': secondkey == item.code}">{{ item.cnName }}</a>
+            </li>
+        </ul>
+    </div>
+</div>

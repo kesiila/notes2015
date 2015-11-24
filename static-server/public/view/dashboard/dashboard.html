@@ -1,0 +1,206 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-dashboard mr_10"></i>最新动态</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+                </div>
+            </div>
+        </div>
+        <div class="main-content dashboard-panel height-nonav" wt-scroll>
+            <div class="center-right-panel">
+                <div class="center-panel">
+                    <div class="center-panel-inner">
+                        <dl class="frame" data-minheight="160">
+ <!--                           <dt>
+                            <ul class="tabs">
+                                <li>
+                                    <a ng-class="{'active':current_tab == 'feeds'}" href="javascript:;"
+                                       ng-click="js_change_tab('feeds')">最新动态</a>
+                                </li>
+                                <li>
+                                    <a ng-class="{'active':current_tab == 'my_tasks'}" href="javascript:;"
+                                       ng-click="js_change_tab('my_tasks')">我的活动</a>
+                                </li>
+                                <li>
+                                    <a ng-class="{'active':current_tab == 'mail'}" href="javascript:;"
+                                       ng-click="js_change_tab('mail')">我的邮件</a>
+                                </li>
+                            </ul>
+                            </dt>-->
+                            <div class="part-loading mt_20" data-ng-hide="part_loading_done"></div>
+                            <div data-ng-show="part_loading_done">
+                                <div class="box-panel-body" data-ng-show="current_tab == 'feeds'">
+                                    <div class="empty-panel noborder"
+                                         data-ng-show="feeds.length == 0">
+                                        <i class="icon-time"></i><br>
+                                        <span>没有最新动态</span>
+                                    </div>
+                                    <div class="feed-list">
+                                        <div class="wt-row feed-item" ng-class="{'active':feed.objectId == locator.show_detail_feed_id}" ng-repeat="feed in feeds">
+                                            <wt-feed></wt-feed>
+                                        </div>
+                                    </div>
+                                    <div class="mt_20 text-center" data-ng-show="feeds.length > 0">
+                                        <a href="/feed">查看全部动态</a>
+                                    </div>
+                                </div>
+                                <div class="box-panel-body" data-ng-show="current_tab == 'my_tasks'">
+                                    <div class="empty-panel noborder"
+                                         data-ng-show="uncompeleted_tasks.length == 0">
+                                        <i class="icon-user"></i><br>
+                                        <span>没有私有的活动</span>
+                                    </div>
+                                    <div class="task-list-panel">
+                                        <div class="group-list" ng-show="uncompeleted_tasks.length > 0">
+                                            <div class="group-item" ng-repeat="task in uncompeleted_tasks">
+                                                <div class="group-task-item slide-trigger"
+                                                     ng-class="{true: 'active'}[task.tid==locator.show_detail_task_id]"
+                                                     ng-click="locator.to_task(task.pid, task.tid, true)">
+
+                                                    <div class="task-main">
+                                                        <a href="javascript:;" ng-click="js_complete_task($event, task)"
+                                                           class="task-check">
+                                                            <i ng-class="{0: 'icon-user', 1: 'icon-user'}[task.completed]"></i>
+                                                        </a>
+                                                        <span class="task-title">{{task.name}}</span>
+                                                    </div>
+                                                    <wt-badges task="task"></wt-badges>
+                                                    <div class="task-members">
+                                                        <wt-avatar ng-repeat="member in task.members" class="mr_5"
+                                                                   member="member"
+                                                                   size="30"></wt-avatar>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt_20 text-center">
+                                                <a href="/tasks">查看全部活动</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-panel-body mail-list-panel" data-ng-show="current_tab == 'mail'">
+                                    <div class="empty-panel noborder" ng-if="part_loading_done && mails.length == 0">
+                                        <i class="icon-envelope-alt"></i><br><br>
+                                        <p class="fs_17">
+                                            还没有任何邮件
+                                        </p>
+                                    </div>
+                                    <div class="mail-list">
+                                        <div class="mail-item wt-row" ng-repeat="mail in mails">
+                                            <div class="mail-item-inner slide-trigger">
+                                                <div class="column column-read">
+                                                    <a href="javascript:;" ng-show="!mail.is_read" class="icon-envelope" title="标为已读"
+                                                       ng-click="js_set_mail_read($event,mail)">
+                                                    </a>
+                                                    <a href="javascript:;" ng-show="mail.is_read" class="icon-envelope-alt" title="消息已读">
+                                                    </a>
+                                                </div>
+
+                                                <div class="column column-action" data-ng-click="js_open_mail_detail(mail)">
+                                                    <h4>{{mail.subject}}</h4>
+                                                    <span class="entity">
+                                                        <span ng-bind="mail.from"></span>
+                                                    </span>
+                                                </div>
+                                                <div class="column column-datetime">
+                                                    <span>{{mail.create_date | fromNow}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt_20 text-center" data-ng-show="mails.length > 0 && part_loading_done">
+                                            <a href="/mail">查看全部邮件</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </dl>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div class="box-panel my-tasks-overview">
+                        <div class="box-panel-header hello-body">
+                            <wt-avatar member="global.me" size="50" wt-disable-drag></wt-avatar>
+                            <div class="hello-right">
+                                <h4>{{global.me.display_name}}, {{hi_greetings}}</h4><br>
+                                <span>{{show_date}}</span>
+                            </div>
+                        </div>
+
+                        <div class="box-panel-body">
+
+                            <ul>
+                                <li class="tasks-uncompleted">
+                                    <a href="/tasks?type=1">
+                                        <span class="count" data-ng-show="!overview">
+                                           <i class="icon-refresh"></i>
+                                        </span>
+                                        <span class="count" data-ng-show="overview">{{overview.customers_private_count}}</span>
+                                        <span class="text">私有活动</span>
+                                    </a>
+
+                                </li>
+                                <li class="tasks-expired">
+                                    <a href="/tasks?type=2">
+                                        <span class="count" data-ng-show="!overview">
+                                           <i class="icon-refresh"></i>
+                                        </span>
+                                        <span class="count" data-ng-show="overview">{{overview.customers_share_count}}</span>
+                                        <span class="text">分享活动</span>
+                                    </a>
+                                </li>
+                                <li class="tasks-completed noborder">
+                                    <a href="/tasks?type=3">
+                                        <span class="count" data-ng-show="!overview">
+                                           <i class="icon-refresh"></i>
+                                        </span>
+                                        <span class="count" data-ng-show="overview">{{overview.customers_download_count}}</span>
+                                        <span class="text">收藏活动</span>
+                                    </a>
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="box-panel my-tasks-overview" align="center">
+                        <div class="box-panel-header hello-body" style="border: none;margin: 0px;">
+                            <div class="hello-right">
+                                <h4>棒呆交流群：<span style="color:  #d84c31;">280802349</span>
+                                    <span  style="color:  #d84c31;padding-left: 10px">278228604</span>
+                                </h4><br>
+                                <span>参与棒呆产品开发，交流棒呆使用心得</span>
+                            </div>
+                        </div>
+                    </div>
+<!--                     <div class="box-panel today-event">
+                        <div class="box-panel-header">
+                            <h4><i class="icon-calendar-empty mr_10"></i>今天日程</h4>
+                        </div>
+                        <div class="box-panel-body">
+                            <div class="part-loading" data-ng-hide="today_events.length >= 0"></div>
+                            <div class="empty-panel min-height noborder" data-ng-show="today_events.length == 0">
+                                <i class="icon-calendar-empty"></i><br>
+                                <span>今天没有日程安排</span>
+                            </div>
+                            <ul data-ng-show="today_events.length > 0">
+                                <li data-ng-repeat="event in today_events">
+                                    <span>{{event.start.date | timeFormat}}</span>
+                                    <a href="javascript:;"
+                                       data-ng-click="locator.to_event(event.pid, event.event_id, true);">
+                                        {{event.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+ -->                </div>
+            </div>
+        </div>
+    </div>
+</div>

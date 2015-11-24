@@ -1,0 +1,98 @@
+<div class="layout_content" ng-controller="customerVCardCtrl">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-rocket mr_10"></i>导入VCard</h3>
+            </div>
+        </div>
+
+        <div class="center-panel-container height-nonav" wt-scroll>
+            <dl class="frame" data-minheight="160">
+                <dd>
+                    <div class="navigate-step" style="margin-top: 0;margin-bottom: 30px">
+                        <div class="line">
+                            <div ng-class="{'active':currentStep==1}"></div>
+                            <div ng-class="{'active':currentStep==2}"></div>
+                        </div>
+                        <ol>
+                            <li ng-class="{'active':currentStep==1}">
+                                <span class="step-title">上传Vcard文件</span>
+                                <br>
+                                <span class="number">1</span></li>
+                            <li ng-class="{'active':currentStep==2}">
+                                <span class="step-title">预览信息</span>
+                                <br>
+                                <span class="number">2</span>
+                            </li>
+                            <li ng-class="{'active':currentStep==3}">
+                                <span class="step-title">完成导入</span>
+                                <br>
+                                <span class="number">3</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <div ng-show="currentStep==1">
+                        <form class="btn-group" method="POST" enctype="multipart/form-data" file-upload="options">
+                            <span class="btn btn-danger fileinput-button" ng-class="{'disabled':isUpload}">
+                                <i class="icon-plus"></i>
+                                <span>上传Vcard</span>
+                                <input type="file" name="upload_vcard">
+                            </span>
+                        </form>
+                        <span>（VCard是电子名片，可以从Outlook/Foxmail地址薄或手机联系人中导出)</span>
+                    </div>
+                    <div class="table-list clearfix" ng-show="currentStep==2">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon fs_15"><i class="icon icon-gear"></i></span>
+                                <wt-cascading
+                                        flag="flag"
+                                        label="行业"
+                                        source="json/industry.json"
+                                        firstkey="mainIndustryCode"
+                                        first="mainIndustryCnName"
+                                        second="subIndustryCnName"
+                                        secondkey="subIndustryCode"
+                                        >
+                                </wt-cascading>
+                            </div>
+                            <table class="table table-striped">
+                                <th class="row">
+                                    <td class="col-xs-1">联系人</td>
+                                    <td class="col-xs-2">公司</td>
+                                    <td class="col-xs-1">职位</td>
+                                    <td class="col-xs-2">邮箱</td>
+                                    <td class="col-xs-1">电话</td>
+                                    <td class="col-xs-2">网址</td>
+                                    <td class="col-xs-1">国家</td>
+                                    <td class="col-xs-2">地址</td>
+                                </th>
+                                <tr class="row" ng-repeat="customer in customerList">
+                                    <td class="col-xs-1">{{customer.name}}</td>
+                                    <td class="col-xs-2">{{customer.company}}</td>
+                                    <td class="col-xs-1">{{customer.position}}</td>
+                                    <td class="col-xs-2">{{customer.email}}</td>
+                                    <td class="col-xs-1">{{customer.phone}}</td>
+                                    <td class="col-xs-2">{{customer.website}}</td>
+                                    <td class="col-xs-1">{{customer.countryCnName}}</td>
+                                    <td class="col-xs-2">{{customer.address}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="btn-group pull-right"><span class="btn disabled">选择项目</span>
+                            <select class="btn mr_15" ng-model="currentProjectId"
+                                    ng-options="project.pid as project.name for project in projects">
+                            </select>
+                            <button class="btn btn-success" ng-class="{'disabled':!isUpload}" ng-click="save()">保存</button>
+                            <button class="btn btn-default" ng-class="{'disabled':!isUpload}" ng-click="cancel()">取消</button>
+                        </div>
+                    </div>
+
+                    <div ng-show="currentStep==3">
+                        <div class="text-center"><h4>本次成功导入{{totalItems}}条活动</h4><a class="btn btn-success" ng-href="/project/{{currentProjectId}}?team_id={{currentTeamId}}">查看已导入数据</a></div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-user mr_10"></i>公司信息</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="center-panel-container height-nonav" wt-scroll ng-show="global.loading_done">
+            <dl class="frame" data-minheight="160">
+                <dt>
+                    <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+
+                </dt>
+                <dd>
+                    <div data-ng-show="part_loading_done">
+                        <div class="panel-section">
+                            <h4>修改公司信息</h4>
+                        </div>
+                        <div class="panel-section">
+
+                            <form name="user_info_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+                                  class="form-horizontal wt-form w_660"
+                                  novalidate>
+                                <!--<div class="popbox-body pb_0">-->
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">公司名称：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="variables.company_name"
+                                               placeholder="公司名称"
+                                               required/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">公司产品：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="variables.company_products"
+                                               placeholder="公司产品" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">成立年数：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="variables.create_time"
+                                               placeholder="成立年数" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">现有活动：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="variables.customer_now"
+                                               placeholder="现有活动" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">产品认证：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control"
+                                               ng-model="variables.product_certification"
+                                               placeholder="产品认证" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">质量体系：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="variables.QS"
+                                               placeholder="质量体系" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">验厂证书：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control"
+                                               ng-model="variables.inspection_certificate"
+                                               placeholder="验厂证书" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0">生产能力：</label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="variables.prodcutivePower"
+                                               placeholder="100MT/Year" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label p_0"></label>
+
+                                    <div class="col-xs-10">
+                                        <button class="btn btn-success mr_15" ng-click="save_company_info()"
+                                                loading-status="is_save_ing" data-loading-text="保存中...">保存
+                                        </button>
+                                        <!--<button ng-click="js_step(1)" class="btn">取消</button>-->
+                                    </div>
+                                </div>
+                                <!--</div>-->
+                            </form>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

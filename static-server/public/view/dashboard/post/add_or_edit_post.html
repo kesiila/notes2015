@@ -1,0 +1,34 @@
+<dl class="frame add_edit_panel">
+<div class="post-edit-container">
+    <form name="post_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+
+        <input type="text" id="new_post_name" maxlength="100" name="post_title" autofocus ng-model="new_element.title" class="form-control help-block" placeholder="标题" required>
+        <input type="text" id="new_post_ename" maxlength="100" name="post_ename" autofocus ng-model="new_element.summary" class="form-control help-block" placeholder="概要">
+
+
+        <div class="cascading-wapper mb_10">
+            <wt-cascading flag="flag" first="new_element.typename"
+                          firstkey="new_element.code"
+                          cascad="1"
+                          source="api/codes/post/all">
+            </wt-cascading>
+        </div>
+
+        <div class="cascading-wapper mb_10">
+            	    <wt-cascading flag="flag" first="new_element.code_ad_name"
+                          	firstkey="new_element.code_ad"
+                          	cascad="1"
+                          	source="api/codes/ad/all">
+            		</wt-cascading>
+        </div>
+
+
+
+        <textarea ng-model="new_element.content" type="text" wt-full-editor=""
+                  placeholder="内容"></textarea>
+        <br/>
+
+    </form>
+</div>
+</dl>
+

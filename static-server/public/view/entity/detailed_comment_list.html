@@ -1,0 +1,56 @@
+<div class="comment-list" ng-controller="comment_ctrl">
+
+    <!--<div class="part-loading mt_20" wt-loading-done="comments_loading_done"></div>-->
+
+    <ul class="comments">
+        <li class="comment-item" id="comment_item_{{comment.cid}}" ng-repeat="comment in comments">
+            <wt-avatar member="comment.owner" size="40" class="comment-avatar"></wt-avatar>
+
+            <div class="comment">
+                <a href="javascript:;" class="comment-name">
+                    {{comment.owner.display_name}}
+                </a>
+                <span class="comment-meta" ng-show="is_can_del(comment) || global.me.role==0">
+                    <span data-ng-class="{true:'date',false:''}[comment.type==1&&global.is_login == true]">{{comment.create_date | fromNow }}</span>
+
+                    <a wt-permission="[permission,project.info.curr_role,1,3]" href="javascript:;"
+                       wt-tracker="Comment Panel|List|Edit Comment-Reply Menu"
+                       data-ng-click="js_reply_comment(comment)" class="comment-action"
+                       ng-if="comment.type==1&&global.is_login == true">回复</a>
+
+                    <a wt-permission="[permission,project.info.curr_role,1,3]" href="javascript:;"
+                       wt-tracker="Comment Panel|List|Edit Comment-Delete Menu"
+                       data-ng-click="js_pop_delete_comment($event,comment)" class="comment-action js-popbox"
+                       ng-if="global.me.role=='system' ||  global.me.role=='admin' || (comment.owner.uid == global.me.uid)">删除</a>
+
+                </span>
+                <span class="comment-meta" ng-show="!is_can_del(comment) && global.me.role!=0">
+                    <span>{{comment.create_date | fromNow }}</span>
+                </span>
+
+                <div class="current-comment" wt-markdown='comment.message'></div>
+
+                <ul class="comment-attachments">
+                    <wt-attachment ng-repeat="file in comment.files"></wt-attachment>
+                </ul>
+            </div>
+        </li>
+    </ul>
+
+    <div id="new_comment_{{xtype}}" ng-if="global.is_login==true" class="new-comment" wt-permission="[permission,project.info.curr_role,1,3]">
+        <wt-comment save-comment="js_save_comment(comment)" pastefile-comment="js_pastefile_comment(comment)"></wt-comment>
+    </div>
+
+    <div class="comment-editor" ng-if="!global.is_login">
+        <h4 class="mt_20 sm-font-color">回复</h4>
+        <hr>
+        <div class="comment-plz-signin text-center">
+            <p>
+            <h4>您还没有登录，请您登录后参与讨论：</h4><br>
+            <a class="btn btn-danger" href="/signin">登录</a>
+            &nbsp;或&nbsp;
+            <a class="btn btn-success" href="/signup">立即注册</a>
+            </p>
+        </div>
+    </div>
+</div>

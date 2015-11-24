@@ -1,0 +1,123 @@
+
+<div ng-hide="task.is_edit">
+	<div class="entity-title " ng-include="'/view/entity/task_title.html'">
+    </div>
+
+	<wt-tadges task="task"></wt-tadges>
+    <div class="wt-row" style="border-bottom: 0px ">
+        &nbsp;
+    </div>
+    <div class="empty-panel"
+         ng-show="!task.is_edit && !task.mobile && !task.phone && !task.fax && !task.msn && !task.skype &&!task.facebook&& !task.linkedin&& !task.qq.length && !task.weixin.length">
+        <i class="icon-phone"></i>
+        <br>
+        <span>
+            还没有联系信息
+        </span>
+    </div>
+	<div class="task-desc wt-row"
+		ng-show="!task.is_edit && task.mobile.length>0">
+		<label class="col-xs-2 control-label p_0"><i
+			class="icon-mobile-phone mr_5"></i>Mobile</label>
+        <strong>{{task.mobile}}</strong>
+	</div>
+	<div class="task-desc wt-row"
+		ng-show="!task.is_edit && task.phone.length>0">
+		<label class="col-xs-2 control-label p_0"><i
+			class="icon-phone mr_5"></i>电话</label> {{task.phone}}
+	</div>
+	<div class="task-desc wt-row"
+		ng-show="!task.is_edit && task.fax.length>0">
+		<label class="col-xs-2 control-label p_0"><i
+			class="icon-globe mr_5"></i>传真</label> {{task.fax}}
+	</div>
+	<div class="task-desc wt-row"
+		ng-show="!task.is_edit && task.skype.length>0">
+		<label class="col-xs-2 control-label p_0"><i
+			class="icon-skype mr_5"></i>Skype</label> {{task.skype}}
+	</div>
+	<div class="task-desc wt-row"
+		ng-show="!task.is_edit&&task.facebook.length>0">
+		<label class="col-xs-2 control-label p_0"><i
+			class="icon-facebook mr_5"></i>facebook</label> {{task.facebook}}
+	</div>
+	<div class="task-desc wt-row"
+		ng-show="!task.is_edit && task.linkedin.length>0">
+		<label class="col-xs-2 control-label p_0"><i
+			class="icon-linkedin mr_5"></i>Linkedin</label> {{task.linkedin}}
+	</div>
+</div>
+<div class="edit-section" ng-show="task.is_edit && task.show_part==2">
+    <form class="wt-form" name="contact_form" novalidate="" role="form">
+        <div class="form-group">
+            <div class="input-group">
+				<span class="input-group-addon fs_15"><i
+                        class="icon icon-phone w_12"></i></span> <input autofocus=""
+                                                                        ng-model="task.temp_phone"
+                                                                        wt-enter="js_set_update($event, task)"
+                                                                        class="form-control" placeholder="电话号码"
+                                                                        maxlength="50" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+				<span class="input-group-addon fs_15"><i
+                        class="icon icon-mobile-phone w_12"></i></span> <input autofocus=""
+                                                                               ng-model="task.temp_mobile"
+                                                                               wt-enter="js_set_update($event, task)"
+                                                                               class="form-control" placeholder="移动号码"
+                                                                               maxlength="50" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+				<span class="input-group-addon fs_15"><i
+                        class="icon icon-globe w_12"></i></span> <input autofocus=""
+                                                                        ng-model="task.temp_fax"
+                                                                        wt-enter="js_set_update($event, task)"
+                                                                        class="form-control" placeholder="传真 "
+                                                                        maxlength="50" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+				<span class="input-group-addon fs_15"><i
+                        class="icon icon-skype w_12"></i></span> <input autofocus=""
+                                                                        ng-model="task.temp_skype"
+                                                                        wt-enter="js_set_update($event, task)"
+                                                                        class="form-control" placeholder="Skype"
+                                                                        maxlength="50" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+				<span class="input-group-addon fs_15"><i
+                        class="icon icon-facebook w_12"></i></span> <input autofocus=""
+                                                                           ng-model="task.temp_facebook"
+                                                                           wt-enter="js_set_update($event, task)"
+                                                                           class="form-control" placeholder="Facebook"
+                                                                           maxlength="50" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+				<span class="input-group-addon fs_15"><i
+                        class="icon icon-linkedin w_12"></i></span> <input autofocus=""
+                                                                           ng-model="task.temp_linkedin"
+                                                                           wt-enter="js_set_update($event, task)"
+                                                                           class="form-control" placeholder="Linkin"
+                                                                           maxlength="50" type="text">
+            </div>
+        </div>
+        <div class="form-group">
+            <button wt-form-submit="js_set_update(contact_form, task)"
+                    data-loading-text="保存中..." loading-status="task.is_saving"
+                    class="btn btn-success mr_15"
+                    wt-tracker="Task Panel|Main|Edit Task-Save">保存
+            </button>
+            <button ng-click="js_cancel_editor(task)" class="btn"
+                    wt-tracker="Task Panel|Main|Edit Task-Cancel">取消
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,12 @@
+{
+    "data":
+        [
+            {"code" : "127","cnName" : "大学","children":[]},
+            {"code" : "126","cnName" : "中学","children":[]},
+            {"code" : "125","cnName" : "独立机构","children":[]},
+            {"code" : "157","cnName" : "学生组织","children":[]}
+        ],
+	"label":"机构类型",
+	"version":"1.0",
+	"copyright":"@2014 上海思蓄力教育科技有限公司"
+}

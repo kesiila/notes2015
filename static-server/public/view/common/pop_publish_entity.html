@@ -1,0 +1,22 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>发布{{entity}}</h3>
+</div>
+<form name="publish_entity_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+      class="wt-form" novalidate role="form" data-ng-hide="publish_success">
+    <div class="popbox-body">
+        <span>将该{{entity}}变为公开状态？</span>
+    </div>
+    <div class="popbox-footer">
+        <button wt-form-submit="js_publish_entity(publish_entity_form)"
+                data-loading-text="分享中..."
+                class="btn btn-success mr_15"
+                loading-status="is_publishing">确定
+        </button>
+        <button ng-click="js_close(result)" class="btn">取消</button>
+    </div>
+</form>
+<div class="popbox-body" data-ng-show="publish_success">
+    <p class="alert alert-success">{{entity}}发布成功!</p>
+
+</div>

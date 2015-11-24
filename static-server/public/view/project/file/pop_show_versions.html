@@ -1,0 +1,20 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>历史版本</h3>
+</div>
+<div class="popbox-bodywrapper fixed-width" wt-scroll>
+    <div class="popbox-body">
+        <div class="part-loading" ng-hide="file_version_loaded"></div>
+        <ul class="popbox-menu">
+            <li ng-repeat="version in versions" class="file-version-item">
+                <span class="file-item-version">#{{version.version}}</span>
+                <span class="file-item-owner">{{version.owner.display_name}}</span>
+                <span class="file-item-date">上传于{{version.create_date | fromNow}}</span>
+                <a class="file-item-li-menu file-picfile" ng-href="{{version | wtBoxDownload}}" target="_blank">
+                    <img ng-src="{{version.icon | wtBox}}" alt="{{ version.name }}"/>
+                    <span class="file-name">{{version.name}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

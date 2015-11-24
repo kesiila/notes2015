@@ -1,0 +1,13 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>发送邮件</h3>
+</div>
+<div class="popbox-body" data-ng-hide="send_success">
+    <span>以设定的邮件模板给活动发送邮件<br/>活动阅读邮件行为将被追踪。</span>
+</div>
+<div class="popbox-footer" data-ng-hide="send_success">
+    <button ng-click="js_mail_task()" class="btn btn-success float_left">确定发送</button>
+</div>
+<div class="popbox-body" data-ng-show="send_success">
+    <p class="alert alert-success">邮件发送成功！</p>
+</div>

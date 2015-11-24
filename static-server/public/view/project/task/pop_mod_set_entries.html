@@ -1,0 +1,54 @@
+<div class="popbox-body">
+    <form class="form-horizontal labels" role="form" wt-enter="js_set_entries(step_one, step_two, step_three, step_four, step_five, step_six)">
+        <div class="form-group">
+            <label for="step_one" class="col-xs-2 control-label">
+                一
+            </label>
+            <div class="col-xs-10">
+                <input type="text" autofocus="" ng-model="step_one" class="js-label-title form-control" id="step_one" name="step_one" placeholder="未定义阶段">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="step_two" class="col-xs-2 control-label">
+                二
+            </label>
+            <div class="col-xs-10">
+                <input type="text" autofocus="" ng-model="step_two" class="js-label-title form-control" id="step_two" name="step_two" placeholder="未定义阶段">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="step_three" class="col-xs-2 control-label">
+                三
+            </label>
+            <div class="col-xs-10">
+                <input type="text" autofocus="" ng-model="step_three" class="js-label-title form-control" id="step_three" name="step_three" placeholder="未定义阶段">
+            </div>
+        </div><div class="form-group">
+        <label for="step_four" class="col-xs-2 control-label">
+                四
+        </label>
+        <div class="col-xs-10">
+            <input type="text" autofocus="" ng-model="step_four" class="js-label-title form-control" id="step_four" name="step_four" placeholder="未定义阶段">
+        </div>
+    </div><div class="form-group">
+        <label for="step_five" class="col-xs-2 control-label">
+                五
+        </label>
+        <div class="col-xs-10">
+            <input type="text" autofocus="" ng-model="step_five" class="js-label-title form-control" id="step_five" name="step_five" placeholder="未定义阶段">
+        </div>
+    </div><div class="form-group">
+        <label for="step_six" class="col-xs-2 control-label">
+                六
+        </label>
+        <div class="col-xs-10">
+            <input type="text" autofocus="" ng-model="step_six" class="js-label-title form-control" id="step_six" name="step_six" placeholder="未定义阶段">
+        </div>
+    </div>
+
+    </form>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_set_entries(step_one, step_two, step_three, step_four, step_five, step_six)" class="btn btn-success mr_15" data-loading-text="保存中..." loading-status="is_save_ing">确定</button>
+    <button ng-click="js_step(0)" class="btn">取消</button>
+</div>

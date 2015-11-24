@@ -1,0 +1,19 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>批量删除
+        <!--     <span ng-if="task.uid !=global.me.uid">取消收藏</span>-->
+    </h3>
+</div>
+<div class="popbox-body">
+    <p>删除同批产生的活动数据吗?</p>
+    <p>同一excel上传的</p>
+    <p>以多个时间批量生成的</p>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_delete_group(task)" class="btn btn-danger float_left">
+        <span>确定删除</span>
+    </button>
+    <button  ng-click="js_close()" class="btn pull-right">
+        <span >取消</span>
+    </button>
+</div>

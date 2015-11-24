@@ -1,0 +1,24 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>确认分享该活动</h3>
+</div>
+<form name="share_entity_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+      class="wt-form" novalidate role="form" data-ng-hide="send_success">
+    <div class="popbox-body">
+    <span>该{{entity}}将从你的私有空间分享到公共空间，<br/>所有人都可以浏览</span>
+
+<!--         <input name="email_address" ng-model="email_address" placeholder="邮箱地址(多个以分号隔开)"
+               type="text" wt-multiple-email class="form-control w_260" required autofocus/>
+ -->    </div>
+    <div class="popbox-footer">
+        <button ng-click="js_move_to(entries[1])"
+                data-loading-text="发送中..."
+                class="btn btn-success mr_15"
+                loading-status="is_sharing"> 分享
+        </button>
+        <button ng-click="js_close(result)" class="btn">取消</button>
+    </div>
+</form>
+<div class="popbox-body" data-ng-show="send_success">
+    <p class="alert alert-success">活动分享成功！</p>
+</div>

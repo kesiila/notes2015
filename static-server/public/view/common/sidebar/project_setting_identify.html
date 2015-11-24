@@ -1,0 +1,31 @@
+<div class="prj_sidebar_step_body">
+<div class="p_10">
+    <form name="prj_logo_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+          class="wt-form" novalidate>
+        <ul class="prj-colors list-col-4">
+            <li ng-repeat="prj_color in prj_colors" class="text-center">
+                 <span ng-click="js_color_select(prj_color)"
+                       class="prj_color"
+                       ng-style="{backgroundColor:prj_color}">
+                        <i class="icon-white icon-ok"
+                           ng-show="prj_color == project.info.new_bg"></i>
+                 </span>
+            </li>
+        </ul>
+        <ul class="prj-icons list-col-4">
+            <li ng-repeat="prj_icon in prj_icons" class="text-center" ng-class="{true:'active'}[prj_icon == project.info.new_pic]">
+                 <span ng-click="js_icon_select(prj_icon)"
+                       class="prj_icon"
+                       ng-style="{color:project.info.new_bg}">
+                        <i class="{{prj_icon}}"></i>
+                 </span>
+            </li>
+        </ul>
+        <br/>
+        <button wt-form-submit="js_prj_set_logo(prj_logo_form)" data-loading-text="保存中..."
+                class="btn btn-success mr_15" loading-status="is_logo_saving">确定
+        </button>
+    </form>
+
+</div>
+</div>

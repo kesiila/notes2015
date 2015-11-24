@@ -1,0 +1,55 @@
+{
+	"data":[
+        {"code" : "00","cnName" : "精华库",
+            "children":
+                [
+                    {"code" : "0100","cnName" : "开发"},
+                    {"code" : "0200","cnName" : "报价"},
+                    {"code" : "0300","cnName" : "展会"},
+                    {"code" : "0400","cnName" : "谈判"},
+                    {"code" : "0500","cnName" : "打样"},
+                    {"code" : "0600","cnName" : "索赔"},
+                    {"code" : "0700","cnName" : "通知"},
+                    {"code" : "0800","cnName" : "收款"},
+                    {"code" : "0900","cnName" : "追踪"},
+                    {"code" : "1000","cnName" : "激活"},
+                    {"code" : "1100","cnName" : "问候"},
+                    {"code" : "1200","cnName" : "邀请"}
+                ]
+        },
+        {"code" : "01","cnName" : "模板库",
+            "children":
+                [
+                    {"code" : "0100","cnName" : "开发"},
+                    {"code" : "0200","cnName" : "报价"},
+                    {"code" : "0300","cnName" : "展会"},
+                    {"code" : "0400","cnName" : "谈判"},
+                    {"code" : "0500","cnName" : "打样"},
+                    {"code" : "0600","cnName" : "索赔"},
+                    {"code" : "0700","cnName" : "通知"},
+                    {"code" : "0800","cnName" : "收款"},
+                    {"code" : "0900","cnName" : "追踪"},
+                    {"code" : "1000","cnName" : "激活"},
+                    {"code" : "1100","cnName" : "问候"},
+                    {"code" : "1200","cnName" : "邀请"}
+                ]
+        }
+    ],
+    "types":[
+        {"code" : "0100","cnName" : "开发"},
+        {"code" : "0200","cnName" : "报价"},
+        {"code" : "0300","cnName" : "展会"},
+        {"code" : "0400","cnName" : "谈判"},
+        {"code" : "0500","cnName" : "打样"},
+        {"code" : "0600","cnName" : "索赔"},
+        {"code" : "0700","cnName" : "通知"},
+        {"code" : "0800","cnName" : "收款"},
+        {"code" : "0900","cnName" : "追踪"},
+        {"code" : "1000","cnName" : "激活"},
+        {"code" : "1100","cnName" : "问候"},
+        {"code" : "1200","cnName" : "邀请"}
+    ],
+	"label": "模板分类",
+	"version":"1.0",
+	"copyright":"@2014 上海思蓄力教育科技有限公司"
+}

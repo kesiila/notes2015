@@ -1,0 +1,19 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>新建文件夹</h3>
+</div>
+<form name="add_folder_form" wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate>
+    <div class="popbox-body">
+        <div>
+            <input name="file_name" ng-model="name" placeholder="文件夹名" class="form-control help-block" type="text" autofocus=""
+                   required/>
+        </div>
+    </div>
+    <div class="popbox-footer">
+        <button wt-form-submit="js_add_folder(add_folder_form, name)" data-loading-text="保存中..."
+                class="btn btn-success mr_15"
+                loading-status="is_save_ing">确定
+        </button>
+        <button ng-click="js_close(result)" class="btn float_left">取消</button>
+    </div>
+</form>

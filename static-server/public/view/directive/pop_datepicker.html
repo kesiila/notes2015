@@ -1,0 +1,9 @@
+
+<div class="popbox-body">
+    <wt-full-datepicker default-date="default_date" set-date="js_set_date(date)"
+                        min-date="min_date"></wt-full-datepicker>
+</div>
+<div class="popbox-footer" data-ng-show="need_sure">
+    <a class="btn btn-success mr_15" wt-tracker="Pop Datepicker|Footer|OK" ng-click="js_set_date()">确定</a>
+    <a class="btn" wt-tracker="Pop Datepicker|Footer|Cancel" ng-click="js_cancel()">取消</a>
+</div>

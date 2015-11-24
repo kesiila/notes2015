@@ -1,0 +1,538 @@
+<!-- beitayongde-->
+<div class="prj_sidebar height-noheader"
+	wt-sidebar-toggle="global.right_sidebar_is_fold"
+	data-ng-controller="prj_sidebar_new_ctrl">
+	<div class="prj_sidebar_header collapse_show">
+		<ul class="list-inline">
+			<li ng-class="{'active':(global.project_sidebar_foldview=='module')}">
+				<a href="javascript:;"
+				ng-mouseover="global.project_sidebar_foldview = 'module'"
+				title="组内应用"> <i class="icon-th-large"></i>
+			</a>
+			</li>
+			<li ng-class="{'active':(global.project_sidebar_foldview=='member')}">
+				<a href="javascript:;"
+				ng-mouseover="global.project_sidebar_foldview = 'member'"
+				title="高级应用,孵化中..."> <i class="icon-road"></i>
+			</a>
+			</li>
+		</ul>
+	</div>
+	<div id="tour_02_01" ng-switch on="step"
+		class="prj_sidebar_step_header collapse_hide">
+		<div ng-click="js_toggle_step_body()">
+			<a href="javascript:;">
+				<button
+					ng-class="{false:'icon-caret-down',true:'icon-caret-up'}[bodyOpen]"></button>
+				<h3 class="pl_15">项目选项</h3>
+			</a>
+		</div>
+		<div ng-switch-when="1" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>筛选活动</h3>
+			</a>
+		</div>
+		<div ng-switch-when="2" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>定义组内标记</h3>
+			</a>
+		</div>
+		<div ng-switch-when="9" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>定义交易墙模板</h3>
+			</a>
+		</div>
+		<div ng-switch-when="3" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>项目设置</h3>
+			</a>
+		</div>
+		<div ng-switch-when="31" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>修改基本信息</h3>
+			</a>
+		</div>
+		<div ng-switch-when="32" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>修改项目标识</h3>
+			</a>
+		</div>
+		<div ng-switch-when="33" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>项目偏好设置</h3>
+			</a>
+		</div>
+		<div ng-switch-when="34" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>归档项目</h3>
+			</a>
+		</div>
+		<div ng-switch-when="35" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>激活项目</h3>
+			</a>
+		</div>
+		<div ng-switch-when="36" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>删除项目</h3>
+			</a>
+		</div>
+		<div ng-switch-when="37" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>邮件通知</h3>
+			</a>
+		</div>
+		<div ng-switch-when="38" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>退出项目</h3>
+			</a>
+		</div>
+		<div ng-switch-when="39" ng-click="js_step(3)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>移动项目</h3>
+			</a>
+		</div>
+		<div ng-switch-when="4" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>数据导出</h3>
+			</a>
+		</div>
+		<div ng-switch-when="5" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>通过邮件创建内容</h3>
+			</a>
+		</div>
+		<div ng-switch-when="6" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>添加项目成员</h3>
+			</a>
+		</div>
+
+		<div ng-switch-when="7" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>选择活动</h3>
+			</a>
+		</div>
+		<div ng-switch-when="8" ng-click="js_step(0)">
+			<a href="javascript:;">
+				<button class="back icon-chevron-left"></button>
+				<h3>选择模板</h3>
+			</a>
+		</div>
+
+	</div>
+
+	<div class="hr"></div>
+
+	<div data-height="119" wt-scroll>
+		<ul class="prj_sidebar_step" ng-switch on="step"
+			ng-if="!global.right_sidebar_is_fold">
+			<li ng-switch-default class="prj_sidebar_step_li">
+				<div class="prj_sidebar_step_body animate-sidebarbody-slide"
+					ng-if="bodyOpen">
+					<ul class="prj_sidebar_step_menu">
+						<!--  ng-class="{'disabled':global.project_iconmenu!='develop'}"-->
+						<li >
+							<a href="javascript:;" ng-click="js_step(1,$event)"> <i
+								class="icon-filter"></i> 筛选活动
+						</a>
+						</li>
+						<!-- 						<li><a href="/project/{{pid}}/archive"> <i
+								class="icon-archive"></i> 查看归档活动
+						</a></li>
+ -->
+						<li class="divider"></li>
+						<li ng-class="{'disabled': project.info.curr_role == 4}"><a
+							href="javascript:;" ng-click="js_step(2,$event)"> <i
+								class="icon-tags"></i> 定义组内标记
+						</a></li>
+						<li ng-class="{'disabled': project.info.curr_role == 4}"><a
+							href="javascript:;" ng-click="js_step(9,$event)"> <i
+								class="icon-columns"></i> 定义交易墙模板
+						</a></li>
+						<li ng-class="{'disabled': project.info.curr_role == 4}"><a
+							ng-click="js_goto_prj_setting($event)"> <i class="icon-cog"></i>
+								项目设置
+						</a></li>
+						<!-- 					<li class="divider"></li>
+						<li><a href="javascript:;" ng-click="js_step(4)"> <i
+								class="icon-share"></i> 数据导出
+						</a></li>
+	 -->
+						<!--<li>-->
+						<!--<a href="javascript:;" ng-click="js_watch_project(pid)">-->
+						<!--<i class="icon-eye-open"></i> 关注当前项目-->
+						<!--<span class="text-muted small-tip">关注</span>-->
+						<!--</a>-->
+						<!--</li>-->
+						<!-- 						<li><a href="javascript:;" ng-click="js_step(5,$event)">
+								<i class="icon-envelope"></i> 通过邮件创建内容
+						</a></li>
+						<li
+							ng-if="global.prj_module.curd | permission:project.info.permission">
+							<a href="/project/{{pid}}/trash"> <i class="icon-trash"></i>
+								回收站
+						</a>
+						</li>
+						<li class="disabled"
+							ng-if="!(global.prj_module.curd | permission:project.info.permission)">
+							<a href="javascript:;"> <i class="icon-trash"></i> 回收站
+						</a>
+						</li>
+ -->
+					</ul>
+					<div class="hr"></div>
+				</div>
+				<div class="prj_sidebar_step_body animate-sidebarbody-slide"
+					ng-if="(global.right_sidebar_show_part==1)">
+					<ul class="prj_sidebar_step_menu">
+						<!-- 						<li ng-class="{'disabled':global.project_iconmenu!='task'}">
+							<a href="javascript:;" ng-click="js_step(1,$event)"> <i
+								class="icon-filter"></i> 筛选目标 
+						</a>
+						</li>
+					<li class="divider"></li> -->
+						<li><a href="javascript:;" ng-click="js_step(7,$event)">
+								<i class="icon-user"></i> 选择活动
+						</a></li>
+						<li><a href="javascript:;" ng-click="js_step(8,$event)">
+								<i class="icon-list-alt"></i> 选择模板
+						</a></li>
+						<!--<li>-->
+						<!--<a href="javascript:;" ng-click="js_watch_project(pid)">-->
+						<!--<i class="icon-eye-open"></i> 关注当前项目-->
+						<!--<span class="text-muted small-tip">关注</span>-->
+						<!--</a>-->
+						<!--</li>-->
+					</ul>
+					<div class="hr"></div>
+				</div>
+				<div class="prj_sidebar_step_body animate-sidebarbody-slide"
+					ng-if="(global.right_sidebar_show_part==32)">
+					<ul class="prj_sidebar_step_menu">
+						<!-- 						<li ng-class="{'disabled':global.project_iconmenu!='task'}">
+							<a href="javascript:;" ng-click="js_step(1,$event)"> <i
+								class="icon-filter"></i> 筛选目标 
+						</a>
+						</li>
+					<li class="divider"></li> -->
+						<li><a href="javascript:;" ng-click="js_step(8,$event)">
+								<i class="icon-list-alt"></i> 选择模板
+						</a></li>
+						<!--<li>-->
+						<!--<a href="javascript:;" ng-click="js_watch_project(pid)">-->
+						<!--<i class="icon-eye-open"></i> 关注当前项目-->
+						<!--<span class="text-muted small-tip">关注</span>-->
+						<!--</a>-->
+						<!--</li>-->
+					</ul>
+					<div class="hr"></div>
+				</div>
+
+			</li>
+			<li ng-switch-when="1" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/filter_tasks.html'"></ng-include></li>
+
+			<li ng-switch-when="7" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/select_tasks.html'"></ng-include></li>
+			<li ng-switch-when="8" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/select_template.html'"></ng-include></li>
+
+			<li ng-switch-when="2" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/setting_label.html'"></ng-include></li>
+			<li ng-switch-when="9" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/setting_entry.html'"></ng-include></li>
+			<li ng-switch-when="3" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting.html'"></ng-include></li>
+			<li ng-switch-when="31" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_baseinfo.html'"></ng-include>
+			</li>
+			<li ng-switch-when="32" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_identify.html'"></ng-include>
+			</li>
+			<li ng-switch-when="33" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_preference.html'"></ng-include>
+			</li>
+			<li ng-switch-when="34" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_archive.html'"></ng-include>
+			</li>
+			<li ng-switch-when="35" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_activate.html'"></ng-include>
+			</li>
+			<li ng-switch-when="36" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_del.html'"></ng-include>
+			</li>
+			<li ng-switch-when="37" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_notify.html'"></ng-include>
+			</li>
+			<li ng-switch-when="38" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_quit.html'"></ng-include>
+			</li>
+
+
+
+			<li ng-switch-when="39" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/project_setting_transfer.html'"></ng-include>
+			</li>
+
+
+			<li ng-switch-when="4" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/export_data.html'"></ng-include></li>
+			<li ng-switch-when="5" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/create_by_mail.html'"></ng-include></li>
+			<li ng-switch-when="6" class="prj_sidebar_step_li"><ng-include
+					src="'/view/project/sidebar/add_member.html'"></ng-include></li>
+		</ul>
+		<div class="prj_sidebar_main"
+			ng-if="global.right_sidebar_show_part==0 || global.right_sidebar_show_part==2 || global.right_sidebar_show_part==3 || global.right_sidebar_show_part==31">
+
+			<div
+				ng-if="global.right_sidebar_show_part==0 || global.right_sidebar_show_part==1  || global.right_sidebar_show_part==3"
+				ng-show="(global.right_sidebar_is_fold==false) || global.right_sidebar_is_fold==true && global.project_sidebar_foldview=='module'">
+				<h4 ng-hide="global.right_sidebar_is_fold">组内应用</h4>
+				<ul class="prj_sidebar_module">
+					<li ng-class="{'active':global.project_iconmenu=='task'}"><a
+						ng-href="/project/{{pid}}/task" title="活动(Shift+T),管理当前组内用户">
+							<i class="icon-flag-checkered"></i><br />活动
+					</a></li>
+
+					<!-- 					<li ng-class="{'active':global.project_iconmenu=='develop'}"><a
+						ng-href="/project/{{pid}}/develop" title="询盘(Shift+T)，监控当前组活动交易进程"> <i
+							class="icon-columns"></i><br />交易墙
+					</a></li>
+ -->
+<!-- 					<li ng-class="{'active':global.project_iconmenu=='mail'}"><a
+						ng-href="/project/{{pid}}/mail" title="邮件(Shift+M)，管理当前组内活动来往邮件">
+							<i class="icon-envelope"></i><br />邮件
+					</a></li>
+					<li ng-class="{'active':global.project_iconmenu=='template'}">
+						<a ng-href="/project/{{pid}}/template"
+						title="模板(Shift+T)，管理当前组内模板"> <i class="icon-list-alt"></i><br />模板
+					</a>
+					</li> -->
+					<!--                     <li ng-class="{'active':global.project_iconmenu=='event'}">
+                        <a ng-href="/project/{{pid}}/event" title="日历(Shift+E)">
+                            <i class="icon-calendar"></i><br/>日历</a></li>
+ -->
+	<!-- 				<li ng-class="{'active':global.project_iconmenu=='post'}"><a
+						ng-href="/project/{{pid}}/post" title="问答(Shift+C)，管理当前组内话题">
+							<i class="icon-comment"></i><br />问答
+					</a></li> -->
+					<li ng-class="{'active':global.project_iconmenu=='file'}"><a
+						ng-href="/project/{{pid}}/file" title="文件(Shift+F)，管理当期组内文件">
+							<i class="icon-file"></i><br />文件
+					</a></li>
+ -->
+					<!--                     <li ng-class="{'active':global.project_iconmenu=='page'}">
+                        <a ng-href="/project/{{pid}}/page" title="文档(Shift+D)">
+                            <i class="icon-file-text-alt"></i><br/>文档</a>
+                    </li>
+                    <li ng-class="{'active':global.project_iconmenu=='graph'}">
+                        <a ng-href="/project/{{pid}}/graph" title="简报(Shift+G)">
+                            <i class="icon-bar-chart"></i><br/>简报</a>
+                    </li>
+ -->
+				</ul>
+			</div>
+			<div
+				ng-if="!global.right_sidebar_is_fold && global.right_sidebar_show_part==2">
+				<!-- 邮件操作  -->
+				<h4 style="color: #333;opacity: 1.0;">批量操作</h4>
+				<div class="hr collapse_hide"></div>
+				<ul class="prj_sidebar_module">
+					<li><a href="javascript:;"
+						ng-click="js_remove_selected(selectedMails, mails)" title="删除所选邮件">
+							<i class="icon-remove"></i><br />删除
+					</a></li>
+					<li><a ng-href="/project/{{pid}}/task" title="设置组内标记"> <i
+							class="icon-tag"></i><br />组内标记
+					</a></li>
+				</ul>
+			</div>
+			<div
+				ng-if="!global.right_sidebar_is_fold && global.right_sidebar_show_part==31">
+				<!-- 活动操作  -->
+				<h4 style="color: #333;opacity: 1.0;">批量操作</h4>
+				<ul class="prj_sidebar_module">
+					<li><a href="javascript:;" ng-click="js_show_add_mail()"
+						title="给所选用户发信(Shift+T)"> <i class="icon-envelope"></i><br />发邮件
+					</a></li>
+					<li><a href="javascript:;"
+						ng-click="js_move($event,selectedTasks)" title="移动"> <i
+							class="icon-move"></i><br />移动
+					</a></li>
+                    <li><a href="javascript:;" ng-click="customer_batch_share_project($event)" title="分享活动">
+                        <i class="icon-share"></i><br />分享
+                    </a></li>
+					<li><a href ng-click="batch_remove($event)" title="批量删除活动">
+						<i class="icon-remove"></i><br />删除
+					</a></li>
+					<!-- 					<li><a ng-href="/project/{{pid}}/task" title="任务(Shift+T)">
+							<i class="icon-tag"></i><br />标签
+					</a></li>
+ -->
+				</ul>
+			</div>
+			<div class="hr collapse_hide"
+				ng-if="!global.right_sidebar_is_fold &&  (global.right_sidebar_show_part==31 || global.right_sidebar_show_part==31)"></div>
+			<div
+				ng-if="!global.right_sidebar_is_fold &&  (global.right_sidebar_show_part==31 || global.right_sidebar_show_part==31)">
+				<h4>已选择活动({{$root.selectedTasks.length}})</h4>
+				<ul class="prj_sidebar_step" ng-if="!global.right_sidebar_is_fold">
+					<li class="prj_sidebar_step_li">
+						<div class="prj_sidebar_step_body animate-sidebarbody-slide"
+							ng-if="bodyOpen || global.right_sidebar_show_part==31">
+							<ul class="prj_sidebar_step_menu">
+								<li ng-repeat="task in $root.selectedTasks">
+                                    <a href="javascript:;" ng-click="js_step(1,$event)" title="联系人" ng-show="task.name">
+                                        <i class="icon-user font_light_gray_color"></i> {{task.name}}
+								    </a>
+                                    <a href="javascript:;" ng-click="js_step(1,$event)" title="公司名称" ng-show="!task.name">
+                                        <i class="icon-home font_light_gray_color"></i> {{task.company}}
+                                    </a>
+                                </li>
+							</ul>
+							<div class="hr"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="hr collapse_hide"></div>
+			<div
+				ng-if="!global.right_sidebar_is_fold &&  global.right_sidebar_show_part==2">
+				<h4>已选择邮件({{selectedMails.length}})</h4>
+				<ul class="prj_sidebar_step" ng-switch on="step"
+					ng-if="!global.right_sidebar_is_fold">
+					<li ng-switch-default class="prj_sidebar_step_li">
+						<div class="prj_sidebar_step_body animate-sidebarbody-slide"
+							ng-if="bodyOpen || global.right_sidebar_show_part==2">
+							<ul class="prj_sidebar_step_menu">
+								<li ng-repeat="mail in selectedMails"><a
+									href="javascript:;" ng-click="js_step(1,$event)"> <i
+										class="icon-envelope"></i> {{mail.name}}
+								</a></li>
+							</ul>
+							<div class="hr"></div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="prj_sidebar_main"
+			ng-if="global.right_sidebar_show_part==0 || global.right_sidebar_show_part==2 || global.right_sidebar_show_part==3 || global.right_sidebar_show_part==31">
+
+			<div
+				ng-if="global.right_sidebar_show_part==0 || global.right_sidebar_show_part==1  || global.right_sidebar_show_part==3"
+				ng-show="(global.right_sidebar_is_fold==false) || global.right_sidebar_is_fold==true && global.project_sidebar_foldview=='member'">
+				<h4 ng-hide="global.right_sidebar_is_fold">更多应用</h4>
+				<ul class="prj_sidebar_module">
+					 					<li ng-class="{'active':global.project_iconmenu=='develop'}"><a
+						ng-href="/project/{{pid}}/develop" title="询盘(Shift+T)，监控当前组活动进程"> <i
+							class="icon-columns"></i><br />活动墙
+					</a></li>
+ 
+					<!--                     <li ng-class="{'active':global.project_iconmenu=='event'}">
+                        <a ng-href="/project/{{pid}}/event" title="日历(Shift+E)">
+                            <i class="icon-calendar"></i><br/>日历</a></li>
+ -->
+					<!--                     <li ng-class="{'active':global.project_iconmenu=='page'}">
+                        <a ng-href="/project/{{pid}}/page" title="文档(Shift+D)">
+                            <i class="icon-file-text-alt"></i><br/>文档</a>
+                    </li>
+                    <li ng-class="{'active':global.project_iconmenu=='graph'}">
+                        <a ng-href="/project/{{pid}}/graph" title="简报(Shift+G)">
+                            <i class="icon-bar-chart"></i><br/>简报</a>
+                    </li>
+ -->
+				</ul>
+			</div>
+		</div>
+		
+<!-- 		<div class="prj_sidebar_body">
+			<div
+				ng-show="(global.project_sidebar_view == 'member' && global.right_sidebar_is_fold==false) || global.right_sidebar_is_fold==true && global.project_sidebar_foldview=='member'"
+				class="prj_member_list"
+				ng-class="{true:'fold'}[global.right_sidebar_is_fold]"
+				ng-controller="prj_member_ctrl">
+				<h4 ng-hide="global.right_sidebar_is_fold">成员</h4>
+				<ul class="avatars"
+					ng-class="{ 'list-col-4':global.right_sidebar_is_fold==false }">
+					<li
+						ng-if="global.loading_done && (global.prj_module.setting | permission:project.info.permission)">
+						<div class="js-popbox member text-center" ng-click="js_step(6)"
+							tooltip="添加成员" tooltip-placement="bottom">
+							<a class="avatar-add" href="javascript:;"> <span class="o">
+									<i class="icon-plus"></i>
+							</span>
+							</a>
+						</div>
+					</li>
+					<li ng-repeat="member in project.members | filter:isMemberFilter()">
+						<div ng-click="js_prj_member_pop($event,member)"
+							class="js-popbox member" data-placement="left"
+							ng-class="{true: 'member-pendding'}[member.status==3]"
+							title="{{{3: '成员已经退出团队'}[member.status]}}">
+							<wt-avatar member="member" status="true" class="text-center"
+								namebr="true" role="member.role"
+								drag="{true: $parent.draggable_options,false:''}[member.status==1 && member.role != 3 && project.info.curr_role!=3]"></wt-avatar>
+						</div>
+					</li>
+
+				</ul>
+				<div
+					ng-if="(!global.right_sidebar_is_fold) && ((project.members | filter:isGuestFilter()).length > 0)">
+					<div class="hr collapse_hide mt_5"></div>
+
+					<h4 ng-hide="global.right_sidebar_is_fold">访客</h4>
+					<ul class="avatars list-col-4">
+						<li ng-repeat="member in project.members | filter:isGuestFilter()">
+							<div class="js-popbox member"
+								ng-click="js_prj_member_pop($event,member)"
+								data-placement="left">
+								<wt-avatar member="member" status="true" class="text-center"
+									namebr="true"></wt-avatar>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div
+					ng-if="(!global.right_sidebar_is_fold) && ((project.members | filter:{status:2}).length > 0)">
+					<div class="hr collapse_hide mt_5"></div>
+
+					<h4 ng-hide="global.right_sidebar_is_fold">已邀请成员</h4>
+					<ul class="avatars list-col-4">
+						<li
+							ng-repeat="member in project.members | filter:isStatusPendingFilter()">
+							<div class="js-popbox member member-pendding" title="成员还未接受邀请"
+								ng-click="js_prj_member_pop($event,member)"
+								data-placement="left">
+								<wt-avatar member="member" status="true" class="text-center"
+									namebr="true" role="member.role"></wt-avatar>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+ -->	</div>
+
+</div>

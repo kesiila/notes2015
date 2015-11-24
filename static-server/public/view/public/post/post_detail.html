@@ -1,0 +1,151 @@
+<div data-ng-controller="detail_post_ctrl"
+     class="entity-panel post-panel" wt-dragfile="dragfile_option">
+    <div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+    <div class="entity-panel-wrapper" >
+        <div class="entity-panel-header">
+            <a class="name" href="javascript:;"
+               ng-show="global.is_outter == false"
+               ng-click="locator.to_project(project.info.pid, 'post')"> <i
+                    class="{{project.info.pic}} mr_10"
+                    ng-style="{color:project.info.bg}"></i> {{project.info.name}}&nbsp;
+            </a>
+            <ul class="nav nav-pills">
+                <li ng-show="permission==16" class="entity-warning">问答已经于
+                    {{post.update_date | timeFormatZHCN}} 删除了</li>
+                <!--<li data-placement="bottom" class="js-popbox" >-->
+                <!--<a href="javascript:;" ng-show="global.is_login&&global.is_outter&&!template.collected" ng-click="js_collect(post)"><i class="icon-book"></i>收藏</a>-->
+                <!--<a href="javascript:;" class="disabled" ng-show="global.is_login&&global.is_outter&&post.collected"><i class="icon-book"></i>已收藏</a>-->
+                <!--</li>-->
+                <li wt-permission="[permission,project.info.curr_role,1,2]"
+                    ng-show="((post.uid ==global.me.uid)) && global.is_outter == false">
+                    <a href="javascript:;" ng-class="{true:'disabled'}[(post.uid != global.me.uid) || post.is_edit]"
+                       ng-click="show_post_editor(post)" title="编辑">
+                        <i class="icon-pencil"></i>编辑
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" ng-show="(post.uid ==global.me.uid) &&global.is_outter == false"
+                       ng-class="{true:'disabled'}[post.is_published==1]" wt-entity-share="[permission,project.info.pid,'posts',post.post_id,post.is_published]">
+                        <i class="icon-share" title="{{ {true:'已分享',false:'分享'}[post.is_published==1] }}"></i>
+                        {{ {true:'已分享',false:'分享'}[post.is_published==1] }}
+                    </a>
+                </li>
+                <li class="divider-v"
+                    wt-permission="[permission,project.info.curr_role,1,2]"></li>
+                <li data-placement="bottom" class="js-popbox" >
+                    <a href="javascript:;" ng-show="global.is_outter && post.collected==0" ng-click="js_collect(post)"><i class="icon-book"></i>收藏</a>
+                    <a href="javascript:;" class="disabled" ng-show="global.is_login && global.is_outter && post.collected==1"><i class="icon-book"></i>已收藏</a>
+                </li>
+                <li class="js-popbox" data-placement="bottom" ng-show="global.is_outter == false"
+                    wt-permission="[permission,project.info.curr_role,1,2]"><a
+                        href="#" class="dropdown-toggle" data-toggle="dropdown"
+                        title="添加附件"> <i class="icon-paper-clip"></i>附件
+                </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:;" class="fileinput-button"><i
+                                class="icon-desktop"></i>本地上传 <input type="file" name="files[]"
+                                                                     title="添加附件" multiple wt-uploadfile="file_upload_option" /></a></li>
+                        <li><a href="javascript:;"
+                               ng-click="js_show_attach($event, post)"><i class="icon-file"></i>从项目文件选择</a></li>
+                    </ul></li>
+                <li wt-permission="[permission,project.info.curr_role,1,2]"
+                    ng-show="(post.uid ==global.me.uid) && global.is_outter == false">
+                    <a href="javascript:;" ng-class="{true:'disabled'}[post.is_published==1]" ng-click="js_trash($event, post)">
+                        <i class="icon-trash"></i>删除
+                    </a>
+                </li>
+
+
+                <li class="divider-v"></li>
+                <li><a href="javascript:;" ng-click="js_close()" title="关闭">
+                    <i class="icon-remove"></i>
+                </a></li>
+            </ul>
+        </div>
+        <div class="entity-panel-body height-nonav"
+             wt-scroll='{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}'>
+            <div class="entity-content-panel">
+                <div class="content-module editable-module">
+                    <div ng-hide="post.is_edit">
+                        <div class="entity-title ml_30">
+                            <h2 ng-click="js_show_editor(post)">{{post.name}}</h2>
+                        </div>
+                        <wt-badges-post class="ml_30" post="post"></wt-badges-post>
+                        <!--		<div class="entity-meta">
+                                    <span>&nbsp;发起于 {{post.create_date | fromNow}}</span>
+                                </div>-->
+                        <div class="ml_30">
+                            <div class="markdown" wt-markdown='post.content'></div>
+                        </div>
+                    </div>
+                    <div class="edit-section" ng-show="post.is_edit">
+                        <div>
+
+                            <input type="text" autofocus ng-model="post.temp_name"
+                                   wt-enter="js_set_content(post)" class="form-control help-block"
+                                   placeholder="问答名称" maxlength="100" required>
+
+                            <!--<div class="cascading-wapper mb_15" ng-if="global.me.role==0">
+                                <wt-cascading flag="flag" first="f_typeName"
+                                    firstkey="post.temp_f_type" second="s_typeName"
+                                    secondkey="post.temp_s_type"
+                                    source="json/manager/postType.json"> </wt-cascading>
+                            </div>
+
+                            <div class="cascading-wapper mb_15" ng-if="global.me.role==1">
+                                <wt-cascading flag="flag" first="post.f_typeName"
+                                    firstkey="post.temp_f_type" second="post.s_typeName"
+                                    secondkey="post.temp_s_type" source="json/postType.json">
+                                </wt-cascading>
+                            </div>-->
+
+                            <div class="cascading-wapper mb_15">
+                                <wt-cascading flag="flag" first="post.s_typeName"
+                                              firstkey="post.temp_s_type"
+                                              source="json/postType0.json">
+                                </wt-cascading>
+                            </div>
+
+                            <textarea wt-ctrl-enter="js_update_post(post)"
+                                      ng-model="post.temp_content" type="text" wt-full-editor=""
+                                      placeholder="问答内容(按Ctrl + 回车键提交)"></textarea>
+                        </div>
+
+                        <div class="form-group" ng-if="global.me.role==0">
+                            <label class="cursor"><input type="radio" value="00" name="f_type" ng-model="post.temp_f_type" checked="checked|{{post.temp_f_type='00'}}"/>精华库</label>
+                            <label class="cursor"><input type="radio" value="01" name="f_type" ng-model="post.temp_f_type" checked="checked|{{post.temp_f_type='01'}}" style="margin-left: 30px;"/>模板库</label>
+                        </div>
+
+                        <div class="form-group">
+                            <button ng-click="js_update_post(post)"
+                                    data-loading-text="保存中..." class="btn btn-success mr_15"
+                                    loading-status="is_setting_content">保存</button>
+                            <button ng-click="js_cancel_editor(post)" class="btn">取消</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-module dragfile-hover-show"
+                     ng-show="post.files.length > 0 || global_fileupload_queue().length>0">
+                    <h4>
+                        <i class="icon-paper-clip"></i>附件
+                    </h4>
+                    <div class="entity-attachments">
+                        <ul>
+                            <wt-attachment ng-repeat="file in post.files"
+                                           del="js_del_attachment($event, file)"
+                                           del-permission="permission==1 && ( project.info.curr_role==1 || project.info.curr_role==2)"></wt-attachment>
+                            <wt-attachment class="attachment-progress"
+                                           ng-repeat="file in global_fileupload_queue()"></wt-attachment>
+                            <li class="dragfile-hover-placeholder"><span class="name"><i
+                                    class="icon-upload-alt"></i>松开上传文件</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-module" id="posts_tab_module" ng-cloak>
+                    <ng-include src="'/view/common/tab_comment_activity.html'"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

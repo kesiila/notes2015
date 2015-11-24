@@ -1,0 +1,35 @@
+<div class="entry-task-composer">
+    <div class="composer-body composer-body-focus" ng-click="focus_textarea($event)">
+        <div class="entry-task-labels">
+            <div data-ng-repeat="label in new_task.labels" class="task-label {{label.name}}-label"></div>
+        </div>
+        <textarea class="form-control help-block mb_0" ng-model="new_task.temp_name"
+                  wt-enter="js_add_task($event, new_task, entry, 0)"></textarea>
+<!--         <input class="form-control help-block mb_0" placeholder="Email" ng-model="new_task.temp_email"
+                  wt-enter="js_add_task($event, new_task, entry, 0)"></input>
+ -->        <div class="composer-body-footer">
+            <div class="task-badges" task="task">
+                <span ng-show="new_task.expire_date !=null && new_task.expire_date!=0" class="task-badge icon icon-time " title="截止日期：{{new_task.expire_date | shortTimeFormat}}">{{new_task.expire_date | shortTimeFormat}}</span>
+            </div>
+            <div class="entry-task-members"
+                 ng-show="new_task.members !=null && new_task.members.length > 0">
+                <wt-avatar ng-repeat="member in new_task.members"
+                           class="js-popbox member"
+                           member="member" size="30" click="js_show_member($event, new_task, member)"></wt-avatar>
+            </div>
+        </div>
+    </div>
+    <div class="composer-footer">
+        <button ng-click="js_task_save($event, new_task, entry);"
+                class="btn btn-success confirm mr_10" data-loading-text="保存中..."
+                wt-tracker="Project Task Page|Main-Entry|Footer Add Task-OK"
+                loading-status="is_task_adding">保存
+        </button>
+        <button ng-click="js_cancel(entry,new_task)" class="btn"
+           wt-tracker="Project Task Page|Main-Entry|Footer Add Task-Cancel">取消</button>
+        <a href="javascript:;" class="js-popbox icon-play-circle action-icon "
+           data-placement="right" data-align="middle"
+           wt-click="js_show_task_menu($event, entry, new_task)">
+        </a>
+    </div>
+</div>

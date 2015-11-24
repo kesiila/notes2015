@@ -1,0 +1,32 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>选项</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li><a href="javascript:;" ng-click="js_restore()" ng-show="entity.etype != 'task'"><i class="icon-undo"></i> 恢复</a></li>
+                <li><a href="javascript:;" ng-click="js_step(1)" ng-show="entity.etype == 'task'"><i class="icon-undo"></i> 恢复</a></li>
+                <li wt-permission="[permission,project.info.curr_role,1,1]"><a href="javascript:;" ng-click="js_destory()"><i class="icon-trash"></i> 彻底删除</a></li>
+            </ul>
+        </div>
+    </li>
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>恢复活动到</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li ng-repeat="entry in entries">
+                    <a href="javascript:;" ng-click="js_restore_task(entry)">
+                        <span class="icon" ng-class="{true:'icon-ok',false:''}[entry.selected == 1]"></span>
+                        <span>{{entry.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>

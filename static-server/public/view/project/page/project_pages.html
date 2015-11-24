@@ -1,0 +1,131 @@
+<div class="layout_content prj_panel">
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main">
+                <div class="toolbar_panel pull-right" >
+
+                    <div class="btn-group js-popbox mr_15" data-placement="bottom" data-align="right"
+                         wt-permission="[permission,project.info.curr_role,1,2]">
+                        <button class="btn btn-danger"
+                                wt-tracker="Project Page Page|Nav|Open Add Page"
+                                wt-go-to="/project/{{ pid }}/page/add">新建文档
+                        </button>
+                        <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                           wt-tracker="Project Page Page|Nav|Add Page-More">
+                            <i class="icon-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="javascript:;" ng-click="js_add_subpage_pop($event)"
+                                   wt-tracker="Project Page Page|Nav|Add Page-Sub-Page">
+                                    <i class="icon-xx"></i> 新建子文档</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group mr_15">
+                        <button class="btn" ng-class="{'active':view_type=='grid'}" ng-click="set_view_type('grid')" tooltip="分级展示" tooltip-placement="bottom">
+                            <i class="icon-indent-right"></i>
+                        </button>
+                        <button class="btn" ng-class="{'active':view_type=='list'}" ng-click="set_view_type('list')" tooltip="平级展示" tooltip-placement="bottom">
+                            <i class="icon-list"></i>
+                        </button>
+                    </div>
+                    <button class="btn js-popbox" data-placement="bottom" data-align="right" ng-click="js_show_more_menu($event)"
+                            wt-permission="[permission,project.info.curr_role,1,2]">
+                        更多&nbsp;<i class="icon-caret-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="height-nonav" wt-scroll>
+            <dl class="frame" data-minheight="160" ng-show="global.loading_done">
+                <dt>
+                    <span class="title">文档</span>
+                    <ul class="tabs">
+                        <li >
+                            <a data-ng-class="{'active':current_tab == 1}" href="javascript:;" ng-click="js_change_tab(1)">全部</a>
+                        </li>
+                        <li >
+                            <a data-ng-class="{'active':current_tab == 2}" href="javascript:;" ng-click="js_change_tab(2)">我创建的</a>
+                        </li>
+                        <li >
+                            <a data-ng-class="{'active':current_tab == 3}" href="javascript:;" ng-click="js_change_tab(3)">我关注的</a>
+                        </li>
+                    </ul>
+                </dt>
+                <dd>
+                <div class="empty-panel" ng-show="pages != null && pages.length == 0">
+                    <i class="icon-file-text-alt"></i><br/>
+                    <span>还没有创建文档</span>
+                </div>
+                <div class="page-panel">
+                    <div class="page-list-view" ng-show="view_type == 'grid' && pages">
+                        <div class="wt-row right_click_trigger page-item-view page-item-mark js-popbox" data-placement="bottom" data-align="left"
+                             ng-class="{'border-notop':$index == 0,'active':page.page_id == locator.show_detail_page_id}"
+                             ng-repeat="page in pages" page-id="{{page.page_id}}" data-ng-hide="page.is_hide">
+                            <div class="column column-main">
+                                <h4 ng-click="locator.to_page(page.pid, page.page_id, false)">
+                                    <i class="icon-file-text-alt mr_5"></i>
+                                    <a class="name slide-trigger" href="javascript:;">{{page.name }}</a>
+                                </h4>
+                                <ul class="sub-item-view">
+                                    <li data-ng-repeat="sub_page in page.sub_pages">
+                                        <i class="icon-file-text-alt mr_5"></i>
+                                        <a class="slide-trigger"  ng-click="locator.to_page(sub_page.pid, sub_page.page_id, false)" href="javascript:;">{{sub_page.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="column column-owner">
+                                <wt-avatar member="page.last_updator" name="true" size="30"></wt-avatar>
+                            </div>
+                            <div class="column column-date">
+                                <span class="date">{{page.update_date | fromNow}}</span>
+                            </div>
+                            <div class="column column-meta">
+                                <a href="javascript:;" class="post-action js-popbox" data-placement="auto"
+                                   wt-permission="[permission,project.info.curr_role,1,2]"
+                                   ng-click="js_show_menu($event,page)">
+                                    <i class="icon-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-list-view" ng-show="view_type == 'list' && pages">
+                        <div class="wt-row right_click_trigger page-item-view page-item-mark js-popbox" data-placement="bottom" data-align="left" ng-class="{0:'border-notop'}[$index]"
+                             ng-repeat="page in pages" page-id="{{page.page_id}}" data-ng-hide="page.is_hide">
+                            <div class="column column-main slide-trigger"
+                                 ng-click="locator.to_page(page.pid, page.page_id, false)">
+                                <h4>
+                                    <i class="icon-file-text-alt mr_5"></i>
+                                    <a class="name" href="javascript:;">{{page.name }}</a>
+                                </h4>
+                            </div>
+                            <div class="column column-owner">
+                                <wt-avatar member="page.last_updator" name="true" size="30"></wt-avatar>
+                            </div>
+                            <div class="column column-date">
+                                <span class="date">{{page.update_date | fromNow}}</span>
+                            </div>
+                            <div class="column column-meta">
+                                <a href="javascript:;" class="post-action js-popbox" data-placement="auto"
+                                   wt-permission="[permission,project.info.curr_role,1,2]"
+                                   ng-click="js_show_menu($event,page)">
+                                    <i class="icon-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

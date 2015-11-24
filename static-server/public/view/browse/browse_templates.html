@@ -1,0 +1,110 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader" >
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-compass mr_10"></i>开发统计</h3>
+            </div>
+        </div>
+        <div class="height-nonav" wt-scroll>
+            <div class="layout_split_panel">
+                <div class="layout_split_left">
+                    <dl class="frame" data-maxheight="160" data-scrollnoheight="160" wt-scroll>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="/browse"><i class="icon-globe"></i><br/>活动</a></li>
+                            <li><a href="/browse/mails"><i class="icon-envelope"></i><br/>邮件</a></li>
+                            <li class="active"><a href="/browse/templates"><i class="icon-file-text-alt"></i><br/>模板</a></li>
+                            <!--                        <li><a href="/browse/files"><i class="icon-file"></i><br/>文件</a></li>
+                                                     <li><a href="/browse/posts"><i class="icon-list-alt"></i><br/>话题</a></li>
+                                                    <li><a href="/browse/pages"><i class="icon-file-text-alt"></i><br/>文档</a></li>-->
+                        </ul>
+                    </dl>
+                </div>
+                <div class="layout_split_right">
+                    <dl class="frame" data-minheight="160">
+                        <dt>
+                        <ul class="tabs">
+                            <li>
+                                <a ng-class="{true: 'active'}[current_tab == 0]" href="javascript:;" ng-click="js_change_tab(0)">
+                                    全部
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-class="{true: 'active'}[current_tab == 1]" href="javascript:;" ng-click="js_change_tab(1)">
+                                    我创建的
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-class="{true: 'active'}[current_tab == 2]" href="javascript:;" ng-click="js_change_tab(2)">
+                                    我分享的
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-class="{true: 'active'}[current_tab == 3]" href="javascript:return false;" ng-click="js_change_tab(3)">
+                                    我下载的
+                                </a>
+                            </li>
+                            <li>
+                                <a ng-class="{true: 'active'}[current_tab == 4]" href="javascript:return false;" ng-click="js_change_tab(4)">
+                                    公共模板
+                                </a>
+                            </li>
+                        </ul>
+                        </dt>
+                        <dd>
+                            <div class="empty-panel" ng-show="templates != null && templates.length == 0 && part_loading_done">
+                                <i class="icon-list-alt"></i><br/>
+                                <span>还没有任何模板</span>
+                                <br/>
+                                <a class="btn btn-success" href="/template" target="_blank">去收藏模板</a>
+                            </div>
+                            <div class="template-panel">
+                                <div class="template-list" ng-show="templates.length > 0">
+                                    <div class="wt-row template-item js-popbox"
+                                         data-placement="bottom"
+                                         data-align="left"
+                                         ng-class="{'border-notop':$index == 0,'active':template.template_id == locator.show_detail_template_id}"
+                                         ng-repeat="template in templates"
+                                         template-id="{{template.template_id}}">
+
+                                        <div class="column column-owner">
+                                            <wt-avatar member="template.owner" size="30" name="true"
+                                                       class="template-avatar"></wt-avatar>
+                                        </div>
+
+                                        <div class="column column-main slide-trigger"
+                                             ng-click="locator.to_template(template.pid, template.template_id, true)">
+                                            <h4><a class="name" href="javascript:;">{{
+                                                template.name }}</a></h4>
+                                            </span>
+                                        </div>
+                                        <div class="column column-badges">
+                                            <span class="comment_count_style icon-stack"
+                                                  title="模板有{{ template.comment_count }}个评论">
+                                              <i class="icon-comment"></i>
+                                              <i class="icon-stack-base">{{template.comment_count}}</i>
+                                            </span>
+                                        </div>
+                                        <div class="column column-date">
+                                            <span class="date">{{template.create_date | fromNow}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="loading-more-panel">
+                                    <div class="part-loading" data-ng-hide="part_loading_done">
+                                    </div>
+                                    <button class="btn" ng-show="has_more && part_loading_done"
+                                            data-loading-text="加载中..."
+                                            loading-status="!part_loading_done"
+                                            ng-click="load_templates_more($event);">
+                                        加载更多...
+                                    </button>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

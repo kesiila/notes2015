@@ -1,0 +1,88 @@
+<div class="fa-editor">
+    <div class="edit-toolbar">
+        <div class="btn-group">
+            <a class="btn" data-edit="justifyleft" title="左对齐 (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+            <a class="btn" data-edit="justifycenter" title="居中 (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+            <a class="btn" data-edit="justifyright" title="右对齐 (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+            <a class="btn" data-edit="justifyfull" title="两端对齐 (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+        </div>
+        <div class="btn-group dropdown">
+            <a class="btn dropdown-toggle" title="字体"><i class="icon-font"></i><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a data-edit="fontName Serif" style="font-family:Serif">Serif</a></li>
+                <li><a data-edit="fontName Sans" style="font-family:Sans">Sans</a></li>
+                <li><a data-edit="fontName Arial" style="font-family:Arial">Arial</a></li>
+                <li><a data-edit="fontName Arial Black" style="font-family:Arial Black">Arial Black</a></li>
+                <li><a data-edit="fontName Courier" style="font-family:Courier">Courier</a></li>
+                <li><a data-edit="fontName Courier New" style="font-family:Courier New">Courier New</a></li>
+                <li><a data-edit="fontName Comic Sans MS" style="font-family:Comic Sans MS">Comic Sans MS</a></li>
+                <li><a data-edit="fontName Helvetica" style="font-family:Helvetica">Helvetica</a></li>
+                <li><a data-edit="fontName Impact" style="font-family:Impact">Impact</a></li>
+                <li><a data-edit="fontName Lucida Grande" style="font-family:Lucida Grande">Lucida Grande</a></li>
+                <li><a data-edit="fontName Lucida Sans" style="font-family:Lucida Sans">Lucida Sans</a></li>
+                <li><a data-edit="fontName Tahoma" style="font-family:Tahoma">Tahoma</a></li>
+                <li><a data-edit="fontName Times" style="font-family:Times">Times</a></li>
+                <li><a data-edit="fontName Times New Roman" style="font-family:Times New Roman">Times New Roman</a></li>
+                <li><a data-edit="fontName Verdana" style="font-family:Verdana">Verdana</a></li>
+            </ul>
+        </div>
+        <div class="btn-group dropdown">
+            <a class="btn dropdown-toggle" title="字体大小"><i class="icon-text-height"></i><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a data-edit="fontSize 1" style="font-size: xx-small">1</a></li>
+                <li><a data-edit="fontSize 2" style="font-size: x-small">2</a></li>
+                <li><a data-edit="fontSize 3" style="font-size: small">3</a></li>
+                <li><a data-edit="fontSize 4" style="font-size: medium">4</a></li>
+                <li><a data-edit="fontSize 5" style="font-size: large">5</a></li>
+                <li><a data-edit="fontSize 6" style="font-size: x-large">6</a></li>
+                <li><a data-edit="fontSize 7" style="font-size: xx-large">7</a></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <a class="btn" data-edit="bold" title="粗体 (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+            <a class="btn" data-edit="italic" title="斜体 (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+            <a class="btn" data-edit="strikethrough" title="删除线"><i class="icon-strikethrough"></i></a>
+            <a class="btn" data-edit="underline" title="下划线 (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+        </div>
+        <div class="btn-group">
+            <a class="btn" data-edit="insertunorderedlist" title="项目符号"><i class="icon-list-ul"></i></a>
+            <a class="btn" data-edit="insertorderedlist" title="数字编号"><i class="icon-list-ol"></i></a>
+            <a class="btn" data-edit="outdent" title="减少缩进量 (Shift+Tab)"><i class="icon-indent-left"></i></a>
+            <a class="btn" data-edit="indent" title="增加缩进量 (Tab)"><i class="icon-indent-right"></i></a>
+        </div>
+<!--        <div class="btn-group dropdown">
+            <a class="btn dropdown-toggle" title="插入超链接"><i class="icon-link"></i></a>
+
+            <div class="dropdown-menu">
+                <input class="form-control" placeholder="URL" type="text" data-edit="createLink"/>
+                <button class="btn btn-success" type="button">插入</button>
+            </div>
+            <a class="btn" data-edit="unlink" title="移除超链接"><i class="icon-unlink"></i></a>
+        </div>-->
+        <div class="btn-group">
+            <div class="magic-overlay">
+                <a class="btn"><i class="icon-picture"></i></a>
+                <input type="file" data-role="magic-overlay" data-edit="insertImage" title="插入图片，你可以从电脑中直接拖动到编辑框"/>
+            </div>
+        </div>
+        <div class="btn-group dropdown">
+            <a class="btn dropdown-toggle" title="插入变量"><i class="icon-dollar"></i><b class="caret"></b></a>
+<!--            <div class="dropdown-menu">
+                <input class="form-control" placeholder="插入变量" type="text" data-edit="insertText"/>
+                <button class="btn btn-success" type="button">插入</button>
+            </div>-->
+            <ul class="dropdown-menu">
+                <li><a data-edit="insertHtml {{variableList.receiver}}">插入收件人</a></li>
+                <li><a data-edit="insertHtml {{variableList.sender}}">插入发件人</a></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <a class="btn" data-edit="undo" title="撤销 (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+            <a class="btn" data-edit="redo" title="重做 (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+            <a class="btn" data-edit="redo" title="预览" ng-click="contentEditAble=!contentEditAble"><i class="icon-eye-open"></i></a>
+        </div>
+    </div>
+
+    <div class="edit-area" ng-class="{'content-edit-able':!contentEditAble}" style="max-height: 400px;background-color: #fff" ng-init="contentEditAble=true" contenteditable="{{contentEditAble}}">
+    </div>
+</div>

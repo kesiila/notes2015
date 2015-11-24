@@ -1,0 +1,5255 @@
+{
+  "data": [
+    {
+      "code": "100",
+      "cnName": "亚太",
+      "enName": "Asia-Pacific",
+      "children": [
+        {
+          "code": "105",
+          "enName": "Malaysia",
+          "cnName": "马来西亚",
+          "children": [],
+          "desc": "MY",
+          "areaCode": "60"
+        },
+        {
+          "code": "108",
+          "enName": "Indonesia",
+          "cnName": "印度尼西亚",
+          "children": [],
+          "desc": "ID",
+          "areaCode": "62"
+        },
+        {
+          "code": "112",
+          "enName": "Philippines",
+          "cnName": "菲律宾",
+          "children": [],
+          "desc": "PH",
+          "areaCode": "63"
+        },
+        {
+          "code": "106",
+          "enName": "Singapore",
+          "cnName": "新加坡",
+          "children": [],
+          "desc": "SG",
+          "areaCode": "65"
+        },
+        {
+          "code": "110",
+          "enName": "Thailand",
+          "cnName": "泰国",
+          "children": [],
+          "desc": "TH",
+          "areaCode": "66"
+        },
+        {
+          "code": "135",
+          "enName": "East Timor",
+          "cnName": "东帝汶",
+          "children": [],
+          "desc": "TP",
+          "areaCode": "670"
+        },
+        {
+          "code": "119",
+          "enName": "Brunei",
+          "cnName": "文莱",
+          "children": [],
+          "desc": "BN",
+          "areaCode": "673"
+        },
+        {
+          "code": "114",
+          "enName": "Vietnam",
+          "cnName": "越南",
+          "children": [],
+          "desc": "VN",
+          "areaCode": "84"
+        },
+        {
+          "code": "121",
+          "enName": "Cambodia",
+          "cnName": "柬埔寨",
+          "children": [],
+          "desc": "KH",
+          "areaCode": "855"
+        },
+        {
+          "code": "131",
+          "enName": "Laos",
+          "cnName": "老挝",
+          "children": [],
+          "desc": "LA",
+          "areaCode": "856"
+        },
+        {
+          "code": "118",
+          "enName": "Burma",
+          "cnName": "缅甸",
+          "children": [],
+          "desc": "MM",
+          "areaCode": "95"
+        },
+        {
+          "code": "104",
+          "enName": "Japan",
+          "cnName": "日本",
+          "children": [
+            {
+              "enName": "DongJing",
+              "cnName": "东京",
+              "code": "104001",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "JP",
+          "areaCode": "81"
+        },
+        {
+          "code": "107",
+          "enName": "R.O.Korea",
+          "cnName": "韩国",
+          "children": [
+            {
+              "enName": "ShouEr",
+              "cnName": "首尔",
+              "code": "107001",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "KR",
+          "areaCode": "82"
+        },
+        {
+          "code": "130",
+          "enName": "North Korea",
+          "cnName": "朝鲜",
+          "children": [],
+          "desc": "KP",
+          "areaCode": "850"
+        },
+        {
+          "code": "101",
+          "enName": "Hong kong",
+          "cnName": "中国香港",
+          "children": [],
+          "desc": "HK",
+          "areaCode": "852"
+        },
+        {
+          "code": "116",
+          "enName": "Macao",
+          "cnName": "中国澳门",
+          "children": [],
+          "desc": "MO",
+          "areaCode": "853"
+        },
+        {
+          "children": [
+            {
+              "children": [],
+              "cnName": "北京",
+              "code": "111001",
+              "desc": "BJ",
+              "enName": "beijing",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "上海",
+              "code": "111002",
+              "desc": "SH",
+              "enName": "shanghai",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "重庆",
+              "code": "111003",
+              "desc": "CQ",
+              "enName": "chongqing",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "天津",
+              "code": "111004",
+              "desc": "TJ",
+              "enName": "tianjin",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "石家庄",
+                  "code": "111005001",
+                  "desc": "SJZ",
+                  "enName": "shijiazhuang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "唐山",
+                  "code": "111005002",
+                  "desc": "TS",
+                  "enName": "tangshan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "邯郸",
+                  "code": "111005003",
+                  "desc": "HD",
+                  "enName": "handan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "秦皇岛",
+                  "code": "111005004",
+                  "desc": "QHD",
+                  "enName": "qinhuangdao",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "保定",
+                  "code": "111005005",
+                  "desc": "BD",
+                  "enName": "baoding",
+                  "type": ""
+                }
+              ],
+              "cnName": "河北",
+              "code": "111005",
+              "desc": "HB",
+              "enName": "hebei",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "太原",
+                  "code": "111006001",
+                  "desc": "TY",
+                  "enName": "taiyuan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "大同",
+                  "code": "111006002",
+                  "desc": "DT",
+                  "enName": "datong",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "阳泉",
+                  "code": "111006003",
+                  "desc": "YQ",
+                  "enName": "yangquan",
+                  "type": ""
+                }
+              ],
+              "cnName": "山西",
+              "code": "111006",
+              "desc": "SX",
+              "enName": "shanxi",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "沈阳",
+                  "code": "111007001",
+                  "desc": "SY",
+                  "enName": "shenyang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "大连",
+                  "code": "111007002",
+                  "desc": "DL",
+                  "enName": "dalian",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "鞍山",
+                  "code": "111007003",
+                  "desc": "AS",
+                  "enName": "anshan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "锦州",
+                  "code": "111007004",
+                  "desc": "JZ",
+                  "enName": "jinzhou",
+                  "type": ""
+                }
+              ],
+              "cnName": "辽宁",
+              "code": "111007",
+              "desc": "LN",
+              "enName": "liaoning",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "长春",
+                  "code": "111008001",
+                  "desc": "CC",
+                  "enName": "changchun",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "吉林",
+                  "code": "111008002",
+                  "desc": "JL",
+                  "enName": "jilin",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "四平",
+                  "code": "111008003",
+                  "desc": "SP",
+                  "enName": "siping",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "延吉",
+                  "code": "111008004",
+                  "desc": "YJ",
+                  "enName": "yanji",
+                  "type": ""
+                }
+              ],
+              "cnName": "吉林",
+              "code": "111008",
+              "desc": "JL",
+              "enName": "jilin",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "哈尔滨",
+                  "code": "111009001",
+                  "desc": "HEB",
+                  "enName": "haerbing",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "齐齐哈尔",
+                  "code": "111009002",
+                  "desc": "QQHE",
+                  "enName": "qiqihaer",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "大庆",
+                  "code": "111009003",
+                  "desc": "DQ",
+                  "enName": "daqing",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "佳木斯",
+                  "code": "111009004",
+                  "desc": "JMS",
+                  "enName": "jiamusi",
+                  "type": ""
+                }
+              ],
+              "cnName": "黑龙江",
+              "code": "111009",
+              "desc": "HLJ",
+              "enName": "heilongjiang",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "南京",
+                  "code": "111010001",
+                  "desc": "NJ",
+                  "enName": "nanjing",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "徐州",
+                  "code": "111010002",
+                  "desc": "XZ",
+                  "enName": "xuzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "无锡",
+                  "code": "111010003",
+                  "desc": "WX",
+                  "enName": "wuxi",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "苏州",
+                  "code": "111010004",
+                  "desc": "SZ",
+                  "enName": "suzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "常州",
+                  "code": "111010005",
+                  "desc": "CZ",
+                  "enName": "changzhou",
+                  "type": ""
+                }
+              ],
+              "cnName": "江苏",
+              "code": "111010",
+              "desc": "JS",
+              "enName": "jiangsu",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "杭州",
+                  "code": "111011001",
+                  "desc": "HZ",
+                  "enName": "hangzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "宁波",
+                  "code": "111011002",
+                  "desc": "NB",
+                  "enName": "ningbo",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "温州",
+                  "code": "111011003",
+                  "desc": "WZ",
+                  "enName": "wenzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "绍兴",
+                  "code": "111011003",
+                  "desc": "SX",
+                  "enName": "shaoxing",
+                  "type": ""
+                }
+              ],
+              "cnName": "浙江",
+              "code": "111011",
+              "desc": "ZJ",
+              "enName": "zhejiang",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "合肥",
+                  "code": "111012001",
+                  "desc": "HF",
+                  "enName": "hefei",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "芜湖",
+                  "code": "111012002",
+                  "desc": "WH",
+                  "enName": "wuhu",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "安庆",
+                  "code": "111012003",
+                  "desc": "AQ",
+                  "enName": "anqing",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "马鞍山",
+                  "code": "111012004",
+                  "desc": "MAS",
+                  "enName": "maanshan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "滁州",
+                  "code": "111012005",
+                  "desc": "CZ",
+                  "enName": "chuzhou",
+                  "type": ""
+                }
+              ],
+              "cnName": "安徽",
+              "code": "111012",
+              "desc": "AW",
+              "enName": "anwei",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "福州",
+                  "code": "111013001",
+                  "desc": "FZ",
+                  "enName": "fuzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "厦门",
+                  "code": "111013002",
+                  "desc": "XM",
+                  "enName": "xiamen",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "泉州",
+                  "code": "111013003",
+                  "desc": "QZ",
+                  "enName": "quanzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "龙岩",
+                  "code": "111013004",
+                  "desc": "LY",
+                  "enName": "longyan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "三明",
+                  "code": "111013005",
+                  "desc": "SM",
+                  "enName": "sanming",
+                  "type": ""
+                }
+              ],
+              "cnName": "福建",
+              "code": "111013",
+              "desc": "FJ",
+              "enName": "fujian",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "南昌",
+                  "code": "111014001",
+                  "desc": "NC",
+                  "enName": "nanchang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "上饶",
+                  "code": "111014002",
+                  "desc": "SR",
+                  "enName": "shangrou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "九江",
+                  "code": "111014003",
+                  "desc": "JJ",
+                  "enName": "jiujiang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "景德镇",
+                  "code": "111014004",
+                  "desc": "JDZ",
+                  "enName": "jingdezhen",
+                  "type": ""
+                }
+              ],
+              "cnName": "江西",
+              "code": "111014",
+              "desc": "JX",
+              "enName": "jiangxi",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "济南",
+                  "code": "111015001",
+                  "desc": "JN",
+                  "enName": "jinan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "青岛",
+                  "code": "111015002",
+                  "desc": "QD",
+                  "enName": "qingdao",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "淄博",
+                  "code": "111015003",
+                  "desc": "ZB",
+                  "enName": "zibo",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "威海",
+                  "code": "111015004",
+                  "desc": "WH",
+                  "enName": "weihai",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "烟台",
+                  "code": "111015005",
+                  "desc": "YT",
+                  "enName": "yantai",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "菏泽",
+                  "code": "111015006",
+                  "desc": "HZ",
+                  "enName": "heze",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "济宁",
+                  "code": "111015007",
+                  "desc": "JN",
+                  "enName": "jining",
+                  "type": ""
+                }
+              ],
+              "cnName": "山东",
+              "code": "111015",
+              "desc": "SD",
+              "enName": "shandong",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "郑州",
+                  "code": "111016001",
+                  "desc": "ZZ",
+                  "enName": "zhengzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "开封",
+                  "code": "111016002",
+                  "desc": "KF",
+                  "enName": "kaifeng",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "洛阳",
+                  "code": "111016003",
+                  "desc": "LY",
+                  "enName": "luoyang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "商丘",
+                  "code": "111016004",
+                  "desc": "SQ",
+                  "enName": "shangqiu",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "信阳",
+                  "code": "111016005",
+                  "desc": "XY",
+                  "enName": "xinyang",
+                  "type": ""
+                }
+              ],
+              "cnName": "河南",
+              "code": "111016",
+              "desc": "HN",
+              "enName": "henan",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "武汉",
+                  "code": "111017001",
+                  "desc": "WH",
+                  "enName": "wuhan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "襄阳",
+                  "code": "111017002",
+                  "desc": "XY",
+                  "enName": "xiangyang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "宜昌",
+                  "code": "111017003",
+                  "desc": "YC",
+                  "enName": "yichang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "黄石",
+                  "code": "111017004",
+                  "desc": "HS",
+                  "enName": "huangshi",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "荆州",
+                  "code": "111017005",
+                  "desc": "JZ",
+                  "enName": "jinzhou",
+                  "type": ""
+                }
+              ],
+              "cnName": "湖北",
+              "code": "111017",
+              "desc": "HB",
+              "enName": "hebei",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "长沙",
+                  "code": "111018001",
+                  "desc": "CS",
+                  "enName": "changsha",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "株洲",
+                  "code": "111018002",
+                  "desc": "ZZ",
+                  "enName": "zhuzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "湘潭",
+                  "code": "111018003",
+                  "desc": "XT",
+                  "enName": "xiangtan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "衡阳",
+                  "code": "111018004",
+                  "desc": "HY",
+                  "enName": "hengyang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "岳阳",
+                  "code": "111018005",
+                  "desc": "YY",
+                  "enName": "yueyang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "常德",
+                  "code": "111018006",
+                  "desc": "CD",
+                  "enName": "changde",
+                  "type": ""
+                }
+              ],
+              "cnName": "湖南",
+              "code": "111018",
+              "desc": "HN",
+              "enName": "hunan",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "广州",
+                  "code": "111019001",
+                  "desc": "GZ",
+                  "enName": "guangzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "深圳",
+                  "code": "111019002",
+                  "desc": "SZ",
+                  "enName": "shenzhen",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "珠海",
+                  "code": "111019003",
+                  "desc": "ZH",
+                  "enName": "zhuhai",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "汕头",
+                  "code": "111019004",
+                  "desc": "ST",
+                  "enName": "shantou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "佛山",
+                  "code": "111019005",
+                  "desc": "FS",
+                  "enName": "foshan",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "东莞",
+                  "code": "111019006",
+                  "desc": "DG",
+                  "enName": "dongguan",
+                  "type": ""
+                }
+              ],
+              "cnName": "广东",
+              "code": "111019",
+              "desc": "GD",
+              "enName": "guangdong",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "海口",
+                  "code": "111020001",
+                  "desc": "HK",
+                  "enName": "haikou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "三亚",
+                  "code": "111020002",
+                  "desc": "SY",
+                  "enName": "sanya",
+                  "type": ""
+                }
+              ],
+              "cnName": "海南",
+              "code": "111020",
+              "desc": "HN",
+              "enName": "hainan",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "成都",
+                  "code": "111021001",
+                  "desc": "CD",
+                  "enName": "chengdu",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "宜宾",
+                  "code": "111021002",
+                  "desc": "YB",
+                  "enName": "yibing",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "绵阳",
+                  "code": "111021003",
+                  "desc": "MY",
+                  "enName": "mianyang",
+                  "type": ""
+                }
+              ],
+              "cnName": "四川",
+              "code": "111021",
+              "desc": "SC",
+              "enName": "sichuan",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "贵阳",
+                  "code": "111022001",
+                  "desc": "GY",
+                  "enName": "guiyang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "遵义",
+                  "code": "111022002",
+                  "desc": "ZY",
+                  "enName": "zunyi",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "兴义",
+                  "code": "111022003",
+                  "desc": "XY",
+                  "enName": "xingyi",
+                  "type": ""
+                }
+              ],
+              "cnName": "贵州",
+              "code": "111022",
+              "desc": "GZ",
+              "enName": "guizhou",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "昆明",
+                  "code": "111023001",
+                  "desc": "KM",
+                  "enName": "kunming",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "丽江",
+                  "code": "111023002",
+                  "desc": "LJ",
+                  "enName": "lijiang",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "玉溪",
+                  "code": "111023003",
+                  "desc": "YX",
+                  "enName": "yuxi",
+                  "type": ""
+                }
+              ],
+              "cnName": "云南",
+              "code": "111023",
+              "desc": "YN",
+              "enName": "yunnan",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "西安",
+                  "code": "111024001",
+                  "desc": "XA",
+                  "enName": "xian",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "宝鸡",
+                  "code": "111024002",
+                  "desc": "BJ",
+                  "enName": "baoji",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "汉中",
+                  "code": "111024003",
+                  "desc": "HZ",
+                  "enName": "hanzhong",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "延安",
+                  "code": "111024004",
+                  "desc": "YA",
+                  "enName": "yanan",
+                  "type": ""
+                }
+              ],
+              "cnName": "陕西",
+              "code": "111024",
+              "desc": "SX",
+              "enName": "shanxi",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "兰州",
+                  "code": "111025001",
+                  "desc": "LZ",
+                  "enName": "lanzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "天水",
+                  "code": "111025002",
+                  "desc": "TS",
+                  "enName": "tianshui",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "嘉峪关",
+                  "code": "111025003",
+                  "desc": "JYG",
+                  "enName": "jiayuguan",
+                  "type": ""
+                }
+              ],
+              "cnName": "甘肃",
+              "code": "111025",
+              "desc": "GS",
+              "enName": "gansu",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "格尔木",
+                  "code": "111026001",
+                  "desc": "GLM",
+                  "enName": "gelinmu",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "西宁",
+                  "code": "111026002",
+                  "desc": "XN",
+                  "enName": "xining",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "玉树",
+                  "code": "111026003",
+                  "desc": "YS",
+                  "enName": "yushu",
+                  "type": ""
+                }
+              ],
+              "cnName": "青海",
+              "code": "111026",
+              "desc": "QH",
+              "enName": "qinghai",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "台北",
+                  "code": "111027001",
+                  "desc": "TB",
+                  "enName": "taibei",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "高雄",
+                  "code": "111027002",
+                  "desc": "GX",
+                  "enName": "gaoxiong",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "新北",
+                  "code": "111027003",
+                  "desc": "XB",
+                  "enName": "xinbei",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "台中",
+                  "code": "111027004",
+                  "desc": "TZ",
+                  "enName": "taizhong",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "台南",
+                  "code": "111027005",
+                  "desc": "TN",
+                  "enName": "tainan",
+                  "type": ""
+                }
+              ],
+              "cnName": "台湾",
+              "code": "111027",
+              "desc": "TY",
+              "enName": "taiyuan",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "呼和浩特",
+                  "code": "111028001",
+                  "desc": "HHHT",
+                  "enName": "huhehaote",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "鄂尔多斯",
+                  "code": "111028002",
+                  "desc": "EEDS",
+                  "enName": "eerduosi",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "包头",
+                  "code": "111028003",
+                  "desc": "BT",
+                  "enName": "baotou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "通辽",
+                  "code": "111028004",
+                  "desc": "TL",
+                  "enName": "tongliao",
+                  "type": ""
+                }
+              ],
+              "cnName": "内蒙古",
+              "code": "111028",
+              "desc": "NMG",
+              "enName": "neimenggu",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "南宁",
+                  "code": "111029001",
+                  "desc": "NN",
+                  "enName": "nanning",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "柳州",
+                  "code": "111029002",
+                  "desc": "LZ",
+                  "enName": "liuzhou",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "桂林",
+                  "code": "111029003",
+                  "desc": "GL",
+                  "enName": "guilin",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "玉林",
+                  "code": "111029004",
+                  "desc": "YL",
+                  "enName": "yulin",
+                  "type": ""
+                }
+              ],
+              "cnName": "广西",
+              "code": "111029",
+              "desc": "GX",
+              "enName": "guangxi",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "拉萨",
+                  "code": "111030001",
+                  "desc": "LS",
+                  "enName": "lasa",
+                  "type": ""
+                }
+              ],
+              "cnName": "西藏",
+              "code": "111030",
+              "desc": "XZ",
+              "enName": "xizang",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "银川",
+                  "code": "111031001",
+                  "desc": "YC",
+                  "enName": "yinchuan",
+                  "type": ""
+                }
+              ],
+              "cnName": "宁夏",
+              "code": "111031",
+              "desc": "NX",
+              "enName": "ningxia",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "乌鲁木齐",
+                  "code": "111032001",
+                  "desc": "WLMQ",
+                  "enName": "wulumuqi",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "克拉玛依",
+                  "code": "111032002",
+                  "desc": "KLMY",
+                  "enName": "kelamayi",
+                  "type": ""
+                }
+              ],
+              "cnName": "新疆",
+              "code": "111032",
+              "desc": "XJ",
+              "enName": "xinjiang",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "香港",
+              "code": "111033",
+              "desc": "HK",
+              "enName": "HongKong",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "澳门",
+              "code": "111034",
+              "desc": "MC",
+              "enName": "Macau",
+              "type": ""
+            }
+          ],
+          "code": "111",
+          "enName": "China",
+          "cnName": "中国",
+          "desc": "CN",
+          "areaCode": "86"
+        },
+        {
+          "code": "103",
+          "enName": "Taiwan",
+          "cnName": "中国台湾",
+          "children": [],
+          "desc": "TW",
+          "areaCode": "886"
+        },
+        {
+          "code": "123",
+          "enName": "Mongolia",
+          "cnName": "蒙古",
+          "children": [],
+          "desc": "MN",
+          "areaCode": "976"
+        },
+        {
+          "code": "125",
+          "enName": "Armenia",
+          "cnName": "亚美尼亚",
+          "children": [],
+          "desc": "AM",
+          "areaCode": "374"
+        },
+        {
+          "code": "120",
+          "enName": "Kazakhstan",
+          "cnName": "哈萨克斯坦",
+          "children": [],
+          "desc": "KZ",
+          "areaCode": "7"
+        },
+        {
+          "code": "129",
+          "enName": "Tadzhikistan",
+          "cnName": "塔吉克斯坦",
+          "children": [],
+          "desc": "TJ",
+          "areaCode": "7"
+        },
+        {
+          "code": "113",
+          "enName": "Bangladesh",
+          "cnName": "孟加拉国",
+          "children": [],
+          "desc": "BD",
+          "areaCode": "880"
+        },
+        {
+          "code": "102",
+          "enName": "India",
+          "cnName": "印度",
+          "children": [],
+          "desc": "IN",
+          "areaCode": "91"
+        },
+        {
+          "code": "109",
+          "enName": "Pakistan",
+          "cnName": "巴基斯坦",
+          "children": [],
+          "desc": "PK",
+          "areaCode": "92"
+        },
+        {
+          "code": "115",
+          "enName": "Sri Lanka",
+          "cnName": "斯里兰卡",
+          "children": [],
+          "desc": "LK",
+          "areaCode": "94"
+        },
+        {
+          "code": "124",
+          "enName": "Maldives",
+          "cnName": "马尔代夫",
+          "children": [],
+          "desc": "MV",
+          "areaCode": "960"
+        },
+        {
+          "code": "134",
+          "enName": "Bhutan",
+          "cnName": "不丹",
+          "children": [],
+          "desc": "BT",
+          "areaCode": "975"
+        },
+        {
+          "code": "117",
+          "enName": "Nepal",
+          "cnName": "尼泊尔",
+          "children": [],
+          "desc": "NP",
+          "areaCode": "977"
+        },
+        {
+          "code": "132",
+          "enName": "Turkmenistan",
+          "cnName": "土库曼斯坦",
+          "children": [],
+          "desc": "TM",
+          "areaCode": "993"
+        },
+        {
+          "code": "128",
+          "enName": "Azerbaijan",
+          "cnName": "阿塞拜疆",
+          "children": [],
+          "desc": "AZ",
+          "areaCode": "994"
+        },
+        {
+          "code": "127",
+          "enName": "Georgia",
+          "cnName": "格鲁吉亚",
+          "children": [],
+          "desc": "GE",
+          "areaCode": "995"
+        },
+        {
+          "code": "133",
+          "enName": "Kirghizia",
+          "cnName": "吉尔吉斯斯坦",
+          "children": [],
+          "desc": "KG",
+          "areaCode": "996"
+        },
+        {
+          "code": "122",
+          "enName": "Uzbekistan",
+          "cnName": "乌兹别克斯坦",
+          "children": [],
+          "desc": "UZ",
+          "areaCode": "998"
+        },
+        {
+          "code": "136",
+          "enName": "Palau",
+          "cnName": "帕劳",
+          "children": [],
+          "desc": "PW",
+          "areaCode": "680"
+        },
+        {
+          "code": "126",
+          "enName": "Polynesia",
+          "cnName": "波利尼西亚",
+          "children": [],
+          "desc": "BL",
+          "areaCode": "680"
+        }
+      ]
+    },
+    {
+      "code": "200",
+      "cnName": "中东",
+      "enName": "Middle East",
+      "children": [
+        {
+          "code": "205",
+          "enName": "Egypt",
+          "cnName": "埃及",
+          "children": [],
+          "desc": "EG",
+          "areaCode": "20"
+        },
+        {
+          "code": "209",
+          "enName": "Morocco",
+          "cnName": "摩洛哥",
+          "children": [],
+          "desc": "MA",
+          "areaCode": "212"
+        },
+        {
+          "code": "213",
+          "enName": "Algeria",
+          "cnName": "阿尔及利亚",
+          "children": [],
+          "desc": "DZ",
+          "areaCode": "213"
+        },
+        {
+          "code": "214",
+          "enName": "Tunisia",
+          "cnName": "突尼斯",
+          "children": [],
+          "desc": "TN",
+          "areaCode": "216"
+        },
+        {
+          "code": "221",
+          "enName": "Libya",
+          "cnName": "利比亚",
+          "children": [],
+          "desc": "LY",
+          "areaCode": "218"
+        },
+        {
+          "code": "224",
+          "enName": "Mauritania",
+          "cnName": "毛里塔尼亚",
+          "children": [],
+          "desc": "MR",
+          "areaCode": "222"
+        },
+        {
+          "code": "216",
+          "enName": "Sudan",
+          "cnName": "苏丹",
+          "children": [],
+          "desc": "SD",
+          "areaCode": "249"
+        },
+        {
+          "code": "226",
+          "enName": "Somalia",
+          "cnName": "索马里",
+          "children": [],
+          "desc": "SO",
+          "areaCode": "252"
+        },
+        {
+          "code": "225",
+          "enName": "Djibouti",
+          "cnName": "吉布提",
+          "children": [],
+          "desc": "DJ",
+          "areaCode": "253"
+        },
+        {
+          "code": "227",
+          "enName": "Comoros",
+          "cnName": "科摩罗",
+          "children": [],
+          "desc": "KM",
+          "areaCode": "269"
+        },
+        {
+          "code": "215",
+          "enName": "Cyprus",
+          "cnName": "塞浦路斯",
+          "children": [],
+          "desc": "CY",
+          "areaCode": "357"
+        },
+        {
+          "code": "204",
+          "enName": "Turkey",
+          "cnName": "土耳其",
+          "children": [],
+          "desc": "TR",
+          "areaCode": "90"
+        },
+        {
+          "code": "223",
+          "enName": "Afghanistan",
+          "cnName": "阿富汗",
+          "children": [],
+          "desc": "AF",
+          "areaCode": "93"
+        },
+        {
+          "code": "207",
+          "enName": "Lebanon",
+          "cnName": "黎巴嫩",
+          "children": [],
+          "desc": "LB",
+          "areaCode": "961"
+        },
+        {
+          "code": "211",
+          "enName": "Jordan",
+          "cnName": "约旦",
+          "children": [
+            {
+              "enName": "MaDaDa - ManJia, YueDan",
+              "cnName": "马达巴",
+              "code": "211001",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "JO",
+          "areaCode": "962"
+        },
+        {
+          "code": "208",
+          "enName": "Syria",
+          "cnName": "叙利亚",
+          "children": [],
+          "desc": "SY",
+          "areaCode": "963"
+        },
+        {
+          "code": "222",
+          "enName": "Iraq",
+          "cnName": "伊拉克",
+          "children": [],
+          "desc": "IQ",
+          "areaCode": "964"
+        },
+        {
+          "code": "210",
+          "enName": "Kuwait",
+          "cnName": "科威特",
+          "children": [],
+          "desc": "KW",
+          "areaCode": "965"
+        },
+        {
+          "code": "202",
+          "enName": "Saudi Arabia",
+          "cnName": "沙特阿拉伯",
+          "children": [],
+          "desc": "SA",
+          "areaCode": "966"
+        },
+        {
+          "code": "212",
+          "enName": "Yemen",
+          "cnName": "也门",
+          "children": [],
+          "desc": "YE",
+          "areaCode": "967"
+        },
+        {
+          "code": "219",
+          "enName": "Oman",
+          "cnName": "阿曼",
+          "children": [],
+          "desc": "OM",
+          "areaCode": "968"
+        },
+        {
+          "code": "220",
+          "enName": "Palestine",
+          "cnName": "巴勒斯坦",
+          "children": [],
+          "desc": "PS",
+          "areaCode": "970"
+        },
+        {
+          "code": "201",
+          "enName": "United Arab Emirates",
+          "cnName": "阿联酋",
+          "children": [],
+          "desc": "AE",
+          "areaCode": "971"
+        },
+        {
+          "code": "206",
+          "enName": "Israel",
+          "cnName": "以色列",
+          "children": [],
+          "desc": "IL",
+          "areaCode": "972"
+        },
+        {
+          "code": "217",
+          "enName": "Bahrain",
+          "cnName": "巴林",
+          "children": [],
+          "desc": "BH",
+          "areaCode": "973"
+        },
+        {
+          "code": "218",
+          "enName": "Qatar",
+          "cnName": "卡塔尔",
+          "children": [],
+          "desc": "QA",
+          "areaCode": "974"
+        },
+        {
+          "code": "203",
+          "enName": "Iran",
+          "cnName": "伊朗",
+          "children": [],
+          "desc": "IR",
+          "areaCode": "98"
+        }
+      ]
+    },
+    {
+      "code": "300",
+      "cnName": "北美洲",
+      "enName": "North America",
+      "children": [
+        {
+          "code": "305",
+          "enName": "Bermuda",
+          "cnName": "百慕大",
+          "children": [],
+          "desc": "BM",
+          "areaCode": "1441"
+        },
+        {
+          "code": "308",
+          "enName": "Greenland",
+          "cnName": "格陵兰",
+          "children": [],
+          "desc": "GL",
+          "areaCode": "299"
+        },
+        {
+          "code": "302",
+          "enName": "Canada",
+          "cnName": "加拿大",
+          "children": [
+            {
+              "enName": "MaDaWoSiKaGaoDi",
+              "cnName": "班克罗夫特",
+              "code": "302001",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "MengTeLiEr",
+              "cnName": "蒙特利尔",
+              "code": "302002",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "XiGang",
+              "cnName": "安大略",
+              "code": "302003",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "AoKeWeiEr",
+              "cnName": "奥克维尔",
+              "code": "302004",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "DuoLunDuo",
+              "cnName": "多伦多",
+              "code": "302005",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "AiDeHuaWangZiXian",
+              "cnName": "安大略",
+              "code": "302006",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "WenGeHua",
+              "cnName": "温哥华",
+              "code": "302009",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "HuaTieLu",
+              "cnName": "滑铁卢",
+              "code": "302010",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "KuiBeiKe",
+              "cnName": "魁北克",
+              "code": "302011",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "BiDeBao",
+              "cnName": "彼得堡",
+              "code": "302013",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "HuiSiLeBC",
+              "cnName": "惠斯勒",
+              "code": "302014",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "SaDeBoLi",
+              "cnName": "萨德伯里",
+              "code": "302015",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "SaSiKaCheWenSheng",
+              "cnName": "萨斯喀彻温省",
+              "code": "302016",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "WoTaiHua",
+              "cnName": "渥太华",
+              "code": "302017",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "AoKeWeiEr",
+              "cnName": "奥克维尔",
+              "code": "302018",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "KaErJiaLi",
+              "cnName": "卡尔加里",
+              "code": "302019",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "DuoLunDuo",
+              "cnName": "多伦多",
+              "code": "302020",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "BuLieDianGeLunBiYaSheng",
+              "cnName": "不列颠哥伦比亚省",
+              "code": "302024",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "CA",
+          "areaCode": "1"
+        },
+        {
+          "cnName": "美国",
+          "code": "301",
+          "desc": "US",
+          "enName": "United States",
+          "type": "",
+          "areaCode": "1",
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "伯明翰",
+                  "code": "301001001",
+                  "desc": "Birmingham",
+                  "enName": "Birmingham",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "蒙哥马利",
+                  "code": "301001002",
+                  "desc": "Montgomery",
+                  "enName": "Montgomery",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "亨次维尔",
+                  "code": "301001003",
+                  "desc": "Huntsville",
+                  "enName": "Huntsville",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "塔斯卡卢萨",
+                  "code": "301001004",
+                  "desc": "Tuscaloosa",
+                  "enName": "Tuscaloosa",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "木比耳",
+                  "code": "301001005",
+                  "desc": "Mobile",
+                  "enName": "Mobile",
+                  "type": ""
+                }
+              ],
+              "cnName": "亚拉巴马州",
+              "code": "301001",
+              "desc": "AL",
+              "enName": "Alabama",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "朱诺",
+                  "code": "301002001",
+                  "desc": "Juneau",
+                  "enName": "Juneau",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "安克拉奇",
+                  "code": "301002002",
+                  "desc": "Anchorage",
+                  "enName": "Anchorage",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "费尔班克斯",
+                  "code": "301002003",
+                  "desc": "Fairbanks",
+                  "enName": "Fairbanks",
+                  "type": ""
+                }
+              ],
+              "cnName": "阿拉斯加州",
+              "code": "301002",
+              "desc": "AK",
+              "enName": "Alaska",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "菲尼克斯",
+                  "code": "301003001",
+                  "desc": "Phoenix",
+                  "enName": "Phoenix",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "吐桑",
+                  "code": "301003002",
+                  "desc": "Tucson",
+                  "enName": "Tucson",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "孟沙",
+                  "code": "301003003",
+                  "desc": "Mesa",
+                  "enName": "Mesa",
+                  "type": ""
+                }
+              ],
+              "cnName": "亚利桑那州",
+              "code": "301003",
+              "desc": "AZ",
+              "enName": "Arizona",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "小石城",
+                  "code": "301004001",
+                  "desc": "Little Rock",
+                  "enName": "Little Rock",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "菲页维尔",
+                  "code": "301004002",
+                  "desc": "Fayetteville",
+                  "enName": "Fayetteville",
+                  "type": ""
+                }
+              ],
+              "cnName": "阿肯色州",
+              "code": "301004",
+              "desc": "AR",
+              "enName": "Arkansas",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "萨克拉门托",
+                  "code": "301005001",
+                  "desc": "Sacramento",
+                  "enName": "Sacramento",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "索诺马",
+                  "code": "301005002",
+                  "desc": "Sonoma",
+                  "enName": "Sonoma",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "圣荷西",
+                  "code": "301005003",
+                  "desc": "San Jose",
+                  "enName": "San Jose",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "洛杉矶",
+                  "code": "301005004",
+                  "desc": "Los Angeles",
+                  "enName": "Los Angeles",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "圣地亚哥",
+                  "code": "301005005",
+                  "desc": "San Diego",
+                  "enName": "San Diego",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "旧金山",
+                  "code": "301005006",
+                  "desc": "San Francisco",
+                  "enName": "San Francisco",
+                  "type": ""
+                }
+              ],
+              "cnName": "加利福尼亚州",
+              "code": "301005",
+              "desc": "CA",
+              "enName": "California",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "丹佛",
+                  "code": "301006001",
+                  "desc": "Denver",
+                  "enName": "Denver",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "波尔德",
+                  "code": "301006002",
+                  "desc": "Boulder",
+                  "enName": "Boulder",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "科罗拉多泉",
+                  "code": "301006003",
+                  "desc": "Clolrado Springs",
+                  "enName": "Clolrado Springs",
+                  "type": ""
+                }
+              ],
+              "cnName": "科罗拉多州",
+              "code": "301006",
+              "desc": "CO",
+              "enName": "Colorado",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "哈特福",
+                  "code": "301007001",
+                  "desc": "Hartford",
+                  "enName": "Hartford",
+                  "type": ""
+                }
+              ],
+              "cnName": "康涅狄格州",
+              "code": "301007",
+              "desc": "CT",
+              "enName": "Connecticut",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "多佛",
+                  "code": "301008001",
+                  "desc": "Dover",
+                  "enName": "Dover",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "维明顿",
+                  "code": "301008002",
+                  "desc": "Wilmington",
+                  "enName": "Wilmington",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "纽华克",
+                  "code": "301008003",
+                  "desc": "Newark",
+                  "enName": "Newark",
+                  "type": ""
+                }
+              ],
+              "cnName": "特拉华州",
+              "code": "301008",
+              "desc": "DE",
+              "enName": "Delaware",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "塔拉赫西",
+                  "code": "301009001",
+                  "desc": "Tallahassee",
+                  "enName": "Tallahassee",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "坦帕",
+                  "code": "301009002",
+                  "desc": "Tampa",
+                  "enName": "Tampa",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "杰克逊维尔",
+                  "code": "301009003",
+                  "desc": "Jacksonville",
+                  "enName": "Jacksonville",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "迈阿密",
+                  "code": "301009004",
+                  "desc": "Miami",
+                  "enName": "Miami",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "盖恩斯维尔",
+                  "code": "301009005",
+                  "desc": "Gainesville",
+                  "enName": "Gainesville",
+                  "type": ""
+                }
+              ],
+              "cnName": "佛罗里达州",
+              "code": "301009",
+              "desc": "FL",
+              "enName": "Florida",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "亚特兰大",
+                  "code": "301010001",
+                  "desc": "Atlanta",
+                  "enName": "Atlanta",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "哥伦布",
+                  "code": "301010002",
+                  "desc": "Columbus",
+                  "enName": "Columbus",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "美昆",
+                  "code": "301010003",
+                  "desc": "Macon",
+                  "enName": "Macon",
+                  "type": ""
+                }
+              ],
+              "cnName": "乔治亚州",
+              "code": "301010",
+              "desc": "GA",
+              "enName": "Georgia",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "檀香山",
+                  "code": "301011001",
+                  "desc": "Honolulu",
+                  "enName": "Honolulu",
+                  "type": ""
+                }
+              ],
+              "cnName": "夏威夷州",
+              "code": "301011",
+              "desc": "HI",
+              "enName": "Hawaii",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "波夕",
+                  "code": "301012001",
+                  "desc": "Boise",
+                  "enName": "Boise",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "波格太罗",
+                  "code": "301012002",
+                  "desc": "Pocatello",
+                  "enName": "Pocatello",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "爱达荷泉",
+                  "code": "301012003",
+                  "desc": "Idaho Falls",
+                  "enName": "Idaho Falls",
+                  "type": ""
+                }
+              ],
+              "cnName": "爱达荷州",
+              "code": "301012",
+              "desc": "ID",
+              "enName": "Idaho",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "春田",
+                  "code": "301013001",
+                  "desc": "Springfield",
+                  "enName": "Springfield",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "芝加哥",
+                  "code": "301013002",
+                  "desc": "Chicago",
+                  "enName": "Chicago",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "洛克福特",
+                  "code": "301013003",
+                  "desc": "Rockford",
+                  "enName": "Rockford",
+                  "type": ""
+                }
+              ],
+              "cnName": "伊利诺伊州",
+              "code": "301013",
+              "desc": "IL",
+              "enName": "Illinois",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "印第安纳波利斯",
+                  "code": "301014001",
+                  "desc": "Indianapolis",
+                  "enName": "Indianapolis",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "韦恩堡",
+                  "code": "301014002",
+                  "desc": "Fort Wayne",
+                  "enName": "Fort Wayne",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "布卢明顿",
+                  "code": "301014003",
+                  "desc": "Bloomington",
+                  "enName": "Bloomington",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "拉法叶",
+                  "code": "301014004",
+                  "desc": "Lafayette",
+                  "enName": "Lafayette",
+                  "type": ""
+                }
+              ],
+              "cnName": "印第安那州",
+              "code": "301014",
+              "desc": "IN",
+              "enName": "Indiana",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "第蒙",
+                  "code": "301015001",
+                  "desc": "Des Moines",
+                  "enName": "Des Moines",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "西达拉皮兹",
+                  "code": "301015002",
+                  "desc": "Cedar Rapids",
+                  "enName": "Cedar Rapids",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "丹芬堡特",
+                  "code": "301015003",
+                  "desc": "Daven Port",
+                  "enName": "Daven Port",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "爱荷华城",
+                  "code": "301015004",
+                  "desc": "Iowa City",
+                  "enName": "Iowa City",
+                  "type": ""
+                }
+              ],
+              "cnName": "爱荷华州",
+              "code": "301015",
+              "desc": "IA",
+              "enName": "Iowa",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "托皮卡",
+                  "code": "301016001",
+                  "desc": "Topeka",
+                  "enName": "Topeka",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "维契托",
+                  "code": "301016002",
+                  "desc": "Wichita",
+                  "enName": "Wichita",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "堪萨斯城",
+                  "code": "301016003",
+                  "desc": "Kansas City",
+                  "enName": "Kansas City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "罗伦斯",
+                  "code": "301016004",
+                  "desc": "Lawrence",
+                  "enName": "Lawrence",
+                  "type": ""
+                }
+              ],
+              "cnName": "堪萨斯州",
+              "code": "301016",
+              "desc": "KS",
+              "enName": "Kansas",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "路易斯维尔",
+                  "code": "301017001",
+                  "desc": "Louisville",
+                  "enName": "Louisville",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "雷克星敦",
+                  "code": "301017002",
+                  "desc": "Lexington",
+                  "enName": "Lexington",
+                  "type": ""
+                }
+              ],
+              "cnName": "肯塔基州",
+              "code": "301017",
+              "desc": "KY",
+              "enName": "Kentucky",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "新奥尔良",
+                  "code": "301018001",
+                  "desc": "New Orleans",
+                  "enName": "New Orleans",
+                  "type": ""
+                }
+              ],
+              "cnName": "路易斯安那州",
+              "code": "301018",
+              "desc": "LA",
+              "enName": "Louisiana",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "奥古斯塔",
+                  "code": "301019001",
+                  "desc": "Augusta",
+                  "enName": "Augusta",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "波特兰",
+                  "code": "301019002",
+                  "desc": "Portland",
+                  "enName": "Portland",
+                  "type": ""
+                }
+              ],
+              "cnName": "缅因州",
+              "code": "301019",
+              "desc": "LA",
+              "enName": "Louisiana",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "亚那波里斯",
+                  "code": "301020001",
+                  "desc": "Annapolis",
+                  "enName": "Annapolis",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "巴尔的摩",
+                  "code": "301020002",
+                  "desc": "Baltimore",
+                  "enName": "Baltimore",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "洛克威尔",
+                  "code": "301020003",
+                  "desc": "Rockville",
+                  "enName": "Rockville",
+                  "type": ""
+                }
+              ],
+              "cnName": "马里兰州",
+              "code": "301020",
+              "desc": "MD",
+              "enName": "Maryland",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "波士顿",
+                  "code": "301021001",
+                  "desc": "Boston",
+                  "enName": "Boston",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "伍斯特",
+                  "code": "301021002",
+                  "desc": "Worcester",
+                  "enName": "Worcester",
+                  "type": ""
+                }
+              ],
+              "cnName": "马萨诸塞州",
+              "code": "301021",
+              "desc": "MA",
+              "enName": "Massachusetts",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "兰辛",
+                  "code": "301022001",
+                  "desc": "Lansing",
+                  "enName": "Lansing",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "底特律",
+                  "code": "301022002",
+                  "desc": "Detroit",
+                  "enName": "Detroit",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "大溪城",
+                  "code": "301022003",
+                  "desc": "Grand Rapids",
+                  "enName": "Grand Rapids",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "林特",
+                  "code": "301022004",
+                  "desc": "flint",
+                  "enName": "flint",
+                  "type": ""
+                }
+              ],
+              "cnName": "密歇根州",
+              "code": "301022",
+              "desc": "MI",
+              "enName": "Michigan",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "圣保罗",
+                  "code": "301023001",
+                  "desc": "Saint Paul",
+                  "enName": "Saint Paul",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "明尼阿波利斯",
+                  "code": "301023002",
+                  "desc": "Minneapolis",
+                  "enName": "Minneapolis",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "杜鲁司",
+                  "code": "301023003",
+                  "desc": "Duluth",
+                  "enName": "Duluth",
+                  "type": ""
+                }
+              ],
+              "cnName": "明尼苏达州",
+              "code": "301023",
+              "desc": "MN",
+              "enName": "Minnesota",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "杰克逊",
+                  "code": "301024001",
+                  "desc": "Jackson",
+                  "enName": "Jackson",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "密烈地安",
+                  "code": "301024002",
+                  "desc": "Meridian",
+                  "enName": "Meridian",
+                  "type": ""
+                }
+              ],
+              "cnName": "密西西比州",
+              "code": "301024",
+              "desc": "MS",
+              "enName": "Mississippi",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "杰佛逊城",
+                  "code": "301025001",
+                  "desc": "Jefferson City",
+                  "enName": "Jefferson City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "圣路易斯",
+                  "code": "301025002",
+                  "desc": "Saint Louis",
+                  "enName": "Saint Louis",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "堪萨斯城",
+                  "code": "301025003",
+                  "desc": "Kansas City",
+                  "enName": "Kansas City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "洛拉",
+                  "code": "301025004",
+                  "desc": "Rolla",
+                  "enName": "Rolla",
+                  "type": ""
+                }
+              ],
+              "cnName": "密苏里州",
+              "code": "301025",
+              "desc": "MO",
+              "enName": "Missouri",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "赫勒拿",
+                  "code": "301026001",
+                  "desc": "Heldna",
+                  "enName": "Heldna",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "比林斯",
+                  "code": "301026002",
+                  "desc": "Billings",
+                  "enName": "Billings",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "密苏拉",
+                  "code": "301026003",
+                  "desc": "Missoula",
+                  "enName": "Missoula",
+                  "type": ""
+                }
+              ],
+              "cnName": "蒙大拿州",
+              "code": "301026",
+              "desc": "MT",
+              "enName": "Montana",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "林肯",
+                  "code": "301027001",
+                  "desc": "Lincoln",
+                  "enName": "Lincoln",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "奥马哈",
+                  "code": "301027002",
+                  "desc": "Omaha",
+                  "enName": "Omaha",
+                  "type": ""
+                }
+              ],
+              "cnName": "内布拉斯加州",
+              "code": "301027",
+              "desc": "NE",
+              "enName": "Nebraska",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "喀孙城",
+                  "code": "301028001",
+                  "desc": "Carson City",
+                  "enName": "Carson City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "拉斯维加斯",
+                  "code": "301028002",
+                  "desc": "Las Vegas",
+                  "enName": "Las Vegas",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "雷诺",
+                  "code": "301028003",
+                  "desc": "Reno",
+                  "enName": "Reno",
+                  "type": ""
+                }
+              ],
+              "cnName": "内华达州",
+              "code": "301028",
+              "desc": "NV",
+              "enName": "Nevada",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "曼彻斯特",
+                  "code": "301029001",
+                  "desc": "Manchester",
+                  "enName": "Manchester",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "南雪",
+                  "code": "301029002",
+                  "desc": "Nashua",
+                  "enName": "Nashua",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "朴次茅斯",
+                  "code": "301029003",
+                  "desc": "Portsmouth",
+                  "enName": "Portsmouth",
+                  "type": ""
+                }
+              ],
+              "cnName": "新罕布什尔州",
+              "code": "301029",
+              "desc": "NH",
+              "enName": "New Hampshire",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "纽瓦克",
+                  "code": "301030001",
+                  "desc": "Newark",
+                  "enName": "Newark",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "泽西市",
+                  "code": "301030002",
+                  "desc": "Jersey City",
+                  "enName": "Jersey City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "大西洋城",
+                  "code": "301030003",
+                  "desc": "Atlantic City",
+                  "enName": "Atlantic City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "依丽沙白",
+                  "code": "301030004",
+                  "desc": "Elizabeth",
+                  "enName": "Elizabeth",
+                  "type": ""
+                }
+              ],
+              "cnName": "新泽西州",
+              "code": "301030",
+              "desc": "NJ",
+              "enName": "New Jersey",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "圣塔非",
+                  "code": "301031001",
+                  "desc": "santaFe",
+                  "enName": "santaFe",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "阿布奎基",
+                  "code": "301031002",
+                  "desc": "Albuquerque",
+                  "enName": "Albuquerque",
+                  "type": ""
+                }
+              ],
+              "cnName": "新墨西哥州",
+              "code": "301031",
+              "desc": "NM",
+              "enName": "New Mexico",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "奥尔巴尼",
+                  "code": "301032001",
+                  "desc": "Albany",
+                  "enName": "Albany",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "布法罗",
+                  "code": "301032002",
+                  "desc": "Buffalo",
+                  "enName": "Buffalo",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "长岛",
+                  "code": "301032003",
+                  "desc": "Long Island",
+                  "enName": "Long Island",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "纽约市",
+                  "code": "301032004",
+                  "desc": "New York City",
+                  "enName": "New York City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "罗契斯特",
+                  "code": "301032005",
+                  "desc": "Rochester",
+                  "enName": "Rochester",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "绮色佳",
+                  "code": "301032006",
+                  "desc": "Ithaca",
+                  "enName": "Ithaca",
+                  "type": ""
+                }
+              ],
+              "cnName": "纽约州",
+              "code": "301032",
+              "desc": "NY",
+              "enName": "New York",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "洛利",
+                  "code": "301033001",
+                  "desc": "Raleigh",
+                  "enName": "Raleigh",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "夏洛特",
+                  "code": "301033002",
+                  "desc": "Charlotte",
+                  "enName": "Charlotte",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "格陵斯堡",
+                  "code": "301033003",
+                  "desc": "Greensboro",
+                  "enName": "Greensboro",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "查伯山",
+                  "code": "301033004",
+                  "desc": "Chapel Hill",
+                  "enName": "Chapel Hill",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "阿士维尔",
+                  "code": "301033005",
+                  "desc": "Asheville",
+                  "enName": "Asheville",
+                  "type": ""
+                }
+              ],
+              "cnName": "北卡罗莱纳州",
+              "code": "301033",
+              "desc": "NC",
+              "enName": "North Carolina",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "俾斯麦",
+                  "code": "301034001",
+                  "desc": "Bismark",
+                  "enName": "Bismark",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "法哥",
+                  "code": "301034002",
+                  "desc": "Fargo",
+                  "enName": "Fargo",
+                  "type": ""
+                }
+              ],
+              "cnName": "北达科他州",
+              "code": "301034",
+              "desc": "ND",
+              "enName": "North Dakota",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "哥伦布",
+                  "code": "301035001",
+                  "desc": "Columbus",
+                  "enName": "Columbus",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "克利夫兰",
+                  "code": "301035002",
+                  "desc": "Cleveland",
+                  "enName": "Cleveland",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "辛辛那提",
+                  "code": "301035003",
+                  "desc": "Cincinnati",
+                  "enName": "Cincinnati",
+                  "type": ""
+                }
+              ],
+              "cnName": "俄亥俄州",
+              "code": "301035",
+              "desc": "OH",
+              "enName": "Ohio",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "俄克拉荷马城",
+                  "code": "301036001",
+                  "desc": "OklahomaCity",
+                  "enName": "OklahomaCity",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "吐沙",
+                  "code": "301036002",
+                  "desc": "Tulsa",
+                  "enName": "Tulsa",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "劳顿",
+                  "code": "301036003",
+                  "desc": "Lawton",
+                  "enName": "Lawton",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "诺曼城",
+                  "code": "301036004",
+                  "desc": "Norman",
+                  "enName": "Norman",
+                  "type": ""
+                }
+              ],
+              "cnName": "俄克拉何马州",
+              "code": "301036",
+              "desc": "OK",
+              "enName": "Oklahoma",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "沙连",
+                  "code": "301037001",
+                  "desc": "Salem",
+                  "enName": "Salem",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "波特兰",
+                  "code": "301037002",
+                  "desc": "Portland",
+                  "enName": "Portland",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "尤金",
+                  "code": "301037003",
+                  "desc": "Eugene",
+                  "enName": "Eugene",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "科瓦利",
+                  "code": "301037004",
+                  "desc": "Corvallis",
+                  "enName": "Corvallis",
+                  "type": ""
+                }
+              ],
+              "cnName": "俄勒冈州",
+              "code": "301037",
+              "desc": "OR",
+              "enName": "Oregon",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "宾夕法尼亚州",
+              "code": "301038",
+              "desc": "PA",
+              "enName": "Pennsylvania",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "哥伦比亚",
+                  "code": "301039001",
+                  "desc": "Columbia",
+                  "enName": "Columbia",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "查理斯敦",
+                  "code": "301039002",
+                  "desc": "North Charleston",
+                  "enName": "North Charleston",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "格林威尔",
+                  "code": "301039003",
+                  "desc": "Greenville",
+                  "enName": "Greenville",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "阿干",
+                  "code": "301039004",
+                  "desc": "Aiken",
+                  "enName": "Aiken",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "美特尔沙滨",
+                  "code": "301039005",
+                  "desc": "Myrtle Beach",
+                  "enName": "Myrtle Beach",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "克伦孙",
+                  "code": "301039006",
+                  "desc": "Clemson",
+                  "enName": "Clemson",
+                  "type": ""
+                }
+              ],
+              "cnName": "南卡罗莱纳州",
+              "code": "301039",
+              "desc": "SC",
+              "enName": "South Carolina",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "苏瀑布",
+                  "code": "301040001",
+                  "desc": "Sioux Falls",
+                  "enName": "Sioux Falls",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "拉皮特城",
+                  "code": "301040002",
+                  "desc": "Rapid City",
+                  "enName": "Rapid City",
+                  "type": ""
+                }
+              ],
+              "cnName": "南达科他州",
+              "code": "301040",
+              "desc": "SD",
+              "enName": "South Dakota",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "那什维尔",
+                  "code": "301041001",
+                  "desc": "Nemphis",
+                  "enName": "Nemphis",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "孟菲斯",
+                  "code": "301041002",
+                  "desc": "Memphis",
+                  "enName": "Memphis",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "诺克斯维尔",
+                  "code": "301041003",
+                  "desc": "Knoxville",
+                  "enName": "Knoxville",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "橡岭",
+                  "code": "301041004",
+                  "desc": "Oak Ridge",
+                  "enName": "Oak Ridge",
+                  "type": ""
+                }
+              ],
+              "cnName": "田纳西州",
+              "code": "301041",
+              "desc": "TN",
+              "enName": "Tennessee",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "奥斯汀",
+                  "code": "301042001",
+                  "desc": "Austin",
+                  "enName": "Austin",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "休斯敦",
+                  "code": "301042002",
+                  "desc": "Houston",
+                  "enName": "Houston",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "达拉斯",
+                  "code": "301042003",
+                  "desc": "Dallas",
+                  "enName": "Dallas",
+                  "type": ""
+                }
+              ],
+              "cnName": "德克萨斯州",
+              "code": "301042",
+              "desc": "TX",
+              "enName": "Texas",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "盐湖城",
+                  "code": "301043001",
+                  "desc": "Salt Lake City",
+                  "enName": "Salt Lake City",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "奥格但",
+                  "code": "301043002",
+                  "desc": "Ogden",
+                  "enName": "Ogden",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "普罗伏",
+                  "code": "301043003",
+                  "desc": "Provo",
+                  "enName": "Provo",
+                  "type": ""
+                }
+              ],
+              "cnName": "犹他州",
+              "code": "301043",
+              "desc": "UT",
+              "enName": "Utah",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "勒特兰",
+                  "code": "301044001",
+                  "desc": "Rutland",
+                  "enName": "Rutland",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "05702",
+                  "code": "301044002",
+                  "desc": "05702",
+                  "enName": "05702",
+                  "type": ""
+                }
+              ],
+              "cnName": "佛蒙特州",
+              "code": "301044",
+              "desc": "VT",
+              "enName": "Vermont",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "里士满",
+                  "code": "301045001",
+                  "desc": "Richmond",
+                  "enName": "Richmond",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "诺福克",
+                  "code": "301045002",
+                  "desc": "Norfolk",
+                  "enName": "Norfolk",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "弗吉尼亚滩",
+                  "code": "301045003",
+                  "desc": "Virginia Beach",
+                  "enName": "Virginia Beach",
+                  "type": ""
+                }
+              ],
+              "cnName": "弗吉尼亚州",
+              "code": "301045",
+              "desc": "VA",
+              "enName": "Virginia",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "华盛顿州",
+              "code": "301046",
+              "desc": "WA",
+              "enName": "Washington",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "普洛威顿斯",
+                  "code": "301047001",
+                  "desc": "Providence",
+                  "enName": "Providence",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "纽保特",
+                  "code": "301047002",
+                  "desc": "Newport",
+                  "enName": "Newport",
+                  "type": ""
+                }
+              ],
+              "cnName": "罗德岛州",
+              "code": "301047",
+              "desc": "RI",
+              "enName": "Rhode Island",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "查理斯敦",
+                  "code": "301048001",
+                  "desc": "Charleston",
+                  "enName": "Charleston",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "亨丁顿",
+                  "code": "301048002",
+                  "desc": "Huntington",
+                  "enName": "Huntington",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "摩根当",
+                  "code": "301048003",
+                  "desc": "Morgantown",
+                  "enName": "Morgantown",
+                  "type": ""
+                }
+              ],
+              "cnName": "西佛吉尼亚州",
+              "code": "301048",
+              "desc": "WV",
+              "enName": "West Virginia",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "马迪逊",
+                  "code": "301049001",
+                  "desc": "Madison",
+                  "enName": "Madison",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "密尔沃基",
+                  "code": "301049002",
+                  "desc": "Milwaukee",
+                  "enName": "Milwaukee",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "拉辛",
+                  "code": "301049003",
+                  "desc": "Racine",
+                  "enName": "Racine",
+                  "type": ""
+                }
+              ],
+              "cnName": "威斯康星州",
+              "code": "301049",
+              "desc": "WI",
+              "enName": "Wisconsin",
+              "type": ""
+            },
+            {
+              "children": [
+                {
+                  "children": [],
+                  "cnName": "斜阳",
+                  "code": "301050001",
+                  "desc": "Cheyenne",
+                  "enName": "Cheyenne",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "卡斯白",
+                  "code": "301050002",
+                  "desc": "Casper",
+                  "enName": "Casper",
+                  "type": ""
+                },
+                {
+                  "children": [],
+                  "cnName": "拉阿密",
+                  "code": "301050003",
+                  "desc": "Laramie",
+                  "enName": "Laramie",
+                  "type": ""
+                }
+              ],
+              "cnName": "怀俄明州",
+              "code": "301050",
+              "desc": "WY",
+              "enName": "Wyoming",
+              "type": ""
+            },
+            {
+              "children": [],
+              "cnName": "华盛顿特区",
+              "code": "301051",
+              "desc": "DC",
+              "enName": "Washington, DC",
+              "type": ""
+            }
+          ]
+        },
+        {
+          "code": "311",
+          "enName": "Midway Islands",
+          "cnName": "中途岛",
+          "children": [],
+          "desc": "UM",
+          "areaCode": "1808"
+        },
+        {
+          "code": "307",
+          "enName": "Anguilla Island",
+          "cnName": "安圭拉岛",
+          "children": [],
+          "desc": "AI",
+          "areaCode": "1809"
+        },
+        {
+          "code": "304",
+          "enName": "Saint Lucia",
+          "cnName": "圣卢西亚",
+          "children": [],
+          "desc": "LC",
+          "areaCode": "1809"
+        },
+        {
+          "code": "306",
+          "enName": "Alaska",
+          "cnName": "阿拉斯加",
+          "children": [],
+          "desc": "AK",
+          "areaCode": "1907"
+        },
+        {
+          "code": "310",
+          "enName": "Hawaii",
+          "cnName": "夏威夷",
+          "children": [],
+          "desc": "HL",
+          "areaCode": "1808"
+        },
+        {
+          "code": "309",
+          "enName": "Wake Island",
+          "cnName": "威克岛",
+          "children": [],
+          "desc": "UM",
+          "areaCode": "1808"
+        },
+        {
+          "code": "303",
+          "enName": "Virgin Islands",
+          "cnName": "维尔京群岛",
+          "children": [],
+          "desc": "VI",
+          "areaCode": "1809"
+        }
+      ]
+    },
+    {
+      "code": "400",
+      "cnName": "南美洲",
+      "enName": "South America",
+      "children": [
+        {
+          "code": "419",
+          "enName": "Jamaica",
+          "cnName": "牙买加",
+          "children": [],
+          "desc": "JM",
+          "areaCode": "1876"
+        },
+        {
+          "code": "420",
+          "enName": "Bahamas",
+          "cnName": "巴哈马",
+          "children": [],
+          "desc": "BS",
+          "areaCode": "1243"
+        },
+        {
+          "code": "428",
+          "enName": "Barbados",
+          "cnName": "巴巴多斯",
+          "children": [],
+          "desc": "BB",
+          "areaCode": "1246"
+        },
+        {
+          "code": "431",
+          "enName": "Ntigua and Barbuda",
+          "cnName": "安提瓜和巴布达",
+          "children": [],
+          "desc": "AG",
+          "areaCode": "1268"
+        },
+        {
+          "code": "432",
+          "enName": "Cayman Islands",
+          "cnName": "开曼群岛",
+          "children": [],
+          "desc": "KY",
+          "areaCode": "1345"
+        },
+        {
+          "code": "418",
+          "enName": "Puerto Rico",
+          "cnName": "波多黎各",
+          "children": [],
+          "desc": "PR",
+          "areaCode": "1787"
+        },
+        {
+          "code": "415",
+          "enName": "Dominica Republic",
+          "cnName": "多米尼加",
+          "children": [],
+          "desc": "DO",
+          "areaCode": "1809"
+        },
+        {
+          "code": "413",
+          "enName": "Trinidad and Tobago",
+          "cnName": "特立尼达和多巴哥",
+          "children": [],
+          "desc": "TT",
+          "areaCode": "1809"
+        },
+        {
+          "code": "433",
+          "enName": "Falkland Islands",
+          "cnName": "福克兰群岛",
+          "children": [],
+          "desc": "FK",
+          "areaCode": "500"
+        },
+        {
+          "code": "427",
+          "enName": "Belize",
+          "cnName": "伯利兹",
+          "children": [],
+          "desc": "BZ",
+          "areaCode": "501"
+        },
+        {
+          "code": "417",
+          "enName": "Guatemala",
+          "cnName": "危地马拉",
+          "children": [],
+          "desc": "GT",
+          "areaCode": "502"
+        },
+        {
+          "code": "422",
+          "enName": "El Salvador",
+          "cnName": "萨尔瓦多",
+          "children": [],
+          "desc": "SV",
+          "areaCode": "503"
+        },
+        {
+          "code": "421",
+          "enName": "Honduras",
+          "cnName": "洪都拉斯",
+          "children": [],
+          "desc": "HN",
+          "areaCode": "504"
+        },
+        {
+          "code": "430",
+          "enName": "Nicaragua",
+          "cnName": "尼加拉瓜",
+          "children": [],
+          "desc": "NI",
+          "areaCode": "505"
+        },
+        {
+          "code": "412",
+          "enName": "Costa Rica",
+          "cnName": "哥斯达黎加",
+          "children": [],
+          "desc": "CR",
+          "areaCode": "506"
+        },
+        {
+          "code": "408",
+          "enName": "Panama",
+          "cnName": "巴拿马",
+          "children": [],
+          "desc": "PA",
+          "areaCode": "507"
+        },
+        {
+          "code": "435",
+          "enName": "Saint Pierre",
+          "cnName": "圣彼埃尔",
+          "children": [],
+          "desc": "PM",
+          "areaCode": "508"
+        },
+        {
+          "code": "426",
+          "enName": "Haiti",
+          "cnName": "海地",
+          "children": [],
+          "desc": "HT",
+          "areaCode": "509"
+        },
+        {
+          "code": "407",
+          "enName": "Peru",
+          "cnName": "秘鲁",
+          "children": [],
+          "desc": "PE",
+          "areaCode": "51"
+        },
+        {
+          "code": "402",
+          "enName": "Mexico",
+          "cnName": "墨西哥",
+          "children": [],
+          "desc": "MX",
+          "areaCode": "52"
+        },
+        {
+          "code": "425",
+          "enName": "Cuba",
+          "cnName": "古巴",
+          "children": [],
+          "desc": "CU",
+          "areaCode": "53"
+        },
+        {
+          "code": "406",
+          "enName": "Argentina",
+          "cnName": "阿根廷",
+          "children": [
+            {
+              "enName": "BuYiNuoSiAiLiSi",
+              "cnName": "布宜诺斯艾利斯",
+              "code": "406001",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "AR",
+          "areaCode": "54"
+        },
+        {
+          "code": "401",
+          "enName": "Brazil",
+          "cnName": "巴西",
+          "children": [],
+          "desc": "BR",
+          "areaCode": "55"
+        },
+        {
+          "code": "404",
+          "enName": "Chile",
+          "cnName": "智利",
+          "children": [],
+          "desc": "CL",
+          "areaCode": "56"
+        },
+        {
+          "code": "403",
+          "enName": "Colombia",
+          "cnName": "哥伦比亚",
+          "children": [],
+          "desc": "CO",
+          "areaCode": "57"
+        },
+        {
+          "code": "405",
+          "enName": "Venezuela",
+          "cnName": "委内瑞拉",
+          "children": [],
+          "desc": "VE",
+          "areaCode": "58"
+        },
+        {
+          "code": "429",
+          "enName": "Guadeloupe",
+          "cnName": "瓜德罗普",
+          "children": [],
+          "desc": "GP",
+          "areaCode": "590"
+        },
+        {
+          "code": "410",
+          "enName": "Bolivia",
+          "cnName": "玻利维亚",
+          "children": [],
+          "desc": "BO",
+          "areaCode": "591"
+        },
+        {
+          "code": "409",
+          "enName": "Ecuador",
+          "cnName": "厄瓜多尔",
+          "children": [],
+          "desc": "EC",
+          "areaCode": "593"
+        },
+        {
+          "code": "424",
+          "enName": "Guyana",
+          "cnName": "法属圭亚那",
+          "children": [],
+          "desc": "GF",
+          "areaCode": "594"
+        },
+        {
+          "code": "414",
+          "enName": "Paraguay",
+          "cnName": "巴拉圭",
+          "children": [],
+          "desc": "PY",
+          "areaCode": "595"
+        },
+        {
+          "code": "434",
+          "enName": "Martinique",
+          "cnName": "马提尼克",
+          "children": [],
+          "desc": "MQ",
+          "areaCode": "596"
+        },
+        {
+          "code": "423",
+          "enName": "Surinam",
+          "cnName": "苏里南",
+          "children": [],
+          "desc": "SR",
+          "areaCode": "597"
+        },
+        {
+          "code": "411",
+          "enName": "Uruguay",
+          "cnName": "乌拉圭",
+          "children": [],
+          "desc": "UY",
+          "areaCode": "598"
+        },
+        {
+          "code": "416",
+          "enName": "Netherlands Antilles",
+          "cnName": "荷属安第列斯",
+          "children": [],
+          "desc": "AN",
+          "areaCode": "599"
+        }
+      ]
+    },
+    {
+      "code": "500",
+      "cnName": "欧洲",
+      "enName": "Europe",
+      "children": [
+        {
+          "code": "531",
+          "enName": "Albania",
+          "cnName": "阿尔巴尼亚",
+          "children": [],
+          "desc": "AL",
+          "areaCode": "355"
+        },
+        {
+          "code": "524",
+          "enName": "Bulgaria",
+          "cnName": "保加利亚",
+          "children": [],
+          "desc": "BG",
+          "areaCode": "359"
+        },
+        {
+          "code": "522",
+          "enName": "Hungary",
+          "cnName": "匈牙利",
+          "children": [],
+          "desc": "HU",
+          "areaCode": "36"
+        },
+        {
+          "code": "538",
+          "enName": "Moldova",
+          "cnName": "摩尔多瓦",
+          "children": [],
+          "desc": "MD",
+          "areaCode": "373"
+        },
+        {
+          "code": "523",
+          "enName": "White Russia",
+          "cnName": "白俄罗斯",
+          "children": [],
+          "desc": "BY",
+          "areaCode": "375"
+        },
+        {
+          "code": "516",
+          "enName": "Ukraine",
+          "cnName": "乌克兰",
+          "children": [],
+          "desc": "UA",
+          "areaCode": "380"
+        },
+        {
+          "code": "546",
+          "enName": "Kosovo",
+          "cnName": "科索沃",
+          "children": [],
+          "desc": "YK",
+          "areaCode": "381"
+        },
+        {
+          "code": "545",
+          "enName": "Montenegro",
+          "cnName": "黑山",
+          "children": [],
+          "desc": "MNE",
+          "areaCode": "381"
+        },
+        {
+          "code": "525",
+          "enName": "Serbia",
+          "cnName": "塞尔维亚",
+          "children": [],
+          "desc": "SR",
+          "areaCode": "381"
+        },
+        {
+          "code": "536",
+          "enName": "Yugoslavia",
+          "cnName": "南斯拉夫",
+          "children": [],
+          "desc": "YU",
+          "areaCode": "381"
+        },
+        {
+          "code": "526",
+          "enName": "Croatia",
+          "cnName": "克罗地亚",
+          "children": [],
+          "desc": "HR",
+          "areaCode": "385"
+        },
+        {
+          "code": "527",
+          "enName": "Slovene",
+          "cnName": "斯洛文尼亚",
+          "children": [],
+          "desc": "SI",
+          "areaCode": "386"
+        },
+        {
+          "code": "535",
+          "enName": "Bosnia Hercegovina",
+          "cnName": "波黑",
+          "children": [],
+          "desc": "BA",
+          "areaCode": "387"
+        },
+        {
+          "code": "540",
+          "enName": "Macedonia",
+          "cnName": "马其顿",
+          "children": [],
+          "desc": "MKD",
+          "areaCode": "389"
+        },
+        {
+          "code": "521",
+          "enName": "Romania",
+          "cnName": "罗马尼亚",
+          "children": [],
+          "desc": "RO",
+          "areaCode": "40"
+        },
+        {
+          "code": "518",
+          "enName": "Czech Republic",
+          "cnName": "捷克",
+          "children": [],
+          "desc": "CZ",
+          "areaCode": "420"
+        },
+        {
+          "code": "532",
+          "enName": "Slovakia",
+          "cnName": "斯洛伐克",
+          "children": [],
+          "desc": "SK",
+          "areaCode": "421"
+        },
+        {
+          "code": "512",
+          "enName": "Poland",
+          "cnName": "波兰",
+          "children": [],
+          "desc": "PL",
+          "areaCode": "48"
+        },
+        {
+          "code": "507",
+          "enName": "Russia",
+          "cnName": "俄罗斯",
+          "children": [
+            {
+              "enName": "ShengBiDeBao",
+              "cnName": "圣彼得堡",
+              "code": "507001",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "RU",
+          "areaCode": "7"
+        },
+        {
+          "code": "513",
+          "enName": "Greece",
+          "cnName": "希腊",
+          "children": [],
+          "desc": "GE",
+          "areaCode": "30"
+        },
+        {
+          "code": "505",
+          "enName": "Spain",
+          "cnName": "西班牙",
+          "children": [
+            {
+              "enName": "BaSaiLuoNei",
+              "cnName": "巴塞罗那",
+              "code": "505001",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "ES",
+          "areaCode": "34"
+        },
+        {
+          "code": "543",
+          "enName": "Gibraltar",
+          "cnName": "直布罗陀",
+          "children": [],
+          "desc": "GI",
+          "areaCode": "350"
+        },
+        {
+          "code": "519",
+          "enName": "Portugal",
+          "cnName": "葡萄牙",
+          "children": [],
+          "desc": "PT",
+          "areaCode": "351"
+        },
+        {
+          "code": "534",
+          "enName": "Iceland",
+          "cnName": "冰岛",
+          "children": [],
+          "desc": "IS",
+          "areaCode": "354"
+        },
+        {
+          "code": "533",
+          "enName": "Malta",
+          "cnName": "马耳他",
+          "children": [],
+          "desc": "MT",
+          "areaCode": "356"
+        },
+        {
+          "code": "514",
+          "enName": "Finland",
+          "cnName": "芬兰",
+          "children": [],
+          "desc": "FI",
+          "areaCode": "358"
+        },
+        {
+          "code": "528",
+          "enName": "Lithuania",
+          "cnName": "立陶宛",
+          "children": [],
+          "desc": "LT",
+          "areaCode": "370"
+        },
+        {
+          "code": "530",
+          "enName": "Latvia",
+          "cnName": "拉脱维亚",
+          "children": [],
+          "desc": "LV",
+          "areaCode": "371"
+        },
+        {
+          "code": "529",
+          "enName": "Estonia",
+          "cnName": "爱沙尼亚",
+          "children": [],
+          "desc": "EE",
+          "areaCode": "372"
+        },
+        {
+          "code": "541",
+          "enName": "Andorra",
+          "cnName": "安道尔共和国",
+          "children": [],
+          "desc": "AD",
+          "areaCode": "376"
+        },
+        {
+          "code": "503",
+          "enName": "Italy",
+          "cnName": "意大利",
+          "children": [
+            {
+              "enName": "FoLuoLunSa",
+              "cnName": "佛罗伦萨",
+              "code": "503001",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "IT",
+          "areaCode": "39"
+        },
+        {
+          "code": "544",
+          "enName": "Vatican",
+          "cnName": "梵蒂冈",
+          "children": [],
+          "desc": "VA",
+          "areaCode": "396"
+        },
+        {
+          "code": "542",
+          "enName": "Liechtenstein",
+          "cnName": "列支敦士登",
+          "children": [],
+          "desc": "LI",
+          "areaCode": "423"
+        },
+        {
+          "code": "510",
+          "enName": "Denmark",
+          "cnName": "丹麦",
+          "children": [],
+          "desc": "DK",
+          "areaCode": "45"
+        },
+        {
+          "code": "509",
+          "enName": "Sweden",
+          "cnName": "瑞典",
+          "children": [],
+          "desc": "SE",
+          "areaCode": "46"
+        },
+        {
+          "code": "511",
+          "enName": "Norway",
+          "cnName": "挪威",
+          "children": [],
+          "desc": "NO",
+          "areaCode": "47"
+        },
+        {
+          "code": "506",
+          "enName": "Netherlands",
+          "cnName": "荷兰",
+          "children": [],
+          "desc": "NL",
+          "areaCode": "31"
+        },
+        {
+          "code": "508",
+          "enName": "Belgium",
+          "cnName": "比利时",
+          "children": [],
+          "desc": "BE",
+          "areaCode": "32"
+        },
+        {
+          "code": "502",
+          "enName": "France",
+          "cnName": "法国",
+          "children": [
+            {
+              "enName": "XueChang",
+              "cnName": "雪场",
+              "code": "502001",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "ShengLaoLunTeDuVAR",
+              "cnName": "圣劳伦特杜",
+              "code": "502002",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "BaLi",
+              "cnName": "巴黎",
+              "code": "502003",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "TaLeLi",
+              "cnName": "塔乐礼",
+              "code": "502004",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "BeiYe",
+              "cnName": "贝叶",
+              "code": "502005",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "Meng",
+              "cnName": "蒙德勒",
+              "code": "502006",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "FR",
+          "areaCode": "33"
+        },
+        {
+          "code": "537",
+          "enName": "Luxembourg",
+          "cnName": "卢森堡",
+          "children": [],
+          "desc": "LU",
+          "areaCode": "352"
+        },
+        {
+          "code": "515",
+          "enName": "Ireland",
+          "cnName": "爱尔兰",
+          "children": [
+            {
+              "enName": "KangNa/LiMoLiKeJun",
+              "cnName": "利默里克郡",
+              "code": "515001",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "DouBoLin",
+              "cnName": "都柏林",
+              "code": "515002",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "IE",
+          "areaCode": "353"
+        },
+        {
+          "code": "520",
+          "enName": "Switzerland",
+          "cnName": "瑞士",
+          "children": [
+            {
+              "enName": "Flims Laax",
+              "cnName": "莱克斯",
+              "code": "520001",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "CH",
+          "areaCode": "41"
+        },
+        {
+          "code": "517",
+          "enName": "Austria",
+          "cnName": "奥地利",
+          "children": [],
+          "desc": "AT",
+          "areaCode": "43"
+        },
+        {
+          "code": "501",
+          "enName": "United Kingdom",
+          "cnName": "英国",
+          "children": [
+            {
+              "enName": "LunDun",
+              "cnName": "伦敦",
+              "code": "501001",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "WeiErTeJun",
+              "cnName": "威尔特郡",
+              "code": "501002",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "WuSiTeJun",
+              "cnName": "伍斯特郡",
+              "code": "501003",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "YiDun",
+              "cnName": "伊顿",
+              "code": "501004",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "GeLunDengGuan",
+              "cnName": "格伦登馆",
+              "code": "501005",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "KeLiFu",
+              "cnName": "克里夫",
+              "code": "501006",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "LuoSiTe",
+              "cnName": "罗斯特",
+              "code": "501007",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "NiuJin",
+              "cnName": "牛津",
+              "code": "501009",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "JianQiao",
+              "cnName": "剑桥",
+              "code": "501010",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "colomendy",
+              "cnName": "北威尔士",
+              "code": "501011",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "GeLuoFuNaAShenFuDeDian",
+              "cnName": "阿什福德",
+              "code": "501012",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "OuFuSiTeLanDeLiTang",
+              "cnName": "诺福克",
+              "code": "501013",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "NuoDingHan",
+              "cnName": "诺丁汉",
+              "code": "501016",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "DengBuLan",
+              "cnName": "邓布兰",
+              "code": "501017",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "YueKeJun",
+              "cnName": "约克郡",
+              "code": "501019",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "BuLiSiTuoEr",
+              "cnName": "布里斯托尔",
+              "code": "501021",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "SuSaiKeSi",
+              "cnName": "苏赛克斯",
+              "code": "501022",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "MengGeMaLiJun",
+              "cnName": "蒙哥马利郡",
+              "code": "501023",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "ShengAnDeLuSi",
+              "cnName": "圣安德鲁斯",
+              "code": "501024",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "AiDingBao",
+              "cnName": "爱丁堡",
+              "code": "501025",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "WenCheSiTe",
+              "cnName": "汉普郡",
+              "code": "501026",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "LaDeLi",
+              "cnName": "拉德利",
+              "code": "501027",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "PuEr",
+              "cnName": "普尔",
+              "code": "501028",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "HeTeFuDeJun",
+              "cnName": "赫特福德郡",
+              "code": "501029",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "KanBuLiYaJun",
+              "cnName": "坎布里亚郡",
+              "code": "501030",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "BaSi",
+              "cnName": "巴斯",
+              "code": "501032",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "KenTeJun",
+              "cnName": "肯特郡",
+              "code": "501033",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "BuLaiDun",
+              "cnName": "布莱顿",
+              "code": "501034",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "PuLiMaoSi",
+              "cnName": "朴茨茅斯",
+              "code": "501035",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "GB",
+          "areaCode": "44"
+        },
+        {
+          "code": "504",
+          "enName": "Germany",
+          "cnName": "德国",
+          "children": [
+            {
+              "enName": "BuLaiMen",
+              "cnName": "不来梅",
+              "code": "504001",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "DE",
+          "areaCode": "49"
+        },
+        {
+          "code": "539",
+          "enName": "Monaco",
+          "cnName": "摩纳哥",
+          "children": [],
+          "desc": "MC",
+          "areaCode": "377"
+        }
+      ]
+    },
+    {
+      "code": "600",
+      "cnName": "大洋洲",
+      "enName": "Oceania",
+      "children": [
+        {
+          "code": "601",
+          "enName": "Australia",
+          "cnName": "澳大利亚",
+          "children": [
+            {
+              "enName": "XiNi",
+              "cnName": "悉尼",
+              "code": "601001",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "KunShiLan",
+              "cnName": "昆士兰",
+              "code": "601002",
+              "type": "",
+              "desc": "",
+              "children": []
+            },
+            {
+              "enName": "WeiDuoLiYa",
+              "cnName": "维多利亚",
+              "code": "601003",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "AU",
+          "areaCode": "61"
+        },
+        {
+          "code": "602",
+          "enName": "New Zealand",
+          "cnName": "新西兰",
+          "children": [],
+          "desc": "NZ",
+          "areaCode": "64"
+        },
+        {
+          "code": "618",
+          "enName": "Guam",
+          "cnName": "关岛",
+          "children": [],
+          "desc": "GU",
+          "areaCode": "671"
+        },
+        {
+          "code": "615",
+          "enName": "Norfolk Island",
+          "cnName": "诺福克岛",
+          "children": [],
+          "desc": "NF",
+          "areaCode": "6723"
+        },
+        {
+          "code": "613",
+          "enName": "Naura",
+          "cnName": "瑙鲁",
+          "children": [],
+          "desc": "NR",
+          "areaCode": "674"
+        },
+        {
+          "code": "603",
+          "enName": "Papua New Guinea",
+          "cnName": "巴布亚新几内亚",
+          "children": [],
+          "desc": "PG",
+          "areaCode": "675"
+        },
+        {
+          "code": "609",
+          "enName": "Tonga",
+          "cnName": "汤加",
+          "children": [],
+          "desc": "TO",
+          "areaCode": "676"
+        },
+        {
+          "code": "610",
+          "enName": "Solomon Islands",
+          "cnName": "所罗门群岛",
+          "children": [],
+          "desc": "SB",
+          "areaCode": "677"
+        },
+        {
+          "code": "607",
+          "enName": "Vanuatu",
+          "cnName": "瓦努阿图",
+          "children": [],
+          "desc": "VU",
+          "areaCode": "678"
+        },
+        {
+          "code": "604",
+          "enName": "Fiji",
+          "cnName": "斐济",
+          "children": [
+            {
+              "enName": "NanDi",
+              "cnName": "楠迪",
+              "code": "604001",
+              "type": "",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "FJ",
+          "areaCode": "679"
+        },
+        {
+          "code": "617",
+          "enName": "Cook Island",
+          "cnName": "库克群岛",
+          "children": [],
+          "desc": "CK",
+          "areaCode": "682"
+        },
+        {
+          "code": "619",
+          "enName": "Island of Nine",
+          "cnName": "纽埃岛",
+          "children": [],
+          "desc": "NU",
+          "areaCode": "683"
+        },
+        {
+          "code": "611",
+          "enName": "Eastern Samoa",
+          "cnName": "东萨摩亚",
+          "children": [],
+          "desc": "AS",
+          "areaCode": "684"
+        },
+        {
+          "code": "616",
+          "enName": "Western Samoa",
+          "cnName": "西萨摩亚",
+          "children": [],
+          "desc": "WS",
+          "areaCode": "685"
+        },
+        {
+          "code": "612",
+          "enName": "Kiribati",
+          "cnName": "基里巴斯",
+          "children": [],
+          "desc": "KI",
+          "areaCode": "686"
+        },
+        {
+          "code": "605",
+          "enName": "New Caledonia",
+          "cnName": "新喀里多尼亚",
+          "children": [],
+          "desc": "NC",
+          "areaCode": "687"
+        },
+        {
+          "code": "614",
+          "enName": "Tuvalu",
+          "cnName": "图瓦卢",
+          "children": [],
+          "desc": "TV",
+          "areaCode": "688"
+        },
+        {
+          "code": "620",
+          "enName": "Tokela",
+          "cnName": "托克劳",
+          "children": [],
+          "desc": "TK",
+          "areaCode": "690"
+        },
+        {
+          "code": "608",
+          "enName": "Micronesia",
+          "cnName": "密克罗尼西亚",
+          "children": [],
+          "desc": "FM",
+          "areaCode": "691"
+        },
+        {
+          "code": "606",
+          "enName": "Marshall Islands",
+          "cnName": "马绍尔",
+          "children": [],
+          "desc": "MH",
+          "areaCode": "692"
+        }
+      ]
+    },
+    {
+      "code": "700",
+      "cnName": "非洲",
+      "enName": "Africa",
+      "children": [
+        {
+          "code": "731",
+          "enName": "Gambia",
+          "cnName": "冈比亚",
+          "children": [],
+          "desc": "GM",
+          "areaCode": "220"
+        },
+        {
+          "code": "713",
+          "enName": "Senegal",
+          "cnName": "塞内加尔",
+          "children": [],
+          "desc": "SN",
+          "areaCode": "221"
+        },
+        {
+          "code": "723",
+          "enName": "Mali",
+          "cnName": "马里",
+          "children": [],
+          "desc": "ML",
+          "areaCode": "223"
+        },
+        {
+          "code": "722",
+          "enName": "Guinea",
+          "cnName": "几内亚",
+          "children": [],
+          "desc": "GN",
+          "areaCode": "224"
+        },
+        {
+          "code": "716",
+          "enName": "Cote d'Ivoire",
+          "cnName": "科特迪瓦",
+          "children": [],
+          "desc": "CI",
+          "areaCode": "225"
+        },
+        {
+          "code": "726",
+          "enName": "Burkina Faso",
+          "cnName": "布基纳法索",
+          "children": [],
+          "desc": "BF",
+          "areaCode": "226"
+        },
+        {
+          "code": "727",
+          "enName": "Niger",
+          "cnName": "尼日尔",
+          "children": [],
+          "desc": "NE",
+          "areaCode": "227"
+        },
+        {
+          "code": "721",
+          "enName": "Togo",
+          "cnName": "多哥",
+          "children": [],
+          "desc": "TG",
+          "areaCode": "228"
+        },
+        {
+          "code": "715",
+          "enName": "Benin",
+          "cnName": "贝宁",
+          "children": [],
+          "desc": "BJ",
+          "areaCode": "229"
+        },
+        {
+          "code": "707",
+          "enName": "Mauritius",
+          "cnName": "毛里求斯",
+          "children": [],
+          "desc": "MU",
+          "areaCode": "230"
+        },
+        {
+          "code": "729",
+          "enName": "Liberia",
+          "cnName": "利比里亚",
+          "children": [],
+          "desc": "LR",
+          "areaCode": "231"
+        },
+        {
+          "code": "724",
+          "enName": "Sierraleone",
+          "cnName": "塞拉利昂",
+          "children": [],
+          "desc": "SL",
+          "areaCode": "232"
+        },
+        {
+          "code": "703",
+          "enName": "Ghana",
+          "cnName": "加纳",
+          "children": [],
+          "desc": "GH",
+          "areaCode": "233"
+        },
+        {
+          "code": "701",
+          "enName": "Nigeria",
+          "cnName": "尼日利亚",
+          "children": [],
+          "desc": "NG",
+          "areaCode": "234"
+        },
+        {
+          "code": "734",
+          "enName": "Chad",
+          "cnName": "乍得",
+          "children": [],
+          "desc": "TD",
+          "areaCode": "235"
+        },
+        {
+          "code": "740",
+          "enName": "Central African",
+          "cnName": "中非",
+          "children": [],
+          "desc": "CF",
+          "areaCode": "236"
+        },
+        {
+          "code": "708",
+          "enName": "Cameroon",
+          "cnName": "喀麦隆",
+          "children": [],
+          "desc": "CM",
+          "areaCode": "237"
+        },
+        {
+          "code": "744",
+          "enName": "Cape Verde",
+          "cnName": "佛得角",
+          "children": [],
+          "desc": "CV",
+          "areaCode": "238"
+        },
+        {
+          "code": "741",
+          "enName": "Sao Tome and Principe",
+          "cnName": "圣多美和普林西比",
+          "children": [],
+          "desc": "ST",
+          "areaCode": "239"
+        },
+        {
+          "code": "743",
+          "enName": "Equatorial Guinea",
+          "cnName": "赤道几内亚",
+          "children": [],
+          "desc": "GQ",
+          "areaCode": "240"
+        },
+        {
+          "code": "732",
+          "enName": "Gabon",
+          "cnName": "加蓬",
+          "children": [],
+          "desc": "GA",
+          "areaCode": "241"
+        },
+        {
+          "code": "728",
+          "enName": "Congo",
+          "cnName": "刚果",
+          "children": [],
+          "desc": "CG",
+          "areaCode": "242"
+        },
+        {
+          "code": "739",
+          "enName": "Zaire",
+          "cnName": "扎伊尔",
+          "children": [],
+          "desc": "ZR",
+          "areaCode": "243"
+        },
+        {
+          "code": "712",
+          "enName": "Angola",
+          "cnName": "安哥拉",
+          "children": [],
+          "desc": "AO",
+          "areaCode": "244"
+        },
+        {
+          "code": "742",
+          "enName": "Guinea-Bissau",
+          "cnName": "几内亚比绍",
+          "children": [],
+          "desc": "GW",
+          "areaCode": "245"
+        },
+        {
+          "code": "745",
+          "enName": "Ascension",
+          "cnName": "阿森松",
+          "children": [],
+          "desc": "AC",
+          "areaCode": "247"
+        },
+        {
+          "code": "730",
+          "enName": "Seychelles",
+          "cnName": "塞舌尔",
+          "children": [],
+          "desc": "SC",
+          "areaCode": "248"
+        },
+        {
+          "code": "733",
+          "enName": "Rwanda",
+          "cnName": "卢旺达",
+          "children": [],
+          "desc": "RW",
+          "areaCode": "250"
+        },
+        {
+          "code": "705",
+          "enName": "Ethiopia",
+          "cnName": "埃塞俄比亚",
+          "children": [],
+          "desc": "ET",
+          "areaCode": "251"
+        },
+        {
+          "code": "704",
+          "enName": "Kenya",
+          "cnName": "肯尼亚",
+          "children": [],
+          "desc": "KE",
+          "areaCode": "254"
+        },
+        {
+          "code": "706",
+          "enName": "Tanzania",
+          "cnName": "坦桑尼亚",
+          "children": [],
+          "desc": "TZ",
+          "areaCode": "255"
+        },
+        {
+          "code": "709",
+          "enName": "Uganda",
+          "cnName": "乌干达",
+          "children": [],
+          "desc": "UG",
+          "areaCode": "256"
+        },
+        {
+          "code": "735",
+          "enName": "Burundi",
+          "cnName": "布隆迪",
+          "children": [],
+          "desc": "BI",
+          "areaCode": "257"
+        },
+        {
+          "code": "714",
+          "enName": "Mozambique",
+          "cnName": "莫桑比克",
+          "children": [],
+          "desc": "MZ",
+          "areaCode": "258"
+        },
+        {
+          "code": "710",
+          "enName": "Zambia",
+          "cnName": "赞比亚",
+          "children": [],
+          "desc": "ZM",
+          "areaCode": "260"
+        },
+        {
+          "code": "711",
+          "enName": "Madagascar",
+          "cnName": "马达加斯加",
+          "children": [],
+          "desc": "MG",
+          "areaCode": "261"
+        },
+        {
+          "code": "747",
+          "enName": "Mayotte",
+          "cnName": "马约特",
+          "children": [],
+          "desc": "MYT",
+          "areaCode": "262"
+        },
+        {
+          "code": "719",
+          "enName": "Reunion",
+          "cnName": "留尼旺岛",
+          "children": [],
+          "desc": "RE",
+          "areaCode": "262"
+        },
+        {
+          "code": "720",
+          "enName": "Zimbabwe",
+          "cnName": "津巴布韦",
+          "children": [],
+          "desc": "ZW",
+          "areaCode": "263"
+        },
+        {
+          "code": "738",
+          "enName": "Namibia",
+          "cnName": "纳米比亚",
+          "children": [],
+          "desc": "NA",
+          "areaCode": "264"
+        },
+        {
+          "code": "725",
+          "enName": "Malawi",
+          "cnName": "马拉维",
+          "children": [],
+          "desc": "MW",
+          "areaCode": "265"
+        },
+        {
+          "code": "737",
+          "enName": "Lesotho",
+          "cnName": "莱索托",
+          "children": [],
+          "desc": "LS",
+          "areaCode": "266"
+        },
+        {
+          "code": "718",
+          "enName": "Botswana",
+          "cnName": "博茨瓦纳",
+          "children": [],
+          "desc": "BW",
+          "areaCode": "267"
+        },
+        {
+          "code": "749",
+          "enName": "Swaziland",
+          "cnName": "斯威士兰",
+          "children": [],
+          "desc": "SZ",
+          "areaCode": "268"
+        },
+        {
+          "code": "702",
+          "enName": "South Africa",
+          "cnName": "南非",
+          "children": [
+            {
+              "enName": "KaiPuDun",
+              "cnName": "开普敦",
+              "code": "702001",
+              "desc": "",
+              "children": []
+            }
+          ],
+          "desc": "ZA",
+          "areaCode": "27"
+        },
+        {
+          "code": "748",
+          "enName": "St . Helena",
+          "cnName": "圣赫勒拿",
+          "children": [],
+          "desc": "SH",
+          "areaCode": "290"
+        },
+        {
+          "code": "736",
+          "enName": "Eritrea",
+          "cnName": "厄立特里亚",
+          "children": [],
+          "desc": "ER",
+          "areaCode": "291"
+        },
+        {
+          "code": "717",
+          "enName": "Aruba",
+          "cnName": "阿鲁巴岛",
+          "children": [],
+          "desc": "AW",
+          "areaCode": "297"
+        },
+        {
+          "code": "746",
+          "enName": "Faroe Islands",
+          "cnName": "法罗群岛",
+          "children": [],
+          "desc": "FO",
+          "areaCode": "298"
+        }
+      ]
+    }
+  ],
+  "label": "国家",
+  "version": "1.0",
+  "copyright": "@2014 上海思蓄力教育科技有限公司"
+}

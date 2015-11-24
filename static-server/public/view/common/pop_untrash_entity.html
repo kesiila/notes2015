@@ -1,0 +1,21 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>还原{{entity}}</h3>
+</div>
+<form name="publish_entity_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+      class="wt-form" novalidate role="form" data-ng-hide="untrash_success">
+    <div class="popbox-body">
+        <span>重新审核 {{entity}}？</span>
+    </div>
+    <div class="popbox-footer">
+        <button wt-form-submit="js_untrash_entity(publish_entity_form)"
+                data-loading-text="请求中..."
+                class="btn btn-success mr_15"
+                loading-status="is_untrashing">确定
+        </button>
+        <button ng-click="js_close(result)" class="btn">取消</button>
+    </div>
+</form>
+<div class="popbox-body" data-ng-show="untrash_success">
+    <p class="alert alert-success">{{entity}}移动成功!</p>
+</div>

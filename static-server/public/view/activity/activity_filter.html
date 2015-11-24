@@ -1,0 +1,17 @@
+<div class="btn-group" ng-controller="filter_activity_ctrl">
+    <button class="btn">
+        {{selected_item.display_name}}
+    </button>
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:;"
+       wt-tracker="Activity Page|Nav|Filter-More"
+            ><i class="icon-caret-down"></i></a>
+    <ul class="dropdown-menu pull-right">
+        <li ng-class="{true:'divider',false:''}[item.type=='divider']" ng-repeat="item in filter_items">
+            <a href="" ng-show="type.type!='divider'"
+               wt-tracker="Activity Page|Nav|Filter-More-{{item}}"
+               ng-click="js_select_filter_item(item)">
+                <i ng-class="{true:'icon-ok',false:'icon-xx'}[item.selected == true]" class="color_gray"></i>
+                {{item.display_name}}</a>
+        </li>
+    </ul>
+</div>

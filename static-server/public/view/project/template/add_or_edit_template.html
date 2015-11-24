@@ -1,0 +1,89 @@
+<dl class="frame add_edit_panel height-noheader height-nonav">
+    <div class="template-edit-container">
+        <form name="template_form" class="wt-form"
+              wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+            <input type="text" id="new_template_name" autofocus name="template_name"
+                   ng-model="edit_template.name" class="form-control help-block"
+                   placeholder="模板名称">
+            <!--			<input type="text" id="new_template_title" autofocus name="template_title"
+                            ng-model="edit_template.summary" class="form-control help-block"
+                            placeholder="邮件标题" maxlength="100">
+                        <textarea type="text" ng-model="edit_template.content" insert-var="true"
+                            name="template_content" wt-ctrl-enter="js_save_template(template_form)"
+                            placeholder="邮件内容(按Ctrl + 回车键提交)" wt-full-editor=""></textarea>-->
+            <input type="text" id="new_template_summary" autofocus name="template_summary"
+                   ng-model="edit_template.summary" class="form-control help-block"
+                   placeholder="邮件标题" style="margin-bottom: 0px">
+            <dt style="padding-left: 5px">
+            <ul class="tabs">
+                <li>
+                    <a href="javascript:;" style="margin: 0px;"
+                       ng-class="{true:'active'}[newTemplate.tabs.current_tab=='writeByMyself']"
+                       ng-click="newTemplate.changeTab('writeByMyself')">我自己写</a>
+                </li>
+                <li>
+                    <a href="javascript:;" ng-class="{true:'active'}[newTemplate.tabs.current_tab=='writeByGenerator']"
+                       ng-click="newTemplate.changeTab('writeByGenerator')">哆哆帮忙</a>
+                </li>
+            </ul>
+            </dt>
+            <dd style="padding: 0px">
+                <div ng-show="newTemplate.tabs.current_tab=='writeByMyself'">
+                    <div class="pos_relative editor-container mt_10 height-main-min-j4-new-template-by-hand">
+                        <wt-new-editor edit-content="edit_template.content"
+                                       edit-title="edit_template.summary"></wt-new-editor>
+                    </div>
+                </div>
+                <div ng-show="newTemplate.tabs.current_tab=='writeByGenerator'">
+                    <div>
+                        <button class="btn btn-default mr_15" style="margin-top: 10px;padding: 5px 15px;"
+                                ng-click="js_set_template_variables()">
+                            <i class="icon-pencil fs_16 mr_5"></i>根据我特有的产品和优势写
+                        </button>
+<!--                         <div class="alert alert-info block-inline"
+                             style="padding: 5px 5px 5px 15px;vertical-align: middle;margin:10px 0px 0px 0px">
+                            <button type="button" class="close ml_10" data-dismiss="alert">&times;</button>
+                            提示信息
+                        </div>
+ -->                    </div>
+                    <div class="pos_relative editor-container mt_10 height-main-min-j4-new-template-by-auto">
+                        <wt-new-editor edit-content="edit_template.content"
+                                       set-variable="js_set_template_variables()"
+                                       has-variable="true"
+                                       get-one="js_template_get_one()"
+                                       edit-title="edit_template.summary"></wt-new-editor>
+                    </div>
+                </div>
+
+                <div class="template_watch_bar" ng-if="global.me.role==0">
+                    <label class="cursor"><input type="radio" value="00" name="f_type" ng-model="edit_template.f_type"
+                                                 checked="checked|{{edit_template.f_type='00'}}"/>精华库</label>
+                    <label class="cursor"><input type="radio" value="01" name="f_type" ng-model="edit_template.f_type"
+                                                 checked="checked|{{edit_template.f_type='01'}}"
+                                                 style="margin-left: 30px;"/>模板库</label>
+                </div>
+
+                <div class="template_watch_bar">
+                    <div class="form-group" ng-show="template_form.$errors.length > 0">
+                        <div class="alert alert-danger" style="padding-top: 6px;padding-bottom: 6px ">
+                            <i class="icon-remove-sign mr_5"></i> {{template_form.$errors[0]}}
+                        </div>
+                    </div>
+                    <button class="btn btn-cancel mr_15 pull-right clearfix" ng-click="js_cancel_edit_template()">取消
+                    </button>
+                    <button class="btn btn-success mr_15 pull-right clearfix"
+                            ng-disabled="!edit_template.content||!edit_template.name||!edit_template.summary"
+                            wt-form-submit="pop_save_template(template_form)" data-loading-text="保存中..."
+                            loading-status="is_saving">保存
+                    </button>
+                    <div class="controls pull-right clearfix mr_15"
+                         ng-show="newTemplate.tabs.current_tab=='writeByMyself'">
+                        <label class="checkbox"><input type="checkbox" ng-model="newTemplate.wantToShare"
+                                                              style="margin-top: 2px;"/>分享该模板</label>
+                    </div>
+                </div>
+            </dd>
+        </form>
+    </div>
+</dl>
+

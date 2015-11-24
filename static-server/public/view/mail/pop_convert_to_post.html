@@ -1,0 +1,86 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>分享给成员</h3>
+        </div>
+        <div class="popbox-body" ng-if="selected_projects.length == 0">
+            <div class="alert alert-warning">
+                你还没有参与任何项目。
+            </div>
+        </div>
+        <div class="popbox-body" ng-if="convert_success">
+            <div class="alert alert-success">
+                该邮件已经成功分享到项目话题中，<a href="/project/{{new_post.pid}}/post">现在去看看</a>
+            </div>
+        </div>
+
+        <form ng-if="!convert_success && selected_projects.length > 0" name="convert_form" wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate
+              role="form">
+            <div class="popbox-body pop-add-event">
+                <div class="section-group">
+                    <lable>项目：</lable>
+                    <select ng-change="js_change_project()" ng-model="new_post.pid" class="form-control project-select" ng-options="project.pid as project.name for project in selected_projects"></select>
+                </div>
+                <div class="section-group">
+                    <lable>关注：</lable>
+                    <ul class="entity-members">
+                        <li class="" data-ng-repeat="member in new_post.watchers">
+                            <a href="javascript:;">
+                                <wt-avatar member="member" faceclass="plr_5" size="40"></wt-avatar>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="avatar-add js-popbox" href="javascript:;"
+                               wt-tracker="Mail Entity Panel|Right|Convert Post Add Watchers"
+                               ng-click="js_to_watchers()" data-placement="left">
+                                    <span class="o">
+                                        <i class="icon-plus"></i>
+                                    </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="section-group">
+                    <button wt-form-submit="js_convert_to_post(convert_form,new_post)"
+                            data-loading-text="保存中..."
+                            class="btn btn-success mr_15"
+                            loading-status="new_post.is_saving">确定
+                    </button>
+                    <button ng-click="js_close()" class="btn">取消</button>
+                </div>
+            </div>
+        </form>
+    </li>
+
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>关注</h3>
+        </div>
+        <div class="popbox-bodywrapper" wt-scroll>
+            <div class="popbox-body">
+                <input type="text" ng-model="search_user_input" placeholder="搜索成员"
+                       class="form-control help-block"/>
+                <br>
+                <div class="part-loading" ng-show="loading_members"></div>
+                <ul class="popbox-menu" data-ng-hide="loading_members">
+                    <li class="member-item" ng-repeat="member in members | filterMembers:search_user_input">
+                        <a href="javascript:;" tabindex="-1" ng-click="js_toggle_member(member)">
+                            <i ng-class="{false: 'icon-xx', true: 'icon-ok'}[member.watched]" class="color_gray"></i>
+                            <wt-avatar member="member" name="true" faceclass="plr_5" atname="true"
+                                       size="30"></wt-avatar>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="popbox-footer top-divider" data-ng-show="!loading_members">
+            <a class="action-item text-center" href="javascript:;" ng-click="js_step(0)">
+                <span>确定</span>
+                ({{ new_post.watchers.length }}/{{ members.length }})</a>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,49 @@
+<!--<input name="name" class="form-control" type="text" ng-model="name">
+<fa-validator validate-input="name" validate-type="1"></fa-validator>-->
+<style>
+    .test ul {
+        width: 200px;
+        border: 1px solid #F5F5F5;
+    }
+
+    .test ul>li{
+        margin-top:5px;
+        margin-bottom: 5px;
+    }
+    .test a {
+        display: inline-block;
+        width: 150px;;
+    }
+
+    .test .active {
+        color: #4cae4c;
+    }
+
+    .test i {
+        cursor: pointer;
+    }
+</style>
+<div class="test" ng-controller="testCtrl" ng-init="showIcon=false;isAdd=false">
+    <ul class="list-unstyled">
+        <li ng-repeat="group in groupList" >
+            <div ng-mouseover="showIcon=true" ng-mouseleave="showIcon=false" ng-hide="group.renameActive">
+                <a ng-class="{'active':group.active}"  ng-href="{{group.url}}">{{group.name}}</a>
+                <span ng-show="showIcon">
+                     <i class="icon-pencil" ng-click="rename(group)"></i>
+                     <i class="icon-trash" ng-click="remove(group)"></i>
+                </span>
+            </div>
+            <input class="form-control" ng-show="group.renameActive" ng-model="group.name" fa-enter="group.renameActive=false"
+                   fa-focus="group.renameActive">
+        </li>
+    </ul>
+    <ul class="list-unstyled">
+        <li><input class="form-control" ng-show="isAdd" type="text" ng-model="name" fa-enter="add(name)"
+                   fa-focus="isAdd"></li>
+        <li>
+            <button ng-hide="isAdd" class="btn btn-success btn-block" ng-click="isAdd=true">添加新组</button>
+        </li>
+    </ul>
+</div>
+<div><ul><li ng-repeat='project in hello_projects_info'><div class='row'><div class='col-xs-3'>{{project.name}}</div>
+    <div class='col-xs-9'><ul><li ng-repeat='statc in project.badges'>{{statc[0]}} -- {{statc[1]}}</li></ul></div></div></li></ul></div>

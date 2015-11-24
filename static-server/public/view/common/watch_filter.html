@@ -1,0 +1,18 @@
+<ul class="nav nav-pills" ng-controller="filter_watch_ctrl">
+    <li ng-class="{true:'active'}[item.selected == true]" ng-repeat="item in filter_items">
+        <a href="javascript:;" ng-click="js_select_filter_item(item)" wt-tracker="Watch Filter|Filter By {{item}}">{{item.display_name}}</a>
+    </li>
+</ul>
+<!--<div class="btn-group" ng-controller="filter_watch_ctrl">-->
+<!--<button class="btn">-->
+<!--{{selected_item.display_name}}-->
+<!--</button>-->
+<!--<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-caret-down"></i></a>-->
+<!--<ul class="dropdown-menu pull-right">-->
+<!--<li ng-class="{true:'divider',false:''}[item.type=='divider']" ng-repeat="item in filter_items">-->
+<!--<a href="" ng-show="type.type!='divider'" ng-click="js_select_filter_item(item)">-->
+<!--<i ng-class="{true:'icon-ok',false:'icon-xx'}[item.selected == true]" class="color_gray"></i>-->
+<!--{{item.display_name}}</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->

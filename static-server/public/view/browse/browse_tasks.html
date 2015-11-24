@@ -1,0 +1,104 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader" >
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-compass mr_10"></i>开发统计</h3>
+            </div>
+        </div>
+        <div class="height-nonav" wt-scroll>
+            <div class="layout_split_panel">
+            <div class="layout_split_left">
+                <dl class="frame" data-maxheight="160" data-scrollnoheight="160" wt-scroll>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="/browse"><i class="icon-globe"></i><br/>活动</a></li>
+                        <li><a href="/browse/mails"><i class="icon-envelope"></i><br/>邮件</a></li>
+                        <li><a href="/browse/templates"><i class="icon-file-text-alt"></i><br/>模板</a></li>
+<!--                        <li><a href="/browse/files"><i class="icon-file"></i><br/>文件</a></li>
+                         <li><a href="/browse/posts"><i class="icon-list-alt"></i><br/>话题</a></li>
+                        <li><a href="/browse/pages"><i class="icon-file-text-alt"></i><br/>文档</a></li>-->
+                     </ul>
+                </dl>
+            </div>
+            <div class="layout_split_right">
+            <dl class="frame" data-minheight="160">
+                <dt>
+                <ul class="tabs">
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 0]" href="javascript:;" ng-click="js_change_tab(0)">
+                            全部
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 3]" href="javascript:;" ng-click="js_change_tab(3)">
+                            我创建的
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 1]" href="javascript:;" ng-click="js_change_tab(1)">
+                            我分享的
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 2]" href="javascript:;" ng-click="js_change_tab(2)">
+                            我下载的
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 4]" href="javascript:;" ng-click="js_change_tab(4)">
+                            公共活动
+                        </a>
+                    </li>
+                </ul>
+                </dt>
+                <dd>
+                    <div class="empty-panel" ng-show="tasks != null && tasks.length == 0 && part_loading_done">
+                        <i class="icon-check"></i><br/>
+                        <span>还没有任何活动</span>
+                        <br/>
+                        <a class="btn btn-success" href="/customer" target="_blank">去收藏活动</a>
+                    </div>
+                    <div class="task-list-panel">
+                        <div class="group-list" ng-show="tasks.length > 0">
+                            <hr/>
+                            <div class="group-item" ng-repeat="task in tasks">
+
+                                <div class="group-header" ng-if="task.is_show_date">
+                                    <span> {{ task.create_date | dateFormatZHCN}}</span>
+                                </div>
+
+                                <div class="group-task-item slide-trigger"
+                                     ng-class="{true: 'active'}[task.tid==locator.show_detail_task_id]"
+                                     ng-click="locator.to_task(task.pid, task.tid, true)">
+
+                                    <div class="task-main">
+                                        <a href="javascript:;" ng-click="js_complete_task($event, task)"
+                                           class="task-check">
+                                            <i ng-class="{0: 'icon-user', 1: 'icon-user'}[task.completed]"></i>
+                                        </a>
+                                        <span class="task-title">{{task.name}}</span>
+                                    </div>
+                                    <wt-badges task="task"></wt-badges>
+                                    <div class="task-members">
+                                        <wt-avatar ng-repeat="member in task.members" class="mr_5" member="member"
+                                                   size="30"></wt-avatar>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="loading-more-panel">
+                            <button ng-show="has_more && part_loading_done"
+                                    class="btn" ng-click="load_tasks_more()"
+                                    data-loading-text="加载中..."
+                                    loading-status="!part_loading_done">加载更多...
+                            </button>
+                            <div class="load-more part-loading" ng-hide="part_loading_done"></div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>

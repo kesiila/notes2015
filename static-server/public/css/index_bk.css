@@ -1,0 +1,293 @@
+
+li a.divider:after {
+    content: "·";
+    margin-left: 15px;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.color_gray {
+    color:#999;
+}
+
+.row ul.color_gray li {
+  font-size: 16px;
+  line-height: 24px;
+}
+a:hover {
+    color:#999;
+}
+.index-body .divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    width: 1010px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tab-content-fix {
+    width: 1010px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    height: 260px;
+}
+.ptb_50 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.fs-24 {
+    font-size: 24px;
+    line-height: 1em;
+}
+
+#index-wrap .index-body ul.index-feature li .summary {
+    font-size: 16px;
+    margin-bottom: 17px;
+    font-weight: bold;
+    color:#999;
+}
+
+#index-wrap .index-body ul.index-feature li a {
+    color:#999;
+}
+
+#index-wrap .index-body ul.index-feature li a:hover {
+    color:#808080;
+}
+
+#index-wrap .index-body ul.index-feature li.hover-block {
+    padding-top: 20px;
+}
+
+#index-wrap .index-body ul.index-feature li.hover-block .hover-hide {
+    display: block;
+    padding-top: 20px;
+}
+
+#index-wrap .index-body ul.index-feature li.hover-block:hover .hover-hide {
+    display: none;
+}
+
+#index-wrap .index-body ul.index-feature li.hover-block .hover-show-wrapper .hover-show {
+    border: 1px  #3e3e3e;
+    height: 200px;
+    text-align: left;
+    padding-left: 25px;
+    box-shadow: 0px 0px 3px #e3e3e3;
+    border-radius:1px;
+    padding-top: 10px;
+    color:#999;
+}
+
+#index-wrap .index-body ul.index-feature li.hover-block .hover-show-wrapper .hover-show h4 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    padding-left: 0.5px;
+}
+
+#index-wrap .index-body ul.index-feature li.hover-block .hover-show-wrapper {
+    display: none;
+    padding-left: 12.5px;
+    padding-right: 12.5px;
+}
+
+
+#index-wrap .index-body ul.index-feature li.hover-block:hover .hover-show-wrapper {
+    display: block;
+}
+
+#index-wrap .index-body .white-border {
+    width:500px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#index-wrap .index-body .white-border a{
+    color: #ffffff;
+    font-size: 30px;
+    opacity: 1;
+}
+#index-wrap .index-body .white-border:hover a{
+    color: #666;
+    opacity: 1;
+}
+
+#index-wrap .index-body .white-border:hover {
+    color: #222222;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+
+.nav-tabs li.active a {
+    background-color: #FFFFFF;
+}
+.hover-block .hover-hide span {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.carousel-control .icon-prev, .carousel-control .icon-next, .carousel-control .icon-chevron-left, .carousel-control .icon-chevron-right {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    display: inline-block
+}
+
+.carousel-control .icon-prev, .carousel-control .icon-chevron-left {
+    left: 50%
+}
+
+.carousel-control .icon-next, .carousel-control .icon-chevron-right {
+    right: 50%
+}
+
+
+/*简介部分*/
+.index-body .index-brief-wrapper .index-brief {
+    margin: 0px;
+    width: 1010px;
+    margin: 0 auto;
+    padding: 25px 0px 25px 0px;
+}
+.index-body .index-brief-wrapper .index-brief .index-brief-title {
+    text-align: center;
+    margin: 0 auto;
+    font-weight: normal;
+    font-size: 21px;
+}
+.index-body .index-brief-wrapper .index-brief .sign-up-now {
+    padding: 25px 0px 0px 0px;
+}
+.index-body .index-brief-wrapper .index-brief .sign-up-now .sign-up-wrapper {
+    margin: 0 auto;
+    width: 128px;
+    height: 35px;
+}
+.index-body .index-brief-wrapper .index-brief .index-feature .brief-item {
+    width: 33%;
+    display: inline-block;
+}
+.index-body .index-brief-wrapper .index-brief .index-feature .brief-item .brief-img,
+.index-body .index-brief-wrapper .index-brief .index-feature .brief-item h4 {
+    display: inline-block;
+}
+.index-body .index-brief-wrapper .index-brief .index-feature .brief-item h4 {
+    margin-left: 18px;
+    font-size: 18px;
+    color: #393939;
+    font-weight: bold;
+}
+.index-body .index-brief-wrapper .index-brief .index-feature .brief-item:hover h4 {
+    color: #D84C31;
+}
+.index-body .index-brief-wrapper .index-brief .index-feature .brief-item .brief-body {
+    margin-top: 5px;
+}
+.index-body .index-brief-wrapper .index-brief .index-feature .brief-item .brief-body span {
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #aaa;
+    line-height: 24px;
+}
+/* 用户名 邮箱 立即注册 */
+
+.index-body .sign-up-in-wrapper {
+         width: 100%;
+         background-color: #f8f5f0;
+         height: 80px;
+         line-height: 80px;
+     }
+.index-body .sign-up-in-wrapper .center-body {
+         padding-left: 95px;
+         padding-right: 95px;
+         width: 1010px;
+         margin: 0 auto;
+ }
+
+.index-body .sign-up-in-wrapper .center-body div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.index-body .sign-up-in-wrapper .center-body .sign-up-email {
+     width: 300px;
+     margin-right: 20px;
+ }
+
+.index-body .sign-up-in-wrapper .center-body .sign-up-user {
+     width: 300px;
+     margin-right: 20px;
+ }
+
+/*搜索框部分*/
+.index-bg-wrapper {
+    height: 210px;
+    background: #f7dd80;
+}
+.index-bg-wrapper .index-bg {
+    width: 500px;
+    margin: 0 auto;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 64px;
+}
+.index-bg-wrapper .index-bg .index-search-head {
+    margin-bottom: 15px;
+    font-size: 21px;
+}
+.index-bg-wrapper .index-bg .index-search{
+    position: relative;
+}
+.index-bg-wrapper .index-bg .index-search .index-search-bg {
+    background-color: #666;
+    opacity: 0.2;
+    height: 50px;
+    border-radius: 3px;
+}
+.index-bg-wrapper .index-bg .index-search .input-group {
+    position: absolute;
+    top: 6px;
+    height: 34px;
+    width: 478px;
+    left:7px;
+    opacity: 1;
+}
+
+.index-bg-wrapper .index-bg .index-search .input-group .input-group-btn .btn {
+    height: 38px;
+}
+
+.index-bg-wrapper .index-bg .index-search .search-icon-wrapper {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    width: 78px;
+    height: 34px;
+    text-align: center;
+    font-size: 24px;
+    background-color: orangered;
+    z-index: 1000;
+    vertical-align: middle;
+}
+
+.index-bg-wrapper .index-bg .index-search  i{
+    line-height: 22px;
+    font-size: 24px;
+    vertical-align: middle;
+    color: #fff;
+}
+
+/*分割线*/
+.index-brief-divider {
+    height: 1px;
+    background-color: #ebebeb;
+    width: 990px;
+    margin: 0px auto;
+}

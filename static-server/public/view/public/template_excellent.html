@@ -1,0 +1,235 @@
+<div class="template-wapper">
+
+	<!--<div class="page_navbar">-->
+		<!--<div class="page-navbar-warp">-->
+			<!--<div class="title">-->
+				<!--<h3><a href="/template"><i class="icon-list-alt mr_10"></i> 开发信</a></h3>-->
+			<!--</div>-->
+            <!--<a target="_self" href="/template/generator">-->
+                <!--<button style="color: #ffffff" class="btn btn-danger pull-right mt_12 mr_45"-->
+                        <!--wt-tracker="Project Task Page|Nav|Open Add Task">-->
+                    <!--写开发信-->
+                <!--</button>-->
+            <!--</a>-->
+        <!--</div>-->
+	<!--</div>-->
+
+	<div class="forum-panel">
+
+			<div class="forum-container" style="padding-left:10px">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 sidebar">
+					<div class="sidebar-inner">
+						<div class="sidebar-widget">
+							<div id="tabs_div">
+								<a href="/template/excellent" class="active" ng-class="{true: 'active'}[header_menu == 'template_excellent']">精品</a>
+								<a href="/template" ng-class="{true: 'active'}[header_menu == 'template']">模板</a>
+							</div>
+							<ul class="clearfix">
+								<li>
+									<a href="/template/excellent" ng-class="{'active':queryCondition.mainCatalogCode==''}">全部
+                                        <span ng-show="all_count>=0">({{all_count}})</span>
+                                    </a>
+								</li>
+								<li ng-repeat="mainCatalog in catalogs">
+                                    <a href="/template/excellent?type={{mainCatalog.code}}" ng-class="{true: 'active'}[queryCondition.mainCatalogCode == mainCatalog.code]">
+										{{mainCatalog.cnName}}<span ng-show="mainCatalog.count>=0">({{mainCatalog.count}})</span>
+								</a></li>
+							</ul>
+						</div>
+
+                        <div>
+                            <wt-tag-cloud-list tagclick="tagClick(tagName)" xtype="template"></wt-tag-cloud-list>
+                        </div>
+
+						<div class="box-shadow ptb_5 pl_15"
+							ng-show="$root.global.is_login">
+							<h4>
+								<a href="javascript:;" ng-click="go_to_inner_template()"><i
+									class="icon-list-alt ai-green mr_10"></i>我的模板</a>
+							</h4>
+						</div>
+                    </div>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-10 forum-content">
+					<div class="forum-category-wrapper">
+						<div class="forum-heading clearfix">
+							<h3 class="pull-left" style="line-height: 1.7em">
+								<span>
+                                    <a href="/template/excellent" >全部</a>
+                                </span>
+                                <span ng-show="queryCondition.mainCatalogCode!=''">
+                                    <i class="icon-angle-right"></i>
+                                    <span>{{type_name}}</span>
+								</span>
+                                <!--<span ng-show="currentSubCatalog!=null">
+                                    <i class="icon-angle-right"></i>
+                                    <a href="">{{currentSubCatalog.cnName}}</a>
+								</span>-->
+							</h3>
+
+							<h3 class="pull-left ml_5" style="line-height: 1.7em" ng-if="totalItems>0">({{totalItems}})</h3>
+
+							<!-- 排序部分 -->
+							<div class="pull-right btn-group" style="margin-top: -3px">
+								<a target="_self" href="/template/generator">
+									<button style="color: #ffffff" style="border-radius: 3px;" class="btn btn-success mr_15"
+											wt-tracker="Project Task Page|Nav|Open Add Task">
+										写开发信
+									</button>
+								</a>
+								<a class="btn dropdown-toggle ptb_11 mr_15 pull-right" data-toggle="dropdown" href="javascript:;">
+									<i class="icon-caret-down"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right mr_15"
+									tooltip="选择排序条件">
+									<li><a href="" ng-click="js_view_toggle('list')">
+										<i ng-class="{true:'icon-ok',false:'icon-xx'}[list_gird_type=='list']"></i>列表视图
+									</a></li>
+
+									<li><a href="" ng-click="js_view_toggle('grid')">
+										<i ng-class="{true:'icon-ok',false:'icon-xx'}[list_gird_type=='grid']"></i>栅格视图
+									</a></li>
+									<li class="divider"></li>
+									<li ng-repeat="item in templateSort_filterItems" class="cursor">
+										<a ng-click="sortTemplateDates(item)"> <i
+												ng-class="{false:'icon-xx'}[item.value==currentSortItem.value]"
+												wt-show="item.value!=currentSortItem.value"></i> <i
+												ng-class="{true:'icon-long-arrow-down',false:'icon-long-arrow-up'}[queryCondition.isDESC==true]"
+												ng-show="item.value==currentSortItem.value"></i> {{item.name}}
+										</a>
+									</li>
+								</ul>
+								<button ng-if="list_gird_type=='grid'" class="btn ptb_11 pull-right" ng-click="js_view_toggle('list')" tooltip="切换视图">
+									<span class="icon-th-large"></span>
+								</button>
+                                <button ng-if="list_gird_type=='list'" class="btn ptb_11 pull-right" ng-click="js_view_toggle('grid')" tooltip="切换视图">
+                                    <span class="icon-list"></span>
+                                </button>
+								<!-- 显示排序条件 -->
+
+
+							</div>
+
+							<!--<div class="pull-right btn-group">-->
+							<!--<button class="btn" ng-class="{'list': 'active'}[list_gird_type]"-->
+							<!--tooltip="列表视图" ng-click="js_view_toggle('list',null)">-->
+							<!--<i class="icon-list"></i>-->
+							<!--</button>-->
+							<!--<button class="btn" ng-class="{'grid': 'active'}[list_gird_type]"-->
+							<!--tooltip="详情视图" ng-click="js_view_toggle('grid',null)">-->
+							<!--<i class="icon-th-large"></i>-->
+							<!--</button>-->
+							<!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+							<!--</div>-->
+
+						</div>
+
+
+					</div>
+					<div class="thread-list">
+						<div class="empty-panel"
+							ng-show="totalItems == 0&&global.loading_done">
+							<i class="icon-list-alt"></i> <br /> <span>还没有任何模板</span>
+						</div>
+						<div ng-if="list_gird_type == 'list'">
+							<div class="wt-row thread-item slide-trigger cursor"
+								ng-class="{'active':template.template_id==locator.show_detail_template_id}"
+								ng-repeat="template in templates"
+                                ng-click="to_template_detailed(template)">
+								<div class="col-sm-12 thread-item-inner pl_0">
+									<div class="row primary">
+										<div class="col-sm-10 text-left text-ellipsis thread-title pos_relative">
+                                            <i class="color-block" style="top: 10px; left: 15px"></i>
+                                            <h4 class="col-xs-12 text-ellipsis">
+                                                <a href="javascript:;" title="模板名称">{{template.name}}</a>
+                                            </h4>
+										</div>
+                                        <div class="col-sm-2">
+                                            <button class="pull-right mr_15 btn btn-sm mt_12 btn-danger"
+                                                    title="可收藏" ng-hide="template.collected"
+                                                    ng-click="js_collect(template,$event)">收藏</button>
+                                            <button class="pull-right mr_15 btn btn-sm mt_12 btn-default disabled"
+                                                    title="已收藏" ng-show="template.collected">已收藏</button>
+                                        </div>
+									</div>
+									<div class="row primary sm-font-color text-ellipsis">
+                                        <div class="col-sm-5 text-left div-over">
+                                        <span class="ml_15" title="模板标题:{{template.summary}}">{{template.summary|abbrevition:30}}</span>
+										</div>
+                                        <div class="col-md-4 col-sm-4">
+                                        <wt-badges-template class="text-ellipsis" template="template"></wt-badges-template>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 text-ellipsis text-right" style="color: #d7d7d7">
+                                            <span class="mr_15" title="{{ template.owner.display_name }}">{{template.publish_date | fromNow}}&nbsp;by&nbsp;{{template.owner.display_name}}</span>
+                                        </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="template-grid" ng-if="list_gird_type == 'grid'">
+							<div class="fa-item col-xs-12 col-md-6 slide-trigger" ng-repeat="template in templates"
+                                 ng-click="to_template_detailed(template)" >
+								<article class="item" ng-class-odd="'pr_10'"
+									ng-class-even="'pl_10'">
+									<div class="head">
+										<i class="color-block"></i>
+
+                                        <a class="title" ng-if="global.me.role!=0 && queryCondition.f_type=='01'" href="/template/{{template.template_id}}"> <span title="模板名称">{{template.name}}</span></a>
+                                        <a class="title" ng-if="global.me.role!=0 && queryCondition.f_type=='00'" href="/template/excellent/{{template.template_id}}"> <span title="模板名称">{{template.name}}</span></a>
+                                        <a class="title" ng-if="global.me.role==0" href="javascript:;"> <span title="模板名称">{{template.name}}</span></a>
+
+                                        <a class="favor">
+											<button class="pull-right btn btn-sm btn-danger mt_12" title="可收藏" ng-hide="template.collected" ng-click="js_collect(template,$event)">收藏</button>
+											<button class="pull-right btn btn-sm btn-default disabled mt_12" title="已收藏" ng-show="template.collected">已收藏</button>
+										</a>
+									</div>
+									<!--<aside class="summary" ng-bind-html="template.summary"></aside>-->
+									<section class="center" title="模板内容" class="cursor">
+										<!--<header class="inline-block">-->
+										<!--<div class="title">Re:Hi Mary, can you tell me the-->
+										<!--email of Mr.</div>-->
+										<!--</header>-->
+										<p class="content markdown" wt-markdown="template.content"></p>
+									</section>
+								</article>
+							</div>
+							<div class="fa-item col-xs-12 col-md-6"
+								ng-if="templates.length<20&&templates.length|isOdd">
+								<article class="item">
+									<div class="head"></div>
+									<!--<aside class="summary" ng-bind-html="template.summary"></aside>-->
+								</article>
+							</div>
+						</div>
+						<div class="clearfix" ng-show="numPages>1">
+							<ul class="pull-left list-inline" style="padding-top: 23px">
+								<li>第 <input class="page-num"
+									style="width: 25px; height: 25px" type="text"
+									ng-model="pageNum"> 页
+								</li>
+								<li ng-click="jumpToPage(pageNum)">
+									<button>确定</button>
+								</li>
+								<li>每页显示 <select class="page-select" style="height: 25px"
+									ng-model="itemsPerPage">
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="30">30</option>
+								</select> 条
+								</li>
+								<li>{{currentPage}}/{{numPages}}</li>
+							</ul>
+							<div class="category-pager pull-right">
+                                <pagination2 ng-model="currentPage" total-items="totalItems"
+									items-per-page="itemsPerPage" max-size="5" rotate="false"
+                                    direction-links="true" previous-text="上一页" next-text="下一页"
+									boundary-links="true" first-text="首页" last-text="尾页"
+                                    num-pages="numPages" type="queryCondition.mainCatalogCode"></pagination2>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+
+</div>

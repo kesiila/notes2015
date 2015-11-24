@@ -1,0 +1,62 @@
+<div class="prj_panel layout_content">
+
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main">
+                <div class="toolbar_panel pull-right">
+                    <button data-ng-show="!is_add && global.loading_done" ng-click="js_pop_delete($event)" class="btn mr_15 js-popbox"
+                            data-placement="bottom" data-align="right">
+                        删除</button>
+                    <button class="btn" data-ng-show="global.loading_done"
+                            ng-click="js_cancel_edit()">
+                        退出编辑
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid height-nonav" wt-scroll='{"advanced":{"autoScrollOnFocus":false}}'>
+            <dl class="frame" data-minheight="160">
+                <form name="page_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+                    <div class="edit-container" ng-show="page">
+                        <input type="text" autofocus name="page_title" ng-model="page.name"
+                               class="form-control help-block" placeholder="输入文档标题" required="">
+                        <textarea type="text" ng-model="page.content" name="page_content" data-minheight="270" wt-ctrl-enter="js_save_page(page_form,true)"
+                                  placeholder="编写文档内容(按Ctrl + 回车键提交)" wt-full-editor></textarea>
+                    </div>
+                    <div class="edit-sidebar" ng-show="page"><div class="edit-box" wt-scroll-fixed>
+                        <div class="edit-sidebar-body">
+                            <div class="alert alert-danger wt-alert" ng-show="!is_add && page.locked==1 && (page.locked_by.uid != global.me.uid)">
+                                <i class="icon-info-sign"></i>
+                                文档正在被 <strong>{{page.locked_by.display_name}}</strong> 锁定编辑中，你无法编辑该文档
+                            </div>
+                            <input type="text" autofocus name="page_message" ng-model="page.message"
+                                   class="form-control help-block" placeholder="{{  page.placeholder }}" >
+                            <label class="checkbox" ng-hide="is_add == true">
+                                <input type="checkbox" ng-model="page.is_notify"> 发送通知给关注的成员
+                            </label>
+                            <div class="page-bar">
+                                <button class="btn btn-success mr_15" wt-form-submit="js_save_page(page_form,true)"
+                                        data-loading-text="保存并继续"
+                                        loading-status="is_saving"
+                                        ng-disabled="page.locked==1 && (page.locked_by.uid != global.me.uid)">保存并继续
+                                </button>
+
+                                <button class="btn" wt-form-submit="js_save_page(page_form,false)"
+                                        data-loading-text="保存"
+                                        loading-status="is_saving"
+                                        ng-disabled="page.locked==1 && (page.locked_by.uid != global.me.uid)">保存
+                                </button>
+
+                            </div>
+                        </div>
+                    </div></div>
+                </form>
+            </dl>
+
+        </div>
+    </div>
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>

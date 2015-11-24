@@ -1,0 +1,310 @@
+.product-tags-wrapper {
+    height: auto;
+    width: 200px;
+    position: absolute;
+    top: -12px;
+    right: -200px;
+    z-index: 1000;
+    background-color: #f7e1b5;
+    .product-tags {
+        ul {
+            width: 100%;
+            padding: 10px 15px;
+            li {
+                padding: 5px;
+            }
+        }
+    }
+}
+
+.index-body .sign-up-in-wrapper {
+    width: 100%;
+    background-color: #f8f5f0;
+    height: 80px;
+    line-height: 80px;
+    .center-body {
+        width: 1010px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin: 0 auto;
+        .sign-up-user {
+            height: 42px;
+            width: 300px;
+            margin-right: 20px;
+            display: inline-block;
+        }
+        .sign-up-email {
+            height: 42px;
+            width: 300px;
+            margin-right: 20px;
+            display: inline-block;
+        }
+        .sign-up-now {
+            height: 42px;
+            display: inline-block;
+        }
+    }
+}
+
+//简介部分
+.index-body .index-brief-wrapper {
+    .index-brief {
+        margin: 0px;
+        width: 1010px;
+        margin: 0 auto;
+        padding: 50px 0px;
+        .index-brief-title {
+            text-align: center;
+            margin: 0 auto;
+            font-weight: normal;
+            font-size: 24px;
+        }
+        .sign-up-now {
+            padding: 30px 0px 50px 0px;
+            .sign-up-wrapper {
+                margin: 0 auto;
+                width: 128px;
+                height: 35px;
+            }
+        }
+        .index-feature {
+            .brief-item {
+                width: 33%;
+                display: inline-block;
+                .brief-img, h4 {
+                    display: inline-block;
+                }
+                h4 {
+                    margin-left: 24px;
+                    font-size: 18px;
+                    font-weight: blod;
+                }
+                .brief-body {
+                    margin-top: 15px;
+                    span {
+                        display: block;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.template-generator-wrapper .template-generator {
+    .container {
+        .left-side, .right-side {
+            width: 50%;
+        }
+        .right-side {
+            position: absolute;
+            display: inline-block;
+            box-sizing: border-box;
+            bottom: 0;
+            width: 49%;
+            overflow-y: auto;
+            background-color: #f6f6f6;
+            left: 51%;
+            right: 100%;
+            top: 0;
+            .html-box {
+                margin-top: 15px;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+/*开发信新的样式*/
+.fn-left-side (@expand) {
+    width: @expand;
+    -webkit-transition: width 1s;
+    -moz-transition: width 1s;
+    -ms-transition: width 1s;
+    -o-transition: width 1s;
+    transition: width 1s;
+    display: inline-block;
+    vertical-align: top;
+    .generator-trigger {
+        right: 5px;
+        top: 160px;
+        color: #ddd;
+        font-size: 36px;
+    }
+}
+
+.fn-right-side (@expand,@togglehtml,@toggleedit) {
+    .generator {
+        display: inline-block;
+        width: 100%;
+        -webkit-transition: width 1s;
+        -moz-transition: width 1s;
+        -ms-transition: width 1s;
+        -o-transition: width 1s;
+        transition: width 1s;
+        .right-side-body {
+            border: solid 1px #e1e1e1;
+        }
+        .html-box {
+            display: @togglehtml;
+            height: 358px;
+            overflow-y: auto;
+            padding-top: 10px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .edit-box {
+            display: @toggleedit;
+            top: 0;
+            background-color: #fff;
+            left: 0;
+            overflow-y: auto;
+            height: 358px;
+            padding-top: 10px;
+            padding-left: 15px;
+            padding-right: 0px;
+            .wnd-content-textarea {
+                width: 100%;
+                outline: none;
+                font-size: 16px;
+                height: 100%;
+                border: 1px transparent;
+                background-color: transparent;
+            }
+        }
+        .right-side-footer {
+            padding: 10 0px 10 0;
+            width: 100%;
+        }
+    }
+}
+
+.fn-ul-li-mix(trans) {
+    ul > li > input[type='text'], .multi-check {
+        transition: 0.5s 0.75s opacity;
+    }
+}
+
+.fn-ul-li-mix(none) {
+    ul > li > input[type='text'], .multi-check {
+        transition: 0.5s 0.75s opacity;
+    }
+}
+
+.fn-ul-li(@opacity:1) {
+    ul {
+        padding: 0;
+        margin: 0;
+        & > li {
+            height: 48px;
+            display: block;
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            label {
+                text-align: center;
+                padding-right: 10px;
+                line-height: 48px;
+                width: 100px;
+                display: inline-block;
+            }
+            & > input[type='text'], .multi-check {
+                display: inline-block;
+                width: 70%;
+                opacity: @opacity;
+            }
+            .multi-check {
+                input[type='checkbox'], span {
+                    margin: 0 5 0 5;
+                }
+                input[type='checkbox'] {
+                    vertical-align: middle;
+                }
+            }
+        }
+        > li:first-child {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+    }
+}
+
+.new_editor_title() {
+    .wne-title {
+        padding-left: 0;
+        width: 100%;
+        .wne-title-input {
+            width: 100%;
+            padding-top: 15px;
+            padding-bottom: 5px;
+            height: auto;
+            background: #fff;
+            font-size: 18px;
+            font-family: 'Segoe UI Light', SegoeUILightWF, Arial, sans-serif;
+            border: none;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+            line-height: normal;
+        }
+        .wne-title-input:focus {
+            border-opacity: .5;
+            outline: none;
+            background-color: #fff;
+            box-shadow: none !important;
+            border-left: 2px solid #5cb85c !important;
+        }
+        .title-seperator-line {
+            border-bottom: 1px solid #ddd;
+            width: 98.5%;
+            margin: 0px auto;
+        }
+    }
+}
+
+.template-generator-wrapper-new .template-generator {
+    .container {
+        width: 1170px;
+        padding-bottom: 15px;
+        margin-bottom: 45px;
+        &.generator-fold {
+            .left-side {
+                h5 {
+                    height: 20px;
+                    label {
+                        display: none;
+                    }
+                }
+                .fn-left-side(10%);
+                .fn-ul-li(0);
+            }
+            .right-side {
+                .new_editor_title();
+                .fn-right-side(10%, block, none);
+                &.generator-edit-preview {
+                    .fn-right-side(10%, none, block);
+                }
+            }
+        }
+        &.generator-unfold {
+            h5 {
+                height: 20px;
+                label {
+                    display: block;
+                }
+            }
+            .left-side {
+                .fn-left-side(44%);
+                .fn-ul-li(1);
+                .fn-ul-li-mix(trans);
+            }
+            .right-side {
+                .new_editor_title();
+                .fn-right-side(44%, block, none);
+                &.generator-edit-preview {
+                    .fn-right-side(44%, none, block);
+                }
+            }
+        }
+    }
+}

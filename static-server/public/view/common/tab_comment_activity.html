@@ -1,0 +1,14 @@
+<tabset>
+    <tab heading="评论" active="tab_active.tab_comment_active" select="select_tab_comment()">
+        <ng-include src="'/view/common/comment_list.html'"></ng-include>
+    </tab>
+    <tab heading="邮件" active="tab_active.tab_mail_active" select="select_tab_mail()"  ng-show="task.email.length>0">
+        <ng-include src="'/view/common/mail_list.html'"></ng-include>
+    </tab>
+    <tab heading="活动" active="tab_active.tab_activity_active" select="select_tab_activity()">
+        <!--<ng-include src="'/view/activity/activity_template.html'"></ng-include>-->
+        <section ng-controller="item_activity_ctrl">
+            <ng-include src="'/view/activity/activity_list.html'"></ng-include>
+        </section>
+    </tab>
+</tabset>

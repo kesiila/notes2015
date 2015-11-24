@@ -1,0 +1,231 @@
+<div class="layout_content" >
+    <div class="layout_content_main height-noheader nosidebar_in" >
+        <div class="mod_navbar">
+            <div class="title">
+                <h3>
+                    <span class="cursor" >kdd后台</span>
+                    <span ng-show="vm.user_info.user_name!=''" class="font-16"><i class="icon-angle-right"></i><span  class="color-active">活动:{{vm.user_info.user_name}}</span></span>
+                </h3>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover">
+            <tbody>
+                <tr>
+                    <td width="50%">
+                        <form name="timepickerForm" class="form-inline" role="form">
+                            <div class="form-group">
+                                <span>开始时间:</span>
+                                <div class="form-group" >
+                                    <input type="text" size="8" class="form-control" ng-model="vm.startDate" data-autoclose="1"
+                                           placeholder="Date" data-date-format="yy-M-dd" bs-datepicker>
+                                </div>
+                                <div class="form-group" >
+                                    <input type="text" size="8" class="form-control" ng-model="vm.startDate" data-autoclose="1"
+                                           placeholder="Time" data-time-format="HH:mm" bs-timepicker>
+                                </div>
+
+                                <span style="margin-left: 10px">结束时间:</span>
+                                <div class="form-group" >
+                                    <input type="text" size="8" class="form-control" ng-model="vm.endDate" data-autoclose="1"
+                                           placeholder="Date" data-date-format="yy-M-dd" bs-datepicker>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" size="8" class="form-control" ng-model="vm.endDate" data-autoclose="1"
+                                           placeholder="Time" data-time-format="HH:mm" bs-timepicker>
+                                </div>
+                                <div class="form-group">
+                                <button class="btn btn-success fs_16 pull-right" type="button" ng-click="vm.js_load_data()"
+                                        style="height: 38px;margin-left: 10px">
+                                        时间选择确定
+                                </button>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                    <td width="35%">
+                        <div class="btn-group mr_15" >
+                        <input type="text" style="height: 38px;" ng-model="vm.name_or_email"
+                               placeholder="输入用户名或者邮箱"/>
+                        <button class="btn btn-success fs_16 pull-right" type="button"
+                                style="height: 38px;" ng-click="vm.js_get_user()">
+                            <i class="icon-search fs_20"></i>
+                        </button>
+                         </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="rightpanel-wrapper">
+            <div class="height-nonav" >
+                <dl class="frame" data-minheight="160">
+                    <dt>
+                        <ul class="tabs">
+                            <li>
+                                <a href="javascript:;" class="cursor pull-left" ng-click="vm.js_select_tab('mail')" ng-class="{true:'active'}[vm.select_tab=='mail']"
+                                   >邮件状态&nbsp;
+                                    <!--<span >{{vm.overview.mail_detail.rawResults.count}}</span>-->
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="cursor pull-left" ng-click="vm.js_select_tab('customer')" ng-class="{true:'active'}[vm.select_tab=='customer']"
+                                   >活动&nbsp;
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="cursor pull-left" ng-click="vm.js_select_tab('score')"  ng-class="{true:'active'}[vm.select_tab=='score']"
+                                   >积分&nbsp;<span ></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="cursor pull-left" ng-click="vm.js_select_tab('template')"  ng-class="{true:'active'}[vm.select_tab=='template']"
+                                        >模板&nbsp;<span ></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </dt>
+
+                    <dd class="task-list-panel pt_0" ng-show="vm.select_tab=='mail'">
+                        <br>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>状态</th>
+                                <th>数量</th>
+                                <th>详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in vm.mail_status">
+                                <td>
+                                    {{item.name}}
+                                </td>
+                                <td>{{item.count}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </dd>
+                    <dd class="task-list-panel pt_0" ng-show="vm.select_tab=='customer'">
+                        <br>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>操作</th>
+                                <th>数量</th>
+                                <th>详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr >
+                                <td>全部活动
+                                </td>
+                                <td>{{vm.customer.allCustomerCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>新增活动
+                                </td>
+                                <td>{{vm.customer.addCustomerCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            </tr>
+                            <tr >
+                                <td>收藏活动
+                                </td>
+                                <td>{{vm.customer.collectCustomerCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>分享活动
+                                </td>
+                                <td>{{vm.customer.shareCustomerCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </dd>
+                    <dd class="task-list-panel pt_0" ng-show="vm.select_tab=='score'">
+                        <br>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>状态</th>
+                                <th>数量</th>
+                                <th>详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in vm.score_status">
+                                <td width="40%">
+                                    {{item.name}}
+                                </td>
+                                <td >{{item.count}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </dd>
+                    <dd class="task-list-panel pt_0" ng-show="vm.select_tab=='template'">
+                        <br>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>操作</th>
+                                <th>数量</th>
+                                <th>详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr >
+                                <td>全部模板
+                                </td>
+                                <td>{{vm.template.allTemplateCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>收藏模板
+                                </td>
+                                <td>{{vm.template.collectTemplateCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>新增模板
+                                </td>
+                                <td>{{vm.template.addTemplateCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            <tr >
+                                <td>分享模板
+                                </td>
+                                <td>{{vm.template.shareTemplateCount}}
+                                </td>
+                                <td class="text-right">未知
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

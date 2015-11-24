@@ -1,0 +1,11 @@
+<h2  ng-click="js_show_editor(organizer)"
+	wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{organizer.title}}">{{organizer.title|abbrevition:30}}</span>
+	<span title="标题:{{organizer.name}}" ng-show="organizer.name">{{organizer.name|abbrevition:30}}</span>
+    <em class="pull-right" title="结束时间" ng-if="organizer.endDate"><i class="icon-flag"
+		ng-show="organizer.is_edit || organizer.countryCnName.length>0 || permission==4"></i>
+		结束时间:{{organizer.endDate | dateFormat}} </em>
+    <em class="pull-right" title="结束时间" ng-if="organizer.startDate"><i class="icon-flag"
+		ng-show="organizer.is_edit || organizer.countryCnName.length>0 || permission==4"></i>
+		起始时间:{{organizer.startDate | dateFormat}} </em>
+</h2>

@@ -1,0 +1,36 @@
+<li class="attachment">
+    <a class="file-picfile {{[file.ext,'fancybox-file'] | ifImgExtSetClass}}"
+       data-fancybox-group="filegroup"
+       data-fancybox-href="{{file | wtBoxView}}"
+       data-fancybox-type="image"
+       title="{{ file.name }}">
+        <span ng-if="file.error" >
+        <span class="label label-danger">{{ file.error | fileuploadErrorInfo }}</span>
+        </span>
+        <img ng-if="!file.preview" ng-src="{{file.path | imageFullPath}}" alt="{{ file.name }}"/>
+        <div ng-if="file.preview" class="preview" data-file-upload-preview="file"></div>
+    </a>
+    <a class="file-name" href="javascript:;" ng-click="js_goto_file(pid, file.fid)"
+       wt-tracker="Attachments Item|Action|Goto File"
+       title="{{file.name}}">
+        {{file.name}}
+    </a>
+    <span class="file-size">{{file.size | fileSize}}</span>
+
+    <span class="file-action">
+        <a class="file-cancel" href="javascript:;" ng-click="file.$cancel()" ng-hide="!file.$cancel">
+            <i class="icon-cancel"></i>取消
+        </a>
+        <a target="_blank" class="file-down" ng-href="{{file | wtBoxDownload}}"
+           wt-tracker="Attachments Item|Action|Download Link" ng-if="!file.$progress()">
+            下载
+        </a>
+    </span>
+
+    <div ng-if="!file.error" class="pull-left mr_15 progress progress-striped active"
+    data-ng-class="{pending: 'in'}[file.$state()]"
+    data-file-upload-progress="file.$progress()">
+        <div class="progress-bar progress-bar-success" data-ng-style="{width: num + '%'}">
+        </div>
+    </div>
+</li>

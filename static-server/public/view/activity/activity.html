@@ -1,0 +1,33 @@
+<div ng-hide="permission  == 64">
+    <div class="mod_navbar">
+        <div class="title">
+            <h3>活动</h3>
+        </div>
+        <div class="main">
+            <div class="pull-right">
+                <ng-include src="'/view/activity/activity_filter.html'"></ng-include>
+            </div>
+        </div>
+    </div>
+    <div class="layout_content">
+        <div class="leftpanel height-nonav"
+             wt-scroll='{"autoHideScrollbar":true,"advanced":{"autoScrollOnFocus":false}}'>
+            <ul class="nav_listmenu">
+                <li class="menu" ng-class="{true:'active',false:''}[project.selected]" ng-repeat="project in projects"
+                    wt-tracker="Activity Page|Left Menu|Select Project Filter"
+                    ng-click="js_select_prj(project)">
+                    <a href="javascript:;" title="{{project.name}}">
+                        <i class="icon-sign-blank" ng-style="{'color':project.bg}"
+                           ng-class="{true:'icon-ok prj-label',false:'icon prj-label'}[project.selected]"></i>
+                        <span class="prj-name">{{project.name}}</span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="layout_content_main height-noheader" wt-scroll ng-controller="team_activity_ctrl">
+            <!--<ng-include src="'/view/activity/activity_template.html'"></ng-include>-->
+            <section ng-include="'/view/activity/activity_list.html'"></section>
+        </div>
+    </div>
+</div>
+<ng-include src="'/view/team/team_not_found.html'"></ng-include>

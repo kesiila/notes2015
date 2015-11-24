@@ -1,0 +1,151 @@
+<div class="layout_content prj_panel">
+
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main text-center">
+                    <span class="center-select" data-ng-show="graph_type == 'pulse' && global.loading_done">
+                       <a title="上一周" href="javascript:;"
+                          ng-click="to_pulse_prev_week()"><i class="icon-chevron-left"></i></a>
+                        <h4 class="center_title help-inline p_0">{{pulse_graph_date}}</h4>
+                       <a title="下一周" href="javascript:;" ng-disabled="disable_pulse_next"
+                          ng-click="to_pulse_next_week()"><i class="icon-chevron-right"></i></a>
+                    </span>
+
+                    <span class="center-select" ng-show="graph_type == 'daily' && global.loading_done">
+                        <a title="前一天" href="javascript:;"
+                           ng-click="js_to_prev_daily()"><i class="icon-chevron-left"></i></a>
+                         <h4 class="center_title help-inline p_0">{{daily_end | dateFormatZHCN}}</h4>
+                        <a href="javascript:;" title="后一天" ng-disabled="disable_daily_next"
+                           ng-click="js_to_next_daily()"><i class="icon-chevron-right"></i></a>
+                    </span>
+                    <div class="toolbar_panel pull-right">
+                        <div class="btn-group">
+                            <button class="btn" ng-class="{true:'active'}[graph_type=='overview']"
+                                    ng-click="js_to_overview()">
+                                进度
+                            </button>
+                            <button class="btn" ng-class="{true:'active'}[graph_type=='pulse']"
+                                    ng-click="js_to_pulse()">
+                                周报
+                            </button>
+                            <button class="btn" ng-click="js_to_daily()"
+                                    ng-class="{true:'active'}[graph_type=='daily']">
+                                日报
+                            </button>
+                            <a class="btn" href="/project/{{project.info.pid}}/activity">活动</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="graph-panel height-nonav" wt-scroll>
+            <div>
+                <dl class="frame" data-minheight="160" ng-show="graph_type == 'overview'">
+                    <dt>
+                        <span class="title">项目进度</span>
+                    <ul class="tabs">
+                        <li>
+                            <a ng-class="{'active':tab_index == '1'}" href="javascript:;"
+                               ng-click="js_change_tab('1')">项目成员</a>
+                        </li>
+                        <li>
+                            <a ng-class="{'active':tab_index == '2'}" href="javascript:;"
+                               ng-click="js_change_tab('2')">活动列表</a>
+                        </li>
+                        <li>
+                            <a ng-class="{'active':tab_index == '3'}" href="javascript:;"
+                               ng-click="js_change_tab('3')">活动标签</a>
+                        </li>
+                    </ul>
+                    </dt>
+                    <dd>
+                        <div class="part-loading h_38" ng-show="!part_loading_done"></div>
+                        <div data-ng-show="part_loading_done">
+                            <div class="graph-container" id='members_task_graph' ng-show="tab_index == '1'"></div>
+                            <div class="graph-container" id='entry_task_graph' ng-show="tab_index == '2'"></div>
+                            <div class="graph-container" id='labels_task_graph' ng-show="tab_index == '3'"></div>
+                        </div>
+
+                    </dd>
+                </dl>
+                <dl class="frame" data-minheight="160" ng-show="graph_type == 'pulse'">
+                    <dt>
+                        <span class="title">项目周报</span>
+                    <ul class="tabs">
+                        <li>
+                            <a ng-class="{'active':tab_index == '4'}" href="javascript:;"
+                               ng-click="js_change_tab('4')">项目成员</a>
+                        </li>
+                        <li>
+                            <a ng-class="{'active':tab_index == '5'}" href="javascript:;"
+                               ng-click="js_change_tab('5')">本周进度</a>
+                        </li>
+                    </ul>
+                    </dt>
+                    <dd>
+                        <div class="part-loading h_38" ng-show="!part_loading_done"></div>
+                        <div data-ng-show="part_loading_done">
+                            <div class="graph-container" id='pulse_member_graph' ng-show="tab_index == '4'"></div>
+                            <div class="graph-container" id='pulse_weekly_graph' ng-show="tab_index == '5'"></div>
+                        </div>
+
+                    </dd>
+                </dl>
+                <dl class="frame" data-minheight="160" ng-show="graph_type == 'daily'">
+                    <dt>
+                        <span class="title">项目日报</span>
+                    <ul class="tabs">
+                        <li>
+                            <a ng-class="{'active':tab_index == '8'}" href="javascript:;"
+                               ng-click="js_change_tab('8')">项目成员</a>
+                        </li>
+                        <li>
+                            <a ng-class="{'active':tab_index == '9'}" href="javascript:;"
+                               ng-click="js_change_tab('9')">完成活动</a>
+                        </li>
+                        <li>
+                            <a ng-class="{'active':tab_index == '10'}" href="javascript:;" ng-click="js_change_tab('10')">新增活动</a>
+                        </li>
+                    </ul>
+                    </dt>
+                    <dd>
+                        <div class="part-loading h_38" ng-show="!part_loading_done"></div>
+                        <div data-ng-show="part_loading_done">
+                            <div class="graph-container" id='daily_task_graph' ng-show="tab_index == '8'"></div>
+                            <div class="graph-container" ng-show="tab_index == '9'">
+                                <div class="entry-tasks">
+                                    <wt-task ng-repeat="task in daily_completed_tasks" task="task"
+                                             class="slide-trigger" hide-action="true" ng-class="{true: 'active'}[task.tid==locator.show_detail_task_id]"
+                                             task-entry-id="{{task.entry_id}}"
+                                             ng-click="locator.to_task(task.pid, task.tid, false)"></wt-task>
+                                    <div class="graph-empty-panel" ng-show="daily_completed_tasks.length==0">
+                                        <i class="icon-check"></i><br/>
+                                        <span>没有完成活动</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="graph-container" ng-show="tab_index == '10'">
+                                <div class="entry-tasks">
+                                    <wt-task ng-repeat="task in daily_created_tasks" task="task"
+                                             class="slide-trigger" hide-action="true"
+                                             task-entry-id="{{task.entry_id}}"
+                                             ng-click="locator.to_task(task.pid, task.tid, false)"></wt-task>
+                                    <div class="graph-empty-panel noborder" ng-show="daily_created_tasks.length==0">
+                                        <i class="icon-check"></i><br/>
+                                        <span>没有新增活动</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

@@ -1,0 +1,88 @@
+<div class="layout_content">
+    <div class="layout_content_main" ng-class="{true:'nosidebar_out',false:'nosidebar_in'}[global.calendar_fold]">
+        <div class="mod_navbar">
+            <div class="title"><h3><i class="icon-calendar mr_10"></i>日历</h3></div>
+            <div class="main text-center" style="line-height: 59px">
+                <div class="pull-left ml_20">
+                    <button id="calendar_today" class="btn mr_15" ng-click="today()"> 今天</button>
+                </div>
+                <span id="calendar_title_warp" style="line-height: 59px"> <a href="javascript:;" ng-click="prev()"><i
+                        class="icon-chevron-left"></i></a> <h4 id="calendar_title" class="help-inline p_0"></h4> <a
+                        href="javascript:;" ng-click="next()"><i class="icon-chevron-right"></i></a> </span>
+
+                <div class="pull-right">
+                    <button ng-disabled="!global.loading_done" class="btn btn-danger js-popbox mr_15"
+                            wt-new-event="js_new_event_success(event)" ng-hide="global.calendar_sidebar_view=='task'">
+                        新建日程
+                    </button>
+                    <div class="btn-group mr_15">
+                        <button class="btn" ng-class="{true: 'active'}[calendar_view=='month']"
+                                ng-click="changeView('month')">月
+                        </button>
+                        <button class="btn" ng-class="{true: 'active'}[calendar_view=='basicWeek']"
+                                ng-click="changeView('basicWeek')">周
+                        </button>
+                    </div>
+                    <button class="btn mr_15" wt-go-to="/calendar/subscribe">订阅</button>
+                    <button class="btn" ng-click="js_toggle_right()"><i
+                            ng-class="{true:'icon-step-forward',false:'icon-step-backward'}[global.calendar_fold]"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="layout_content_main_nonav" wt-scroll>
+            <dl class="frame" data-minheight="160">
+                <div id="calendar" calendar="myCalendar" ui-calendar="calendarConfig"
+                     ng-model="calendarEventSources"></div>
+            </dl>
+        </div>
+    </div>
+    <div class="layout_content_sidebar" ng-class="{true:'in',false:'out'}[global.calendar_fold]">
+        <ul class="layout_content_sidebar_header">
+            <li ng-class="{'active':(calendar_sidebar_view=='event')}"
+                ng-click="js_change_calendar_siderview('event')"><a href="javascript:;">日程</a></li>
+            <li ng-class="{'active':(calendar_sidebar_view=='task')}"
+                ng-click="js_change_calendar_siderview('task')"><a href="javascript:;">任务</a></li>
+        </ul>
+        <div class="hr"></div>
+        <div wt-scroll='{"scrollButtons":{"enable":true}}' data-height="160">
+            <ul class="nav_list" ng-show="calendar_sidebar_view=='event'">
+                <li class="menu" ng-class="{false: 'unchecked', true: 'checked'}[project.is_checked]"
+                    ng-repeat="project in calendar_projects"><a href="javascript:;"
+                                                                ng-click="js_filter_calendar_toggle(project)"> <i
+                        class="mr_5 icon-ok"
+                        ng-style="{true:{'background':project.bg,'borderColor':project.bg}}[project.is_checked]"> </i>{{project.name}}
+                </a></li>
+            </ul>
+            <ul class="nav_list" ng-show="calendar_sidebar_view=='task'">
+                <li class="group-menu" ng-class="{'active':show_my_task}"><a href="javascript:;"
+                                                                             ng-click="js_view_my_tasks();"> <i
+                        class="mr_5 icon-check"></i> 我的任务 <i ng-if="show_my_task" class="icon-ok"></i> </a></li>
+                <li class="group-menu" data-ng-repeat="team in calendar_teams"><a href="javascript:;"
+                                                                                  data-ng-click="js_team_members_toggle(team)">
+                    <i class="mr_5 icon-sitemap"></i> {{team.name}} <i class="icon-angle"
+                                                                       ng-class="{true:'icon-angle-down',false:'icon-angle-right'}[team.expand == true]"></i>
+                </a>
+                    <ul class="sub_nav_list" data-ng-show="team.expand">
+                        <li class="part-loading" data-ng-hide="members_loading_done"></li>
+                        <li class="sub-menu"
+                            ng-class="{'active':(show_task_uid == member.uid && show_task_team_id == current_team.team_id && !show_my_task)}"
+                            data-ng-repeat="member in team.members" data-ng-click="js_view_member_tasks(member,team)">
+                            <wt-avatar member="member" name="true" size="30"></wt-avatar>
+                            <i ng-if="show_task_uid == member.uid && show_task_team_id == current_team.team_id && !show_my_task"
+                               class="icon-ok"></i></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="layout_content_sidebar_footer">
+            <div class="hr"></div>
+            <a href="javascript:;" data-ng-click="js_show_completed_tasks()" ng-if="calendar_sidebar_view=='task'"> <i
+                    class="mr_10"
+                    ng-class="{true:'icon-eye-open',false:'icon-eye-close'}[show_completed_tasks == 1]"></i> <span
+                    ng-bind="{true:'隐藏已完成任务',false:'显示已完成任务'}[show_completed_tasks == 1]"></span></a> <a
+                href="javascript:;" data-ng-click="js_toggle_showall()" ng-if="calendar_sidebar_view=='event'"> <i
+                class="mr_10" ng-class="{true:'icon-eye-open',false:'icon-eye-close'}[show_all_events==1]"></i>
+            <span ng-bind="{true:'只显示我的日程',false:'显示全部日程'}[show_all_events==1]"></span></a></div>
+    </div>
+</div>

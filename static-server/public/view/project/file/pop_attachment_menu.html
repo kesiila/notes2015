@@ -1,0 +1,14 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>附件选项</h3>
+</div>
+<div class="popbox-body">
+    <ul class="popbox-menu">
+        <li><a ng-href="{{file.path | wtBox}}" target="_blank"><i class="icon-xx"></i> 下载</a></li>
+        <li><a href="/project/{{file.pid}}/file/{{file.fid}}"><i class="icon-xx"></i> 查看</a></li>
+        <li class="divider"></li>
+        <li>
+            <a href="javascript:;" ng-click="js_del_file()"><i class="icon-xx"></i> 移除附件</a>
+        </li>
+    </ul>
+</div>

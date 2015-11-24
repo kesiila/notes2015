@@ -1,0 +1,8 @@
+<form class="navbar-form" role="search"
+      ng-controller="search_ctrl">
+    <input type="text" value="" class="js-popbox typeahead" wt-up-down-enter="js_up_down_enter($event,keyCode)"
+           autocomplete="off"
+           placeholder="搜索..." ng-model="keywords"
+           wt-tracker="Header|Search|Focus Search Input" />
+    <button class="icon-search hide" ng-click="js_show_pop_search_result($event)"></button>
+</form>

@@ -1,0 +1,56 @@
+<div class="post layout_content">
+
+    <!--<div class="page_navbar">-->
+        <!--<div class="page-navbar-warp">-->
+			<!--<div class="title">-->
+                <!--<h3><a href="/club"><i class="icon-book mr_10"></i>留学问答</a></h3>-->
+            <!--</div>-->
+		<!--</div>-->
+    <!--</div>-->
+
+    <div class="forum-panel">
+        <div class="forum-container" style="padding-left:10px">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-widget">
+                        <!--<h4></h4>-->
+                        <div id="tabs_div">
+                            <a ng-href="/post" ng-class="{true: 'active'}[header_menu=='post']">精华</a>
+                            <a ng-href="/club" ng-class="{true:'active'}[header_menu=='club']">问答</a>
+                        </div>
+
+                        <ul>
+                             <li>
+                                <a ng-class="{true: 'active'}[current_code == '0']" href="/post">全部<span ng-show="post_all_count>=0">({{post_all_count}})</span></a>
+                            </li>
+                            <li ng-repeat="postType in postTypes">
+                                <a ng-class="{true: 'active'}[current_code == postType.code]" ng-href="/post?type={{postType.code}}"> {{postType.cnName}}<span
+                                        ng-show="postType.count>=0">({{postType.count}})</span></a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="box-shadow ptb_5 pl_15" ng-show="$root.global.is_login">
+                        <h4>
+                            <a href="javascript:;" ng-click="toMyPosts()"><i class="icon-comment ai-green mr_10"></i>我的问答</a>
+                        </h4>
+                    </div>
+                    <!--<div class="box-shadow ptb_5 pl_15">-->
+                        <!--<h4 class="row pl_15">-->
+                            <!--<a href="javascript:;" class="col-xs-8" ng-click="go_to_inner_post()"> 我的问答</a>-->
+                            <!--<i class="col-xs-3 icon-long-arrow-left pull-left" style="color:#d84c31"></i>-->
+                        <!--</h4>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10 forum-content">
+                <div class="forum-category-wrapper">
+                    <div class="thread-list">
+                        <div ng-include="'/view/public/post/post.html'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

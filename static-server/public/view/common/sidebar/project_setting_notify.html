@@ -1,0 +1,17 @@
+<div class="prj_sidebar_step_body">
+    <div class="p_10">
+        <div ng-show="project.info.is_notify==1&&project.info.archived==0">
+            <span class="tips">当前邮件通知开启，您将收到关于该项目的所有邮件通知。可以选择关闭邮件通知，您将不会收到邮件通知。</span><br/><br/>
+            <button class="btn btn-success" ng-click="js_prj_unnotify()"><i
+                    class="icon-off"></i> 关闭邮件通知
+            </button>
+        </div>
+
+        <div ng-show="project.info.is_notify==0&&project.info.archived==0">
+            <span class="tips">当前邮件通知关闭，您将不会收到关于该项目的所有邮件通知。可以选择再次启用邮件通知。</span><br/><br/>
+            <button class="btn btn-success" ng-click="js_prj_notify()"><i class="icon-bell"></i>
+                打开邮件通知
+            </button>
+        </div>
+    </div>
+</div>

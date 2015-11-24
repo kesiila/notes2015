@@ -1,0 +1,193 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3>
+                    <i class="icon-program mr_10"></i> 活动管理
+                </h3>
+            </div>
+
+            <div class="main">
+                <div class="toolbar_panel pull-right">
+                    <button class="btn btn-danger mr_15" ng-click="show_add_form()"
+                            ng-hide="is_create" type="button"
+                            wt-permission="[permission,project.info.curr_role,1,2]">新建活动
+                    </button>
+
+                    <button class="btn btn-success mr_15" data-loading-text="保存中..."
+                            ng-show="is_create" loading-status="is_saving" ng-click="save()">保存
+                    </button>
+                    <button class="btn btn-cancel" ng-click="cancelForm()"
+                            ng-show="is_create">取消
+                    </button>
+
+                    <div class="btn-group mr_15" ng-hide="is_create">
+                        <button class="btn"
+                                style="font-size: 14px; padding: 0px 10px; height: 40px; line-height: 40px;"
+                                data-toggle="tooltip" data-placement="top">
+                            {{view_program_condition[view_program_index].name}}
+                        </button>
+                        <button class="btn dropdown-toggle"
+                                style="font-size: 14px; padding: 13px 10px; height: 40px; line-height: 40px;"
+                                data-toggle="dropdown">
+                            <i class="icon-caret-down"></i>
+                        </button>
+                        <!-- 显示排序条件 -->
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li ng-repeat="condition in view_program_condition"
+                                ng-click="switch_view_program_condition($index)"><a
+                                    href="javascript:;"
+                                    ng-class="{true: 'active'}[$index==view_program_index]">{{condition.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div ng-if class="btn-group mr_15" ng-hide="is_create">
+                        <button class="btn"
+                                style="font-size: 14px; padding: 0px 10px; height: 40px; line-height: 40px;"
+                                data-toggle="tooltip" data-placement="top">
+                            {{view_program_condition[view_program_index].name}}
+                        </button>
+                        <button class="btn dropdown-toggle"
+                                style="font-size: 14px; padding: 13px 10px; height: 40px; line-height: 40px;"
+                                data-toggle="dropdown">
+                            <i class="icon-caret-down"></i>
+                        </button>
+                        <!-- 显示排序条件 -->
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li ng-repeat="status in view_program_status"
+                                ng-click="view_program_status($index)"><a
+                                    href="javascript:;"
+                                    ng-class="{true: 'active'}[$index==view_program_status_index]">{{status.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group js-popbox mr_15" ng-hide="is_create">
+                        <!--按创建时间-->
+                        <button class="btn ptb_11" ng-click="sort()" data-toggle="tooltip"
+                                data-placement="bottom"
+                                title="{{currentSortItem.name}}{{ {true:' 降序 ',false:' 升序 '}[isDESC==true] }}排列">
+						<span><i
+                                ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[isDESC==true]"></i></span>
+                        </button>
+                    </div>
+
+                    <button class="btn" ng-click="$root.js_right_sidebar_toggle($event)">
+                        <i ng-class="{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]"
+                           class="icon-step-forward"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="height-nonav" wt-scroll>
+
+            <div ng-if="is_create">
+                <ng-include src="'/view/dashboard/program/add_or_edit_program.html'"></ng-include>
+            </div>
+
+            <div class="layout_split_panel" ng-hide="is_create">
+
+                <dl class="frame" data-minheight="160">
+
+                    <!-- 按活动类别分类 -->
+                    <dt>
+                    <ul class="tabs">
+                        <li><a
+                                ng-class="{true: 'active'}[current_type.code == defaultType.code]"
+                                href="javascript:;" ng-click="selectByType(defaultType)"> 全部
+                        </a></li>
+                        <li ng-repeat="type in types" ng-show="type.code != 'program_type_lesson'"><a
+                                ng-class="{true: 'active'}[current_type.code == type.code]"
+                                href="javascript:;" ng-click="selectByType(type)">
+                            {{type.cnName}} </a></li>
+                        <h4 class="pr_10  mr_15" ng-show="global.loading_done" title="活动数目">
+                            <span class="pull-right lh_100p label label-info">{{totalItems}}</span>
+                        </h4>
+                    </ul>
+                    </dt>
+
+
+                    <!-- 正文，列表部分 -->
+                    <dd class="p_0">
+
+                        <div class="empty-panel" ng-show="items.length == 0">
+                            <i class="icon-list-alt"></i> <br/>
+                            <!--<span>还没有任何活动</span>-->
+                            <h4>
+                                还没有任何活动 <a style="color: #d84c31;" href="javascript:;"
+                                           ng-click="show_add_form()">立即创建活动！</a>
+                            </h4>
+                        </div>
+
+                        <div class="template-panel">
+                            <div class="thread-list  sortable ui-sortable pl_25 pr_25" sortable="todo_sort_options">
+                                <div class="wt-row thread-item slide-trigger cursor"
+                                     pos="{{ program.position }}" todo-id="{{ program.eid }}"
+                                     ng-class="{'active':program.eid == locator.show_detail_task_id}"
+                                     ng-click="locator.to_task(program.pid,program.eid,false)"
+                                     ng-repeat="program in items">
+
+                                    <div class="col-sm-12 thread-item-inner">
+                                        <div class="row">
+                                            <div class="col-sm-12 ">
+                                                <div class="row primary">
+                                                    <h4 class="col-sm-4">
+                                                        <a href="javascript:;"> <span title="活动名称">{{program.title|abbrevition:24}}</span>
+                                                        </a>
+                                                    </h4>
+
+                                                    <h4 class="col-sm-3 fs_14 pull-left text-muted" title="预约数/总名额" ng-show="program.quota > 0">
+                                                        <span class="color_main">{{program.order_count}}</span><span ng-class="{true: 'color_main'}[program.order_count >= program.quota]">/{{program.quota}}</span>
+                                                    </h4>
+                                                    <h4 class="col-sm-5 text-right  pull-right">
+														<span title="状态"
+                                                              class="fs_14 {{program.status|statusToClass}}">
+															{{program.status|statusToString}}
+														</span>
+                                                    </h4>
+                                                </div>
+                                                <div class="row sm-font-color secondary">
+                                                    <div class="col-sm-4 pull-left text-muted">
+                                                        <span title="机构名称: {{program.organizer.title}}">{{program.organizer.title}}</span>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <span>{{program.desc|abbrevition:20}}</span>
+                                                    </div>
+                                                    <div class="col-sm-5 text-right more_light_gray pull-right">
+														<span title="开始时间" ng-if="program.startDate">{{program.startDate
+															| timeFullFormat}}／</span><span title="结束时间"
+                                                                                            ng-if="program.endDate">{{program.endDate
+															| timeFullFormat}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix pager-wapper" ng-hide="numPages==1">
+                                <div class="category-pager pull-right">
+                                    <pagination ng-model="currentPage" total-items="totalItems"
+                                                items-per-page="itemsPerPage" max-size="5" rotate="false"
+                                                direction-links="true" previous-text="上一页" next-text="下一页"
+                                                boundary-links="true" first-text="首页" last-text="尾页"
+                                                num-pages="numPages"></pagination>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <!--左边栏-->
+    <div class="layout_right_sidebar height-noheader">
+    <ng-include src="'/view/project/sidebar/sidebar.html'"></ng-include>
+    </div>
+</div>

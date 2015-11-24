@@ -1,0 +1,192 @@
+<div ng-hide="task.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/program/program_title.html'">
+    </div>
+    <!--<wt-badges task="task"></wt-badges>-->
+    <wt-tags task="task" tagtype="normal"></wt-tags>
+    <div class="new-tag"
+         ng-show="global.is_outter==false"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(task)"
+           wt-tracker="Task Panel|Main|Add Attachments"
+           ng-hide="task.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="task.is_add_tag_edit"
+             wt-show-edit="task.is_add_tag_edit">
+            <div>
+
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, task, tag)' }"
+                       wt-enter="js_add_tag(task, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="Task Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(task, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(task)">取消
+            </button>
+        </div>
+    </div>
+
+    <!--    <wt-add-tag tag="task"></wt-add-tag>-->
+    <!--<div class="task-desc wt-row" ng-if="customer.isPaid<5">
+        <label class="col-xs-4 control-label p_0">剩余发件额度：</label>
+        {{task.mailSendLimit}}
+    </div>-->
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>中文标题</label>
+        {{task.title}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.enName.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>英文标题</label>
+        {{task.enName}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.minAge > 0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>最小年龄</label>
+        {{task.minAge}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.maxAge > 0|| permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>最大年龄</label>
+        {{task.maxAge}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.organizer_id.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>主办机构</label>
+        {{task.organizer.title}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.imageUrl.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>图像URL</label> <img style="width: 120px"
+                                                            src="{{task.imageUrl|imageFullPath}}" alt="{{ task.imageUrl }}"/>
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.url.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>活动URL</label> {{task.url}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.desc.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>描述</label>
+
+        <div class="task-desc-text markdown" wt-markdown="task.desc"></div>
+    </div>
+</div>
+<div class="edit-section"
+     ng-show="task.is_edit && (!task.show_part || task.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">中文标题</span> <input autofocus=""
+                                                                     ng-model="task.temp_title"
+                                                                     wt-enter="js_set_update($event, task)"
+                                                                     class="form-control" placeholder="中文标题"
+                                                                     type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">英文标题</span> <input autofocus=""
+                                                                     ng-model="task.temp_enName"
+                                                                     wt-enter="js_set_update($event, task)"
+                                                                     class="form-control" placeholder="英文标题"
+                                                                     type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15" title="最小年龄">minAge</span>
+            <input type="number" class="form-control" ng-model="task.temp_minAge" placeholder="最小年龄"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15" title="最大年龄">maxAge</span>
+            <input type="number" class="form-control" ng-model="task.temp_maxAge" placeholder="最大年龄"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15" title="费用/原价">费用/原价</span>
+            <input type="number" class="form-control" ng-model="task.temp_fee" placeholder="费用/原价"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15" title="名额">限制名额</span>
+            <input type="number" class="form-control" ng-model="task.temp_quota" placeholder="名额"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">图片URL</span> <input autofocus=""
+                                                                      ng-model="task.temp_imageUrl"
+                                                                      class="form-control" placeholder="图片URL"
+                                                                      type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">活动URL</span> <input autofocus=""
+                                                                      ng-model="task.temp_url"
+                                                                      class="form-control" placeholder="活动URL"
+                                                                      type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">主办机构</span> <select class="form-control"
+                                                                      ng-model="task.temp_organizer_id"
+                                                                      ng-options="organizer.eid as organizer.title for organizer in organizers">
+        </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15" title=">简介的格式">简介格式</span>
+            <span class="col-xs-6 text-center" style="padding:3px 0px 4px 0px">
+                 <input name="isMarkDown" type="radio" value="1" ng-model="task.temp_isDescMarkDown"/>
+                  Markdown
+            </span>
+             <span class="col-xs-6 text-center" style="padding:3px 0px 4px 0px">
+             <input name="isMarkDown" type="radio" value="0" ng-model="task.temp_isDescMarkDown"/>
+                  非Markdown
+            </span>
+        </div>
+    </div>
+    <div class="pos_relative editor-container mt_10"
+         ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                            false: 'height-main-min-j4-new-template-by-auto-mailbox-outter'}[$root.global.is_outter]">
+        <wt-new-editor class="" edit-content="task.temp_desc"
+                       wt-ctrl-enter="js_set_update($event, task)"
+                       placeholder="添加活动描述(按Ctrl + 回车键提交)"></wt-new-editor>
+    </div>
+    <div class="form-group">
+        <button ng-click="js_set_update($event, task)"
+                data-loading-text="保存中..." loading-status="task.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="Task Panel|Main|Edit Task-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(task)" class="btn"
+                wt-tracker="Task Panel|Main|Edit Task-Cancel">取消
+        </button>
+    </div>
+</div>

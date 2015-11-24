@@ -1,0 +1,70 @@
+<div class="prj_sidebar_step_body">
+    <!--     <h5 for="add_member_url">
+        通过链接加入
+    </h5>
+    <div class="plr_10">
+        <div type="text" id="add_member_url" ng-model="add_member_url" class=" mr_10 ml_10 text-break help-block"
+               wt-click-select readonly="readonly"
+               ng-click="select_add_member_url($event)"
+               >{{add_member_url}}
+        </div>
+    </div> 
+    <div class="hr collapse_hide"></div>
+    -->
+    <h5 for="add_member_email">
+        通过邮件添加
+    </h5>
+
+    <div class="plr_10 rightpanel-wrapper">
+        <div class="input-group mb_10">
+            <input type="email" id="add_member_email" ng-model="data.invite_email" wt-enter="js_invite_member(data.invite_email)" class="form-control" placeholder="请输入邮箱地址" required ng-focus="clear_alert()" ng-change="clear_alert()" />
+            <a class="input-group-addon btn btn-default plr_10" ng-click="js_invite_member(data.invite_email)">
+                <!-- <i class="icon icon-level-down"></i> -->
+                <img src="/img/return_key.png" alt="return key" class="w_12">
+            </a>
+        </div>
+        <div class="part-loading mt_20" data-ng-show="member_inviting"></div>
+    </div>
+    <div class="m_10 alert alert-danger" ng-show="email_validation_error">
+        <i class="icon-remove-sign"></i> 请输入正确邮箱格式
+    </div>
+
+    <div class="m_10 alert alert-success" ng-show="add_done">
+        <i class="icon-ok"></i>
+        &nbsp;添加成功
+
+
+    </div>
+    <div class="hr collapse_hide"></div>
+    <div class="add_member" ng-hide="is_individual_project">
+        <div class="part-loading mt_20" data-ng-show="loading_team_members"></div>
+        <div data-ng-hide="loading_team_members">
+            <h5 class="pl_10" ng-hide="unassigned_team_members.length == 0">从团队成员添加</h5>
+            <ul class="avatars" ng-hide="loading_team_members || unassigned_team_members.length == 0">
+                <li class="avatars-empty" ng-if="unassigned_team_members.length == 0">
+                    <i class="icon-user icon-3x"></i>
+                    <br/>还没有团队成员
+                </li>
+                <li ng-repeat="member in unassigned_team_members">
+                    <div ng-click="js_add_user_as_member(member)" class="js-popbox member" data-placement="left" ng-class="{true: 'member-pendding'}[[(member.status==2 || member.status==3)]]" title="{{ {2:'成员还未接受邀请', 3: '成员已经退出团队'}[member.status] }}">
+                        <wt-avatar member="member" name="[member.display_name,22] | cutstr" size="30"></wt-avatar>
+                    </div>
+                </li>
+            </ul>
+            <div class="hr" ng-hide="unassigned_team_visitors.length == 0 || unassigned_team_members.length == 0"></div>
+            <h5 class="pl_10" ng-hide="unassigned_team_visitors.length == 0">从团队访客添加</h5>
+            <ul class="avatars" ng-hide="unassigned_team_visitors.length == 0">
+                <li class="avatars-empty" ng-if="unassigned_team_visitors.length == 0">
+                    <i class="icon-user icon-3x"></i>
+                    <br/>还没有团队访客
+                </li>
+                <li ng-repeat="member in unassigned_team_visitors">
+                    <div ng-click="js_add_user_as_member(member)" class="js-popbox member" data-placement="left" ng-class="{true: 'member-pendding'}[[(member.status==2 || member.status==3)]]" title="{{ {2:'成员还未接受邀请', 3: '成员已经退出团队'}[member.status] }}">
+                        <wt-avatar member="member" name="[member.display_name,22] | cutstr" size="30"></wt-avatar>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

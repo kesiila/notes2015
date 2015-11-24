@@ -1,0 +1,35 @@
+<div class="popbox-header">
+	<button class="cancel icon-remove" ng-click="js_close()"></button>
+	<h3>{{ title || '选择邮件模板'}}</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+	<div class="popbox-body w_360">
+		<select class="form-control" ng-model="selectedTemplate" required=""
+			placeholder="请选择邮件模板"
+			ng-change="js_toggle_template(selectedTemplate)"
+			ng-options="template as template.name for template in templates">
+		</select> 
+		
+		<div class="template-desc"
+			ng-show="selectedTemplate">
+			<input autofocus="" ng-model="mail.name"
+			class="form-control help-block" placeholder="邮件标题" required=""
+			type="text">
+		</div>
+
+		<div class="template-desc" ng-show="selectedTemplate">
+			<textarea class="form-control help-block" rows="8"
+			ng-model="mail.message" type="text" 
+			placeholder="邮件内容(按Ctrl + 回车键提交)"></textarea>
+		</div>
+
+	</div>
+	<div class="popbox-footer" data-ng-hide="send_success">
+		<button ng-click="$js_save_mail($event,$mail)"
+			class="btn btn-success pull-right">发送邮件</button>
+	</div>
+	<div class="popbox-body" data-ng-show="send_success">
+		<p class="alert alert-success">邮件发送成功！</p>
+	</div>
+
+</div>

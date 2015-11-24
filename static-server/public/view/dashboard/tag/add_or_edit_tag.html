@@ -1,0 +1,46 @@
+<dl class="frame add_edit_panel">
+	<div class="tag-edit-container">
+		<form name="tag_form" class="wt-form"
+			wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+
+			<input type="text" id="new_tag_name" maxlength="100" name="tag_name"
+				autofocus ng-model="new_element.name"
+				class="form-control help-block" placeholder="标签名称" required>
+			<input type="text" id="new_tag_ename" maxlength="100"
+				name="tag_ename" autofocus ng-model="new_element.enName"
+				class="form-control help-block" placeholder="英文名称"> <input
+				type="text" id="new_tag_cname" maxlength="100" name="tag_cname"
+				autofocus ng-model="new_element.cnName"
+				class="form-control help-block" placeholder="中文名称"> <input
+				type="text" id="new_tag_imageurl" maxlength="100"
+				name="tag_imageurl" autofocus ng-model="new_element.imageUrl"
+				class="form-control help-block" placeholder="图片URL">
+			<div class="cascading-wapper mb_10">
+				<wt-cascading flag="flag" first="new_element.typename"
+					firstkey="new_element.type" cascad="1" source="api/codes/tag/all">
+				</wt-cascading>
+			</div>
+			<div class="cascading-wapper mb_10">
+				<wt-cascading flag="flag" 
+				     cascad="4" ng-if="(new_element.type=='address')"
+					firstkey="new_element.code_address_1"
+					first = "new_element.code_address_1_name"
+					secondkey="new_element.code_address_2"
+					second = "new_element.code_address_2_name"
+					thirdkey="new_element.code_address_3"
+					third = "new_element.code_address_3_name"
+					fourthkey="new_element.code_address_4"
+					fourth = "new_element.code_address_4_name"
+					source="api/codes/address/all"> </wt-cascading>
+			</div>
+
+
+			<textarea ng-model="new_element.desc" type="text" wt-full-editor=""
+				placeholder="详细描述一下你想知道的"></textarea>
+			<br />
+
+
+		</form>
+	</div>
+</dl>
+

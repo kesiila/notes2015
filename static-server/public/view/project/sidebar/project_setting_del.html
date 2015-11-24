@@ -1,0 +1,14 @@
+<div class="prj_sidebar_step_body">
+<div class="p_10">
+    <span class="tips">
+        删除项目后，所有的内容都将被删除，并且不能恢复。<br/><br/>请输入项目的完整名称，确认要删除该项目：<br/><br/>
+    </span>
+    <input type="text" class="form-control" ng-model="prj_name"
+           wt-enter="js_prj_del(prj_name)" placeholder="项目名称">
+    <br/>
+    <button ng-click="prj_del()" ng-disabled="prj_name != project.info.name"
+            class="btn btn-danger" data-loading-text="删除中..." loading-status="is_deleting">
+        确认并删除
+    </button>
+</div>
+</div>

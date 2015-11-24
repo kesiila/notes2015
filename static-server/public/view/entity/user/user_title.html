@@ -1,0 +1,11 @@
+<h2  ng-click="js_show_editor(user)"
+	wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{user.title}}">{{user.title|abbrevition:30}}</span>
+	<span title="标题:{{user.name}}" ng-show="user.name">{{user.name|abbrevition:30}}</span>
+    <em class="pull-right" title="结束时间" ng-if="user.endDate"><i class="icon-flag"
+		ng-show="user.is_edit || user.countryCnName.length>0 || permission==4"></i>
+		结束时间:{{user.endDate | dateFormat}} </em>
+    <em class="pull-right" title="结束时间" ng-if="user.startDate"><i class="icon-flag"
+		ng-show="user.is_edit || user.countryCnName.length>0 || permission==4"></i>
+		起始时间:{{user.startDate | dateFormat}} </em>
+</h2>

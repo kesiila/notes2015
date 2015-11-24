@@ -1,0 +1,39 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>移动活动到指定项目</h3>
+</div>
+<form name="add_task_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+      class="wt-form" novalidate role="form">
+    <div class="popbox-body w_300">
+        <div class="form-group" ng-show="projects.length > 0">
+            <label>选择移动到项目：</label>
+            <select class="form-control" ng-model="collect_task.project" required=""
+                    ng-options="project as project.name for project in projects">
+            </select>
+        </div>
+<!--         <div class="form-group" ng-show="projects.length > 0">
+            <label>内容：</label>
+            <div>
+                <textarea class="js-task-name form-control ng-pristine ng-valid" autofocus=""
+                      placeholder="输入活动内容" required
+                      ng-model="new_task.temp_name" wt-enter="js_add_task(add_task_form, new_task)"></textarea>
+            </div>
+
+        </div>
+ -->        <div ng-show="entries.length == 0">
+            <p class="alert alert-info">必须创建项目后才可以收藏活动！
+            </p>
+            <button href="javascript:;" class="btn btn-success" ng-click="js_to_add_entry_pop()">开始添加项目</button>
+        </div>
+    </div>
+    <div class="popbox-footer" ng-show="projects.length > 0" data-ng-hide="send_success">
+    <button ng-click="js_move_task()" class="btn btn-success float_left">确定移动</button>
+        <button ng-click="js_close(result)" class="btn">取消</button>
+    </div>
+    <div class="popbox-body" data-ng-show="send_success">
+    <p class="alert alert-success">移动成功！</p>
+</div>
+</form>
+
+
+

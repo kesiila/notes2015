@@ -1,0 +1,412 @@
+<div class="customer-wapper">
+    <div class="forum-panel">
+        <div class="forum-container" style="padding-left:10px">
+
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 sidebar">
+
+                <div class="sidebar-inner">
+                    <!--         <button class="btn btn-danger mb_10 w_100p fs_18" wt-tracker="Project Task Page|Nav|Open Add Task" ng-click="industry_group.toIndustrys()">
+                                <span>行业筛选 <i class="pull-right icon-angle-right fs_22 mr_15"></i></span></button>
+                     -->
+                    <button class="btn btn-danger mb_10" style="width: 100%;font-size: 18px;"
+                            wt-tracker="Project Task Page|Nav|Open Add Task" ng-click="industry_group.toIndustrys()">
+                        选择我的行业<i style="padding-left: 10px"
+                            class="icon-angle-right fs_22 mr_15"></i></button>
+
+                </div>
+
+                <div class="sidebar-inner">
+                    <div class="sidebar-widget" style="padding-top: 20px">
+                        <!--<h4><a href="javascript:;" ng-click="toIndustrys()" style="color: #E16531;">行业筛选</a></h4>-->
+                        <ul style="margin-left: -15px;">
+                            <li>
+                                <wt-cascading2
+                                        class="cascade-trigger"
+                                        first="currentZoneName"
+                                        firstkey="queryCondition.zoneCode"
+                                        second="currentCountryName"
+                                        secondkey="queryCondition.countryCode"
+                                        source="json/country.json">
+                                </wt-cascading2>
+                            </li>
+                            <li style="margin-top: 4px;">
+                                <div>
+                                    <input ng-model="selectTime" ng-focus="showDateSelectDiv=true"
+                                           ng-blur="hideDateSelect()"
+                                           placeholder="选择更新时间" type="text" class="form-control"/>
+                                    <i class="cursor pull-right" ng-click="showDateSelectDiv=!showDateSelectDiv"
+                                       style="position: relative;left:-10px;top:-25px;"
+                                       ng-class="{true:'icon-caret-up',false:'icon-caret-down'}[showDateSelectDiv]"></i>
+                                </div>
+                                <div ng-show="showDateSelectDiv"
+                                     style="box-shadow: 0 6px 12px rgba(0, 0, 0, .175);padding-left:15px;padding-right: 15px;background: #fff;">
+                                    <ul>
+                                        <li class="cursor" ng-repeat="dateSelect in dateSelectList"
+                                            ng-click="dateSelectClick(dateSelect)">
+                                            <a>
+                                                <i ng-class="{false:'icon-xx',true:'icon-ok'}[dateSelect.isActive]"></i>
+                                                {{dateSelect.name}}
+                                            </a>
+                                            <span ng-show="false">({{dateSelect.count}})</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--        <wt-product-tags main-code="queryCondition.mainIndustryCode" tagclick="tagclick(tagName)"></wt-product-tags>-->
+
+                    <wt-tag-cloud-list ng-show="" xType="customer" tagclick="tagclick(tagName)"></wt-tag-cloud-list>
+
+                    <div class="box-shadow ptb_5 pl_15"
+                         ng-show="$root.global.is_login">
+                        <h4>
+                            <a href="javascript:;" ng-click="go_to_inner_customer()"><i
+                                    class="icon-users ai-green mr_10"></i>去我的活动</a>
+                        </h4>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-inner mt_20" wt-show="">
+                    <div class="sidebar-widget" style="background-color: #ffffff">
+                        <div style="font-size:18px;width: 100%;">动态显示</div>
+                        <hr style="margin-left: -15px;margin-right: -15px;margin-top: 10px;border-top: 1px solid #e1e1e1">
+                        <div id="task-dynamics">
+                            <div class="dynamic-row" ng-if="dynamics.length>0" ng-repeat="dynamic in dynamics">
+                                <div class="left f_l text-ellipsis">{{dynamic.name}}<br>&nbsp;</div>
+                                <div class="right pl_10 f_l text-ellipsis">{{dynamic.activity}}<br><span
+                                        class="color_gray">{{dynamic.createTime}}</span>
+                                </div>
+                            </div>
+                            <div class="dynamic-row" ng-if="dynamics.length==0" align="cnter">
+                                暂无动态
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="input-group" style="margin-bottom: 15px">
+                <input class="form-control " style="height: 44px;"  ng-change="show_mail_status=false"
+                       ng-model="keywords"
+                       wt-enter="setKeywords()"
+                       placeholder="Product /  Company /  Customer Name" />
+                <span class="input-group-btn pos_relative">
+                    <button class="btn btn-danger" type="button" style="padding-left: 50px; padding-right: 50px;height: 44px;"
+                            data-ng-click="setKeywords()">
+                        <i class="icon-search fs_20"></i>
+                        <span style="font-size: 18px">搜索</span>
+                    </button>
+                 </span>
+            </div>
+            <div class="forum-content col-xs-12 col-sm-9 col-md-9 col-lg-10 ng-hide" ng-show="show_group"
+                 style="height:auto;min-height: 1px;margin-bottom: 20px;">
+                <div class="forum-category-wrapper">
+                    <div ng-include="'/view/public/customer/customer_groups.html'" style="height: auto;"></div>
+                </div>
+            </div>
+            <div class="forum-content col-xs-12 col-sm-9 col-md-9 col-lg-10 ng-hide" ng-show="show_search_setting"
+                 style="height:auto;min-height: 1px;margin-bottom: 15px;padding-bottom: 20px">
+                <div class="forum-category-wrapper">
+                    <div ng-include="'/view/public/customer/search_setting.html'"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10 forum-content">
+                <!--<div class="forum-content" style="height:auto;min-height: 10px;" ng-show="vm.moreTags">
+                    <div class="forum-category-wrapper">
+                        <div ng-include="'/view/public/show_more_product_tags.html'" style="height: auto;"></div>
+                    </div>
+                </div>-->
+                <div class="forum-category-wrapper">
+                    <div class="forum-heading clearfix" style="padding-left: 15px">
+                        <h3 ng-show="!have_search_setting" class="pull-left" style="line-height: 1.7em;">
+                <span ng-show="!currentMainIndustryName">
+                    <a href="javascript:;" ng-click="industry_group.toAllCustomerList()">全部行业</a>
+                </span>
+                <span ng-show="!!currentMainIndustryName">
+                    <a href="javascript:;" style="color:#646b75;" ng-click="industry_group.toAllCustomerList()">全部行业</a>
+                </span>
+
+                <span ng-show="!!currentMainIndustryName && !queryCondition.mainIndustryCode">
+                      <i class="icon-angle-right">&nbsp;</i>
+                      <a href="javascript:;">{{currentMainIndustryName}}</a>
+                </span>
+
+                <span ng-show="!!queryCondition.mainIndustryCode && !currentSubIndustryName">
+                      <i class="icon-angle-right">&nbsp;</i>
+                      <a href="javascript:;" ng-click="clickMain()">{{currentMainIndustryName}}</a>
+                </span>
+
+                <span ng-show="!!currentSubIndustryName">
+                      <i class="icon-angle-right">&nbsp;</i>
+                      <a href="javascript:;" style="color:#646b75;"
+                         ng-click="clickMain()">{{currentMainIndustryName}}</a>
+                </span>
+
+                <span ng-show="!!currentSubIndustryName">
+                      <i class="icon-angle-right">&nbsp;</i>
+                      <a href="javascript:;">{{currentSubIndustryName}}</a>
+                </span>
+                            <!--<span style="color: #627A96;font-size: 14;margin-left: 20px;cursor:pointer;" ng-click="search_setting.show_setting()">-->
+                            <!--推荐设置-->
+                            <!--</span>-->
+                            <span class="ai-red"
+                                  ng-show="!!currentMainIndustryName && totalItems>0">({{totalItems}})</span>
+                        </h3>
+
+                        <h3 ng-show="have_search_setting" class="pull-left" style="line-height: 1.7em;">
+                <span>
+                    推荐活动
+                </span>
+
+                <span style="color: #428bca;font-size: 14px;margin-left: 20px;cursor:pointer;"
+                      ng-click="search_setting.show_setting()">
+                      推荐设置
+                </span>
+
+                            <div class="task-badges block-inline" ng-show="">
+                    <span class="task-badge" style="color:#666" style="margin-left: 15px"
+                          ng-repeat="pro_key in search_setting.product_keys track by $index">
+                                      {{pro_key}}
+                                </span>
+                            </div>
+                        </h3>
+
+                        <!--<input class="form-control" placeholder="请输入公司名查询" style="width:300px;" ng-model="keywords"
+                               ng-blur="setKeywords()" wt-enter="setKeywords()">
+                        <i class="icon-search" style="position: relative;left:-35px;" ng-click="setKeywords()"></i>-->
+                    </div>
+                    <div class="thread-list">
+                        <div class="wt-row thread-item" style="background-color: #FBFBFB">
+                            <div class="thread-item-inner">
+                                <div class="pull-left" wt-show="global.loading_done" style="font-size: 16px;">
+                                    <input type="checkbox" value="false" class="input-item cursor"
+                                           ng-model="selectAll" ng-click="toggleAll()"
+                                           title="{{ {true:'已全部收藏',false:'全选'}[customer_can_be_collected.length==0] }}"
+                                           ng-disabled="customer_can_be_collected.length==0"
+                                           style="position: relative;top:3.5px;margin-left:15px;margin-right: 15px;">
+                                    <a href="javascript:;" ng-click="toggleAll()"><span
+                                        class="small ml_5" ng-hide="selectedTasks.length>0&&customers.length>0"
+                                        style="color:#666666;">全选</span></a>
+
+                                    <span class="small" ng-show="selectedTasks.length>0 && customers.length>0" style="color:#666666;"> 已选择{{selectedTasks.length}}个</span>
+                                    <button class="btn btn-primary ml_15" ng-if
+                                            wt-show="customers.length>0"
+                                            ng-disabled="selectedTasks.length==0"
+                                            ng-click="js_pop_batch_collect($event)">收藏
+                                    </button>
+
+                                    <button class="btn btn-success" style="margin-left: 50px"
+                                            wt-show="customers.length>0"
+                                            data-ng-disabled="selectedTasks.length==0"
+                                            ng-click="js_send_mail__batch($event)">
+                                            发送
+                                    </button>
+                                </div>
+                                <div class="pull-right btn-group pr_10">
+                                    <button class="btn ptb_11" ng-click="change_sort()"
+                                            tooltip="{{ {true:'降序',false:'升序'}[queryCondition.isDESC==true] }}">
+                    <span><i
+                            ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[queryCondition.isDESC==true]"></i></span>
+                                    </button>
+
+                                    <a class="btn dropdown-toggle dropdown-toggle ptb_11" data-toggle="dropdown"
+                                       href="javascript:;"
+                                       tooltip="选择排序条件">
+                                        <i class="icon-caret-down"></i>
+                                    </a>
+
+                                    <!--显示排序条件-->
+                                    <ul class="dropdown-menu dropdown-menu-right" tooltip="选择排序条件">
+                                        <li class="cursor" ng-repeat="item in sortItems">
+                                            <a ng-click="sortByItem(item)">
+                                                <i ng-class="{false:'icon-xx'}[item.value==currentSortItem.value]"
+                                                   wt-show="item.value!=currentSortItem.value"></i>
+                                                <i ng-class="{true:'icon-long-arrow-down',false:'icon-long-arrow-up'}[queryCondition.isDESC==true]"
+                                                   ng-show="item.value==currentSortItem.value"></i>
+                                                {{item.name }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="pull-right" style="font-size: 16px;margin-left: 15px;">
+                                    <!--<label class="small cursor mr_15"  ng-show="global.is_login==true" style="color:#666666;">
+                                            <input type="checkbox" class="input-item cursor" ng-model="isHide" ng-change="queryCondition.isHide = isHide"
+                                                   style="position: relative;top:3.5px;">
+                                            未收藏的
+                                        </label>-->
+
+                                    <!--<label class="small cursor mr_15" style="color:#666666;">
+                                        <input type="checkbox" class="input-item cursor" ng-model="queryCondition.isFree"
+                                               ng-click="ifFree()"
+                                               style="position: relative;top:3.5px;">
+                                        免费的
+                                    </label>-->
+
+                                    <!--<input class="task-checkbox-toggle" ng-model="queryCondition.isHaveEmail" type="checkbox">-->
+                                    <!--<label class="task-checkbox" ng-click="ifHaveEmail()" title="将任务标记为未完成"><span class="glyphicon glyphicon-ok"></span></label>-->
+                                    <!--<a href ng-click="ifHaveEmail()"> 有邮箱的</a>-->
+
+                                    <label class="small cursor mr_15" style="color:#666666;">
+                                        <input type="checkbox" class="input-item cursor"
+                                               ng-model="queryCondition.isHaveEmail"
+                                               ng-click="ifHaveEmail()"
+                                               style="position: relative;top:3.5px;">
+                                        有邮箱的
+                                    </label>
+
+                                    <label class="small cursor mr_15" style="color:#666666;">
+                                        <input type="checkbox" class="input-item cursor" ng-model="queryCondition.isHaveContacts"
+                                               ng-click="ifHaveContacts()"
+                                               style="position: relative;top:3.5px;">
+                                        有联系人的
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="empty-panel" ng-show="global.loading_done && customers.length==0"
+                             style="padding-top: 8%;">
+                            <i class="icon-list-alt"></i>
+                            <br/>
+                            <span>还没有任何数据</span><br/>
+                            <h4>
+                                换个关键词，<a href="javascript:;" class="active"
+                                         ng-click="to_google_search()">或者去google搜索</a>
+                            </h4>
+                        </div>
+
+                        <div class="wt-row thread-item slide-trigger"
+                             wt-show="global.loading_done && customers.length>0"
+                             ng-class="{'active':customer.tid==locator.show_detail_task_id}"
+                             ng-repeat="customer in customers"
+                             ng-click="show_customer_info($event,customer)">
+                            <div class="thread-item-inner text">
+                                <div class="row primary cursor">
+                                    <div id="{{customer.tid}}"
+                                         class="col-lg-4 col-md-5 col-sm-6  col-xs-6 pos_relative">
+                                        <input type="checkbox" ng-model="customer.checked"
+                                                   title="{{ {1:'已收藏',0:'可收藏'}[customer.collected] }}"
+                                                   ng-click="toggle($event,customer)" class="input-item pos_absolute"
+                                                   style="top:11px; margin-left: 15px; margin-right: 15px;">
+                                        <h4 style="padding-top: 4px;margin-left: 50px;margin-bottom: 0px;padding-bottom: 10px">
+                                            <a href="javascript:;" class="public_customer_list"
+                                               title="公司:{{customer.company}}">
+                                                <span ng-bind-html="customer.company|abbrevition:26|highlight:keywords:caseSensitive"></span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-6  col-xs-6 mt_10"
+                                         style="padding-top: 3px; color: #666">
+                                        <span title="联系人:{{customer.name}}" ng-show="customer.name.length>0">{{customer.name|abbrevition:16}}</span>
+                                        <span ng-show="!customer.name">暂无联系人</span>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2  hidden-sm hidden-xs mt_12 thread-meta text-muted">
+                                        <a href="javascript:;" style=" text-decoration: underline;"
+                                           ng-click="clickMainIndustry($event,customer)"
+                                           title="{{customer.mainIndustryCnName}}">{{customer.mainIndustryCnName|abbrevition:14}}
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-2  hidden-md hidden-sm hidden-xs mt_12 thread-meta  text-muted">
+                                        <a href="javascript:;" style="text-decoration: underline; "
+                                           ng-click="clickCountry($event,customer)"
+                                           title="{{customer.countryCnName}}">{{customer.countryCnName|abbrevition:12}}
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 mt_12 text-right public_customer customer_list pull-right"
+                                         style="color: #8a959e;">
+                                        <!--<wt-badges task="customer"></wt-badges>-->
+                                        <!--<span ng-if="customer.isPaid<5">剩余发件额度：{{customer.mailSendLimit}}</span>-->
+                                        <a ng-if="customer.isPaid<5" title="今日剩余">剩余<span class="color-active fs_16">{{customer.mailSendLimit}}</span>个发送名额</a>
+                                    </div>
+
+                                    <!--                        <div class="col-lg-2 col-md-2 col-sm-2 pull-right">
+                                                                <button class="pull-right btn btn-sm btn-danger mt_12 mr_15"
+                                                                        title="可收藏" ng-hide="customer.collected"
+                                                                        ng-click="js_collect($event,customer)">收藏
+                                                                </button>
+                                                                <button
+                                                                        class="pull-right btn btn-sm btn-default disabled mt_12 mr_15"
+                                                                        title="已收藏" ng-show="customer.collected">已收藏
+                                                                </button>
+                                                            </div>-->
+                                </div>
+                                <div class="row secondary hidden-xs cursor">
+                                    <div class="col-lg-4 col-md-5 col-sm-6"
+                                         style="padding-left: 65px;">
+                                        <wt-contact task="customer"></wt-contact>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <a class="task-badge small"
+                                           ng-repeat="productName in customer.productList|limitTo:3"
+                                           title="{{productName}}">
+                                            <span ng-bind-html="productName|abbrevition:20|highlight:keywords:caseSensitive"></span>
+                                        </a>
+                                        <!--ng-click="clickProduct($event,productName)"-->
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-hidden thread-comment-meta  text-ellipsis text-right pull-right avatar avatar-40">
+                                                <span class="mr_5 hidden-sm hidden-xs">
+                                                    {{customer.owner}} {{customer.publish_date
+                                                    | fromNow}} </span>
+                                        <!--                   <span class="avatar-face">
+                                <img ng-src="{{customer.members[0].avatar}}" alt="czhang">
+                            </span>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="wt-row thread-item slide-trigger"
+                             ng-show="customers.length<itemsPerPage && customers.length>0">
+                            <div class="thread-item-inner text" align="center" style="padding: 10px;">
+                                <span class="btn btn-default" ng-click="to_google_search()"><a href="javascript:;">数据太少？去google搜索</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix pager-wapper" ng-show="global.loading_done && numPages>1">
+
+                        <div class="category-pager pull-left">
+                            <pagination ng-model="currentPage" total-items="totalItems"
+                                        items-per-page="itemsPerPage" max-size="5" rotate="false"
+                                        direction-links="true" previous-text="上一页" next-text="下一页"
+                                        boundary-links="true" first-text="首页" last-text="尾页"
+                                        num-pages="numPages"></pagination>
+                        </div>
+
+                        <ul class="pull-right list-inline ptb_5">
+                            <li>第 <input class="page-num" style="width: 25px"
+                                         type="text" ng-model="pageNum"> 页
+                            </li>
+                            <li ng-click="jumpToPage(pageNum)">
+                                <button class="btn-enter">确定</button>
+                            </li>
+                            <li title="每页显示数目"><select class="page-select" ng-model="itemsPerPage">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                            </select> 条
+                            </li>
+                            <li>{{currentPage}}/{{numPages}}</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--
+    todo 未做完隐藏
+    -->
+    <div ng-if="" ng-include="'/view/public/customer/tmall_sidebar.html'"></div>
+    <ng-include ng-show="$root.show_mail_prompt" src="'/view/common/mail_prompt.html'"></ng-include>
+    <!--<div class="layout_right_sidebar height-noheader">
+    <ng-include src="'/view/common/sidebar/sidebar.html'"></ng-include>
+    </div>-->
+</div>

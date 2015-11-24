@@ -1,0 +1,59 @@
+
+<div class="layout_content">
+
+    <div class="layout_content_sidebar height-noheader">
+        <ng-include src="'/view/account/account_sidebar.html'"></ng-include>
+    </div>
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-user mr_10"></i>帐户设置</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+                    <a href="/project/add" class="btn btn-danger">新建项目</a>
+                </div>
+            </div>
+        </div>
+        <div class="center-panel-container height-nonav" ng-show="global.loading_done" wt-scroll>
+            <div class="panel-section">
+                <h4>项目管理</h4>
+            </div>
+            <div class="panel-section table-list">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>项目名</th>
+                        <th>负责人</th>
+                        <th>成员人数</th>
+                        <th>权限</th>
+                        <th>管理</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="project in account_projects">
+                        <td><a href="/project/{{project.pid}}">{{project.name}}</a></td>
+                        <td>
+                            <wt-avatar ng-repeat="admin in project.admins" member="admin" name="true"
+                                       size="30" class="mr_15"></wt-avatar>
+                        </td>
+                        <td>{{project.member_count}}</td>
+                        <td>{{ project.curr_role | prj_role }}</td>
+                        <td>
+                            <a href="/project/{{project.pid}}/setting">
+                                设置
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" data-ng-show="account_projects.length == 0">
+                            还没有参与任何项目
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

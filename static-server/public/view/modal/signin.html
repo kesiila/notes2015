@@ -1,0 +1,120 @@
+<div class="other-warp login-wrap" data-ng-controller="user_login_ctrl">
+    <i class="icon-large icon-close" id="close" ng-click="close()"></i>
+    <div class="single-panel clearfix">
+        <div class="single-panel-inner login-mini" ng-show="status.code == 0">
+            <div class="single-panel-header">
+                <h3 >登录
+                    &nbsp;&nbsp;<img src="/img/signup/bring_more_customer.png" alt=""/></h3>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section">
+                    <form wt-form-validate="{blurTrig:false,showMsg:false}" name="login_form"
+                          class="form-horizontal wt-form" novalidate>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon icon-user"></i></span>
+                                <input class="form-control" type="text" placeholder="输入用户名/邮箱"
+                                       name="login_name" ng-model="login_name" required="" wt-autofocus=""/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon fs_17"><i class="icon icon-lock"></i></span>
+                                <input class="form-control" type="password" placeholder="输入密码"
+                                       name="login_password" ng-model="login_password" required=""/>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="login_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign mr_5"></i>{{login_form.$errors[0]}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button wt-form-submit="signin(login_form)" class="btn btn-success btn-lg btn-block"
+                                    type="button"
+                                    wt-tracker="Login Page|Main|Login"
+                                    data-loading-text="登录中..." loading-status="is_login_ing"> 登 录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="single-panel-footer">
+                <div style="margin:0 20px 0 24px;">
+                    <a href="javascript:;"  ng-click="to_signup()" >还没帐号?</a>
+                    <a href="javascript:;" class="signup_in_model" ng-click="to_signup()"  style="color:red;font-size: 16px;">立即注册</a>
+                    <a href="javascript:;"  class="pull-right" style="position:absolute;right:124px"  ng-click="to_forgot()">忘记密码？</a></div>
+            </div>
+        </div>
+
+        <!--<div class="single-panel-inner login-mini" ng-show="status.code == 4">-->
+        <!--<div class="single-panel-header">-->
+        <!--<h3>快速注册</h3>-->
+        <!--</div>-->
+        <!--<form class="single-panel-body">-->
+        <!--<div class="single-panel-section" >-->
+        <!--<form wt-form-validate="{blurTrig:false,showMsg:false}" name="register_form123"-->
+        <!--class="form-horizontal wt-form" novalidate>-->
+        <!--<div class="form-group">-->
+        <!--<div class="input-group">-->
+        <!--<span class="input-group-addon"><i class="icon icon-user"></i></span>-->
+        <!--<span>我是:{{signup_name}}</span>-->
+        <!--&lt;!&ndash;<input class="form-control" type="text" placeholder="输入用户名"&ndash;&gt;-->
+        <!--&lt;!&ndash;name="signup_name" ng-model="signup_name"  required="" wt-autofocus="" />&ndash;&gt;-->
+        <!--&lt;!&ndash;wt-remote-unique-check="{url:'/api/user/name/check?name={{signup_name}}'}"&ndash;&gt;-->
+
+        <!--<input class="form-control"  type="text" placeholder="输入用户名"-->
+        <!--name="signup_name" ng-model="signup_name"-->
+        <!--wt-focus="" autocomplete="off"-->
+        <!--wt-remote-unique-check="{url:'/api/user/name/check?name={{signup_name}}'}"-->
+        <!--wt-regex="^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$"-->
+        <!--required/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<div class="input-group">-->
+        <!--<span class="input-group-addon"><i class="icon-envelope mr_0" style="font-size:11px"></i></span>-->
+        <!--<input class="form-control" type="email" placeholder="输入常用邮箱地址"-->
+        <!--name="signup_email" ng-model="signup_email" required autocomplete="off"-->
+        <!--wt-remote-unique-check="{url:'/api/user/email/check?email={{signup_email}}'}"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<div class="input-group">-->
+        <!--<span class="input-group-addon fs_17"><i class="icon icon-lock"></i></span>-->
+        <!--<input class="form-control" type="password" placeholder="输入密码" autocomplete="off"-->
+        <!--name="signup_password" ng-model="signup_password" ng-minlength="6"-->
+        <!--required/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<div class="input-group">-->
+        <!--<span class="input-group-addon fs_17"><i class="icon icon-lock"></i></span>-->
+        <!--<input class="form-control" type="password" placeholder="再输入一遍密码" autocomplete="off"-->
+        <!--name="repeated_password" wt-repeat-password="signup_password"-->
+        <!--ng-model="repeated_password"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group" ng-show="register_form.$errors.length > 0">-->
+        <!--<div class="alert alert-danger">-->
+        <!--<i class="icon-remove-sign mr_5"></i> {{register_form.$errors[0]}}-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<button ng-disabled="agree_terms" wt-form-submit="js_submit(register_form123)" type="button" class="btn btn-success btn-lg btn-block"-->
+        <!--data-loading-text="注册中..." loading-status="is_registering" style="letter-spacing: 5px;">免费注册-->
+        <!--</button>-->
+        <!--</div>-->
+        <!--</form>-->
+        <!--</div>-->
+        <!--</form>-->
+        <!--<div class="single-panel-footer">-->
+        <!--<div style="margin:0 0 0 24px;">-->
+        <!--<a href="javascript:;"   >已有帐号?</a>-->
+        <!--<a href="javascript:;"  ng-click="status.code = 0" style="color:red;font-size: 16px;">登陆</a>-->
+        <!--<a href="javascript:;" style="position:absolute;right:102px"  ng-click="to_forgot()">忘记密码？</a></div>-->
+        <!--</div>-->
+    </div>
+</div>
+</div>

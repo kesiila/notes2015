@@ -1,0 +1,170 @@
+<div data-ng-controller="entity_post_ctrl"
+	class="entity-panel task-panel" wt-dragfile="dragfile_option">
+	<div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+	<div ng-show="section_loading_done && !post_exist"
+		class="alert alert-warning text-center"
+		style="padding: 10px; margin: 10% 15px">
+		<span>话题信息不存在</span>
+	</div>
+	<div class="entity-panel-wrapper"
+		ng-show="section_loading_done && post_exist">
+		<div class="entity-panel-header">
+			<a href="javascript:;" class="name" ng-show="false"
+				ng-click="locator.to_project(project.info.pid, 'post')"
+				wt-tracker="Task Panel|Main|Goto Project"> <i
+				class="{{project.info.pic}} icon-home mr_10"
+				ng-style="{color:project.info.bg}"></i> {{project.info.name}}
+
+			</a>
+			<ul class="nav nav-pills">
+				<li ng-show="permission==16" class="entity-warning">话题已经于
+					{{post.update_date | timeFormatZHCN}} 删除了</li>
+				<li ng-show="permission==32" class="entity-info">话题已经于
+					{{post.update_date | timeFormatZHCN}} 归档了</li>
+				<li ng-show="permission==32" class="divider-v"></li>
+				<li ng-show="permission==32"><a href="javascript:;"
+					ng-click="js_show_entry_menu($event, post)" title="激活"> <i
+						class="icon-undo"></i>激活
+				</a></li>
+				<!--编辑按钮的状态切换 可点击条件：已登录，并且不再编辑状态，并且已支付或话题邮件信息错误 -->
+				<li data-placement="bottom" ng-show="$root.global.is_login"
+					class="js-popbox"><a href="javascript:;"
+					ng-show="!post.is_edit" ng-click="js_show_editor(post)" title="可编辑">
+						<i class="icon-pencil"></i>编辑
+				</a> <a href="javascript:;"
+					ng-show="post.is_edit || ($root.global.me.role>0 && !post.collected && post.isPaid==0 && post.mailStatus<1)"
+					class="disabled"
+					title="{{ {false:'可编辑',true:'正在编辑'}[post.is_edit] }}"> <i
+						class="icon-pencil"></i>编辑
+				</a></li>
+
+				<!--发布按钮的状态切换-->
+				<li
+					ng-show="post.xtype=='posts' && $root.global.is_outter == false && post.uid ==global.me.uid">
+					<!--<a href="javascript:;" title="发布" ng-if="post.status < 1 && post.isValid==true" wt-entity-share="[permission,project.info.pid,'posts',post.tid,post.status]">-->
+					<a href="javascript:;" title="发布"
+					ng-click="js_post_share($event,post)" ng-if="post.status < 1">
+						<i class="icon-share"></i>发布
+				</a> <a href="javascript:;" title="已发布" class="disabled"
+					ng-if="post.status == 1"> <i class="icon-share"></i>已发布
+				</a>
+				</li>
+
+				<li class="divider-v" ng-show="global.is_outter == false"
+					wt-permission="[permission,project.info.curr_role,1,2]"></li>
+				<li class="js-popbox" data-placement="bottom"
+					ng-show="global.is_outter == false"
+					wt-permission="[permission,project.info.curr_role,1,2]"><a
+					href="#" class="dropdown-toggle" data-toggle="dropdown"
+					title="添加附件"> <i class="icon-paper-clip"></i>附件
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="javascript:;" class="fileinput-button"><i
+								class="icon-desktop"></i>本地上传 <input name="files[]" title="添加附件"
+								multiple="" wt-uploadfile="file_upload_option" type="file"></a>
+						</li>
+						<li><a href="javascript:;"
+							ng-click="js_show_attach($event, post)"><i class="icon-file"></i>从项目文件选择</a></li>
+					</ul></li>
+
+
+				<li data-placement="bottom" class="js-popbox"
+					wt-permission="[permission,project.info.curr_role,1,2]"
+					ng-hide="permission==16 || permission==32 || global.is_outter == true"><a
+					href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
+					title="更多"> <i class="icon-chevron-down"></i>更多
+				</a>
+					<ul class="dropdown-menu pull-right">
+						<li ng-show="!$root.global.is_outter || global.me.role==0"><a
+							href="javascript:;" ng-click="js_trash($event, post)"> <i
+								class="icon-trash"></i>删除
+						</a></li>
+					</ul></li>
+				<li class="divider-v"></li>
+
+				<li><a href="javascript:;"
+					style="padding-top: 10px; padding-bottom: 10px;"
+					ng-click="js_close()" title="关闭"> <i class="icon-remove"></i>
+				</a></li>
+			</ul>
+		</div>
+		<div class="entity-panel-body height-nonav"
+			wt-scroll="{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}">
+			<div class="content-panel">
+				<div class="content-module editable-module" id="posts_tab_module"
+					ng-cloak=""
+					ng-include="'/view/entity/post/post_basic.html'"
+					ng-show="!post.show_part || post.show_part==1"></div>
+				<div class="content-module editable-module" id="contact_tab_module"
+					ng-cloak=""
+					ng-include="'/view/entity/post/post_tags.html'"
+					ng-show="post.show_part==2"></div>
+				<div class="content-module editable-module" id="comment_tab_module"
+					ng-cloak="" ng-include="'/view/entity/post/post_comment.html'"
+					ng-show="(post.show_part==8)"></div>
+				<div class="content-module editable-module" id="activity_tab_module"
+					ng-cloak="" ng-include="'/view/entity/post/post_activity.html'"
+					ng-show="post.show_part==9"></div>
+				<div class="content-module"
+					ng-show="(!post.show_part || post.show_part==1) && (post.is_tag_edit || post.tags.length > 0)">
+				</div>
+
+
+				<div class="content-module dragfile-hover-show"
+					ng-show="(!post.show_part || post.show_part==1) && (post.files.length &gt; 0 || global_fileupload_queue().length&gt;0)">
+					<h4>
+						<i class="icon-paper-clip"></i>附件
+					</h4>
+
+					<div class="entity-attachments">
+						<ul>
+							<wt-attachment ng-repeat="file in post.files"
+								del="js_del_attachment($event, file)"
+								del-permission="permission==1 &amp;&amp; ( project.info.curr_role==1 || project.info.curr_role==2)"></wt-attachment>
+							<!--上传队列列表-->
+							<wt-attachment class="attachment-progress"
+								ng-repeat="file in global_fileupload_queue()"></wt-attachment>
+
+							<!--拖拽上传提示-->
+							<li class="dragfile-hover-placeholder"><span class="name"><i
+									class="icon-upload-alt"></i>松开上传文件</span></li>
+						</ul>
+					</div>
+				</div>
+				<br/> <br/> <br/>
+			</div>
+			<div class="sidebar-panel" data-minheight="120">
+				<div class="sidebar-module">
+					<h4>显示内容</h4>
+
+					<div class="post-labels">
+						<button class="btn btn-block js-popbox"
+							ng-class="{'active ai-red':post.show_part == 1}"
+							wt-tracker="Task Panel|Right|Setting Label"
+							ng-click="js_show_part_1(post)" data-placement="left">
+							<i class="icon-bank"></i>基本信息
+						</button>
+						<button class="btn btn-block js-popbox"
+							ng-class="{'active ai-red':post.show_part == 2}"
+							wt-tracker="Task Panel|Right|Setting Label"
+							ng-click="js_show_part_2(post)" data-placement="left">
+							<i class="icon-tags"></i>类目属性
+						</button>
+						<button class="btn btn-block js-popbox"
+							ng-class="{'active ai-red':post.show_part == 8}"
+							wt-tracker="Task Panel|Right|Setting Label"
+							ng-click="js_show_part_8(post)" data-placement="left">
+							<i class="icon-comments"></i>话题评论
+						</button>
+						<button class="btn btn-block js-popbox"
+							wt-tracker="Task Panel|Right|Setting Label"
+							ng-class="{'active ai-red':post.show_part == 9}"
+							ng-click="js_show_part_9(post)" data-placement="left">
+							<i class="icon-history"></i>历史记录
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

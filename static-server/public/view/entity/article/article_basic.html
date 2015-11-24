@@ -1,0 +1,106 @@
+<div ng-hide="article.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/article/article_title.html'">
+    </div>
+    <!--<wt-badges article="article"></wt-badges>-->
+    <wt-tags article="article" tagtype="normal"></wt-tags>
+    <div class="new-tag"
+         ng-show="global.is_outter==false"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(article)"
+           wt-tracker="article Panel|Main|Add Attachments"
+           ng-hide="article.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="article.is_add_tag_edit"
+             wt-show-edit="article.is_add_tag_edit">
+            <div>
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, article, tag)' }"
+                       wt-enter="js_add_tag(article, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="article Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(article, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="article Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(article)">取消
+            </button>
+        </div>
+    </div>
+
+    <!--    <wt-add-tag tag="article"></wt-add-tag>-->
+    <!--<div class="task-desc wt-row" ng-if="customer.isPaid<5">
+        <label class="col-xs-4 control-label p_0">剩余发件额度：</label>
+        {{article.mailSendLimit}}
+    </div>-->
+    <div class="task-desc wt-row"
+         ng-show="article.is_edit || article.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>标题</label>
+        {{article.title}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="article.is_edit || article.brief.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>简要</label>
+        {{article.brief}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="article.is_edit || article.images.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>封面图片</label>
+        {{article.images}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="article.is_edit || article.content.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>正文</label>
+
+        <div class="task-desc-text markdown" wt-markdown="article.content"></div>
+    </div>
+</div>
+<div class="edit-section"
+     ng-show="article.is_edit && (!article.show_part || article.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">标题</span> <input autofocus=""
+                                                                     ng-model="article.temp_title"
+                                                                     wt-enter="js_set_update($event, article)"
+                                                                     class="form-control" placeholder="中文标题"
+                                                                     type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">简要</span> <input autofocus=""
+                                                                     ng-model="article.temp_brief"
+                                                                     wt-enter="js_set_update($event, article)"
+                                                                     class="form-control" placeholder="英文标题"
+                                                                     type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <wt-brief-images images="article.temp_images"></wt-brief-images>
+        </div>
+    </div>
+    <div class="pos_relative editor-container mt_10"
+         ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                            false: 'height-main-min-j4-new-template-by-auto-mailbox-outter'}[$root.global.is_outter]">
+        <wt-new-editor class="" edit-content="article.temp_content"
+                       wt-ctrl-enter="js_set_update($event, article)"
+                       placeholder="添加活动描述(按Ctrl + 回车键提交)"></wt-new-editor>
+    </div>
+    <div class="form-group">
+        <button ng-click="js_set_update($event, article)"
+                data-loading-text="保存中..." loading-status="article.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="article Panel|Main|Edit article-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(article)" class="btn"
+                wt-tracker="article Panel|Main|Edit article-Cancel">取消
+        </button>
+    </div>
+</div>

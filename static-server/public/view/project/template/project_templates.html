@@ -1,0 +1,300 @@
+<div class="template layout_content">
+<div class="private layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title" ng-controller="prj_info_ctrl">
+        <h3>
+            <a href="javascript:;" class="js-popbox" data-placement="bottom"
+               data-align="left" ng-click="js_view_prj_info($event)"
+               title="查看项目信息"> <i class="{{project.info.pic}} mr_10"></i>
+                {{project.info.name}}<i class="icon-cog ml_20"></i>
+            </a>
+            <!--         {{global.right_sidebar_is_fold}} {{global.right_sidebar_show_part}}
+     -->
+        </h3>
+    </div>
+    <div class="main">
+        <div class="toolbar_panel pull-right">
+
+            <button class="btn btn-danger mr_15" ng-click="js_show_add_template()" ng-hide="show_add_template"
+                    wt-permission="[permission,project.info.curr_role,1,2]">新建模板
+            </button>
+            <button class="btn btn-default mr_15" ng-click="js_show_add_template()" ng-show="show_add_template"
+                    wt-permission="[permission,project.info.curr_role,1,2]">退出编辑
+            </button>
+
+            <!-- 按内容分类查询模板内容 -->
+            <div class="btn-group mr_15"
+                 data-ng-show="industry_view_type == 'industry_catalog' && !show_add_template">
+            <button class="btn"
+                        title="{{ {'grid':'栅格视图','list':'列表视图'}[list_grid_type] }}">
+                    <span> {{ {'my_all':'全部','my_create':'我创建的','my_share':'我分享的','my_download':'我收藏的'}[current_filter_type]
+                        }}
+                    </span>
+                </button>
+
+                <a class="btn dropdown-toggle ptb_11" data-toggle="dropdown"
+                   href="javascript:;"> <i class="icon-caret-down" style="line-height: 1em"></i>
+                </a>
+
+                <ul class="dropdown-menu pull-right" tooltip="筛选">
+                    <li><a
+                            ng-class="{true: 'active'}[current_filter_type == 'my_all']"
+                            href="javascript:;" ng-click="js_filter_template('my_all')">
+                        <i
+                                ng-class="{true:'icon-ok',false:'icon-xx'}[current_filter_type == 'my_all']"></i>
+                        全部
+                    </a></li>
+                    <li><a
+                            ng-class="{true: 'active'}[current_filter_type == 'my_download']"
+                            href="javascript:;" ng-click="js_filter_template('my_download')">
+                        <i
+                                ng-class="{true:'icon-ok',false:'icon-xx'}[current_filter_type == 'my_download']"></i>
+                        我收藏的
+                    </a></li>
+                    <li><a
+                            ng-class="{true: 'active'}[current_filter_type == 'my_create']"
+                            href="javascript:;" ng-click="js_filter_template('my_create')">
+                        <i
+                                ng-class="{true:'icon-ok',false:'icon-xx'}[current_filter_type == 'my_create']"></i>
+                        我私有的
+                    </a></li>
+                    <li><a
+                            ng-class="{true: 'active'}[current_filter_type == 'my_share']"
+                            href="javascript:;" ng-click="js_filter_template('my_share')">
+                        <i
+                                ng-class="{true:'icon-ok',false:'icon-xx'}[current_filter_type == 'my_share']"></i>
+                        我分享的
+                    </a></li>
+
+                </ul>
+            </div>
+
+            <div class="btn-group mr_15" ng-show="industry_view_type == 'orginal' && !show_add_template">
+            <button class="btn"
+                        title="{{ {'grid':'栅格视图','list':'列表视图'}[list_grid_type] }}">
+                    <span>
+                        <span data-ng-show="current_tab==0">全部</span> {{catalogs[current_tab-1].cnName }}
+                    </span>
+                </button>
+
+                <a class="btn dropdown-toggle ptb_11" data-toggle="dropdown"
+                   href="javascript:;"> <i class="icon-caret-down" style="line-height: 1em"></i>
+                </a>
+
+                <ul class="dropdown-menu pull-right">
+                <li><a href="javascript:;" ng-click="js_change_tab(0)">
+                        <i
+                                ng-class="{true:'icon-ok',false:'icon-xx'}[current_tab == 0]"></i>
+                        全部
+                    </a></li>
+                    <li ng-repeat="catalog in catalogs"><a href="javascript:;"
+                                                           ng-click="js_change_tab(($index+1),catalog.code)"> <i
+                            ng-class="{true:'icon-ok',false:'icon-xx'}[current_tab == ($index + 1)]"></i>
+                        {{catalog.cnName}}
+                    </a></li>
+                </ul>
+            </div>
+            <!--下拉筛选按钮-->
+            <div class="btn-group js-popbox" ng-hide="show_add_template">
+            <button class="btn ptb_11"
+                        title="{{ {'grid':'栅格视图','list':'列表视图'}[list_grid_type] }}">
+                    <i ng-class="{'grid':'icon-th-large','list':'icon-list'}[list_grid_type]"></i>
+                </button>
+                <a class="btn ptb_11 dropdown-toggle mr_15" data-toggle="dropdown"
+                   href="javascript:;"> <i
+                        class="icon-caret-down"></i>
+                </a>
+
+                <ul class="dropdown-menu pull-right">
+                    <li><a href="javascript:;"
+                           ng-click="js_view_toggle('list',null)"><i
+                            ng-class="{true:' icon-ok',false:'icon-xx'}[list_grid_type=='list']"></i>列表视图</a>
+                    </li>
+                    <li><a href="javascript:;"
+                           ng-click="js_view_toggle('grid',null)"><i
+                            ng-class="{true:' icon-ok',false:'icon-xx'}[list_grid_type=='grid']"></i>栅格视图</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li tooltip="按默认方式展示"><a href="javascript:;"
+                                             ng-click="js_view_toggle(null,'orginal')"><i
+                            ng-class="{'orginal': ' icon-ok','industry_catalog':'icon-xx'}[industry_view_type]"></i>按默认方式展示</a>
+                    </li>
+                    <li tooltip="按行业分类展示"><a href="javascript:;"
+                                             ng-click="js_view_toggle(null,'industry_catalog')"><i
+                            ng-class="{'industry_catalog': ' icon-ok','orginal':'icon-xx'}[industry_view_type]"></i>按行业分类展示</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--            <div class="btn-group js-popbox mr_15">
+                    &lt;!&ndash; 排序部分 &ndash;&gt;
+                <div class="btn-group">
+                    <button class="btn" ng-click="sortCustomerDates('')" tooltip="切换显示顺序">
+                        <i ng-class="{'icon-sort-by-alphabet-alt':isDESC,'icon-sort-by-alphabet':!isDESC}"></i>
+                    </button>
+
+                    <a class="btn dropdown-toggle mr_15" data-toggle="dropdown" href="javascript:;" tooltip="选择排序条件">
+                        <i class="icon-caret-down"></i>
+                    </a>
+
+                    &lt;!&ndash; 显示排序条件 &ndash;&gt;
+                    <ul class="dropdown-menu pull-right" tooltip="选择排序条件">
+                        <li ng-repeat="item in customerSort_filterItems">
+                            <a href="" ng-click="sortCustomerDates(item)">
+                                <i ng-class="{'color_gray icon-ok':item.is_selected,'icon-xx':!item.is_selected}"></i>{{item.name }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+            <!--左边栏控制按钮-->
+            <button class="btn ptb_11"
+                    ng-click="js_right_sidebar_toggle($event)">
+                <i ng-class="{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]"></i>
+            </button>
+
+        </div>
+    </div>
+
+
+</div>
+<div class="height-nonav" wt-scroll>
+    <div wt-slide-show="show_add_template" ng-controller="template_ctrl"
+         slide-change="js_slide_change(value)">
+        <ng-include src="'/view/project/template/add_or_edit_template.html'"></ng-include>
+    </div>
+    <div class="layout_split_panel" ng-hide="show_add_template">
+        <dl class="frame" data-minheight="160">
+
+        <!--类别分类展示-->
+            <dt data-ng-show="industry_view_type == 'industry_catalog'">
+            <ul class="tabs">
+                <li><a ng-class="{true: 'active'}[current_tab == 0]"
+                       href="javascript:;" ng-click="js_change_tab(0)"> 全部 </a></li>
+                <li ng-repeat="catalog in catalogs"><a
+                        ng-class="{true: 'active'}[current_tab == ($index + 1)]"
+                        href="javascript:;"
+                        ng-click="js_change_tab(($index+1),catalog.code)">
+                    {{catalog.cnName}}</a></li>
+            </ul>
+            </dt>
+            <dt data-ng-show="industry_view_type == 'orginal'">
+            <ul class="tabs">
+                <li><a
+                        ng-class="{true: 'active'}[current_filter_type == 'my_all']"
+                        href="javascript:;" ng-click="js_filter_template('my_all')">
+                    全部 </a></li>
+                <li><a
+                        ng-class="{true: 'active'}[current_filter_type == 'my_download']"
+                        href="javascript:;" ng-click="js_filter_template('my_download')">
+                    我收藏的 </a></li>
+                <li><a
+                        ng-class="{true: 'active'}[current_filter_type == 'my_create']"
+                        href="javascript:;" ng-click="js_filter_template('my_create')">
+                    我私有的 </a></li>
+                <li><a
+                        ng-class="{true: 'active'}[current_filter_type == 'my_share']"
+                        href="javascript:;" ng-click="js_filter_template('my_share')">
+                    我分享的 </a></li>
+            </ul>
+            </dt>
+            <dd class="pt_0" ng-show="global.loading_done">
+                <div class="template-panel">
+                    <div class="thread-list" ng-if="list_grid_type == 'list'">
+                        <div class="wt-row thread-item slide-trigger cursor"
+                             ng-class="{true:'active'}[template.template_id==locator.show_detail_template_id]"
+                             ng-repeat="template in templates"
+                             ng-click="locator.to_template(template.pid,template.template_id,false)">
+                            <div class="thread-item-inner">
+                                <div class="col-sm-12 col-xs-12 text">
+                                    <div class="row primary">
+                                        <div class="col-sm-12 thread-title pos_relative">
+                                            <i class="color-block" style="top:10px;left:15px"></i>
+                                            <h4 class="col-sm-5"
+                                                ng-class="{'active':locator.show_detail_template_id==template.template_id}">
+                                                <a href="javascript:;">
+                                                    <span title="模板名称">{{template.name|abbrevition:32}}&nbsp;</span>
+                                                </a>
+                                            </h4>
+
+                                            <div class="col-sm-3  hidden-sm pull-left text-muted" style="margin-top: 10px">
+                                                <span title="模板类别">{{template.mainCatalogCnName}}&nbsp;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row sm-font-color secondary hidden-xs">
+                                        <div class="col-sm-5">
+                                            <span title="模板标题:{{template.summary}}">{{template.summary|abbrevition:30}}&nbsp;</span>
+                                        </div>
+                                        <wt-badges-template class="col-sm-3 hidden-sm" style="margin-top: -3px;" template="template"></wt-badges-template>
+                                        <div class="col-sm-4 text-right  text-ellipsis pull-right more_light_gray" style="margin-right: -10px">
+                                            <!-- 我全部的或私有的 -->
+                                                    <span title="创建时间" ng-if="current_filter_type=='my_all' || current_filter_type == 'my_create'">
+                                                        {{template.owner.name}}&nbsp;
+                                                        {{template.create_date | fromNow}}
+                                                    </span>
+
+                                            <!-- 我收藏的 -->
+                                                    <span ng-if="current_filter_type=='my_download'" title="收藏时间">&nbsp;
+                                                        {{template.collect_date | fromNow}} </span>
+
+                                            <!-- 我分享的 -->
+                                                    <span ng-if="current_filter_type=='my_share'" title="分享时间">
+                                                        {{template.publish_date | fromNow}} </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--模板列表显示--end-->
+                <!--模板详情展示--begin-->
+                <div class="template-grid slide-trigger">
+                    <div ng-if="list_grid_type == 'grid'"
+                         class="fa-item col-xs-12 col-md-6"
+                         ng-repeat="template in templates"
+                         template-id="{{template.template_id}}">
+                        <article class="item">
+                            <div class="head">
+                                <i class="color-block"></i> <a
+                                    ng-click="locator.to_template(template.pid, template.template_id, false)"
+                                    class="title" href="javascript:;">
+                                <h4>{{template.name}}</h4>
+                            </a>
+                                <!--<a class="favor">-->
+                                <!--<button class="btn btn-default">收藏</button>-->
+                                <!--</a>-->
+                            </div>
+                            <!--<aside class="summary" ng-bind-html="template.summary"></aside>-->
+                            <section class="center">
+                                <!--<header class="inline-block">-->
+                                <!--<div class="title">Re:Hi Mary, can you tell me the-->
+                                <!--email of Mr.</div>-->
+                                <!--</header>-->
+                                <p class="content markdown" wt-markdown="template.content"></p>
+                            </section>
+                        </article>
+                    </div>
+                </div>
+                <!--模板详情展示--end-->
+                <div class="empty-panel"
+                     ng-show="templates != null && templates.length == 0 && part_loading_done">
+                    <i class="icon-list-alt"></i><br/>
+                    <h4>还没有任何模板,
+                        <a ng-if="current_filter_type == 'my_all' || current_filter_type == 'my_download'" style="color: #d84c31;" href="/template" target="_blank">去开发信看看！</a>
+                        <a ng-if="current_filter_type == 'my_create'" style="color: #d84c31;" href="javascript:;" ng-click="js_show_add_template()">立即创建模板！</a>
+                        <a ng-if="current_filter_type == 'my_share'" style="color: #d84c31;" href="javascript:;" ng-click="js_filter_template('my_create')">去分享模板，挣取积分！</a>
+                    </h4>
+                </div>
+            </dd>
+        </dl>
+    </div>
+</div>
+
+</div>
+<!--左边栏-->
+<div class="layout_right_sidebar height-noheader">
+    <ng-include src="'/view/project/sidebar/sidebar.html'"></ng-include>
+</div>
+</div>

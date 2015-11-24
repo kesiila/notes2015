@@ -1,0 +1,35 @@
+<div class="popbox-header">
+    <h3 style="left: 14px">批量分享</h3>
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+</div>
+<div align="center" ng-show="!canshare" style="height: 50px;line-height: 50px;">
+    请选择<span class="cursor color-active" ng-click="to_choose_private_customers()">私有活动</span>进行分享
+</div>
+<div align="center" ng-show="canshare && count.all==0" style="height: 50px;line-height: 50px;">
+    请先选择要分享的活动
+</div>
+<form ng-show="canshare && count.all>0" name="add_task_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+      class="wt-form" novalidate role="form">
+
+    <div class="popbox-body">
+        <div class="w_300">已选择{{ count.all }}位活动&nbsp;&nbsp;将分享{{ count.validate }}位活动</div>
+        <div class="w_355" ng-show="count.invalidate>0">
+            其中{{count.invalidate}}位活动的信息不完整，无法分享<br />
+            要分享的活动，<span style="color: #d84c31;">公司名、邮箱和主行业都不能为空</span>
+        </div>
+    </div>
+
+    <div class="popbox-footer" data-ng-hide="share_success">
+        <button ng-if="count.validate<=0" class="btn btn-success float_left disabled">确定分享</button>
+
+        <button ng-if="count.validate>0" class="btn btn-success float_left" ng-click="customer_batch_share()"
+                data-loading-text="分享中..." loading-status="tasks_is_sharing">确定分享</button>
+        <button ng-click="js_close()" class="btn">取消</button>
+    </div>
+    <div class="popbox-body" data-ng-show="share_success">
+        <p class="alert alert-success" data-ng-show="result_code==200">分享已提交审核，一会儿到我分享的活动看看吧！</p>
+        <p class="alert alert-warning" data-ng-show="result_code!=200">操作失败！错误代码：{{result_code}}。</p>
+    </div>
+
+</form>
+

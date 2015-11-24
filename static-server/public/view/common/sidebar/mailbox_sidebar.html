@@ -1,0 +1,257 @@
+<div class="layout_content_sidebar height-nonav common_sidebar slide-content" style="width: 325px"
+     ng-class="{true:'out',false:'in'}[$root.global.right_sidebar_is_fold]" data-ng-controller="mailbox_sidebar_ctrl">
+
+<ul class="layout_content_sidebar_header"
+    ng-if="!global.right_sidebar_is_fold && (global.right_sidebar_show_part==1 || global.right_sidebar_show_part==32)">
+    <li ng-class="{'active':(mail_sidebar_view=='task')}" ng-show=""
+        ng-click="js_step(2,$event)">
+        <a href="javascript:;">活动</a>
+    </li>
+    <li ng-class="{'active':(mail_sidebar_view=='template')}"
+        ng-click="js_step(3,$event)">
+        <a href="javascript:;">模板</a>
+    </li>
+</ul>
+
+<!-- 	<div class="common_sidebar_header collapse_show">
+    <ul class="list-inline">
+        <li ng-class="{'active':(global.project_sidebar_foldview=='module')}">
+            <a href="javascript:;"
+            ng-mouseover="global.project_sidebar_foldview = 'module'" title="应用">
+                <i class="icon-th-large"></i>
+        </a>
+        </li>
+        <li ng-class="{'active':(global.project_sidebar_foldview=='member')}">
+            <a href="javascript:;"
+            ng-mouseover="global.project_sidebar_foldview = 'member'" title="成员">
+                <i class="icon-user"></i>
+        </a>
+        </li>
+    </ul>
+</div>
+-->
+<!--<div id="tour_02_01" ng-switch on="step"
+     class="common_sidebar_step_header "
+     ng-if="!global.right_sidebar_is_fold && (global.right_sidebar_show_part==1 || global.right_sidebar_show_part==32)">
+    &lt;!&ndash; 		<div ng-click="js_toggle_step_body()">
+                <a href="javascript:;">
+                    <button
+                        ng-class="{false:'icon-caret-down',true:'icon-caret-up'}[bodyOpen || global.right_sidebar_show_part==1 || global.right_sidebar_show_part==32]"></button>
+                    <h3 class="pl_15">辅助选项</h3>
+                </a>
+            </div>
+    &ndash;&gt;
+    <div ng-switch-when="1" ng-click="js_step(0)">
+        <a href="javascript:;">
+            <button class="back icon-chevron-left"></button>
+            <h3>筛选目标</h3>
+        </a>
+    </div>
+    &lt;!&ndash; 		<div ng-switch-when="2" ng-click="js_step(0)">
+                <a href="javascript:;">
+                    <button class="back icon-chevron-left"></button>
+                    <h3>选择活动</h3>
+                </a>
+            </div>
+            <div ng-switch-when="3" ng-click="js_step(0)">
+                <a href="javascript:;">
+                    <button class="back icon-chevron-left"></button>
+                    <h3>选择模板</h3>
+                </a>
+            </div>
+     &ndash;&gt;
+    <div ng-switch-when="21" ng-click="js_step(3)">
+        <a href="javascript:;">
+            <button class="back icon-chevron-left"></button>
+            <h3>按项目选择</h3>
+        </a>
+    </div>
+    <div ng-switch-when="22" ng-click="js_step(3)">
+        <a href="javascript:;">
+            <button class="back icon-chevron-left"></button>
+            <h3>按行业选择</h3>
+        </a>
+    </div>
+    <div ng-switch-when="31" ng-click="js_step(3)">
+        <a href="javascript:;">
+            <button class="back icon-chevron-left"></button>
+            <h3>常用模板</h3>
+        </a>
+    </div>
+    <div ng-switch-when="32" ng-click="js_step(3)">
+        <a href="javascript:;">
+            <button class="back icon-chevron-left"></button>
+            <h3>分类模板</h3>
+        </a>
+    </div>
+
+</div>-->
+
+<div class="hr" style="margin: 0px"></div>
+
+<div data-height="119" wt-scroll>
+    <ul class="common_sidebar_step" ng-switch on="step"
+        ng-if="!global.right_sidebar_is_fold &&  (global.right_sidebar_show_part==1 || global.right_sidebar_show_part==32)">
+        <li ng-switch-default class="common_sidebar_step_li">
+            <div class="common_sidebar_step_body animate-sidebarbody-slide"
+                 ng-if="(bodyOpen || global.right_sidebar_show_part==1) && (global.right_sidebar_show_part!=32) && (global.right_sidebar_show_part!=3)">
+                <ul class="common_sidebar_step_menu">
+                    <!-- 						<li ng-class="{'disabled':global.project_iconmenu!='task'}">
+                        <a href="javascript:;" ng-click="js_step(1,$event)"> <i
+                            class="icon-filter"></i> 筛选目标
+                    </a>
+                    </li>
+                <li class="divider"></li> -->
+                    <!-- 						<li><a href="javascript:;" ng-click="js_step(2,$event)">
+                                                    <i class="icon-user"></i> 选择活动
+                                            </a></li>
+                                            <li><a href="javascript:;" ng-click="js_step(3,$event)">
+                                                    <i class="icon-list-alt"></i> 选择模板
+                                            </a></li>
+                     -->                        <!--<li>-->
+                    <!--<a href="javascript:;" ng-click="js_watch_project(pid)">-->
+                    <!--<i class="icon-eye-open"></i> 关注当前项目-->
+                    <!--<span class="text-muted small-tip">关注</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                </ul>
+                <div class="hr"></div>
+            </div>
+            <div class="common_sidebar_step_body animate-sidebarbody-slide"
+                 ng-if="(bodyOpen || global.right_sidebar_show_part==32) && (global.right_sidebar_show_part!=1 && (global.right_sidebar_show_part!=3))">
+                <ul class="common_sidebar_step_menu">
+                    <!-- 						<li ng-class="{'disabled':global.project_iconmenu!='task'}">
+                        <a href="javascript:;" ng-click="js_step(1,$event)"> <i
+                            class="icon-filter"></i> 筛选目标
+                    </a>
+                    </li>
+                <li class="divider"></li> -->
+                    <li><a href="javascript:;" ng-click="js_step(3,$event)">
+                        <i class="icon-list-alt"></i> 选择模板
+                    </a></li>
+                    <!--<li>-->
+                    <!--<a href="javascript:;" ng-click="js_watch_project(pid)">-->
+                    <!--<i class="icon-eye-open"></i> 关注当前项目-->
+                    <!--<span class="text-muted small-tip">关注</span>-->
+                    <!--</a>-->
+                    <!--</li>-->
+                </ul>
+                <div class="hr"></div>
+            </div>
+        </li>
+        <li ng-switch-when="1" class="common_sidebar_step_li">
+            <ng-include
+                    src="'/view/project/sidebar/filter_tasks.html'"></ng-include>
+        </li>
+        <li ng-switch-when="2" class="common_sidebar_step_li">
+            <ng-include
+                    src="'/view/common/sidebar/select_tasks.html'"></ng-include>
+        </li>
+        <li ng-switch-when="3" class="common_sidebar_step_li">
+            <ng-include
+                    src="'/view/common/sidebar/select_template.html'"></ng-include>
+        </li>
+    </ul>
+    <div class="common_sidebar_main"
+         ng-if="global.right_sidebar_show_part==0 || global.right_sidebar_show_part==2 || global.right_sidebar_show_part==3 || global.right_sidebar_show_part==31">
+        <div ng-if="global.right_sidebar_show_part==0">
+            <h4 ng-if="!global.right_sidebar_is_fold">我的开发信</h4>
+            <ul class="common_sidebar_module">
+                <li ng-class="{'active':global.project_iconmenu=='task'}"><a
+                        ng-href="/mail" title="邮件"> <i class="icon-envelope"></i><br/>邮件
+                </a></li>
+                <!-- 					<li><a ng-href="/browse/templates" title="模板"> <i
+                                            class="icon-list-alt"></i><br />模板
+                                    </a></li>
+                 --><!-- 					<li><a ng-href="/project/{{pid}}/task" title="任务(Shift+T)">
+							<i class="icon-star"></i><br />跟踪
+					</a></li>
+ -->                </ul>
+        </div>
+        <div ng-if="global.right_sidebar_show_part==3">
+            <h4 ng-if="!global.right_sidebar_is_fold">我的活动</h4>
+            <ul class="common_sidebar_module">
+                <li ng-class="{'active':global.project_iconmenu=='task'}"><a
+                        ng-href="/tasks" title="邮件"> <i class="icon-user"></i><br/>活动
+                </a></li>
+                <!-- 					<li><a ng-href="/public" title="任务(Shift+T)">
+                                            <i class="icon-star"></i><br />公海
+                                    </a></li>
+                 -->                </ul>
+        </div>
+        <div
+                ng-if="!global.right_sidebar_is_fold && global.right_sidebar_show_part==2">
+            <!-- 邮件操作  -->
+            <h4 style="color: #333;opacity: 1.0;">批量操作</h4>
+
+            <div class="hr collapse_hide"></div>
+            <ul class="common_sidebar_module">
+                <li><a href="javascript:;" ng-click="js_pop_delete_mail($event,selectedMails, mails)" title="删除所选邮件"> <i
+                        class="icon-remove"></i><br/>删除
+                </a></li>
+<!--                 <li><a ng-href="/project/{{pid}}/task" title="设置标签"> <i
+                        class="icon-tag"></i><br/>标签
+                </a></li>
+ -->            </ul>
+        </div>
+        <div
+                ng-if="!global.right_sidebar_is_fold && global.right_sidebar_show_part==31">
+            <!-- 活动操作  -->
+            <h4 style="color: #333;opacity: 1.0;">批量操作</h4>
+            <ul class="common_sidebar_module">
+                <li><a href="javascript:;" ng-click="js_show_add_mail()" title="给所选用户发信">
+                    <i class="icon-envelope"></i><br/>发邮件
+                </a></li>
+                <li><a href="javascript:;" ng-click="js_batch_share()">
+                    <i class="icon-share"></i><br/>分享
+                </a></li>
+                <!-- 					<li><a ng-href="/project/{{pid}}/task" title="任务(Shift+T)">
+                                            <i class="icon-tag"></i><br />标签
+                                    </a></li>
+                 -->                </ul>
+        </div>
+        <div class="hr collapse_hide"
+             ng-if="!global.right_sidebar_is_fold &&  (global.right_sidebar_show_part==31 || global.right_sidebar_show_part==31)"></div>
+        <div
+                ng-if="!global.right_sidebar_is_fold &&  (global.right_sidebar_show_part==31 || global.right_sidebar_show_part==31)">
+            <h4>已选择活动({{selectedTasks.length}})</h4>
+            <ul class="common_sidebar_step"
+                ng-if="!global.right_sidebar_is_fold">
+                <li class="common_sidebar_step_li">
+                    <div class="common_sidebar_step_body animate-sidebarbody-slide"
+                         ng-if="bodyOpen || global.right_sidebar_show_part==31">
+                        <ul class="common_sidebar_step_menu">
+                            <li ng-repeat="task in selectedTasks"><a
+                                    href="javascript:;" ng-click="js_step(1,$event)"> <i
+                                    class="icon-user"></i> {{task.name}}
+                            </a></li>
+                        </ul>
+                        <div class="hr"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="hr collapse_hide"></div>
+        <div
+                ng-if="!global.right_sidebar_is_fold &&  global.right_sidebar_show_part==2">
+            <h4>已选择邮件({{selectedMails.length}})</h4>
+            <ul class="common_sidebar_step"
+                ng-if="!global.right_sidebar_is_fold">
+                <li ng-switch-default class="common_sidebar_step_li">
+                    <div class="common_sidebar_step_body animate-sidebarbody-slide"
+                         ng-if="bodyOpen || global.right_sidebar_show_part==2">
+                        <ul class="common_sidebar_step_menu">
+                            <li ng-repeat="mail in selectedMails"><a
+                                    href="javascript:;" ng-click="js_step(1,$event)"> <i
+                                    class="icon-envelope"></i> {{mail.name}}
+                            </a></li>
+                        </ul>
+                        <div class="hr"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,21 @@
+<html>
+<body>
+	<div
+		style="font-size: 14px; font-family: Verdana,&amp; quot; 宋体 &amp;quot; , Helvetica ,sans-serif; line-height: 1.66; padding: 8px 10px; margin: 0;"
+		class="mailMainArea">
+		<h4>您好，$!{username}：</h4>
+		<p>
+			您刚刚注册了棒呆，请点击以下链接完成注册：<br>
+			<a
+				href="$!{url}"
+				target="_blank" _act="check_domail">$!{url}</a><br>(如果点击链接无反应，请复制链接到浏览器里直接打开)
+		</p>
+		<p>注册即可获得享受更多免费服务!</p>
+		<p>
+			此致<br>棒呆团队
+		</p>
+		<img src='http://www.bonday.cn:8000/tracking_pixel.gif?_=0.5912041043870893'/>
+	</div>
+</body>
+
+</html>

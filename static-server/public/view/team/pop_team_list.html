@@ -1,0 +1,22 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>我的团队</h3>
+</div>
+<div class="popbox-avatar">
+    <div class="avatar-body fixed-width">
+        <ul class="popbox-menu">
+            <li ng-repeat="team in teams">
+                <a href="/teams/{{team.team_id}}">
+                    {{team.name}}
+                    <span class="edition in-list"
+                          ng-class="{1:'edition-free', 2:'edition-business', 3:'edition-nonprofit'}[team.edition]">
+                        {{team.edition | teamEdition }}
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="avatar-footer">
+        <a href="/account/teams"><i class="icon-sitemap mr_5"></i>团队管理</a>
+    </div>
+</div>

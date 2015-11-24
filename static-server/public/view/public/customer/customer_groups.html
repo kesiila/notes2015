@@ -1,0 +1,56 @@
+<div class="forum-category-wrapper pos_relative">
+    <div ng-show="industry_group.part_loading_done">
+        <div class="forum-heading clearfix">
+        <a href  style="position:absolute;top: -15px;right: -5px;font-size: 48px;opacity: 0.6;" ng-click="industry_group.toIndustrys()">×</a>
+            <!--<span class="small-icon icon-close pull-right"  ng-click="industry_group.toIndustrys()"></span>-->
+            <ul style="font-size: 15px;">
+                <li style="float: left;margin-right: 40px;" class="cursor mt_5 mb_10">
+                    <a href="javascript:;" ng-class="{'active':industry_group.main_code ==''}"
+                       ng-click="industry_group.toAllCustomerList()">全部({{global.all_customers_count}})</a>
+                </li>
+                <li style="float: left;margin-right: 40px;" class="cursor mt_5 mb_10"
+                    ng-repeat="item in industry_group.main">
+                    <a ng-class="{'active': industry_group.main_code == item.code}"
+                       ng-click="industry_group.showSecond(item)">{{ item.cnName }}<span ng-if="item.count>0">({{item.count}})</span></a>
+                </li>
+            </ul>
+        </div>
+        <div ng-show="industry_group.s_all_count>0" class="forum-heading clearfix"
+             style="border-bottom: none;height: auto;">
+            <ul style="font-size: 15px;">
+                <li style="float: left;margin-right: 40px;" ng-class="{'active':industry_group.s_code ==''}"
+                    class="cursor mt_5 mb_10" ng-click="industry_group.toCustomerList()">
+                    全部({{industry_group.s_all_count}})
+                </li>
+                <li style="float: left;margin-right: 40px;" ng-class="{'active':industry_group.s_code ==item.code}"
+                    ng-if="item.count>0" class="cursor mt_5 mb_10" ng-click="industry_group.toCustomerList(item)"
+                    ng-repeat="item in industry_group.second">
+                    {{ item.cnName }}<span class="pull-right">({{item.count}})</span>
+                </li>
+                <li ng-if="industry_group.s_undefined_count>=0" style="float: left;margin-right: 40px;"
+                    ng-class="{'active':industry_group.s_code == industry_group.main_code}" class="cursor mt_5 mb_10"
+                    ng-click="industry_group.toS_undefined()">
+                    暂未分类({{industry_group.s_undefined_count}})
+                </li>
+                <li ng-mouseleave="industry_group.show_help=false"
+                    style="position:relative;float: left;margin-right: 40px;" class="mt_5 mb_10">
+                    <a ng-mouseover="industry_group.show_help=true" style="color:#2a6496;cursor:pointer;">(找不到自己的产品？猛戳这里！)</a>
+
+                    <div align="left" class="box-shadow" ng-show="industry_group.show_help"
+                         style="position:absolute;z-index:100;top:-192px;width: 450px;font-size: 14px;padding:20px;color:#2a6496;">
+                        <div style="padding: 5px 0px;">有部分活动同时经营多种产品，所以并未分到某个细类，您可以：</div>
+                        <div style="padding: 5px 0px;">1）选择“<span class="cursor active"
+                                                                  ng-click="industry_group.toS_undefined()">暂未分类</span>”活动查找
+                        </div>
+                        <div style="padding: 5px 0px;">2）看看其他分类的活动是否也会经营自己的产品</div>
+                        <div style="padding: 5px 0px;">3）用上面的搜索框查看试试</div>
+                        <div style="padding: 5px 0px;">4）试试本站专为留学人设计的&nbsp;&nbsp;<a href="/tools/search" target="_blank"
+                                                                                    class="active">google留学专搜</a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="part-loading mt_60" style="margin-bottom: 80px"
+         wt-loading-done="industry_group.part_loading_done"></div>
+</div>
