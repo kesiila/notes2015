@@ -1,7 +1,7 @@
 var http = require('http'),
     httpProxy = require('http-proxy');
 
-var rewrite = require('./../../static-server/rewrite');
+//var rewrite = require('./../../static-server/rewrite');
 
 var proxy = httpProxy.createProxyServer({});
 
@@ -24,7 +24,9 @@ var server = require('http').createServer(function(req, res) {
     var target = 'http://127.0.0.1:9090'; //9090 as default
 
     if(url && url.indexOf('api') > -1) {
-        target = 'http://localhost:8080';
+        target = 'http://127.0.0.1:8080';
+        req.headers['Host'] = "127.0.0.1:8080";
+        req.headers.accept = 'application/json' ;
     }
 
     switch(host){
