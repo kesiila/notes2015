@@ -21,7 +21,7 @@ app.get('/signin', function (req, res) {
     res.sendFile(__dirname + '/public/public.html');
 }).get('/*', function (req, res) {
     if (req.path && req.path.indexOf('.') === -1) {
-        res.status(200).sendFile(__dirname + '/public/index.html')
+        res.status(200).sendFile(__dirname + '/public/dashboard.html')
     } else {
         var contentType='none';
         var ext = path.extname(req.url);
