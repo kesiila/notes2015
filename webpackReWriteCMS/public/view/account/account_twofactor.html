@@ -1,0 +1,222 @@
+<div class="layout_content">
+<div class="layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title">
+        <h3><i class="icon-user mr_10"></i>帐户设置</h3>
+    </div>
+    <div class="main">
+        <div class="pull-right">
+
+        </div>
+    </div>
+</div>
+<div class="center-panel-container height-nonav" wt-scroll>
+
+<dl class="frame" data-minheight="160">
+<dt>
+    <!--<span class="title">安全设置</span>-->
+    <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+
+</dt>
+<dd>
+    <div data-ng-hide="part_loading_done" class="part-loading mt_20"></div>
+    <div data-ng-show="part_loading_done">
+        <div class="panel-section">
+            <div class="navigate-step" data-ng-show="two_step > 1">
+                <div class="line">
+                    <div data-ng-class="{true:'active'}[two_step >= 3]"></div>
+                    <div data-ng-class="{true:'active'}[two_step >= 4]"></div>
+                </div>
+                <ol>
+                    <li data-ng-class="{true:'active'}[two_step >= 2]">
+                        <span class="step-title">安装身份验证器</span>
+                        <br>
+                        <span class="number">1</span></li>
+                    <li data-ng-class="{true:'active'}[two_step >= 3]">
+                        <span class="step-title">添加帐户</span>
+                        <br>
+                        <span class="number">2</span>
+                    </li>
+                    <li data-ng-class="{true:'active'}[two_step >= 4]">
+                        <span class="step-title">验证并开启</span>
+                        <br>
+                        <span class="number">3</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div data-ng-switch="two_step">
+            <div class="panel-section" data-ng-switch-when="0">
+
+                <div class="form-group">
+                    <div class="account_status" ng-class="{1:'on',0:'off'}[account_basic.twofactor_enabled]">
+                        <i class="icon-3x"
+                           ng-class="{1:'icon-shield',0:'icon-ban-circle'}[account_basic.twofactor_enabled]"></i>
+                        <img src="/img/inner/account/google_authenticator.png" alt="Google身份验证器" width="80" height="80"/>
+                        <br/>
+
+                        <p class="alert alert-info w_660">
+                            <i class="icon-info-sign mr_5"></i> 当前状态：<b
+                                ng-bind="{1:'开启',0:'关闭'}[account_basic.twofactor_enabled]"></b>
+                            <br/><br/>　
+                                <span ng-hide="account_basic.twofactor_enabled == 1">两步验证使用你的手机生成动态口令，为您的账户添加一份额外的安全保障，<a
+                                        href="/guide/advance/two-factor" target="_blank">点击了解更多。</a></span>
+                            <span ng-show="account_basic.twofactor_enabled == 1">您已经开启了两步验证，请妥善保存您的安全码，如果移动设备丢失，请使用安全码登录。</span>
+
+                        </p>
+                    </div>
+                    <dl class="recovery_code" ng-show="account_basic.twofactor_enabled == 1">
+                        <dt>
+                            <a href="javascript:;" ng-click="account_show_recovery_code=!account_show_recovery_code"><i
+                                    class="icon-ticket"></i> 点击查看安全码</a>
+                        </dt>
+                        <dd ng-show="account_show_recovery_code">
+                            <ul>
+                                <li ng-repeat="recovery_code in recovery_codes">
+                                    {{recovery_code}}
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" data-ng-show="account_basic.twofactor_enabled == 0"
+                            ng-click="js_two_step(1)">开启两步验证
+                    </button>
+                    <button class="btn btn-danger" data-loading-text="关闭两步验证中..."
+                            loading-status="is_disable_twofactoring" ng-show="account_basic.twofactor_enabled == 1"
+                            ng-click="js_disable_twofactor()">
+                        关闭两步验证
+                    </button>
+                </div>
+
+
+                <!--<div class="form-group w_300 mt_12" data-ng-show="input.enable_twofactor_errors.length > 0">-->
+                <!--<div class="alert alert-danger">-->
+                <!--<i class="icon-remove-sign"></i> {{input.enable_twofactor_errors}}-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div class="panel-section text-center" data-ng-switch-when="1">
+                <wt-confirm-password confirm-cancel="js_two_step(0)"
+                                     confirm-success="js_two_step(2)"></wt-confirm-password>
+            </div>
+            <div class="panel-section col-xs-10 text-center" data-ng-switch-when="2">
+                <div class="clearfix">
+                    <div class="col-xs-5 pull-left">
+                        <img src="/img/inner/account/install.png" alt="安装到你的手机"/>
+                    </div>
+                    <div class="col-xs-7 text-left pull-right">
+                        <h5>在移动设备上安装身份验证器</h5>
+
+                        <p>Google身份验证器是谷歌开发的开源应用，可动态生成验证码，并且不会耗费手机流量。</p>
+
+                        <div class="account-marketplace">
+                            <i class="icon-android icon-3x"></i>
+                            <strong>Android 手机</strong>
+                            <br/>
+                            在各大应用市场搜索：身份验证器
+                            <br/>
+                            或者直接访问：<a href="http://www.wandoujia.com/apps/com.google.android.apps.authenticator2"
+                                      target="_blank">豌豆荚</a>
+                        </div>
+                        <div class="account-marketplace">
+                            <i class="icon-apple icon-3x"></i>
+                            <strong>iPhone 手机</strong>
+                            <br/>
+                            在 AppStore 搜索：
+                            <br/>
+                            <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8" target="_blank">Google
+                                Authenticator</a>
+                        </div>
+                        其他智能设备的安装<a href="/guide/advance/two-factor" target="_blank">查看这里</a>
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-10 p_20">
+                    <button class="btn float_left mr_45" ng-click="js_two_step(1)"><i class="icon-caret-left"></i> 上一步
+                    </button>
+                    <button class="btn btn-success float_left" ng-click="js_two_step(3)">下一步 <i
+                            class="icon-caret-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-section col-xs-10 text-center" data-ng-switch-when="3">
+
+                <div class="clearfix">
+                    <div class="col-xs-5 pull-left">
+                        <img src="/img/inner/account/account-qrcode.png" alt="安装到你的手机"/>
+                    </div>
+                    <div class="col-xs-7 text-left pull-right">
+                        <h5>在身份验证器里添加帐户</h5>
+
+                        <p>打开身份验证器应用，扫描条形码添加帐户</p>
+
+                        <div class="part-loading mt_60" wt-loading-done="loading_twofactor_secret_done"></div>
+                        <div data-ng-show="loading_twofactor_secret_done">
+                            <p ng-bind-html="twofactor_secret.qrcode"></p>
+
+                            <p class="alert alert-info col-xs-8">
+                                <i class="icon-info-sign mr_5"></i> 身份验证器不能扫描验证码？ 手动添加以下帐户： <br/>
+                                <b>帐户 ：</b>{{twofactor_secret.name}}<br/>
+                                <b>密钥 ：</b>{{twofactor_secret.secret}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-xs-10 p_20">
+                    <button class="btn float_left mr_45" ng-click="js_two_step(2)"><i class="icon-caret-left"></i> 上一步
+                    </button>
+
+                    <button class="btn btn-success float_left" ng-click="js_two_step(4)">下一步 <i
+                            class="icon-caret-right"></i>
+                    </button>
+                </div>
+
+            </div>
+            <div class="panel-section col-xs-10 text-center" data-ng-switch-when="4">
+
+
+                <div class="clearfix">
+                    <div class="col-xs-5 pull-left">
+                        <img src="/img/inner/account/account-code.png" alt="填写动态验证码"/>
+                    </div>
+                    <div class="col-xs-7 text-left pull-right">
+                        <h5>开启动态身份验证</h5>
+
+                        <p>输入身份验证器自动生成的动态验证码</p>
+
+                        <div class="input-group w_300">
+                            <input type="text" class="form-control" wt-enter="js_enable_twofactor()"
+                                   ui-event="{ focus : 'js_twofactor_focus()' }" ng-model="input.factor">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="button" data-loading-text="正在开启..."
+                                            loading-status="is_enable_twofactoring"
+                                            data-ng-click="js_enable_twofactor()">验证并开启
+                                    </button>
+                                </span>
+                        </div>
+                        <div class="form-group w_300 mt_12" data-ng-show="input.enable_twofactor_errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign"></i> {{input.enable_twofactor_errors}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group col-xs-10 p_20">
+                    <button class="btn" ng-click="js_two_step(3)"><i class="icon-caret-left"></i> 上一步
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</dd>
+</dl>
+
+</div>
+</div>
+</div>

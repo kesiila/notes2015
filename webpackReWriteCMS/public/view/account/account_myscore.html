@@ -1,0 +1,143 @@
+<div class="layout_content">
+<div class="layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title">
+        <h3><i class="icon-database mr_10"></i>我的积分&nbsp;&nbsp;&nbsp;<span ng-bind="global.me.score"></span></h3>
+        <a href="/account_charge" style="  font-size: 22px;line-height: 59px;margin-left: 20px;">
+            <button class="btn btn-primary  btn-success" >积分充值</button></a>
+    </div>
+    <div class="main">
+        <div class="pull-right btn-group mt_15">
+            <!--<a class="btn ptb_5 dropdown-toggle mr_15" href="javascript:;">我要充值</a>-->
+            <a class="btn ptb_5 dropdown-toggle mr_15" href="/page/scorerule.html" target="_blank">积分规则</a>
+        </div>
+    </div>
+</div>
+<div class="center-panel-container height-nonav" wt-scroll>
+
+<dl class="frame" data-minheight="160">
+<dt>
+    <ul class="tabs">
+        <li>
+            <a ng-class="{true: 'active'}[current_menu == 'all']" href="" ng-click="MyAll()">
+                全部记录
+            </a>
+        </li>
+        <li>
+            <a ng-class="{true: 'active'}[current_menu == 'income']" href="" ng-click="MyIncome()">
+                我得到的
+            </a>
+        </li>
+        <li>
+            <a ng-class="{true: 'active'}[current_menu == 'pay']" href="" ng-click="MyPay()">
+                我消耗的
+            </a>
+        </li>
+        <li>
+            <a  href="/account_order" >
+                我充值的
+            </a>
+        </li>
+        <li>
+            <a ng-class="{true: 'active'}[current_menu == 'get_score']" href="" ng-click="GetScore()">
+                如何获取积分
+            </a>
+        </li>
+
+        <div ng-hide="current_menu == 'get_score'" class="btn-group pull-right">
+            <button class="btn" ng-click="sortScoreDates()" tooltip="切换显示顺序">
+                <i ng-if="queryCondition.isDESC" class="icon-long-arrow-down"></i>
+                <i ng-if="!queryCondition.isDESC" class="icon-long-arrow-up"></i>
+                DATE
+            </button>
+        </div>
+    </ul>
+
+</dt>
+    <dd ng-hide="current_menu == 'get_score'">
+    <div data-ng-hide="part_loading_done" class="part-loading mt_20"></div>
+
+    <div class="table-list" data-ng-show="part_loading_done">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th width="5%">NO.</th>
+                    <th width="10%">积分额</th>
+                    <th>事件</th>
+                    <!--<th>剩余积分</th>-->
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-show="logs.length > 0 && part_loading_done" data-ng-repeat="log in logs">
+                    <td>{{$index + 1}}</td>
+                    <td>{{log.score}}</td>
+                    <td>{{log.active}}</td>
+                    <!--<td>{{log.last_score}}</td>-->
+                    <td>{{log.create_date | fromNow}}</td>
+                </tr>
+
+                <tr data-ng-show="logs.length == 0 && part_loading_done"><td colspan="4" align="center">还没有任何积分消费</td></tr>
+
+            </tbody>
+
+        </table>
+        <div class="pull-right" wt-pagination="security_pagination_opts"></div>
+    </div>
+
+    <div class="clearfix pager-wapper" ng-hide="numPages==1">
+        <div class="category-pager pull-right">
+            <pagination ng-model="currentPage"
+                        total-items="totalItems"
+                        items-per-page="itemsPerPage"
+                        max-size="5"
+                        rotate="false"
+                        direction-links="true"
+                        previous-text="上一页"
+                        next-text="下一页"
+                        boundary-links="true"
+                        first-text="首页"
+                        last-text="尾页"
+                        num-pages="numPages">
+            </pagination>
+        </div>
+    </div>
+
+
+</dd>
+    <dd ng-show="current_menu == 'get_score'">
+        <div data-ng-hide="part_loading_done" class="part-loading mt_20"></div>
+
+        <div class="table-list" data-ng-show="part_loading_done">
+
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th width="5%">NO.</th>
+                    <th>事件</th>
+                    <th width="10%">积分额</th>
+                    <th>获取积分</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-show="score_rules.length > 0 && part_loading_done" data-ng-repeat="rule in score_rules">
+                    <td>{{$index + 1}}</td>
+                    <td>{{rule.event}}</td>
+                    <td>+{{rule.score}}</td>
+                    <td ng-show="rule.url!=1 && rule.url!=2">
+                        <a style="color:#d84c31" target="_blank" href="{{rule.url}}">立即获取</a>
+                    </td>
+                    <td ng-show="rule.url==1">
+                        ——
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </dd>
+</dl>
+
+</div>
+</div>
+</div>

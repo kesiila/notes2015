@@ -1,0 +1,17 @@
+<dl class="frame add_edit_panel">
+<div class="coupon-edit-container">
+    <form name="coupon_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+        <input type="text" id="new_user_id" maxlength="100" name="user_id" autofocus ng-model="new_element.user_id" class="form-control help-block" placeholder="用户ID" required>
+        <div class="cascading-wapper mb_10">
+            <wt-cascading flag="flag" first="new_element.goods_title"
+                          firstkey="new_element.goods_id"
+                          cascad="1"
+                          source="api/codes/entity/goods/tag/goods_coupon">
+            </wt-cascading>
+        </div>
+        <input type="number" id="new_coupon_count" maxlength="100" name="coupon_count" autofocus ng-model="new_element.count" class="form-control help-block" placeholder="数量">
+
+    </form>
+</div>
+</dl>
+

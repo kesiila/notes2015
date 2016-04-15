@@ -1,0 +1,15 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>常用项目</h3>
+</div>
+<div class="mh-300" wt-scroll>
+    <div class="popbox-body">
+        <ul class="popbox-menu">
+            <li data-ng-repeat="project in projects | filter:{is_star:1}">
+                <a href="javascript:;" data-ng-click="js_to_project(project)" title="{{project.name}}">
+                    <i ng-class="project.pic" ng-style="{color: project.bg}"></i> {{project.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+

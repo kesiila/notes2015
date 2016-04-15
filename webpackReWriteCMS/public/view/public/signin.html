@@ -1,0 +1,139 @@
+<div class="other-warp login-wrap" data-ng-controller="user_login_ctrl">
+
+    <div class="single-panel clearfix" style="padding-bottom: 282px;">
+        <div class="single-panel-inner login-mini" ng-show="status.code == 0">
+            <div class="single-panel-header">
+                <h3>登录
+				</h3>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section">
+                    <form wt-form-validate="{blurTrig:false,showMsg:false}" name="login_form"
+                          class="form-horizontal wt-form" novalidate>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon icon-user"></i></span>
+                                <input class="form-control" type="text" placeholder="输入用户名/注册邮箱"
+                                       name="login_name" ng-model="login_name" required="" wt-autofocus=""/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon fs_17"><i class="icon icon-lock"></i></span>
+                                <input class="form-control" type="password" placeholder="输入密码"
+                                       name="login_password" ng-model="login_password" required=""/>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-show="login_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign mr_5"></i>{{login_form.$errors[0]}}
+                                <span ng-if="ifSignup">&nbsp;&nbsp;<a href='/signup'>注册新帐号</a></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button wt-form-submit="signin(login_form)" class="btn btn-success btn-lg btn-block"
+                                    type="button"
+                                    wt-tracker="Login Page|Main|Login"
+                                    data-loading-text="登录中..." loading-status="is_login_ing"> 登 录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!--<div class="single-panel-footer">-->
+            <!--<div class="pull-right">-->
+            <!--<a wt-tracker="Login Page|Main|Goto Forgot" href="/forgot">忘记密码？</a></div>-->
+            <!--</div>-->
+            <div class="single-panel-footer">
+                <div style="margin:0 20px 0 24px;">
+                    <a href="/signup"  >还没帐号?</a>
+                    <a href="/signup" class="signup_in_model"  style="color:red;font-size: 16px;">立即注册</a>
+                    <a href="/forgot" class="pull-right"  >忘记密码？</a></div>
+            </div>
+        </div>
+
+
+        <div class="single-panel-inner login-mini" ng-show="status.code == 1">
+            <div class="single-panel-header">
+                <h3>登录</h3>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section">
+
+                    <form wt-form-validate="{blurTrig:false,showMsg:false}" name="twofactor_form"
+                          class="form-horizontal wt-form" novalidate>
+                        <div class="form-group">
+                            您的帐户开启了两步验证，请输入动态验证码登录<br/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="输入动态验证码"
+                                   name="factor" ng-model="factor" required="" autofocus=""/>
+                        </div>
+
+                        <div class="form-group" ng-show="twofactor_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign mr_5"></i>{{twofactor_form.$errors[0]}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button wt-form-submit="js_signin_twofactor(twofactor_form)"
+                                    class="btn btn-success btn-lg btn-block"
+                                    type="button"
+                                    wt-tracker="Login Page|Main|Login"
+                                    data-loading-text="登录中..." loading-status="is_signfactoing">登录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="single-panel-footer">
+                <div class="pull-right">
+                    <a wt-tracker="Login Page|Main|Goto Forgot" href="javascript:;" data-ng-click="status.code = 2">手机设备丢失？使用安全码登录</a></div>
+            </div>
+        </div>
+
+        <div class="single-panel-inner login-mini" ng-show="status.code == 2">
+            <div class="single-panel-header">
+                <h3>登录</h3>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section">
+
+                    <form wt-form-validate="{blurTrig:false,showMsg:false}" name="recovery_form"
+                          class="form-horizontal wt-form" novalidate>
+                        <div class="form-group">
+                            您的帐户开启了两次验证，请输入安全码登录<br/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="输入安全码"
+                                   name="recovery_code" ng-model="recovery_code" required="" autofocus=""/>
+                        </div>
+
+                        <div class="form-group" ng-show="recovery_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign mr_5"></i>{{recovery_form.$errors[0]}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button wt-form-submit="js_signin_recovery(recovery_form)"
+                                    class="btn btn-success btn-lg btn-block"
+                                    type="button"
+                                    wt-tracker="Login Page|Main|Login"
+                                    data-loading-text="登录中..." loading-status="is_signrecoverying">登录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="single-panel-footer">
+                <div class="pull-right">
+                    <a wt-tracker="Login Page|Main|Goto Forgot" href="javascript:;" data-ng-click="status.code = 1">使用动态验证码登录</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

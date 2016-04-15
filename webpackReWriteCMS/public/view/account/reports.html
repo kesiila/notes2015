@@ -1,0 +1,160 @@
+<div class="layout_content">
+<div class="layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title">
+        <h3><i class="icon-warning-sign mr_10"></i>举报信息&nbsp;<i class="icon-angle-right"></i>&nbsp;<span class="color-active font-16">{{current_title}}举报</span></h3>
+    </div>
+</div>
+<div class="center-panel-container height-nonav" wt-scroll>
+
+<dl class="frame" data-minheight="160" ng-show="!show_report_infos">
+<dt>
+    <ul class="tabs f_l" >
+        <li>
+            <a ng-class="{true: 'active'}[queryCondition.otype == 'customer']" href="" ng-click="choose_report_type('customer')">
+                活动
+            </a>
+        </li>
+        <li>
+            <a ng-class="{true: 'active'}[queryCondition.otype == 'template']" href="" ng-click="choose_report_type('template')">
+                模板
+            </a>
+        </li>
+        <li>
+            <a ng-class="{true: 'active'}[queryCondition.otype == 'post']" href="" ng-click="choose_report_type('post')">
+                问答
+            </a>
+        </li>
+        <!--<li>
+            <a ng-class="{true: 'active'}[queryCondition.otype == 'comment']" href="" ng-click="choose_report_type('comment')">
+                评论
+            </a>
+        </li>-->
+        <li>
+            <a href="/account_settings">
+                帐户设置
+            </a>
+        </li>
+    </ul>
+
+    <div class="pull-right btn-group pr_10">
+        <button class="btn ptb_11" ng-click="sort_reports('-1')">
+            <span><i ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[queryCondition.isDESC==true]"></i></span>
+        </button>
+
+        <a class="btn dropdown-toggle dropdown-toggle ptb_11" data-toggle="dropdown" href="javascript:;">
+            <i class="icon-caret-down"></i>
+        </a>
+
+        <!--显示排序条件-->
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li ng-repeat="sort_order in sort_orders" ng-click="sort_reports($index)">
+                <a href="javascript:;" ng-class="{true: 'active'}[$index==sort_index]">
+                    <i ng-class="{false:'icon-xx'}[$index==sort_index]"
+                       wt-show="$index!=sort_index"></i>
+                    <i ng-class="{true:'icon-long-arrow-down',false:'icon-long-arrow-up'}[queryCondition.isDESC==true]"
+                       ng-show="$index==sort_index"></i>
+                    {{sort_order.value}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</dt>
+    <dd>
+
+    <div class="table-list">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th width="5%">NO.</th>
+                    <th width="40%">举报对象</th>
+                    <th>被举报数量</th>
+                    <th>已处理数量</th>
+                    <th>最新举报时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-show="part_loading_done && report_objects.length > 0" class="cursor" ng-click="report_list.show_report_list(report_object)" data-ng-repeat="report_object in report_objects">
+                    <td>{{$index + 1}}</td>
+                    <td>{{report_object.name}}</td>
+                    <td>{{report_object.reportCount}}</td>
+                    <td>{{report_object.disposedCount}}</td>
+                    <td>{{report_object.lastReportTime | timefullFormatZHCN}}</td>
+                </tr>
+
+                <tr data-ng-show="part_loading_done && report_objects.length == 0"><td colspan="5" align="center">还没有任何举报信息</td></tr>
+                <tr data-ng-hide="part_loading_done"><td colspan="5" align="center"><div class="part-loading mt_20"></div></td></tr>
+
+            </tbody>
+
+        </table>
+        <div class="pull-right" wt-pagination="security_pagination_opts"></div>
+    </div>
+</dd>
+</dl>
+
+<!-- 单个对象举报列表 -->
+<dl class="frame" data-minheight="160" ng-show="show_report_infos">
+        <dt>
+        <ul class="tabs f_l" >
+            <li>
+                <a ng-class="{true: 'active'}[report_list.queryCondition.isDisposed == false]" href="" ng-click="report_list.queryCondition.isDisposed = false">
+                    待处理
+                </a>
+            </li>
+            <li>
+                <a ng-class="{true: 'active'}[report_list.queryCondition.isDisposed == true]" href="" ng-click="report_list.queryCondition.isDisposed = true">
+                    已处理
+                </a>
+            </li>
+        </ul>
+
+        <div class="pull-right btn-group pr_10">
+            <!--<button class="btn" ng-click="report_list.show_object()">
+                查看对象
+            </button>-->
+            <button class="btn" ng-click="report_list.hide_report_list()">
+                返回
+            </button>
+        </div>
+
+        </dt>
+        <dd>
+            <div class="table-list">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th align="center">操作</th>
+                            <th width="40%">举报详情</th>
+                            <th>举报类型</th>
+                            <th width="10%">举报人</th>
+                            <th width="15%">举报时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-show="part_loading_done && report_list.report_infos.length > 0" data-ng-repeat="report_info in report_list.report_infos">
+                            <td align="center">
+                                <span ng-if="report_list.queryCondition.isDisposed == false" class="cursor" ng-click="report_list.disposed(report_info,1)"><i class="icon-ok"></i></span>
+                                <span ng-if="report_list.queryCondition.isDisposed == true">已处理</span>
+                            </td>
+                            <td class="cursor" ng-click="report_list.show_object()">{{report_info.message}}</td>
+                            <td class="cursor" ng-click="report_list.show_object()">{{report_info.type_name}}</td>
+                            <td class="cursor" ng-click="report_list.show_object()">{{report_info.owner.name}}</td>
+                            <td class="cursor" ng-click="report_list.show_object()">{{report_info.create_date | timefullFormatZHCN}}</td>
+                        </tr>
+                        <tr data-ng-show="part_loading_done && report_list.report_infos.length == 0"><td colspan="5" align="center">还没有任何举报信息</td></tr>
+                        <tr data-ng-hide="part_loading_done">
+                            <td colspan="5" align="center"><div class="part-loading mt_20"></div></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div class="pull-right" wt-pagination="security_pagination_opts"></div>
+            </div>
+        </dd>
+    </dl>
+
+</div>
+</div>
+</div>

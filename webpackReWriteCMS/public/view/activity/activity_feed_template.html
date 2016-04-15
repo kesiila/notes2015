@@ -1,0 +1,74 @@
+<script type="text/ng-template" id="task_create">
+    <div class="feed-item-inner slide-trigger">
+        <div class="feed-item-header">
+            <wt-avatar member="feed.actor" name="true" size="30"></wt-avatar>
+            <span class="actor">新建了活动</span>
+        </div>
+        <div class="feed-item-body">
+            <i class="icon-user"></i>
+            <span class="entity">
+                {{feed.data.entity.name}}
+            </span>
+            <br/>
+        </div>
+        <span class="datetime">{{feed.published | fromNow}}</span>
+    </div>
+</script>
+
+<script type="text/ng-template" id="task_update">
+    <div class="feed-item-inner slide-trigger">
+        <div class="feed-item-header">
+            <wt-avatar member="feed.actor" name="true" size="30"></wt-avatar>
+            <span class="actor">更新了活动aaaa</span>
+        </div>
+        <div class="feed-item-body">
+            <i class="icon-user"></i>
+            <span class="entity">
+                {{feed.data.entity.name}}
+            </span>
+            <br/>
+        </div>
+        <span class="datetime">{{feed.published | fromNow}}</span>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="task_complete">
+    <div class="feed-item-inner slide-trigger">
+        <div class="feed-item-header">
+            <wt-avatar member="feed.actor" name="true" size="30"></wt-avatar>
+            <span class="actor">完成了活动</span>
+
+        </div>
+        <div class="feed-item-body">
+            <i class="icon-user"></i>
+            <span class="entity">
+                {{feed.data.entity.name}}
+            </span>
+            <br/>
+        </div>
+        <span class="datetime">{{feed.published | fromNow}}</span>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="task_comment_add">
+    <div class="feed-item-inner slide-trigger">
+        <div class="feed-item-header">
+            <wt-avatar member="feed.actor" name="true" size="30"></wt-avatar>
+            <span class="actor">评论了活动</span>
+
+        </div>
+        <div class="feed-item-body">
+            <i class="icon-comment-alt"></i>
+            <span class="comment">
+                {{feed.data.entity.name}}
+            </span>
+            <br/>
+            <span class="entity">
+                {{feed.data.target.name}}
+            </span>
+        </div>
+        <span class="datetime">{{feed.published | fromNow}}</span>
+    </div>
+</script>

@@ -1,0 +1,57 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>添加课程时间</h3>
+        </div>
+        <div class="max-h500" wt-scroll>
+            <form ng-if="selected_projects.length > 0 || !show_project_select" name="new_event_form"
+                  wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate role="form">
+                <div class="popbox-body pop-add-event">
+                    <div class="section-group">
+                        <lable>开始：</lable>
+                        <input name="start_date" ng-model="new_event.start_date" placeholder="" type="text"
+                               class="form-control control-first" data-ng-click="js_to_set_date('start_date')"
+                               readonly required/>
+                        <select ng-model="new_event.start_hour"
+                               ng-options="time for time in start_hour_sections"
+                               class="form-control hour-select"></select>
+                        <span class="separation">:</span>
+                        <select ng-model="new_event.start_minute"
+                                ng-options="time for time in start_minute_sections"
+                                class="form-control minute-select"></select>
+                    </div>
+                    <div class="section-group">
+                        <lable class="">结束：</lable>
+                        <input name="end_date" ng-model="new_event.end_date" placeholder="" type="text"
+                               class="form-control control-first" data-ng-click="js_to_set_date('end_date')" readonly
+                               required/> <select ng-model="new_event.end_hour"
+                                                  ng-options="time for time in end_hour_sections"
+                                                  class="form-control hour-select"
+                                                  ng-change="js_change_end_hour()"></select>
+                        <span class="separation">:</span>
+                        <select ng-model="new_event.end_minute"
+                                ng-options="time for time in end_minute_sections"
+                                class="form-control minute-select"></select>
+                    </div>
+                    <div class="section-group">
+                        <button ng-click="addDate()" data-loading-text="保存中..."
+                                class="btn btn-success mr_15" loading-status="new_event.is_saving">确定
+                        </button>
+                        <button ng-click="js_close()" class="btn">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </li>
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>{{set_date_title}}</h3></div>
+        <div class="popbox-body">
+            <wt-full-datepicker default-date="current_date" set-date="js_set_date(date)"
+                                min-date="min_date"></wt-full-datepicker>
+        </div>
+    </li>
+</ul>

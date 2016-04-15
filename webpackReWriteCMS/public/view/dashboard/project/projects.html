@@ -1,0 +1,143 @@
+<div class="layout_content">
+	<div class="layout_content_main no_sidebar height-noheader">
+		<div class="mod_navbar">
+			<div class="title">
+				<h3>
+					<i class="icon-project mr_10"></i> 项目管理
+				</h3>
+			</div>
+
+			<div class="main">
+				<div class="toolbar_panel pull-right">
+					<input class="form-control" ng-model="searchInput.keyword"
+						   style="display: inline-block; width: 250px" ng-hide="is_create"
+						   placeholder="按名称查询" wt-enter="searchInput.search(searchInput.keyword)"/>
+					<button class="btn btn-danger mr_15" ng-click="show_add_form()" ng-hide="is_create" 
+						type="button"
+						wt-permission="[permission,project.info.curr_role,1,2]">新建项目
+					</button>
+					
+					<button class="btn btn-success mr_15" data-loading-text="保存中..." ng-show="is_create"
+						loading-status="is_saving" ng-click="save()">保存</button>
+					<button class="btn btn-cancel" ng-click="cancelForm()" ng-show="is_create">取消</button>
+					
+
+					<div class="btn-group js-popbox mr_15" ng-hide="is_create">
+						<!--按创建时间-->
+						<button class="btn ptb_11" ng-click="sort()" data-toggle="tooltip"
+							data-placement="bottom"
+							title="{{currentSortItem.name}}{{ {true:' 降序 ',false:' 升序 '}[isDESC==true] }}排列">
+							<span><i
+								ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[isDESC==true]"></i></span>
+						</button>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="height-nonav" wt-scroll>
+
+			<div ng-if="is_create">
+				<ng-include src="'/view/dashboard/project/add_or_edit_project.html'"></ng-include>
+			</div>
+
+			<div class="layout_split_panel" ng-hide="is_create">
+
+				<dl class="frame" data-minheight="160">
+
+					<!-- 按项目类别分类 -->
+					<dt>
+						<ul class="tabs">
+							<li><a
+								ng-class="{true: 'active'}[current_type.code == defaultType.code]"
+								href="javascript:;" ng-click="selectByType(defaultType)"> 全部
+							</a></li>
+							<li ng-repeat="type in types"><a
+								ng-class="{true: 'active'}[current_type.code == type.code]"
+								href="javascript:;" ng-click="selectByType(type)">
+									{{type.cnName}} </a></li>
+						</ul>
+					</dt>
+
+
+					<!-- 正文，列表部分 -->
+					<dd class="p_0">
+
+						<div class="empty-panel" ng-show="items.length == 0">
+							<i class="icon-list-alt"></i> <br />
+							<!--<span>还没有任何项目</span>-->
+							<h4>
+								还没有任何项目 <a style="color: #d84c31;" href="javascript:;"
+									ng-click="show_add_form()">立即创建项目！</a>
+							</h4>
+						</div>
+
+						<div class="template-panel">
+							<div class="thread-list  pl_25 pr_25">
+								<div class="wt-row thread-item slide-trigger cursor"
+									ng-class="{'active':project.pid == locator.show_detail_pid}"
+									ng-click="locator.to_project_slide(project.pid,false)"
+									ng-repeat="project in items">
+
+									<div class="col-sm-12 thread-item-inner">
+										<div class="row">
+											<div class="col-sm-12 ">
+												<div class="row primary">
+													<div class="col-sm-12 thread-title pos_relative">
+														<h4 class="col-sm-5">
+															<a href="javascript:;"> <span title="项目名称">{{project.title|abbrevition:32}}</span>
+															</a>
+														</h4>
+														<div class="col-sm-3 pull-left text-muted"
+															style="margin-top: 10px">
+															<span title="创建人" >{{project.creator.display_name}}</span>
+														</div>
+														<div class="col-sm-4 pull-left text-muted"
+															style="margin-top: 10px">
+															<span title="项目类型" ></span>
+														</div>
+													</div>
+												</div>
+												<div class="row sm-font-color secondary">
+													<div class="col-sm-5">
+														<span class="ml_15">{{project.desc|abbrevition:50}}&nbsp;</span>
+													</div>
+
+														<div class="col-sm-3 pull-left text-muted"
+															style="margin-top: 10px">
+															<span title="创建时间" >{{project.create_date | dateFormat}}</span>
+														</div>
+														<div class="col-sm-4 pull-left text-muted"
+															style="margin-top: 10px">
+															<span title="项目ID" >{{project.pid}}</span>
+														</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="clearfix pager-wapper" ng-hide="numPages==1">
+								<div class="category-pager pull-right">
+									<pagination ng-model="currentPage" total-items="totalItems"
+										items-per-page="itemsPerPage" max-size="5" rotate="false"
+										direction-links="true" previous-text="上一页" next-text="下一页"
+										boundary-links="true" first-text="首页" last-text="尾页"
+										num-pages="numPages"> </pagination>
+								</div>
+							</div>
+						</div>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<!--左边栏-->
+	<!--<div class="layout_right_sidebar height-noheader">-->
+	<!--<ng-include src="'/view/project/sidebar/sidebar.html'"></ng-include>-->
+	<!--</div>-->
+</div>

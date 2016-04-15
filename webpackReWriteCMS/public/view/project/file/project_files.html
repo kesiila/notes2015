@@ -1,0 +1,205 @@
+<div class="prj_panel layout_content">
+
+	<div class="layout_content_main">
+		<div class="mod_navbar">
+			<ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+			<div class="main">
+
+				<div class="toolbar_panel pull-right" ng-show="global.loading_done">
+					<div class="btn-group mr_15"
+						wt-permission="[permission,project.info.curr_role,1,2]">
+						<span class="btn fileinput-button btn-danger">
+                            <span ng-show="upload_enabled">添加文件 <input wt-uploadfile="file_upload_option" multiple type="file" name="files[]" title="添加文件" /></span>
+						</span>
+                        <button class="btn btn-danger dropdown-toggle ptb_11" data-toggle="dropdown">
+                            <i class="icon-caret-down" style="line-height:1em"></i>
+                        </button>
+						<ul class="dropdown-menu pull-right">
+							<li><a href="javascript:;" ng-click="js_trigger_upload($event)" wt-tracker="Task Panel|Right|UploadFile-More-Form Local">
+                                <i class="icon-xx"></i> 本地上传文件
+							</a></li>
+							<li><a href="javascript:;" ng-show="!is_folder" ng-click="js_add_folder_pop($event)" wt-tracker="File List|Right|Create New Folder">
+                                <i class="icon-xx"></i> 新建文件夹
+							</a></li>
+						</ul>
+					</div>
+					<div class="btn-group mr_15">
+						<button class="btn ptb_11" ng-class="{'active':view_type=='grid'}"
+							ng-click="set_view_type('grid')">
+							<i class="icon-th-large"></i>
+						</button>
+						<button class="btn ptb_11" ng-class="{'active':view_type=='list'}"
+							ng-click="set_view_type('list')">
+							<i class="icon-list"></i>
+						</button>
+					</div>
+<!-- 					<div class="btn-group">
+						<button class="btn">
+							<i class="icon-sort-by-alphabet-alt"></i>
+						</button>
+						<a class="btn dropdown-toggle" data-toggle="dropdown"
+							href="javascript:;"><i class="icon-caret-down"></i></a>
+						<ul class="dropdown-menu pull-right">
+							<li><a href="" ng-click="js_select_filter('default')"> <i
+									class="{{ {true:'color_gray icon-ok',false:'icon-xx'}[current_filter == 'default']}}"></i>按默认方式
+							</a></li>
+							<li><a href="" ng-click="js_select_filter('name')"> <i
+									class="{{ {true:'color_gray icon-ok',false:'icon-xx'}[current_filter == 'name']}}"></i>按文件名称
+							</a></li>
+							<li><a href="" ng-click="js_select_filter('create_date')">
+									<i
+									class="{{ {true:'color_gray icon-ok',false:'icon-xx'}[current_filter == 'create_date']}}"></i>按创建时间
+							</a></li>
+							<li><a href="" ng-click="js_select_filter('update_date')">
+									<i
+									class="{{ {true:'color_gray icon-ok',false:'icon-xx'}[current_filter == 'update_date']}}"></i>按修改时间
+							</a></li>
+						</ul>
+					</div>
+ -->					<!--<button class="btn js-popbox" data-placement="bottom" data-align="right"-->
+					<!--wt-tracker="Project File Page|Nav|Toggle Pop More"-->
+					<!--ng-click="js_show_more_menu($event)"-->
+					<!--wt-permission="[permission,project.info.curr_role,1,2]">-->
+					<!--更多&nbsp;<i class="icon-caret-down"></i>-->
+					<!--</button>-->
+
+					<button class="btn ptb_11" ng-click="js_right_sidebar_toggle($event)">
+						<i
+							ng-class="{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]"></i>
+					</button>
+
+
+				</div>
+			</div>
+		</div>
+		<div class="height-nonav" wt-scroll wt-dragfile="dragfile_option">
+			<dl class="frame dragfile-hover-placeholder">
+				<i class="icon-upload-alt mr_10"></i>
+				<span>松开上传文件</span>
+			</dl>
+			<dl class="frame" data-minheight="160" ng-show="global.loading_done">
+				<dt>
+					<span class="title"> <a href="javascript:history.go(-1);"
+						ng-if="is_folder"><i class="icon-folder-open mr_10"></i></a>{{folder_name}}
+					</span>
+					<ul class="tabs">
+						<li><a data-ng-class="{'active':current_tab == 0}"
+							href="javascript:;" ng-click="js_change_tab(0)">全部</a></li>
+<!-- 						<li><a data-ng-class="{'active':current_tab == 1}"
+							href="javascript:;" ng-click="js_change_tab(1)">我上传的</a></li>
+						<li><a data-ng-class="{'active':current_tab == 2}"
+							href="javascript:;" ng-click="js_change_tab(2)">我关注的</a></li>
+ -->					</ul>
+				</dt>
+				<dd class="pt_0">
+					<div class="empty-panel"
+						ng-show="(files | filter:{is_hide:'!true'}).length == 0 && global_fileupload_queue().length == 0">
+						<i class="icon-file"></i><br /> <span>还没有任何文件</span>
+					</div>
+					<div class="file-panel">
+						<ul class="file-items"
+							ng-if="view_type == 'grid' && files.length > 0">
+							<li
+								class="file-item right_click_trigger file-item-mark js-popbox"
+								data-placement="bottom" data-align="left"
+								ng-click="js_navigate($event,file)" ng-repeat="file in files"
+								file-id="{{file.fid}}" data-ng-hide="file.is_hide"
+								droppable="{true:folder_droppable_options,false:null}[(file.type | isFolder)]"
+								draggable="{true:file_draggable_options,false:null}[(file.type | isFile)]"
+								wt-title="{
+                    0:file.name + '\n大小：' + (file.size | fileSize) + '\n修改时间：' + (file.update_date | timeFormatZHCN),
+                    1:file.name + '\n修改时间：' + (file.update_date | timeFormatZHCN)}
+                    [file.type]">
+
+								<a href="javascript:;" class="file-menu js-popbox"
+								wt-permission="[permission,project.info.curr_role,1,2]"
+								data-placement="right" data-align="auto"
+								ng-click="js_show_menu($event, file)"> <i
+									class="icon-play-circle"></i>
+							</a> <a class="file-pic"
+								ng-class="{0:'file-picfile fancybox-file',1:'file-picfolder'}[file.type]"
+								data-fancybox-group="filegroup"
+								data-fancybox-href="{{file | wtBoxView}}"
+								data-fancybox-type="image" title="{{ file.name }}"> <img
+									ng-src="{{file.icon | wtBox}}" alt="{{ file.name }}" />
+							</a>
+
+								<div class="file-name">
+									<a class="slide-trigger"
+										ng-click="js_navigate_detail($event,file)" href="javascrpt:;">{{file.name}}</a>
+								</div>
+
+							</li>
+							<!--上传队列列表-->
+							<li class="file-item"
+								ng-repeat="file in global_fileupload_queue()"><a
+								class="file-pic file-pic-queue" title="{{ file.name }}"> <img
+									ng-if="!file.preview" ng-src="{{file.name | getExtIcon}}"
+									alt="{{ file.name }}" />
+
+									<div ng-if="file.preview" class="preview"
+										data-file-upload-preview="file"></div> <span class="error"
+									ng-show="file.error"> <span class="label label-danger">{{
+											file.error | fileuploadErrorInfo }}</span> <br /> <br />
+
+								</span> <span href="javascript:;" class="cancel"
+									ng-click="file.$cancel()" ng-hide="!file.$cancel"> 取消 </span>
+
+									<div ng-hide="file.error"
+										class="progress progress-striped active"
+										ng-class="{pending: 'in'}[file.$state()]"
+										file-upload-progress="file.$progress()">
+										<div class="progress-bar progress-bar-success"
+											ng-style="{width: num + '%'}"></div>
+									</div>
+							</a>
+
+								<div class="file-name">{{file.name}}</div></li>
+						</ul>
+						<div class="file-list-view"
+							ng-if="view_type == 'list' && files.length > 0">
+							<div
+								class="wt-row right_click_trigger file-item-view file-item-mark js-popbox"
+								data-placement="bottom" data-align="left"
+								ng-class="{'border-notop':$index == 0,'active':file.fid == locator.show_detail_file_id}"
+								ng-repeat="file in files" file-id="{{file.fid}}"
+								data-ng-hide="file.is_hide">
+								<div class="column column-pic slide-trigger"
+									ng-click="js_navigate($event,file)">
+									<img class="pic" ng-src="{{file.icon | wtBox}}"
+										alt="{{ file.name }}" />
+								</div>
+								<div class="column column-name slide-trigger"
+									ng-click="js_navigate($event,file)">
+									<a class="name" href="javascript:;">{{file.name }}</a>
+								</div>
+								<div class="column column-size">&nbsp;{{(file.size |
+									fileSize) || ""}}</div>
+								<div class="column column-update">
+									<wt-avatar member="file.update_user" name="false" size="30"></wt-avatar>
+								</div>
+								<div class="column column-date">
+									<span class="date">{{file.update_date | fromNow}}</span>
+								</div>
+								<div class="column column-meta">
+									<a href="javascript:;" class="post-action js-popbox"
+										data-placement="auto"
+										wt-permission="[permission,project.info.curr_role,1,2]"
+										ng-click="js_show_menu($event,file)"> <i
+										class="icon-play-circle"></i>
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="layout_right_sidebar height-noheader">
+		<ng-include src="'/view/project/sidebar/sidebar.html'"></ng-include>
+	</div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

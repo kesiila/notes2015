@@ -1,0 +1,32 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>更多选项</h3>
+        </div>
+        <div class="popbox-body fixed-width-260">
+            <ul class="popbox-menu">
+                <li><a href="javascript:;" ng-click="js_step(3)">
+                    <i class="icon-share"></i> 数据导出</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li ng-switch-when="3" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>数据导出</h3>
+        </div>
+        <div class="popbox-body fixed-width-260">
+            <ul class="popbox-menu">
+                <li>
+                    <a href="/api/projects/{{project.info.pid}}/files/exports?format=json"
+                       target="_blank">
+                        <i class="icon-code"></i> JSON数据
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+</ul>

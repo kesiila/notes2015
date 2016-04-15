@@ -1,0 +1,69 @@
+<div class="layout_content"
+	>
+	<div class="layout_content_main no_sidebar height-noheader">
+		<div class="mod_navbar">
+			<div class="title">
+				<ng-include src="'/view/team/team_title.html'"></ng-include>
+			</div>
+		</div>
+		<div class="height-nonav" wt-scroll>
+			<div class="layout_split_panel">
+				<div class="layout_split_left">
+					<ng-include src="'/view/team/team_admin_left_nav.html'"></ng-include>
+				</div>
+				<div class="layout_split_right">
+					<div class="center-panel">
+						<dl class="frame" data-minheight="160">
+							<dt>
+								<span class="title">项目</span> <a href="javascript:;"
+									ng-click="js_pop_new_menu($event)"
+									
+									class="btn btn-danger pull-right" master_new_dialog step="2">新建项目
+								</a>
+								<ul class="tabs">
+									
+									<li><a
+										ng-class="{true: 'active'}[current_visibility == 1]"
+										href="javascript:;" ng-click="js_set_current_visibility(1)">
+											我参与的 </a></li>
+									
+								</ul>
+							</dt>
+							<dd>
+								<div >
+									<div class="project-list project-panel">
+										<div class="wt-row"
+											ng-repeat="project in team_projects "
+											wt-go-to="/project/{{project.pid}}"
+											data-ng-class="{1:'show-star'}[project.is_star]">
+											<div class="column column-star">
+												<a href="javascript:;"
+													ng-class="{1: 'star-started', 0: ''}[project.is_star]"
+													ng-click="js_star_toggle($event,project)" class="star"
+													title="{{ {1: '从常用项目移除', 0: '设置为常用项目'}[project.is_star] }}"
+													ng-hide="project.archived == '1'"> <i
+													ng-class="{1: 'icon-star', 0: 'icon-star-empty'}[project.is_star]"></i>
+												</a> &nbsp;
+											</div>
+											<div class="column column-icon">
+												<i ng-class="project.pic" ng-style="{color:project.bg}"></i>
+											</div>
+											<div class="column column-name">
+												<h4>{{project.name}}</h4>
+											</div>
+											<div class="column column-admin">&nbsp;</div>
+											<div class="column column-member">
+												<i class="icon-user mr_5"></i>{{project.member_count}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-include src="'/view/team/team_not_found.html'"></ng-include>

@@ -1,0 +1,10 @@
+<h2 wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{task.title}}">{{task.title|abbrevition:30}}</span>
+    <span ng-show="!task.title" class="text-muted">暂无联系人</span>
+	<em class="pull-right" title="结束时间" ng-if="task.startDate">
+		<i class="icon-flag" ng-show="task.is_edit || task.countryCnName.length>0 || permission==4"></i>
+		开始:  {{task.startDate | timeFormatZHCN}} </em>
+    <em class="pull-right" title="结束时间" ng-if="task.endDate">
+		<i class="icon-flag" ng-show="task.is_edit || task.countryCnName.length>0 || permission==4"></i>
+		结束:  {{task.endDate | timeFormatZHCN}} </em>
+</h2>

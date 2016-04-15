@@ -1,0 +1,102 @@
+<div data-ng-controller="entity_page_ctrl" class="entity-panel page-panel">
+    <div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+    <div class="entity-panel-wrapper" ng-show="section_loading_done">
+        <div class="entity-panel-header">
+            <a href="javascript:;" class="name" ng-click="locator.to_project(project.info.pid, 'page')">
+                <i class="{{project.info.pic}} mr_10" ng-style="{color:project.info.bg}"></i>
+                {{project.info.name}}
+            </a>
+            <ul class="nav nav-pills">
+                <li ng-show="permission==16" class="entity-warning">文档已经于 {{page.update_date | timeFormatZHCN}} 删除了</li>
+                <li wt-permission="[permission,project.info.curr_role,1,2]">
+                    <a title="编辑">
+                    <i class="icon-pencil"></i>编辑
+                    </a>
+                </li>
+
+                <li wt-permission="[permission,project.info.curr_role,1,2]" class="divider-v" ng-hide="page.parent_id!=''"></li>
+                <li wt-permission="[permission,project.info.curr_role,1,2]" ng-hide="page.parent_id!=''">
+                    <a href="https://www.bonday.cn/project/%7B%7Bpage.pid%7D%7D/page/add/%7B%7Bpage.page_id%7D%7D" title="添加子文档">
+                        <i class="icon-plus"></i>添加子文档
+                    </a>
+                </li>
+
+                <li class="js-popbox" data-placement="bottom" ng-hide="permission==16">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="更多">
+                    <i class="icon-chevron-down"></i>更多
+                </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li wt-permission="[permission,project.info.curr_role,1,2]">
+                            <a href="javascript:;" ng-click="js_show_trash($event)"><i class="icon-trash"></i>删除</a>
+                        </li>
+                        <li><a href="javascript:;" wt-entity-share="[permission,project.info.pid,'pages',page.page_id]"><i class="icon-share"></i>共享</a></li>
+                    </ul>
+                </li>
+
+                <li class="divider-v"></li>
+
+                <li><a href="javascript:;" style="padding-top: 10px;padding-bottom: 10px;"
+                       ng-click="js_close()" title="关闭">
+                    <i class="icon-remove"></i>
+                </a>
+                </li>
+            </ul>
+        </div>
+        <div class="entity-panel-body height-nonav" wt-scroll="{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}">
+            <div class="entity-content-panel">
+            <div class="entity-page-header">
+                <h2>{{page.name}}</h2>
+                <span ng-hide="page.parent_id == ''"><a href="javascript:;" ng-click="js_goto_page(page.pid, page.parent_id)">
+                        <i class="icon-long-arrow-left mr_5"></i> {{page.parent_name}}</a>
+                </span>
+            </div>
+            <div class="entity-page-content">
+                 <div class="page-content markdown" wt-markdown="page.content">
+                 </div>
+            </div>
+            <div class="entity-page-footer">
+                <div class="entity-meta">
+                    <span class="name">{{page.last_updator.display_name}}</span>
+                    <span>&nbsp;最后保存于{{page.update_date | fromNow}}，</span>
+                    <span>&nbsp;当前版本：&nbsp;#{{page.version}}</span>
+                </div>
+                <div>
+                    <div class="content-module" ng-show="page.parent_id=='' &amp;&amp; page.sub_pages.length&gt;0">
+                        <h4><i class="icon-file-text-alt"></i>子文档</h4>
+                        <div class="sub-pages">
+                            <ul class="pages-list clearfix">
+                                <li ng-repeat="subpage in page.sub_pages">
+                                    <a href="javascript:;" ng-click="js_goto_page(page.pid, subpage.page_id)">
+                                        {{subpage.name}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-module">
+                        <h4><i class="icon-user"></i>关注</h4>
+                        <div class="entity-members">
+                            <ul>
+                                <li ng-repeat="member in page.watchers">
+                                    <wt-avatar member="member" class="js-popbox" pop-member="member" wt-pop-member="pop_watcher_options" data-placement="bottom" data-align="left">
+                                    </wt-avatar>
+                                </li>
+                                <li wt-permission="[permission,project.info.curr_role,1,2]">
+                                    <a class="avatar-add js-popbox" href="javascript:;" ng-click="js_show_page_watch_pop($event, page)" data-placement="right">
+                                    <span class="o">
+                                        <i class="icon-plus"></i>
+                                    </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-module" id="pages_tab_module" ng-cloak="">
+                    </div>
+                </div>
+            </div>
+                </div>
+        </div>
+
+    </div>
+</div>

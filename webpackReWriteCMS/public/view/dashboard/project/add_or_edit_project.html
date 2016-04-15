@@ -1,0 +1,29 @@
+<dl class="frame add_edit_panel clearfix">
+    <div class="project-edit-container">
+        <form name="project_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+            <input type="text" id="new_project_name" maxlength="100" name="project_title" autofocus ng-model="new_element.title" class="form-control help-block" placeholder="标题" required>
+            <input type="text" id="new_project_en_name" maxlength="100" name="project_en_name" autofocus ng-model="new_element.enName" class="form-control help-block" placeholder="英文名称">
+            <div class="mb_10">
+                <wt-cascading flag="flag" first="new_element.typeName"
+                              firstkey="new_element.code"
+                              cascad="1"
+                              source="api/codes/project/all">
+                </wt-cascading>
+            </div>
+            <div class="mb_10">
+                <wt-cascading flag="flag" first="new_element.code_ad_name"
+                              firstkey="new_element.code_ad"
+                              cascad="1"c
+                              source="api/codes/ad/all">
+                </wt-cascading>
+            </div>
+            <div class="pos_relative editor-container mt_10"
+                 ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                            false: 'height-main-min-j4-new-template-by-auto-mailbox-outter'}[$root.global.is_outter]">
+                <wt-new-editor class="" edit-content="new_element.desc"
+                               placeholder="添加活动描述(按Ctrl + 回车键提交)"></wt-new-editor>
+            </div>
+        </form>
+    </div>
+</dl>
+

@@ -1,0 +1,64 @@
+<div>
+	<div class="entity-title "
+		ng-include="'/view/entity/user/user_title.html'"></div>
+	<div class="wt-row" style="border-bottom: 0px">&nbsp;</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>活动权限</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, user,'permission')"
+			wt-hint-once="" content="设置活动权限
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-user-tags user="user" tagtype="permission"></wt-user-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>兴趣目录</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, user,'category')"
+			wt-hint-once="" content="设置活动目录
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-user-tags user="user" tagtype="category"></wt-user-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>适合年龄</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, user,'age')"
+			wt-hint-once="" content="设置适合年龄
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-user-tags user="user" tagtype="age"></wt-user-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>适合年级</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, user,'grade')"
+			wt-hint-once="" content="设置适合年级
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-user-tags user="user" tagtype="grade"></wt-user-tags>
+	</div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+</div>

@@ -1,0 +1,50 @@
+
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-archive mr_10"></i>归档项目</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+
+                </div>
+            </div>
+        </div>
+        <div class="layout_content_main no_sidebar height-nonav" wt-scroll>
+            <div class="empty-panel" ng-show="archived_projects.length == 0 && global.loading_done" ng-cloak>
+                <i class="icon-archive"></i><br/>
+                <span>没有任何归档项目</span>
+            </div>
+            <div class="project-list project-panel">
+                <dl class="frame archive" data-minheight="160" ng-show="archived_projects.length > 0">
+                    <dt>
+                        <span class="title">我的归档项目</span>
+                    </dt>
+                    <dd>
+                        <div class="wt-row" ng-repeat="project in archived_projects"
+                             wt-go-to="/project/{{project.pid}}">
+                            <div class="column column-star">
+                                &nbsp;
+                            </div>
+                            <div class="column column-icon">
+                                <i ng-class="project.pic" ng-style="{color:project.bg}"></i>
+                            </div>
+                            <div class="column column-name">
+                                <h4>{{project.name}}</h4>
+                            </div>
+                            <div class="column column-admin">
+                                <wt-avatar ng-repeat="member in project.admins"
+                                           class="js-popbox member mr_5"
+                                           member="member" size="30"></wt-avatar>
+                            </div>
+                            <div class="column column-member">
+                                <i class="icon-user mr_5"></i>{{project.member_count}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

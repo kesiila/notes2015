@@ -1,0 +1,13 @@
+<script id="template/pagination/pagination2.html" type="text/ng-template">
+    <ul class="pagination">
+        <li ng-if="boundaryLinks" ng-class="{disabled: noPrevious()}"><a ng-href="{{path+'?page=1&type='+type}}" ng-click="selectPage(1)">{{getText('first')}}</a></li>
+        <li ng-if="directionLinks" ng-class="{disabled: noPrevious()}"><a ng-href="{{path+'?page='+page+'&type='+type}}"
+                                                                          ng-click="selectPage(page - 1)">{{getText('previous')}}</a>
+        </li>
+        <li ng-repeat="pageObject in pages track by $index" ng-class="{active: pageObject.active}"><a  ng-href="{{path+'?page='+pageObject.number+'&type='+type}}" ng-click="selectPage(pageObject.number)">{{pageObject.text}}</a></li>
+        <li ng-if="directionLinks" ng-class="{disabled: noNext()}"><a ng-href="{{path+'?page='+page+'&type='+type}}"
+                                                                      ng-click="selectPage(page + 1)">{{getText('next')}}</a>
+        </li>
+        <li ng-if="boundaryLinks" ng-class="{disabled: noNext()}"><a  ng-href="{{path+'?page='+totalPages+'&type='+type}}" ng-click="selectPage(totalPages)">{{getText('last')}}</a></li>
+    </ul>
+</script>

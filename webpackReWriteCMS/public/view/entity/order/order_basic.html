@@ -1,0 +1,144 @@
+<div ng-hide="order.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/order/order_title.html'">
+    </div>
+    <div class="new-tag"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(order)"
+           wt-tracker="Task Panel|Main|Add Attachments"
+           ng-hide="order.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="order.is_add_tag_edit"
+             wt-show-edit="order.is_add_tag_edit">
+            <div>
+
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, order, tag)' }"
+                       wt-enter="js_add_tag(order, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="Task Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(order, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(order)">取消
+            </button>
+        </div>
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="order.is_edit || order.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>中文标题</label>
+        {{order.title}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="order.is_edit || order.enName.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>英文标题</label>
+        {{order.enName}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="order.is_edit || order.price>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>订单总价</label>
+        <b>{{order.price}} 元</b>
+    </div>
+
+    <div class="task-desc wt-row" ng-repeat="goods in order.goodss">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>商品详情</label>
+        {{goods.title}} 单价:{{goods.price}} 购买数量:{{goods.count}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="order.is_edit || order.imageUrl.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>图像URL</label> {{order.imageUrl}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="order.is_edit || order.url.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>商品URL</label> {{order.url}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="order.is_edit || order.desc.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>描述</label>
+        <div class="task-desc-text markdown" wt-markdown="order.desc"></div>
+    </div>
+</div>
+
+
+
+
+<div class="edit-section"
+     ng-show="order.is_edit && (!order.show_part || order.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">中文标题</span> <input autofocus=""
+                                                              ng-model="order.temp_title"
+                                                              wt-enter="js_set_update($event, order)"
+                                                              class="form-control" placeholder="中文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">英文标题</span> <input autofocus=""
+                                                              ng-model="order.temp_enName"
+                                                              wt-enter="js_set_update($event, order)"
+                                                              class="form-control" placeholder="英文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">商品价格</span> <input autofocus=""
+                                                              ng-model="order.temp_price"
+                                                              wt-enter="js_set_update($event, order)"
+                                                              class="form-control" placeholder="商品价格" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">商品数量</span> <input autofocus=""
+                                                              ng-model="order.temp_count"
+                                                              wt-enter="js_set_update($event, order)"
+                                                              class="form-control" placeholder="商品数量" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">图片URL</span> <input autofocus=""
+                                                               ng-model="order.temp_imageUrl"
+                                                               class="form-control" placeholder="图片URL" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">活动URL</span> <input autofocus=""
+                                                               ng-model="order.temp_url"
+                                                               class="form-control" placeholder="活动URL" type="text">
+        </div>
+    </div>
+    <div>
+        <textarea ng-model="order.temp_desc" type="text" class="w_100p" style="min-height: 100px"
+                  wt-ctrl-enter="js_set_update($event, order)" wt-full-editor=""
+                  placeholder="添加活动描述(按Ctrl + 回车键提交)"></textarea>
+    </div>
+    <div class="form-group">
+        <button ng-click="js_set_update($event, order)"
+                data-loading-text="保存中..." loading-status="order.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="Task Panel|Main|Edit Task-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(order)" class="btn"
+                wt-tracker="Task Panel|Main|Edit Task-Cancel">取消
+        </button>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>拷贝活动</h3>
+</div>
+<div class="popbox-body w_300">
+    <div class="form-group">
+        <!--<label>内容：</label>-->
+        <div>
+            <textarea class="js-task-name form-control ng-pristine ng-valid"
+                      placeholder="输入活动内容" required
+                      ng-model="new_task.name" wt-enter="js_copy_task(add_task_form, new_task)"></textarea>
+        </div>
+
+    </div>
+    <div ng-if="new_task.show_keeps">保留...<br/></div>
+    <div class="checkbox" ng-if="new_task.label_count > 0">
+        <label>
+            <input type="checkbox" ng-model="new_task.keep_labels"> 标签 ({{new_task.label_count}})
+        </label>
+    </div>
+    <div class="checkbox" ng-if="new_task.member_count > 0">
+        <label>
+            <input type="checkbox" ng-model="new_task.keep_members"> 成员 ({{new_task.member_count}})
+        </label>
+    </div>
+    <div class="checkbox" ng-if="new_task.watcher_count > 0">
+        <label>
+            <input type="checkbox" ng-model="new_task.keep_watchers"> 关注 ({{new_task.watcher_count}})
+        </label>
+    </div>
+    <div class="checkbox" ng-if="new_task.todo_count > 0">
+        <label>
+            <input type="checkbox" ng-model="new_task.keep_todos"> 检查项 ({{new_task.todo_count}})
+        </label>
+    </div>
+    <div class="checkbox" ng-if="new_task.file_count > 0">
+        <label>
+            <input type="checkbox" ng-model="new_task.keep_attachments"> 附件 ({{new_task.file_count}})
+        </label>
+    </div>
+    <div class="checkbox" ng-if="new_task.comment_count > 0">
+        <label>
+            <input type="checkbox" ng-model="new_task.keep_comments"> 评论 ({{new_task.comment_count}})
+        </label>
+    </div>
+</div>
+<div class="popbox-footer">
+    <button wt-form-submit="js_copy_task(new_task)"
+            data-loading-text="保存中..."
+            class="btn btn-success mr_15"
+            loading-status="is_copying">保存
+    </button>
+    <button ng-click="js_close()" class="btn">取消</button>
+</div>

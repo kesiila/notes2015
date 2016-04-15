@@ -1,0 +1,84 @@
+<div ng-controller="detail_template_ctrl">
+    <div class="forum-heading clearfix">
+        <h3 class="pull-left" id="template_name" style="line-height: 1.7em;color: #000">
+            {{template.name}}
+            <a href="javascript:;" ng-show="template.praised==0" ng-click="praise(template)" title="赞一个"><i class="icon-thumbs-up-alt ml_10"></i></a>
+            <i ng-show="template.praised==1" class="icon-thumbs-up-alt ml_10" title="已赞"></i>
+        </h3>
+
+        <div class="thread-counts pr_10 text-right pull-right">
+            <!--收藏按钮-->
+            <button class="btn btn-sm mt_12 btn-danger" title="可收藏" wt-stop-propagation="click" ng-hide="template.collected" ng-click="js_collect(template,$event)">收藏</button>
+            <button class="btn btn-sm mt_12 btn-default disabled sm-font-color" title="已收藏" ng-show="global.is_login && template.collected && template.uid!=global.me.uid">已收藏</button>
+
+            <!--<button ng-if="post.praised==0" class="btn btn-sm mt_12 btn-danger" wt-stop-propagation="click" ng-click="praise(post)" title="赞一个">赞</button>
+
+            <button ng-if="post.praised==1" class="btn btn-sm mt_12 sm-font-color disabled" style="color: #000;font-family: '黑体'" ng-click="praise(post)" title="赞一个">已赞</button>-->
+
+            <button ng-if="global.is_login && global.me.role==0" class="btn btn-sm mt_12 btn-danger" wt-stop-propagation="click" ng-click="del_template($event,template.template_id)" title="删除">删除</button>
+        </div>
+
+    </div>
+
+    <div class="article-meta sm-font-color mt_12 mb_10">
+
+        <wt-avatar member="template.owner" size="30" class="js-popbox pr_0" name="true" data-align="right"> </wt-avatar>
+
+        <span class="published">|&nbsp;{{template.create_date | fromNow}}</span>
+
+        <span>|&nbsp;{{template.type_name || "全部"}}</span>
+
+        <span>|&nbsp;{{template.click_count}}次阅读</span>
+
+        <span>|&nbsp;{{template.comment_count>=0?template.comment_count:0}}次评论</span>
+
+        <span>|&nbsp;{{template.collect_count>=0?template.collect_count:0}}人收藏</span>
+
+        <span>|&nbsp;{{template.praiser_count>=0?template.praiser_count:0}}人点赞</span>
+
+    </div>
+
+    <div class="thread-list mr_45">
+        <div class="thread-item slide-trigger">
+            <div class="ml_30 mr_45">
+                <div class="forum-heading"><span style="color: #000">邮件标题：</span>&nbsp;&nbsp;&nbsp;{{template.summary}}</div>
+            </div>
+            <div class="ml_30 mr_45">
+                <div class="markdown" wt-markdown='template.content'></div>
+            </div>
+            <div style="border-bottom: 1px solid #E1E1E1;line-height: 24px;margin-top: 40px;" align="center">
+                <div class="sm-font-color fs_20 pull-left">评论</div>
+
+                <!-- JiaThis Button BEGIN -->
+                <div class="fs_20" style="display: inline;">分享到：</div>
+                <span class="jiathis_style_24x24" style="display: inline-block;">
+                     <a class="jiathis_button_qzone" title="分享到QQ空间"></a>
+                    <a class="jiathis_button_tsina" title="分享到新浪微博"></a>
+                    <a class="jiathis_button_tqq" title="分享到腾讯微博"></a>
+                    <a class="jiathis_button_weixin" title="分享到微信"></a>
+                    <a class="jiathis_button_fav" title="添加到收藏夹"></a>
+                    <a href="http://www.jiathis.com/share?uid=2006672" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" title="更多" target="_blank"></a>
+                    <a class="jiathis_counter_style"></a>
+                </span>
+                <script type="text/javascript" >
+                    var jiathis_config={
+                        title:"超正点的留学开发信模板！",
+                        data_track_clickback:true,
+                        siteNum:15,
+                        sm:"email,renren,tsohu,feixin,kaixin001,cqq,tieba,hi,tianya,baidu,alibaba,hexun,douban,qq,ishare",
+                        summary:"",
+                        shortUrl:false,
+                        hideMore:false
+                    }
+                    $(function(){
+                        setTimeout(function(){jiathis_config={title:$("#template_name").text()}},500);
+                    })
+                </script>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2006672" charset="utf-8"></script>
+                <!-- JiaThis Button END -->
+            </div>
+
+            <div ng-include="'/view/entity/detailed_comment_list.html'"></div>
+        </div>
+    </div>
+</div>

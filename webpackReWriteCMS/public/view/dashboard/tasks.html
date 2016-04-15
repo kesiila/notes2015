@@ -1,0 +1,260 @@
+<div class="layout_content">
+<div class="layout_content_main height-noheader"
+     ng-class="{true:'nosidebar_in',false:'nosidebar_out'}[global.right_sidebar_is_fold]">
+<div class="mod_navbar">
+    <div class="title">
+        <h3>
+            <i class="icon-flag mr_10"></i>
+            我的活动
+        </h3>
+    </div>
+    <div class="main">
+        <div class="toolbar_panel pull-right">
+            <!--<div class="btn-group  mr_15">-->
+                <!--<button class="btn ptb_11" ng-click="js_show_project_tasks_filter($event)">-->
+                    <!--<i class="icon-filter"></i>-->
+                <!--</button>-->
+            <!--</div>-->
+            <div class="btn-group mr_15">
+                <button class="btn btn-danger" ng-click="js_add_task_pop()">
+                    新建活动
+                </button>
+                <button id="bat_add" class="btn dropdown-toggle btn-danger ptb_11" data-toggle="dropdown">
+                    <i class="icon-caret-down" style="line-height: 1em"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li><a wt-tracker="Project Task Page|Nav|Import Customer"
+                           href="javascript:;"
+                           ng-click="js_add_task_pop()">新建活动</a></li>
+                    <li><a wt-tracker="Project Task Page|Nav|Import Customer"
+                           href="/customer/import">从Excel导入</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/customer/vcard">从通讯录导入</a></li>
+                    <li><a ng-href="/api/tasks/vcard/export?uid={{global.me.uid}}" target="_self">导出VCard格式</a></li>
+                </ul>
+            </div>
+            <div  class="btn-group mr_15">
+                <button class="btn" style="font-size:14px;padding:0px 10px;height: 40px;line-height: 40px;" ng-click="js_show_project_tasks_filter($event)"
+                        data-toggle="tooltip" data-placement="top">
+                    {{filter_task_status[task_status_index].name}}
+                </button>
+                <button class="btn dropdown-toggle" style="font-size:14px;padding:13px 10px;height: 40px;line-height: 40px;" data-toggle="dropdown">
+                    <i class="icon-caret-down"></i>
+                </button>
+                <!-- 显示排序条件 -->
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li ng-repeat="status in filter_task_status" ng-click="choose_filter_task_status($index)">
+                        <a href="javascript:;" ng-class="{true: 'active'}[$index==task_status_index]">{{status.name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group mr_15">
+                <button class="btn ptb_11" ng-click="task_sort('-1')" data-toggle="tooltip" data-placement="top"
+                        title="{{ {true:'降序',false:'升序'}[isDESC==true] }}">
+                    <span><i
+                            ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[queryCondition.isDESC==1]"></i></span>
+                </button>
+
+                <!--<button  ng-show="queryCondition.type==0" class="btn dropdown-toggle ptb_11" data-toggle="dropdown">
+                    <i class="icon-caret-down"></i>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                    <li  ng-repeat="item in taskSort_filterItems">
+                        <a href="javascript:;"ng-click="task_sort($index)">
+                            <i ng-show="$index!=index" ng-class="{false:'icon-xx'}[$index==index]"></i>
+                            <i ng-show="$index==index" ng-class="{true:'icon-long-arrow-down',false:'icon-long-arrow-up'}[queryCondition.isDESC==1]"></i>
+                            {{item.name }}
+                        </a>
+                    </li>
+                </ul>-->
+            </div>
+            <button class="btn mr_15 ptb_11" ng-click="js_right_sidebar_toggle($event)">
+                <i ng-class="{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]"></i>
+            </button>
+        </div>
+
+    </div>
+</div>
+<div class="height-nonav" wt-scroll>
+    <!--<div wt-slide-show="show_add_mail"-->
+    <!--slide-change="js_slide_change(value)">-->
+    <!--<ng-include src="'/view/common/mail/add_or_edit_mail.html'"></ng-include>-->
+    <!--</div>-->
+    <!--			<div class="height-nonav" wt-scroll>
+                    <div wt-slide-show="show_add_mail"
+                        slide-change="js_slide_change(value)">
+                        <ng-include src="'/view/common/mail/add_or_edit_mail.html'"></ng-include>
+                    </div>-->
+    <div wt-slide-show="show_add_customer">
+        <ng-include src="'/view/common/task/add_or_edit_task.html'"></ng-include>
+    </div>
+    <div class="layout_split_panel">
+        <dl class="frame" data-minheight="160">
+            <dt>
+               <span class="title" wt-show="totalItems>0"   >
+                   <a href="javascript:;" class="checkbox" style="padding-left: 30px; margin-right: -24px;" >
+                       <!--wt-hint-once=""  content="选中下面的小框将活动全部选中，点击右侧发邮件按钮"-->
+                       <!--hint-name="templates_allmail_first_hint" placement=""-->
+                       <label><input ng-click="toggleAll(tasks)" title="全选" ng-model="selectAll" type="checkbox"/></label>
+                   </a>
+               </span>
+                <ul class="tabs">
+                    <li title="这里存放了你的所有活动，包括从'找活动'收藏的和自己创建的">
+                        <a href="javascript:;" class="cursor pull-left" ng-class="{'active':queryCondition.type==0}" ng-click="switch_tasks(0)">
+                            我全部的<span ng-show="count.task_count>0">({{count.task_count}})</span>
+                        </a>
+                    </li>
+                    <li title="这里存放你从'找活动'收藏的活动" >
+                        <!--wt-hint-once=""  content="请对收藏的公共模板，根据自己的优势，做些改动。开发信同别人雷同，会被活动忽视掉"-->
+                        <!--hint-name="templates_collectmail_first_hint" placement=""-->
+                        <a href="javascript:;" class="cursor pull-left" ng-class="{'active':queryCondition.type==3}" ng-click="switch_tasks(3)">
+                            我收藏的<span ng-show="count.download_task_count>0">({{count.download_task_count}})</span>
+                        </a>
+                    </li>
+                    <li title="这里存放了你新建的活动，只有你自己可以看到">
+                        <a href="javascript:;" class="cursor pull-left" ng-class="{'active':queryCondition.type==1}" ng-click="switch_tasks(1)">
+                            我私有的<span ng-show="count.private_task_count>0">({{count.private_task_count}})</span>
+                        </a>
+                    </li>
+                    <li title="这里存放了你分享的活动，其他人都可以在'找活动'看到">
+                        <a href="javascript:;" class="cursor pull-left" ng-class="{'active':queryCondition.type==2}" ng-click="switch_tasks(2)">
+                            我分享的<span ng-show="count.share_task_count>0">({{count.share_task_count}})</span>
+                        </a>
+                    </li>
+                </ul>
+            </dt>
+
+            <dd class="task-list-panel pt_0">
+                <div id="loading" ng-hide="part_loading_done" data-minheight="100"></div>
+                <div class="empty-panel noborder" ng-show="part_loading_done && tasks.length == 0">
+                    <i class="icon-flag"></i> <br>
+                    <h4>还没有任何活动,
+                        <a ng-if="queryCondition.type==0 || queryCondition.type==3" style="color: #d84c31;"
+                           href="/customer" target="_blank">去找活动看看！</a>
+                        <a ng-if="queryCondition.type==1" style="color: #d84c31;" href="javascript:;"
+                           ng-click="js_add_task_pop($event)">手动添加&nbsp;或</a>
+                        <a ng-if="queryCondition.type==1" style="color: #d84c31;" href="/customer/import">
+                            &nbsp;批量导入活动！</a>
+                        <a ng-if="queryCondition.type==2" style="color: #d84c31;" href="javascript:;"
+                           ng-click="switch_tasks(1)">去分享活动，挣取积分！</a>
+                    </h4>
+                </div>
+                <div class="task-list" ng-show="part_loading_done && tasks.length > 0">
+                    <div class="task-item wt-row" ng-repeat="task in tasks"
+                         ng-click="locator.to_task(task.pid, task.tid, true)"
+                         ng-class="{'active':task.tid==locator.show_detail_task_id}">
+
+
+                        <div class="task-item-inner slide-trigger">
+                            <div class="column column-read">
+                                <div>
+                                    <a href="javascript:;" class="checkbox" style="padding-left: 0px">
+                                        <label>
+                                            <input ng-click="toggle(task,$event)" ng-model="task.checked"
+                                                   type="checkbox"/>
+                                        </label>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="column column-action">
+                                <h4 >
+                                    <!--<a class="task_check" ng-click="js_complete_task($event,task)"
+                                        wt-tracker="Task Panel|Main|Edit Task-Toggle Complete">
+                                        <i class="ai-gray icon-flag"  ng-if="task.completed == -1" title="点击进入活动交易流程，可在交易墙跟踪"></i>
+                                        <i class="ai-dark-blue icon-flag"  ng-if="task.completed == 0" title="点击退出活动交易流程"></i>
+                                        <i class="ai-gray icon-flag"  ng-if="task.completed == 1" title="交易完成，点击重新进入活动交易流程，可在交易墙跟踪"></i>
+                                    </a>-->
+                                    <a href="javascript:;" title="公司:{{task.company}}" wt-company-detail-pop><span>{{task.company|abbrevition:26}}&nbsp;</span></a>
+                                </h4>
+                                            <wt-contact class="entity clearfix" style="padding-top: 5px;padding-bottom:4px" task="task">
+                                            </wt-contact>
+
+                            </div>
+                            <div class="column">
+                                <h4 style="margin-top: 12px; margin-bottom: 8px"><span class="small"  style="line-height: 1.4em" title="联系人:{{task.name}}" ng-show="task.name.length>0">{{task.name|abbrevition:12}}</span>
+                                    <span class="small" style="line-height:1.4em" ng-show="!(task.name.length>0)">暂无联系人</span></h4>
+                                <wt-badges task="task" style="margin-top: -3px"></wt-badges>
+                            </div>
+
+                            <div class="column column-tag hidden-sm hidden-xs">
+                                <span class="entity" title="国家">{{task.countryCnName}}&nbsp;</span>
+                            </div>
+
+                            <div class="column column-company hidden-md hidden-sm hidden-xs">
+                                <span title="行业">{{task.mainIndustryCnName}}&nbsp;</span>
+                            </div>
+
+                            <div class="column column-datetime"  style="list-height: 2em">
+                                <div class="pt_10 text-right visible-hover" style="line-height: 15px;">
+                                    <button class="btn btn-sm btn-danger" wt-stop-propagation="click"
+                                            ng-click="js_send_mail(task)">
+                                        发邮件
+                                    </button>
+                                </div>
+
+                                <span title="创建时间" class="text-right pull-right text-ellipsis"
+                                      ng-if="queryCondition.type==0 || queryCondition.type==1">{{task.create_date | fromNow}}</span>
+                                <span title="分享时间" class="text-right pull-right text-ellipsis"
+                                      ng-if="queryCondition.type==2">{{task.publish_date | fromNow}}</span>
+                                <span title="收藏时间" class="text-right pull-right text-ellipsis"
+                                      ng-if="queryCondition.type==3">{{task.collect_date | fromNow}}</span>
+                            </div>
+                        </div>
+                        <div class="task-item-inner slide-trigger" style="font-size: 12px;">
+                            <div class="column" style="width: 25%;font-size: 12px;height: 20px;line-height: 20px;min-width: 288px;">
+                                <span class="pr_10">发送<span>{{task.badges.userDevelopingInfo.mail_all_send_count}}</span></span>
+                                <span class="pr_10">已到达<span>{{task.badges.userDevelopingInfo.mail_has_arrived_count}}</span></span>
+                                <span class="pr_10">已打开<span>{{task.badges.userDevelopingInfo.mail_has_been_opened_count}}</span></span>
+                            </div>
+                            <div  class="column task-badges" style="height: 20px;line-height: 20px;min-width: 288px;" >
+                                        <span class=" task-badge " style="line-height: 16px;margin-right:5px" ng-repeat="label in task.labels" title="{{label.desc}}">
+                                        {{label.desc | abbrevition:10 }}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </dd>
+            <div class="clearfix pager-wapper" ng-show="part_loading_done && tasks.length > 0 && numPages>1">
+                <ul class="pull-left list-inline">
+                    <li>第 <input class="page-num" style="width: 25px"
+                                 type="text" ng-model="pageNum"> 页
+                    </li>
+                    <li ng-click="jumpToPage(pageNum)">
+                        <button>确定</button>
+                    </li>
+                    <li>每页显示 <select class="page-select" ng-model="itemsPerPage">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select> 条
+                    </li>
+                    <li>{{currentPage}}/{{numPages}}</li>
+                </ul>
+                <div class="category-pager pull-right">
+                    <pagination ng-model="currentPage" total-items="totalItems"
+                                items-per-page="itemsPerPage" max-size="5" rotate="false"
+                                direction-links="true" previous-text="上一页" next-text="下一页"
+                                boundary-links="true" first-text="首页" last-text="尾页"
+                                num-pages="numPages"></pagination>
+                </div>
+            </div>
+
+        </dl>
+    </div>
+</div>
+</div>
+
+    <div
+         ng-show="!$root.global.show_mailbox" class="ng-hide">
+        <ng-include src="'/view/common/sidebar/sidebar.html'"></ng-include>
+    </div>
+    <!--<ng-include-->
+        <!--ng-show="!$root.global.show_mailbox"-->
+        <!--class="ng-hide"-->
+        <!--src="'/view/common/sidebar/sidebar.html'"></ng-include>-->
+<!--发送邮件成功后的提示-->
+<ng-include ng-show="$root.show_mail_prompt" src="'/view/common/mail_prompt.html'"></ng-include>
+</div>

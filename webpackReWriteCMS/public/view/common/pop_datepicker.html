@@ -1,0 +1,23 @@
+<div class="popbox-header">
+    <button class="close" ng-click="js_close()">&times;</button>
+    <h3>设置日期</h3>
+</div>
+<div class="popbox-body">
+    <input ng-model="task.expire_date" type="hidden"/>
+    <ul class="list-inline m_0">
+        <li><a href="javascript:;" ng-click="js_today()" wt-tracker="Pop Datepicker|Top|Today">今天</a></li>
+        <li>|</li>
+        <li><a href="javascript:;" ng-click="js_tomorrow()" wt-tracker="Pop Datepicker|Top|Tomorrow">明天</a></li>
+        <li>|</li>
+        <li><a href="javascript:;" ng-click="js_week()" wt-tracker="Pop Datepicker|Top|ThisWeek">本周</a></li>
+        <li>|</li>
+        <li><a href="javascript:;" ng-click="js_next_week()" wt-tracker="Pop Datepicker|Top|NextWeek">下周</a></li>
+        <li>|</li>
+        <li><a href="javascript:;" ng-click="js_month()" wt-tracker="Pop Datepicker|Top|ThisMonth">本月</a></li>
+    </ul>
+    <div wt-datepicker="task.date_temp"></div>
+</div>
+<div class="popbox-footer">
+    <a class="btn btn-success mr_15" wt-tracker="Pop Datepicker|Footer|OK" ng-click="js_set_date(task.date_temp)">确定</a>
+    <a class="btn" wt-tracker="Pop Datepicker|Footer|Cancel" ng-click="js_cancel_date()">取消日期</a>
+</div>

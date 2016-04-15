@@ -1,0 +1,175 @@
+<div data-ng-controller="entity_event_ctrl" class="entity-panel event-panel" wt-dragfile="dragfile_option"
+     wt-dragfile-enable="(global.prj_module.crud | permission:project.info.permission)">
+    <div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+    <div class="entity-panel-wrapper"
+         ng-show="section_loading_done && (global.prj_module.view | permission:entity_permission)">
+        <div class="entity-panel-header"><a href="javascript:;" class="name"
+                                            ng-click="locator.to_project(project.info.pid)"> <i
+                class="{{project.info.pic}} mr_10" ng-style="{color:project.info.bg}"></i> {{project.info.name}} </a>
+            <ul class="nav nav-pills">
+                <li ng-show="event.is_deleted" class="entity-warning">日程已经于 {{event.update_date | timeFormatZHCN}} 删除了
+                </li>
+                <li ng-show="global.prj_module.crud | permission:entity_permission"><a href="javascript:;"
+                                                                                       ng-class="{true:'disabled'}[event.is_edit]"
+                                                                                       ng-click="js_show_editor(event)"
+                                                                                       title="编辑"> <i
+                        class="icon-pencil"></i>编辑 </a></li>
+                <li class="divider-v" ng-show="(global.prj_module.crud | permission:entity_permission)"></li>
+                <li class="js-popbox" ng-show="global.prj_module.crud | permission:entity_permission"><a
+                        href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="添加附件"> <i
+                        class="icon-paper-clip"></i>附件 </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="javascript:;" class="fileinput-button"> <i class="icon-desktop"></i> 本地上传 <input
+                                type="file" name="files[]" title="添加附件" multiple wt-uploadfile="file_upload_option"/>
+                        </a></li>
+                        <li><a href="javascript:;" data-placement="bottom" wt-pop-add-attachment-from-file="event"> <i
+                                class="icon-file"> </i>从项目文件选择</a></li>
+                        <li class="divider"></li>
+                        <li wt-stop-propagation="click">
+                            <div class="part-loading mt_20" ng-if="js_uploadbylink_uploading"></div>
+                            <form class="form-inline text-nowarp" role="form" ng-show="!js_uploadbylink_uploading">
+                                <input type="text" ng-model="uploadlink_url" class="form-control input-sm"
+                                       placeholder="粘贴下载链接">
+                                <button class="btn btn-default plr_10" type="button" ng-click="js_uploadbylink($event)">
+                                    添加
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                <li class="js-popbox" data-placement="bottom"
+                    ng-show="!event.is_deleted && (global.prj_module.view | permission:entity_permission)"><a
+                        href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="更多"> <i
+                        class="icon-chevron-down"></i>更多 </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li ng-show="global.prj_module.crud | permission:entity_permission"><a href="javascript:;"
+                                                                                               ng-click="js_show_trash($event, event)"><i
+                                class="icon-trash"></i>删除</a></li>
+                        <li><a href="javascript:;" wt-entity-share="['',project.info.pid,'events',event]"><i
+                                class="icon-share"></i>共享</a></li>
+                        <li><a href="javascript:;" wt-entity-print=""><i class="icon-print"></i>打印</a></li>
+                    </ul>
+                </li>
+                <li class="divider-v"></li>
+                <li><a href="javascript:;" ng-click="js_close()" title="关闭"> <i class="icon-remove"></i> </a></li>
+            </ul>
+        </div>
+        <div class="entity-panel-body height-nonav" wt-scroll='{"advanced":{"autoScrollOnFocus":false}}'>
+            <div class="entity-content-panel">
+                <div class="content-module editable-module">
+                    <div ng-hide="event.is_edit">
+                        <div class="entity-title"><h2 ng-click="js_show_editor(event)" class="ng-binding">
+                            {{event.name}} </h2></div>
+                        <table class="table table-bordered table-event">
+                            <tr>
+                                <td class="item">开始时间</td>
+                                <td class="time">{{event.show_start_date}}</td>
+                            </tr>
+                            <tr>
+                                <td class="item">结束时间</td>
+                                <td class="time">{{event.show_end_date}}</td>
+                            </tr>
+                            <tr ng-if="event.location.length > 0">
+                                <td class="item">位置</td>
+                                <td>{{event.location || "无"}}</td>
+                            </tr>
+                            <tr ng-hide="event.recurrence == 0 ">
+                                <td class="item">重复</td>
+                                <td>
+                                    <div class="time">{{new_repeat_interval.desc}}</div>
+                                </td>
+                            </tr>
+                            <tr ng-if="event.summary.length > 0">
+                                <td class="item">描述</td>
+                                <td>
+                                    <div class="event-summary-text markdown" wt-markdown='event.summary'></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="edit-section" ng-show="event.is_edit">
+                        <div><input type="text" ng-model="temp_event.name" wt-enter="js_set_update($event, event)"
+                                    class="form-control help-block" placeholder="日程名称" required
+                                    wt-focus="eventTitleInputFocus">
+
+                            <div class="input-section"><span class="input-label">开始：</span> <input
+                                    wt-pop-full-datepicker="start_date_options" type="text"
+                                    ng-model="temp_event.start_date" class="form-control date js-popbox"
+                                    data-placement="bottom" readonly required> <select ng-model="temp_event.start_hour"
+                                                                                       ng-options="time for time in start_hour_sections"
+                                                                                       class="form-control hour"></select>
+                                <span class="separation">:</span> <select ng-model="temp_event.start_minute"
+                                                                          ng-options="time for time in start_minute_sections"
+                                                                          class="form-control minute"></select></div>
+                            <div class="input-section"><span class="input-label">结束：</span> <input type="text"
+                                                                                                   ng-model="temp_event.end_date"
+                                                                                                   wt-pop-full-datepicker="end_date_options"
+                                                                                                   class="form-control date js-popbox"
+                                                                                                   data-placement="bottom"
+                                                                                                   readonly required>
+                                <select ng-model="temp_event.end_hour" ng-options="time for time in end_hour_sections"
+                                        class="form-control hour"></select> <span class="separation">:</span> <select
+                                        ng-model="temp_event.end_minute"
+                                        ng-options="time for time in end_minute_sections"
+                                        class="form-control minute"></select></div>
+                            <div class="input-section"><span class="input-label">位置：</span> <input type="text"
+                                                                                                   ng-model="temp_event.location"
+                                                                                                   class="form-control location"
+                                                                                                   placeholder="位置(可选)">
+                            </div>
+                            <div class="input-section"><span class="input-label">重复：</span> <span>{{new_repeat_interval.desc}}</span>
+                            </div>
+                            <div class="input-section" ng-if="event.recurrence >0"><span class="input-label">修改：</span>
+                                <select class="form-control location" ng-model="update.option"
+                                        ng-options="update_option.desc for update_option in update.options_for_recurring_event"></select>
+                            </div>
+                            <wt-editor><textarea ng-model="temp_event.summary" type="text"
+                                                 wt-ctrl-enter="js_set_update($event, event,temp_event)"
+                                                 placeholder="添加日程描述(按Ctrl + 回车键提交)"></textarea></wt-editor>
+                        </div>
+                        <div class="form-group">
+                            <button ng-click="js_set_update($event, event,temp_event)" data-loading-text="保存中..."
+                                    loading-status="event.is_saving" class="btn btn-success mr_15">保存
+                            </button>
+                            <button ng-click="js_cancel_editor(event)" class="btn">取消</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-module dragfile-hover-show"
+                     ng-show="event.files.length > 0 || global_fileupload_queue().length>0"><h4><i
+                        class="icon-paper-clip"></i>附件</h4>
+
+                    <div class="entity-attachments">
+                        <wt-attachment ng-repeat="file in event.files" del="js_del_attachment($event, file)"
+                                       del-permission="global.prj_module.crud | permission:entity_permission"></wt-attachment>
+                        <wt-attachment class="attachment-progress"
+                                       ng-repeat="file in global_fileupload_queue()"></wt-attachment>
+                        <div class="dragfile-hover-placeholder"><span class="name"><i class="icon-upload-alt"></i>松开上传文件</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-module"><h4><i class="icon-user"></i>参与者</h4>
+
+                    <div class="entity-members">
+                        <ul>
+                            <li ng-repeat="attendee in event.attendees">
+                                <wt-avatar member="attendee" class="js-popbox" pop-member="attendee"
+                                           wt-pop-member="pop_attendee_options" data-placement="left"></wt-avatar>
+                            </li>
+                            <li ng-show="global.prj_module.crud | permission:entity_permission"><a
+                                    class="avatar-add js-popbox" href="javascript:;" data-placement="right"
+                                    data-align="center" all-member-click="js_attendee_all($event, members, xEntity)"
+                                    wt-pop-toggle-members="js_toggle_member($event, member, xEntity)" pid="pid"
+                                    type="attendee" entity="event"> <span class="o"> <i class="icon-plus"></i> </span>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-module" id="events_tab_module" ng-cloak class="ng-cloak">
+                    <wt-item-comment-activity></wt-item-comment-activity>
+                </div>
+            </div>
+        </div>
+    </div>
+    <wt-entity-deny></wt-entity-deny>
+</div>

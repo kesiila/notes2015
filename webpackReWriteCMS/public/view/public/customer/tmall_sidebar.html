@@ -1,0 +1,95 @@
+<div ng-controller="sideToolSetCtrl" ng-show="true">
+    <!--
+        点击边栏时 展开/隐藏 的trigger
+        ng-click="vm.js_extend_toggle('expand')
+    -->
+    <div class="tool_set" style="position: fixed;top:58px;right:-264px;height: 100%;width: 300px;font-size:0px;
+            transition:  .25s"
+         ng-style="{true:{right:'0'},false:{right:'-264'}}[vm.extend_or_not]">
+        <div class="tool_set__panel block-inline pos_relative"
+             style="background-color: #000000;width: 36px;height: 100%;display: inline-block;font-size: 14px">
+            <div class="pos_absolute" style="top:20%">
+                <div class="tool_set__panel_btn__hover cursor pos_relative"
+                     ng-class="{true:'tool_set__panel_btn__active'}[global.header_menu == 'google_search']"
+                     style="height:48px;width:36px;text-align: center;margin: 5px 0px;line-height: 16px;padding-top: 8px;padding-bottom: 6px">
+                    <div style="color:#fff" tooltip="谷歌搜索" tooltip-placement="left" tooltip-popup-delay="50">
+                        <a ng-href="/tools/search"  style="font-color: #fff">谷歌<br/>搜索</a>
+                    </div>
+                </div>
+                <div class="tool_set__panel_btn__hover cursor pos_relative"
+                     ng-class="{true:'tool_set__panel_btn__active'}[global.header_menu == 'mail_check']"
+                     style="height:48px;width:36px;text-align: center;margin: 5px 0px;line-height: 16px;padding-top: 8px;padding-bottom: 6px">
+                    <div style="color:#fff" tooltip="邮箱验证" tooltip-placement="left" tooltip-popup-delay="50">
+                        <a ng-href="/email-verify"  style="font-color: #fff">邮箱<br/>验证</a>
+                    </div>
+                </div>
+                <div class="tool_set__panel_btn__hover cursor pos_relative"
+                     ng-class="{true:'tool_set__panel_btn__active'}[global.header_menu == 'spam_check']"
+                     style="height:48px;width:36px;text-align: center;margin: 5px 0px;line-height: 16px;padding-top: 8px;padding-bottom: 6px">
+                    <div style="color:#fff" tooltip="Spam Check " tooltip-placement="left" tooltip-popup-delay="50">
+                        <a ng-href="/spam_check"  style="font-color: #fff">Spam<br/>Check</a>
+                    </div>
+                </div>
+
+                <div ng-if="">
+                    <div class="tool_set__panel_btn__hover cursor pos_relative"
+                         ng-class="{true:'tool_set__panel_btn__active'}[vm.step==0]"
+                         style="height:48px;width:36px;text-align: center;margin: 5px 0px;line-height: 18px;padding-top: 6px;padding-bottom: 6px"
+                         ng-click="vm.changeContentView(0)">
+                        <div style="color:#fff" tooltip="0号标签" tooltip-placement="left" tooltip-popup-delay="50">谷歌<br/>搜索
+                        </div>
+                    </div>
+                    <div class="tool_set__panel_btn__hover cursor pos_relative"
+                         ng-class="{true:'tool_set__panel_btn__active'}[vm.step==1]"
+                         style="height:30px;width:36px;text-align: center;margin: 5px 0px;line-height: 30px;"
+                         ng-click="vm.changeContentView(1)">
+                        <div style="color:#fff" tooltip="1号标签" tooltip-placement="left" tooltip-popup-delay="50">1号
+                        </div>
+                    </div>
+                    <div class="tool_set__panel_btn__hover cursor pos_relative"
+                         ng-class="{true:'tool_set__panel_btn__active'}[vm.step==2]"
+                         style="height:30px;width:36px;text-align: center;margin: 5px 0px;line-height: 30px;"
+                         ng-click="vm.changeContentView(2)">
+                        <div style="color:#fff" tooltip="2号标签" tooltip-placement="left" tooltip-popup-delay="50">2号
+                        </div>
+                    </div>
+                    <div class="tool_set__panel_btn__hover cursor pos_relative"
+                         ng-class="{true:'tool_set__panel_btn__active'}[vm.step==3]"
+                         style="height:30px;width:36px;text-align: center;margin: 5px 0px;line-height: 30px;"
+                         ng-click="vm.changeContentView(3)">
+                        <div style="color:#fff" tooltip="3号标签" tooltip-placement="left" tooltip-popup-delay="50">3号
+                        </div>
+                    </div>
+                    <div class="tool_set__panel_btn__hover cursor pos_relative"
+                         ng-class="{true:'tool_set__panel_btn__active'}[vm.step==4]"
+                         style="height:30px;width:36px;text-align: center;margin: 5px 0px;line-height: 30px;"
+                         ng-click="vm.changeContentView(4)">
+                        <div style="color:#fff" tooltip="标签" tooltip-placement="left" tooltip-popup-delay="50">4号</div>
+                    </div>
+                </div>
+            </div>
+
+            <wt-feedback class="pos_absolute" style="bottom: 96px"></wt-feedback>
+        </div>
+        <div class="tool_set__content block-inline" ng-if=""
+             style="background-color:#666; display:inline-block;width:264px;height: 100%;font-size: 14px;vertical-align: top">
+            <div>
+                <div  wt-show-latter-test param="vm.step==0" style="background-color: lightgoldenrodyellow;color:#000; height: 100%">
+                    1号,1号,1号,1号,1号,1号,1号,1号,1号,1号,1号,1号,1号,1号,1号,1号,
+                </div>
+                <div  wt-show-latter-test param="vm.step==1" style="background-color: green;color: #ffffff;height: 100%">
+                    2号,2号,2号,2号,2号,2号,2号,2号,2号,2号,2号,2号,2号,2号,2号,2号,
+                </div>
+                <div wt-show-latter-test param="vm.step==2" style="background-color: yellowgreen;color:blanchedalmond;height: 100%">
+                    3号,3号,3号,3号,3号,3号,3号,3号,3号,3号,3号,3号,3号,3号,3号,3号,
+                </div>
+                <div  wt-show-latter-test param="vm.step==3" style="background-color: midnightblue;color: #fff;height: 100%">
+                    4号,4号,4号,4号,4号,4号,4号,4号,4号,4号,4号,4号,4号,4号,4号,4号,
+                </div>
+                <div wt-show-latter-test param="vm.step==4" style="background-color: maroon;color: #fff;height: 100%">
+                    5号,5号,5号,5号,5号,5号,5号,5号,5号,5号,5号,5号,5号,5号,5号,5号,
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+<div data-ng-controller="entity_mail_ctrl"
+	class="entity-panel mail-panel" wt-dragfile="dragfile_option">
+	<div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+    <div ng-show="section_loading_done && !mail_exist" class="alert alert-warning text-center"
+         style="padding: 10px;margin:10% 15px">
+        <span>邮件信息不存在</span>
+    </div>
+	<div class="entity-panel-wrapper" data-ng-show="section_loading_done && mail_exist">
+		<div class="entity-panel-header">
+			<a class="name" href="javascript:;"
+				ng-click="locator.to_project(project.info.pid, 'mail')"> <i
+				class="{{project.info.pic}} mr_10"
+				ng-style="{color:project.info.bg}"></i> {{project.info.name}}
+			</a>
+			<ul class="nav nav-pills">
+
+<!-- 				<li><a href="javascript:;"
+					data-ng-click="js_pop_move($event,mail)" title="移动"> <i
+						class="icon-share-alt"></i>分享给成员
+				</a></li>
+ -->
+                <li ng-show="true"><a href="javascript:;"
+                       ng-click="js_send_mail(mail.cid)"><i class="icon-envelope"></i>再发一封</a>
+
+                </li>
+                <li><a href="javascript:;"
+					ng-click="js_trash($event, mail)"><i class="icon-trash"></i>删除</a>
+
+				</li>
+				<li class="divider-v"></li>
+
+				<li><a href="javascript:;" style="padding-top: 10px;padding-bottom: 10px;"
+                       ng-click="locator.hide_slide()"
+					title="关闭"> <i class="icon-remove"></i>
+				</a></li>
+			</ul>
+		</div>
+		<div class="entity-panel-body height-nonav"
+			wt-scroll="{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}">
+			<div class="entity-content-panel ">
+
+				<div class="content-module editable-module">
+					<div class="ml_30">
+						<div class="entity-title">
+							<h2>{{mail.name||"无主题"}}</h2>
+						</div>
+						<div class="task-desc wt-row">
+							<label class="col-xs-2 control-label p_0"><i
+								class="mr_5"></i>发信时间</label> {{mail.create_date | timefullFormatZHCN}}
+						</div>
+
+                        <!-----------------------管理员可见的追踪信息----------------------->
+                        <div class="task-desc wt-row" ng-show="isManager">
+                            <label class="col-xs-2 control-label p_0">
+                                <i class="mr_5"></i>追踪信息
+                            </label>
+                            <div class="col-xs-10">
+                                <div class="wt-row" ng-repeat="log in mail.eventLogs">
+                                    {{log.time | timefullFormatZHCN}}&nbsp;|&nbsp;{{log.content}}&nbsp;by&nbsp;{{log.maker}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-----------------------用户可见的追踪信息----------------------->
+                        <div class="task-desc wt-row" ng-show="!isManager">
+                            <label class="col-xs-2 control-label p_0">
+                                <i class="mr_5"></i>追踪信息
+                            </label>
+                            {{mail.mailStatus}}&nbsp;|&nbsp;{{mail.update_date | timefullFormatZHCN}}
+                        </div>
+						<div class="task-desc wt-row">
+							<label class="col-xs-2 control-label p_0"><i
+								class="mr_5"></i>发信人</label>  {{mail.from}}
+						</div>
+
+						<div class="task-desc wt-row">
+							<label class="col-xs-2 control-label p_0"><i
+                                    class="mr_5"></i>收信人</label>{{ mail.to }}
+                            <a ng-show="" href="javascript:;" ng-click="locator.to_task(mail.pid, mail.cid, true)">{{mail.to}}</a>
+                        </div>
+						
+						<div class="task-desc wt-row">
+                            <label class="col-xs-2 control-label p_0">
+                                <i class="mr_5"></i> 内容
+                                </label>
+							<div class="markdown" wt-markdown="mail.content"></div>
+						</div>
+					</div>
+				</div>
+				<!--<div class="content-module" id="mail_tab_module" ng-cloak
+					class="ng-cloak">
+					<ng-include src="'/view/common/tab_comment_activity.html'"></ng-include>
+										<br></br>
+					<br></br>
+					
+				</div>-->
+
+			</div>
+		</div>
+
+	</div>
+</div>

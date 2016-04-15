@@ -1,0 +1,23 @@
+<dl class="frame add_edit_panel">
+    <div class="article-edit-container">
+        <form name="article_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+
+            <input type="text" id="new_article_title" maxlength="100" name="article_title" autofocus ng-model="new_element.title" class="form-control help-block" placeholder="标题" required>
+            <input type="text" id="new_article_brief" maxlength="100" name="article_brief" autofocus ng-model="new_element.brief" class="form-control help-block" placeholder="概要">
+            <div class="form-group">
+                <div class="input-group col-xs-12">
+                    <wt-cascading flag="flag" label="类型"
+                                  first="new_element.code_article_type_name"
+                                  firstkey="new_element.code_article_type" cascad="1"
+                                  source="api/codes/article_part/all"> </wt-cascading>
+                </div>
+            </div>
+            <div class="pos_relative editor-container mt_10"
+                 ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                                false: 'height-main-min-j4-new-template-by-auto-mailbox-inner-with-one-input-above'}[$root.global.is_outter]">
+                <wt-new-editor class="" edit-content="new_element.content"></wt-new-editor>
+            </div>
+        </form>
+    </div>
+</dl>
+

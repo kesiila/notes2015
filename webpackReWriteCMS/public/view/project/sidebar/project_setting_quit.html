@@ -1,0 +1,19 @@
+<div class="prj_sidebar_step_body">
+    <div class="p_10">
+        <div ng-hide="project.info.curr_role==1&&project.admins.length==1">
+            <span class="tips">
+                退出项目后，你将无法再访问该项目内容，但相关的数据不会被删除。<br/></br>请输入项目的完整名称，确认要退出该项目：<br/><br/>
+            </span>
+            <input type="text" class="form-control" ng-model="prj_name" placeholder="项目名称">
+            <br/>
+        </div>
+        <span class="tips" ng-show="project.info.curr_role==1&&project.admins.length==1">
+            您是项目唯一负责人，因此不能退出项目。<br/><br/>
+        </span>
+        <button
+                ng-click="js_prj_quit(prj_name)" ng-disabled="prj_name != project.info.name"
+                class="btn btn-danger" data-loading-text="退出中..." loading-status="is_quiting">
+            确定退出
+        </button>
+    </div>
+</div>

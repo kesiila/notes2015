@@ -1,0 +1,10 @@
+<h2 ng-click="js_show_editor(video)"
+    wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{video.title}}">{{video.title|abbrevition:30}}</span>
+
+    <p>
+        <em title="创建时间" ng-if="video.create_date" style="margin-left: 0px">
+            <i class="icon-flag" ng-show="video.is_edit "></i>
+            {{video.create_date | timefullFormatZHCN}} </em>
+    </p>
+</h2>

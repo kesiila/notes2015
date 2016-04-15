@@ -1,0 +1,16 @@
+<div class="feed-item-inner slide-trigger" ng-click="js_click_feed()">
+    <div class="column column-actor">
+        <wt-avatar member="feed.actor" name="true" size="30"></wt-avatar>
+    </div>
+    <div class="column column-action">
+        <h4>{{action | abbrevition:40}}</h4>
+        <span class="entity">
+            <i class="{{type_icon.icon}}"></i>
+            <span ng-bind-html-unsafe="display_entity.name | abbrevition:10"></span>
+        </span>
+    </div>
+    <div class="column column-datetime" style="width: 200px">
+        <span>{{feed.published | fromNow}}</span>
+    </div>
+</div>
+

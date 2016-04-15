@@ -1,0 +1,361 @@
+<div class="left_menu height-noheader" style="display: block;border-right: 1px solid #ddd;"
+     ng-click="expand_left_menu()">
+    <div data-height="{{{true:'100',false:'142'}[upload_queue.get_queue()==0]}}" wt-scroll>
+        <ul class="left_menu_module">
+            <li>
+                <a title="最新动态 latest" class="left_menu_item" ng-class="{'active':global.header_menu == 'dashboard'}"
+                   wt-tracker="LeftMenu|Module|Goto Dashboard" ng-href="/dashboard">
+                    <i class="icon-dashboard mr_10"></i> <span class="collapse_hide"><b>工作台</b></span>
+                </a>
+            </li>
+            <!--
+                         <li>
+                            <a title="发现" class="left_menu_item" ng-class="{'active':global.header_menu == 'browse'}"
+                               wt-tracker="LeftMenu|Module|Goto Browse" ng-href="/browse">
+                                <i class="icon-compass mr_10"></i> <span class="collapse_hide">开发统计</span>
+                            </a>
+                        </li>-->
+            <!--             <li>
+                            <a title="我的活动" class="left_menu_item" ng-class="{'active':global.header_menu == 'tasks'}"
+                               wt-tracker="LeftMenu|Module|Goto Tasks" href="/tasks">
+                                <i class="icon-user mr_10"></i> <span class="collapse_hide">我的活动</span>
+                            </a>
+                        </li>
+             -->
+            <li>
+                <!--  <a title="项目" class="left_menu_item" ng-class="{'active':global.header_menu == 'projects'}"
+                    wt-tracker="LeftMenu|Module|Goto Projects" href="/projects">
+                     <i class="icon-group mr_10"></i> <span class="collapse_hide">我的项目</span>
+                 </a> -->
+            </li>
+            <!--              <li>
+                            <a title="活动" class="left_menu_item" ng-class="{'active':global.header_menu == 'task'}"
+                               wt-tracker="LeftMenu|Module|Goto Customers" href="/tasks">
+                                <i class="icon-user mr_10"></i> <span class="collapse_hide">我的活动</span>
+                            </a>
+                        </li>
+             -->
+
+            <!--<span title="" class="item praise" id="praise_{{topic.id}}"-->
+                  <!--ng-class="{' praise02':topic.zanFlag==1}"-->
+                  <!--ng-click="like_this(topic,$index)"-->
+                  <!--show-like-list flag="topic.zanFlag" like-count="topic.like" topic-id="topic.id">-->
+					<!--</span>-->
+        </ul>
+        <div class="hr_black" ng-hide="(projects | filter:{is_star:1}).length==0"></div>
+        <ul class="left_menu_module">
+            <li data-ng-repeat="project in projects | filter:{is_star:1}"
+                data-ng-click="js_set_current_prj(project)">
+                <a data-ng-class="{'active':current_pid == project.pid}" class="left_menu_item"
+                   href="/project/{{project.pid}}?team_id={{team_id}}" title="{{project.name}}">
+                    <i class="mr_10" ng-class="{true:'ai-yellow icon-leaf',false:'icon-group'}[project.type == 1]"
+                       ng-class="project.pic" ng-style="{color: project.bg}"></i> <span
+                        class="collapse_hide">{{project.name}}</span>
+                </a>
+            </li>
+        </ul>
+
+       <div class="hr_black" data-ng-show="!left_panel_is_fold"></div>
+
+        <div class="left_menu_scroll" ng-controller="prj_info_ctrl">
+            <ul class="left_menu_section" ng-class="{true:'left_menu_section_expand'}[sys_menu_is_expand]">
+                <li ng-init="sys_menu_is_expand = true">
+                    <a title="System management" class="left_menu_item" ng-class="{'active':global.header_menu == 'system'}" href="/system"  >
+                        <i class="icon-cogs mr_10"></i> <span class="team_name collapse_hide"><b>系统管理</b></span>
+                    </a>
+                    <a ng-click="sys_menu_is_expand  = !sys_menu_is_expand"
+                       class="collapse_hide" placement=""><i class="icon-angle cursor"
+                                                style="height: 50px;width: 21px;margin-top: -20px;line-height: 50px;padding-left: 10px;margin-left: -10px;vertical-align: middle;"
+                                                ng-class="{true:'icon-angle-down',false:'icon-angle-right'}[sys_menu_is_expand  == true]"></i></a>
+                    <ul class="left_menu_body collapse_hide" collapse="!sys_menu_is_expand ">
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Tag Management" ng-class="{'active':global.header_menu == 'tags'}"
+                                       ng-class="{true:'ai-yellow icon-tags',false:'icon-tags'}[project.type == 1]"
+                                       href="/tags">
+                                        <i ng-class="{true:'icon-tags',false:'icon-tags'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        标签
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="User Management" ng-class="{'active':global.header_menu == 'users'}"
+                                       ng-class="{true:'ai-yellow icon-user',false:'icon-user'}[project.type == 1]"
+                                       href="/users">
+                                        <i ng-class="{true:'icon-user',false:'icon-user'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        用户
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="left_menu_section" ng-class="{true:'left_menu_section_expand'}[cms_menu_is_expand]">
+                <li ng-init="cms_menu_is_expand = false">
+                    <a title="Content Management" class="left_menu_item" ng-class="{'active':global.header_menu == 'cms'}" href="/cms"  >
+                        <i class="icon-list mr_10"></i> <span class="team_name collapse_hide"><b>内容管理</b></span>
+                    </a>
+                    <a ng-click="cms_menu_is_expand  = !cms_menu_is_expand"
+                       class="collapse_hide">
+                        <i class="icon-angle cursor" style="height: 50px;width: 21px;margin-top: -20px;line-height: 50px;padding-left: 10px;margin-left: -10px;vertical-align: middle;"
+                           ng-class="{true:'icon-angle-down',false:'icon-angle-right'}[cms_menu_is_expand  == true]">
+                        </i>
+                    </a>
+                    <ul class="left_menu_body collapse_hide" collapse="!cms_menu_is_expand ">
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Actitivy Management" ng-class="{'active':global.header_menu == 'programs'}"
+                                       ng-class="{true:'ai-yellow icon-flag',false:'icon-flag'}[project.type == 1]"
+                                       href="/programs">
+                                        <i ng-class="{true:'icon-flag',false:'icon-flag'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        活动
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Project Management" ng-class="{'active':global.header_menu == 'projects'}"
+                                       ng-class="{true:'ai-yellow icon-umbrella',false:'icon-umbrella'}[project.type == 1]"
+                                       href="/projects">
+                                        <i ng-class="{true:'icon-umbrella',false:'icon-umbrella'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        项目
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div>
+                                    <a title="Project Management" ng-class="{'active':global.header_menu == 'articles'}"
+                                       href="/articles">
+                                        <i class="icon-lightbulb-o" ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                       专题
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Organizer Management" ng-class="{'active':global.header_menu == 'organizers'}"
+                                       ng-class="{true:'ai-yellow icon-bank',false:'icon-bank'}[project.type == 1]"
+                                       href="/organizers">
+                                        <i ng-class="{true:'icon-bank',false:'icon-bank'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        机构
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Post Management" ng-class="{'active':global.header_menu == 'posts'}"
+                                       ng-class="{true:'ai-yellow icon-comment',false:'icon-comment'}[project.type == 1]"
+                                       href="/posts">
+                                        <i ng-class="{true:'icon-comment',false:'icon-comment'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        话题
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Video Management" ng-class="{'active':global.header_menu == 'videos'}"
+                                       ng-class="{true:'ai-yellow icon-film',false:'icon-film'}[project.type == 1]"
+                                       href="/videos">
+                                        <i ng-class="{true:'icon-film',false:'icon-film'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        视频
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="File Management" ng-class="{'active':global.header_menu == 'projects'}"
+                                       ng-class="{true:'ai-yellow icon-file',false:'icon-file'}[project.type == 1]"
+                                       href="/files">
+                                        <i ng-class="{true:'icon-file',false:'icon-file'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        文件
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="left_menu_section" ng-class="{true:'left_menu_section_expand'}[trade_menu_is_expand]">
+                <li ng-init="trade_menu_is_expand = false">
+                    <a title="Trade Management" class="left_menu_item" ng-class="{'active':global.header_menu == 'trade'}" href="/trade"  >
+                        <i class="icon-credit-card mr_10"></i> <span class="team_name collapse_hide"><b>交易管理</b></span>
+                    </a>
+                    <a ng-click="trade_menu_is_expand  = !trade_menu_is_expand"
+                       class="collapse_hide" placement=""><i class="icon-angle cursor"
+                                                style="height: 50px;width: 21px;margin-top: -20px;line-height: 50px;padding-left: 10px;margin-left: -10px;vertical-align: middle;"
+                                                ng-class="{true:'icon-angle-down',false:'icon-angle-right'}[trade_menu_is_expand  == true]"></i></a>
+                    <ul class="left_menu_body collapse_hide" collapse="!trade_menu_is_expand ">
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Order Management" ng-class="{'active':global.header_menu == 'goodss'}"
+                                       ng-class="{true:'ai-yellow icon-shopping-cart',false:'icon-shopping-cart'}[project.type == 1]"
+                                       href="/goodss">
+                                        <i ng-class="{true:'icon-shopping-cart',false:'icon-shopping-cart'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        商品
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Order Management" ng-class="{'active':global.header_menu == 'orders'}"
+                                       ng-class="{true:'ai-yellow icon-barcode',false:'icon-barcode'}[project.type == 1]"
+                                       href="/orders">
+                                        <i ng-class="{true:'icon-barcode',false:'icon-barcode'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        订单
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a title="Order Management" ng-class="{'active':global.header_menu == 'coupons'}"
+                                       ng-class="{true:'ai-yellow icon-money',false:'icon-money'}[project.type == 1]"
+                                       href="/coupons">
+                                        <i ng-class="{true:'icon-money',false:'icon-money'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        优惠券
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="left_menu_section" ng-class="{true:'left_menu_section_expand'}[team.expand]"
+                data-ng-repeat="team in teams">
+                <li ng-init="team.expand = true">
+                    <a title="Bonday Team" class="left_menu_item" ng-class="{'active':global.header_menu == 'task'}" href="/tasks"  >
+                        <i class="icon-users mr_10"></i> <span class="team_name collapse_hide"><b>棒呆官方团队</b><span ng-show="team.task_count>=0">&nbsp;({{team.task_count}})</span></span>
+                    </a>
+                    <a ng-click="team.expand = !team.expand;current_team=team"
+                       class="collapse_hide"><i class="icon-angle cursor"
+                                                style="height: 50px;width: 21px;margin-top: -20px;line-height: 50px;padding-left: 10px;margin-left: -10px;vertical-align: middle;"
+                                                ng-class="{true:'icon-angle-down',false:'icon-angle-right'}[team.expand == true]"></i></a>
+                    <ul class="left_menu_body collapse_hide" collapse="!team.expand">
+                    
+                        <li data-ng-repeat="project in team.projects" data-ng-click="js_set_current_prj(project)">
+                            <div ng-mouseover="project.showIcon=true" ng-mouseleave="project.showIcon=false"
+                                 ng-hide="project.renameActive">
+                                <div>
+                                    <a ng-class="{'active':current_pid == project.pid}"
+                                       ng-class="{true:'ai-yellow icon-leaf',false:'icon-umbrella'}[project.type == 1]"
+                                       href="/project/{{project.pid}}?team_id={{team.team_id}}">
+                                        <i ng-class="{true:'icon-sitemap',false:'icon-umbrella'}[project.type == 1]"
+                                           ng-class="project.pic" ng-style="{color: project.bg}"></i>
+                                        {{project.name}}<span ng-show="project.badges.task_count>=0">&nbsp;({{project.badges.task_count}})</span>
+                                        <span class="pull-right small-icon" ng-show="project.showIcon && project.pid !== projects[0].pid"
+                                              ng-click="project.renameActive=true">
+                                            <i class="icon-pencil" title="重命名"></i>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="plr_20" ng-show="project.renameActive">
+                                <input class="form-control" ng-model="project.newName" maxlength="12"
+                                       placeholder="组名(最长12个字符)" ng-init="project.newName=project.name"
+                                       ng-blur="rename_project(team,project)"
+                                       wt-enter="rename_project(team,project)"
+                                       wt-focus="project.renameActive">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="plr_20">
+                                <input class="form-control" ng-show="team.isAdd" type="text" maxlength="12"
+                                       placeholder="组名(最长12个字符)" ng-model="team.newProjectName"
+                                        wt-enter="add_project(team)" wt-focus="team.isAdd">
+                            </div>
+                            <div>
+                                <a href="javascript:;" style="padding-left: 54px;" class="add_project"
+                                   ng-hide="team.isAdd" ng-click="team.isAdd=true">
+                                    <i class="icon-plus" style="margin-right: 10px"></i>添加项目</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form id="global_file_upload" data-ng-controller="global_file_ctrl" action="{{global.config.box_url()}}"
+          method="POST"
+          enctype="multipart/form-data"
+          data-file-upload="options"
+          data-ng-class="{'fileupload-processing': processing() || loadingFiles}"
+          class="js-popbox"
+          data-placement="right"
+          ng-show="queue.length"
+          ng-class="{true: 'fileupload-processing'}[!!processing() || loadingFiles]">
+        <a href="javascript:;" class="icon icon-white icon-upload-alt"
+           ng-click="js_pop_global_fileupload($event)">
+            <span class="ml_10 collapse_hide">目前有 {{ queue.length }} 个文件在上传</span>
+            <span class="label label-danger collapse_show">{{ queue.length }}</span>
+        </a>
+
+        <div class="hr_black"></div>
+    </form>
+    <div class="hr_black"></div>
+    <ul class="left_menu_footer mailbox-click-other-donot-hide">
+        <li class="collapse_hide">
+            <a href="/page/help01.html" target="_blank" tooltip="帮助中心">
+                <i class="icon-question-sign"></i>
+            </a>
+        </li>
+        <li class="collapse_hide">
+        </li>
+
+
+        <li class="pull-right">
+            <a href="javascript:;" data-ng-click="js_left_panel_toggle()" tooltip-placement="top"
+               wt-stop-propagation="click"
+               tooltip="{{{true:'展开',false:'折叠'}[global.left_panel_is_fold]}}">
+                <i class="{{{true:'icon-step-forward',false:'icon-step-backward'}[global.left_panel_is_fold]}}"></i>
+            </a>
+        </li>
+        <!--        <li class="hint hint-off" wt-guide-trigger=""></li>-->
+    </ul>
+</div>

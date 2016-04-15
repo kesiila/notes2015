@@ -1,0 +1,18 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>删除日程</h3></div>
+<div class="popbox-body" ng-if="!is_repeat_event"><span>日程删除后无法恢复，确认要删除该日程吗？</span></div>
+<div class="popbox-body" ng-if="is_repeat_event"><span>您正在删除重复日程</span>
+
+    <div class="radio"><label> <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked
+                                      ng-model="del.del_option">只删除当前的日程 </label></div>
+    <div class="radio "><label> <input type="radio" name="optionsRadios" id="optionsRadios3" value="2"
+                                       ng-model="del.del_option">删除当前事件和之后的此重复日程 </label></div>
+    <div class="radio"><label> <input type="radio" name="optionsRadios" id="optionsRadios2" value="3"
+                                      ng-model="del.del_option">删除所有此重复日程 </label></div>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_delete_event()" data-loading-text="删除中..." loading-status="is_deleting"
+            class="btn btn-danger float_left">确定删除
+    </button>
+</div>

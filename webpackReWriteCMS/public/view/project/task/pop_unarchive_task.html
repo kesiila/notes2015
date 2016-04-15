@@ -1,0 +1,17 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>激活活动</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+    <div class="popbox-body fixed-width-260">
+        <div class="part-loading" ng-if="entries == null"></div>
+        <ul class="popbox-menu">
+            <li ng-repeat="entry in entries">
+                <a href="javascript:;" ng-click="js_unarchive_task(entry)">
+                    <i ng-class="{true:'icon-ok',false:'icon-columns'}[entry.selected == 1]" class="color_gray"></i>
+                    <span>{{entry.name}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

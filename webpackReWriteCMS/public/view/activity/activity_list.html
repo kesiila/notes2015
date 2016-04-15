@@ -1,0 +1,1317 @@
+<div class="empty-panel" ng-show="activities != null && activities.length == 0">
+    <i class="icon-time"></i><br/>
+    <span>还没有任何活动</span>
+</div>
+<div class="activity-list m_15" ng-show="activities | isNotNullOrEmpty" ng-cloak>
+    <ul class="activities">
+        <li class="activity-item" ng-repeat="activity in activities"
+            ng-class="{true:'activity-item-day'}[activity.is_show_date]">
+            <!--<wt-activity></wt-activity>-->
+            <div class="activity-day" ng-show="activity.is_show_date">
+
+                <span class="year">{{[activity.published,'YYYY'] | momentFormat}}年<br/></span>
+                <strong>{{[activity.published,'MM/DD'] | momentFormat}}<br/></strong>
+                <span class="weekday">{{[activity.published,'ddd'] | momentFormat}}</span>
+            </div>
+            <div class="activity-icon">
+                <i ng-class="activity.verb | activityIcon"></i>
+            </div>
+            <div class="activity-meta">
+                <span class="date" wt-title="[activity.published,'HH:mm'] | momentFormat">{{[activity.published,'HH:mm'] | momentFormat}}</span>
+            </div>
+            <wt-avatar member="activity.actor" size="30" class="activity-avatar"></wt-avatar>
+
+            <div class="activity-itemwarp">
+               <span class="activity">
+                    <wt-include src="tpl_prefix + activity.template"></wt-include>
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="loading-more-panel">
+    <div class="part-loading" ng-show="loading_activity">
+    </div>
+    <button class="btn" ng-show="has_more && (global.loading_done && loading_activity != true)"
+            wt-tracker="Activity Page|Main|Load More"
+            ng-click="js_load_more($event);">
+        加载更多...
+    </button>
+
+</div>
+
+<script type="text/ng-template" id="entity_name_link">
+    <a class="target" title="{{activity.data.entity.name}}" href="javascript:;"
+       data-ng-click="locator.to_entity(activity.filter.prj,activity.data.entity,true)">
+        {{activity.data.entity.name}}
+    </a>
+</script>
+<script type="text/ng-template" id="entity_summary_link">
+    <a class="target" title="{{activity.data.entity.name}}" href="javascript:;">
+        {{activity.data.entity.summary}}
+    </a>
+</script>
+<script type="text/ng-template" id="target_name_link">
+    <a class="target" title="{{activity.data.target.name}}" href="javascript:;"
+       data-ng-click="locator.to_entity(activity.filter.prj,activity.data.target,true)">
+        {{activity.data.target.name}}
+    </a>
+</script>
+
+<script type="text/ng-template" id="source_name_link">
+    <a class="target" title="{{activity.data.source.name}}" href="javascript:;"
+       data-ng-click="locator.to_entity(activity.filter.prj,activity.data.source,true)">
+        {{activity.data.source.name}}
+    </a>
+</script>
+
+<script type="text/ng-template" id="entity_avatar_link">
+    <wt-avatar member="activity.data.entity" size="30" name="true" class="entity-avatar"
+               avatar="activity.data.entity.image"></wt-avatar>
+</script>
+
+<!--Goods----------------------------------------------------------->
+<script type="text/ng-template" id="item_goods_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加商品</span>
+</script>
+
+<!--Task----------------------------------------------------------->
+<script type="text/ng-template" id="project_task_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在列表 <strong>{{activity.data.target.name}}</strong> 上添加新活动</span>
+    <a class="target" title="{{activity.data.entity.name}}" href="javascript:;">
+        {{activity.data.entity.name}}
+    </a>
+</script>
+<script type="text/ng-template" id="item_task_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加活动</span>
+</script>
+
+<script type="text/ng-template" id="project_task_update">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改活动 </span>
+    <ng-include src="'source_name_link'"></ng-include>
+    <span> <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="item_task_update">
+    <span ng-if="_.isEmpty(activity.updateCountents)">
+        <span class="actor">{{activity.actor.display_name}}</span>
+        <span class="verb">修改活动</span>
+        <span> <strong>{{ activity.data.entity.name }}</strong></span>
+    </span>
+
+    <span ng-if="!_.isEmpty(activity.updateCountents)" style="height: 20px;" wt-update-info="activity">
+        <span class="actor">{{activity.actor.display_name}}</span>
+        <span class="verb">修改活动</span>
+        <span> <strong>{{ activity.data.entity.name }}</strong></span>
+    </span>
+</script>
+
+<script type="text/ng-template" id="item_task_share">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">分享活动</span>
+    <!--<ng-include src="'source_name_link'"></ng-include>-->
+    <span> <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_collect">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">收藏活动</span>
+    <!--<ng-include src="'source_name_link'"></ng-include>-->
+    <span> <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_task_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改活动 </span>
+    <ng-include src="'source_name_link'"></ng-include>
+    <span>名称为 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="item_task_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改活动</span>
+    <span>名称为 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_task_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改活动 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span> 描述为 <strong>{{activity.data.entity.summary}}</strong></span>
+</script>
+<script type="text/ng-template" id="item_task_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改活动</span>
+    <span> 描述为 <strong>{{activity.data.entity.summary}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_task_member_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">分配活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    给
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_member_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">分配活动给</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+
+<script type="text/ng-template" id="project_task_member_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">取消分配活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    给
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_member_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">取消分配活动给</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_task_pay_for_email">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">消耗积分查看了邮箱</span>
+    <span> <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+
+<script type="text/ng-template" id="project_task_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">提醒</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注活动
+    <ng-include src="'target_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">提醒</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注活动
+</script>
+
+<script type="text/ng-template" id="project_task_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注活动
+    <ng-include src="'target_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注活动
+</script>
+
+
+<script type="text/ng-template" id="project_task_complete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">完成活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_complete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">完成活动</span>
+</script>
+
+<script type="text/ng-template" id="project_task_uncomplete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">取消完成活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_uncomplete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">取消完成活动</span>
+</script>
+
+<script type="text/ng-template" id="project_task_labels_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">设置活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb">的组内标记</span>
+    <span class="label" ng-style="background:{{activity.data.entity.summary.name}}">&nbsp;</span>
+    {{activity.data.entity.name}}
+</script>
+
+
+<script type="text/ng-template" id="item_task_labels_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">设置组内标记</span>
+    <span class="label" ng-style="background:{{activity.data.entity.summary.name}}">&nbsp;</span>
+    {{activity.data.entity.name}}
+</script>
+
+<script type="text/ng-template" id="item_task_tags_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">设置标签</span>
+    {{activity.data.entity.name}}
+</script>
+
+<script type="text/ng-template" id="project_task_labels_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span>的组内标记</span>
+    <span class="label" ng-style="background:{{activity.data.entity.summary.name}}">&nbsp;</span>
+   {{activity.data.entity.name}}
+</script>
+<script type="text/ng-template" id="item_task_tags_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除标签</span>
+   {{activity.data.entity.name}}
+</script>
+
+<script type="text/ng-template" id="project_task_expire_set">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">设置活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb">的截止日期</span>
+    <span>{{activity.data.entity.summary | dateFormatZHCN}}</span>
+</script>
+<script type="text/ng-template" id="item_task_expire_set">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">设置截止日期</span>
+    <span>{{activity.data.entity.summary | dateFormatZHCN}}</span>
+
+</script>
+
+<script type="text/ng-template" id="project_task_expire_reset">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">取消活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb">的截止日期</span>
+    <span>{{activity.data.summary | dateFormatZHCN}}</span>
+</script>
+<script type="text/ng-template" id="item_task_expire_reset">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">取消截止日期</span>
+    <span>{{activity.data.summary | dateFormatZHCN}}</span>
+
+</script>
+
+<script type="text/ng-template" id="project_task_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 添加文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加文件 </strong></span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="project_task_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+
+</script>
+
+<script type="text/ng-template" id="project_task_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除活动</span>
+</script>
+
+<script type="text/ng-template" id="project_task_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">重新恢复活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_task_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">重新恢复活动</span>
+</script>
+
+<script type="text/ng-template" id="item_task_move">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移动活动从 列表 <strong>{{activity.data.source.name}}</strong> 到 列表 <strong>{{activity.data.target.name}}</strong>
+    </span>
+</script>
+<script type="text/ng-template" id="project_task_move">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移动活动</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    从 列表 <span><strong>{{activity.data.source.name}}</strong></span>
+    <span>到 列表 <strong>{{activity.data.target.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_todo_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_task_todo_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上添加检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_todo_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_mail_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">发送邮件<strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="mail_opend">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">邮件被打开了<strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+
+<script type="text/ng-template" id="item_task_tag_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">增加标签 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_tag_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除标签 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+
+<script type="text/ng-template" id="project_task_todo_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上删除检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_todo_check">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">完成检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_task_todo_check">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上完成检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_todo_uncheck">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">取消完成检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_task_todo_uncheck">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上取消完成检查项 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_todo_update">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改检查项 <strong>{{activity.data.source.name}}</strong> 为
+        <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_task_todo_update">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上修改检查项 <strong>{{activity.data.source.name}}</strong> 为
+        <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">发表了评论
+        <strong>{{activity.data.entity.name |abbrevition:160}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_task_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上发表了评论
+        <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了评论
+        <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_task_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在活动</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上删除了评论
+        <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_task_archive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">归档了活动 </span>
+</script>
+<script type="text/ng-template" id="project_task_archive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">归档了活动 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+
+<script type="text/ng-template" id="item_task_unarchive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">激活了活动 </span>
+</script>
+<script type="text/ng-template" id="project_task_unarchive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">激活了活动 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<!--Project-------------------------------------------------------->
+<script type="text/ng-template" id="project_entity_name_link">
+    <a class="target" title="{{activity.data.entity.name}}"
+       ng-href="/project/{{activity.filter.prj}}">
+        {{activity.data.entity.name}}
+    </a>
+</script>
+
+<script type="text/ng-template" id="project_source_name_link">
+    <a class="target" title="{{activity.data.source.name}}"
+       ng-href="/project/{{activity.filter.prj}}">
+        {{activity.data.source.name}}
+    </a>
+</script>
+
+<script type="text/ng-template" id="project_target_name_link">
+    <a class="target" title="{{activity.data.target.name}}"
+       ng-href="/project/{{activity.filter.prj}}">
+        {{activity.data.target.name}}
+    </a>
+</script>
+
+<script type="text/ng-template" id="project_entity_desc_link">
+    <a class="target" title="{{activity.data.entity.name}}"
+       ng-href="/project/{{activity.filter.prj}}">
+        {{activity.data.entity.summary}}
+    </a>
+</script>
+<!--common tpl end -->
+<script type="text/ng-template" id="project_project_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">创建项目</span>
+</script>
+
+<script type="text/ng-template" id="project_project_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改项目名为</span>
+    <ng-include src="'project_entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="project_project_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改项目描述为</span>
+    <ng-include src="'project_entity_desc_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="project_project_update_logo">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改项目标识</span>
+    <span style="background:{{activity.data.entity.summary}}">
+        <i class="{{activity.data.entity.image}}"></i>
+    </span>
+</script>
+
+<script type="text/ng-template" id="project_project_archive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">归档项目</span>
+</script>
+
+<script type="text/ng-template" id="project_project_unarchive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">重新打开项目</span>
+</script>
+
+<script type="text/ng-template" id="project_project_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除项目</span>
+</script>
+
+<script type="text/ng-template" id="project_project_member_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加项目成员</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="project_project_member_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除项目成员</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="project_project_member_leave">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">退出了项目</span>
+</script>
+
+<script type="text/ng-template" id="project_project_member_join">
+    <span class="verb">加入当前项目</span>
+</script>
+
+<!--Entry----------------------------------------------------------->
+
+<script type="text/ng-template" id="project_entry_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加新活动列表 </span>
+    <span><strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+
+<script type="text/ng-template" id="project_entry_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改活动列表 </span>
+    <span><strong>{{activity.data.source.name}}</strong></span>
+    <span class="verb">名称为</span>
+    <span><strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_entry_archive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">归档活动列表 </span>
+    <span><strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_entry_unarchive">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">重新打开活动列表 </span>
+    <span><strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_entry_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除活动列表 </span>
+    <span><strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_entry_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">重新恢复活动列表 </span>
+    <span><strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<!--File----------------------------------------------------------->
+<script type="text/ng-template" id="file_name_link">
+    <a class="target" title="{{activity.data.entity.name}}" href="javascript:;">
+        {{activity.data.entity.name}}
+    </a>
+</script>
+
+<script type="text/ng-template" id="item_file_upload">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">上传文件 <strong>{{ activity.data.entity.name }}</strong></span>
+
+</script>
+<script type="text/ng-template" id="project_file_upload">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">上传新文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_file_new_version">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">上传新版本</span>
+    <!--<span> {{activity.data.entity.summary}}</span>-->
+</script>
+<script type="text/ng-template" id="project_file_new_version">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb">上传新版本</span>
+    <!--<span> {{activity.data.entity.summary}}</span>-->
+</script>
+
+<script type="text/ng-template" id="item_file_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改文件名称为</span>
+    <span> <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_file_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改文件</span>
+    <ng-include src="'source_name_link'"></ng-include>
+    <span class="verb">名称为</span>
+    <span> <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_file_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改文件描述为</span>
+    <span> <strong>{{activity.data.entity.summary}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_file_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb">描述为</span>
+    <span> <strong>{{activity.data.entity.summary}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_file_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除文件</span>
+</script>
+<script type="text/ng-template" id="project_file_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_file_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">恢复文件</span>
+</script>
+<script type="text/ng-template" id="project_file_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">恢复文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_file_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">发表了评论 <strong>{{activity.data.entity.name}}</strong></span>
+
+</script>
+<script type="text/ng-template" id="project_file_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在文件</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上发表了评论 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_file_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了评论 <strong>{{activity.data.entity.name}}</strong></span>
+    <!--<span class="verb">{{activity.data.entity.name}}</span>-->
+</script>
+<script type="text/ng-template" id="project_file_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在文件</span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">上删除了评论 <strong>{{activity.data.entity.name}}</strong></span>
+    <!--<span class="verb">{{activity.data.entity.name}}</span>-->
+</script>
+
+<script type="text/ng-template" id="project_folder_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">创建了新文件夹 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_file_move">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">从 <strong>{{activity.data.source.name || "根目录"}}</strong></span>
+    <span class="verb">移动文件到 <strong>{{activity.data.target.name || "根目录"}}</strong></span>
+</script>
+<script type="text/ng-template" id="project_file_move">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移动文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb">从 <strong>{{activity.data.source.name || "根目录"}}</strong></span>
+    <span class="verb">到 <strong>{{activity.data.target.name || "根目录"}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_file_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">提醒</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注文件
+</script>
+<script type="text/ng-template" id="project_file_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">提醒</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注文件
+    <ng-include src="'target_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_file_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注文件
+</script>
+<script type="text/ng-template" id="project_file_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除</span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+    关注文件
+    <ng-include src="'target_name_link'"></ng-include>
+</script>
+
+
+<!--Post----------------------------------------------------------->
+
+<script type="text/ng-template" id="item_post_tag_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除标签 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_post_tag_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加标签 <strong>{{activity.data.entity.name}}</strong></span>
+</script>
+
+<script type="text/ng-template" id="project_post_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加了问答 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_post_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了话题</span>
+</script>
+<script type="text/ng-template" id="project_post_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了问答 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_post_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改话题名称为 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_post_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改问答 </span>
+    <ng-include src="'source_name_link'"></ng-include>
+    <span class="verb"> 名称为 <strong>{{ activity.data.entity.name }}</strong> </span>
+</script>
+
+<script type="text/ng-template" id="item_post_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改问答内容为 <strong>{{ activity.data.entity.summary }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_post_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改话题 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb"> 内容为 <strong>{{ activity.data.entity.summary }}</strong> </span>
+</script>
+
+<script type="text/ng-template" id="item_post_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_post_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在话题 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 添加关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_post_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 移除关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_post_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在问答 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 移除关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_post_share">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">分享了问答</span>
+</script>
+
+<script type="text/ng-template" id="item_post_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_post_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在问答 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_post_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_post_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在问答 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_post_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了话题</span>
+</script>
+<script type="text/ng-template" id="project_post_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了话题 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+
+<script type="text/ng-template" id="item_post_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加文件 </strong></span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_post_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在话题 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 添加文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_post_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+
+</script>
+<script type="text/ng-template" id="project_post_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在话题 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<!--Template----------------------------------------------------------->
+<script type="text/ng-template" id="item_template_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加了模板</span>
+</script>
+<script type="text/ng-template" id="project_template_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加了模板 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_template_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了模板</span>
+</script>
+<script type="text/ng-template" id="project_template_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了模板 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_template_update">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">更新模板 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_template_share">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">分享模板 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_template_collect">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">收藏模板 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_template_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改模板名称为 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_template_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改模板 </span>
+    <ng-include src="'source_name_link'"></ng-include>
+    <span class="verb"> 名称为 <strong>{{ activity.data.entity.name }}</strong> </span>
+</script>
+
+<script type="text/ng-template" id="item_template_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改模板内容为 <strong>{{ activity.data.entity.summary }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_template_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改模板 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb"> 内容为 <strong>{{ activity.data.entity.summary }}</strong> </span>
+</script>
+
+<script type="text/ng-template" id="item_template_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_template_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在模板 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 添加关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_template_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 移除关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_template_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在模板 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 移除关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_template_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_template_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在模板 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_template_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_template_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在模板 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_template_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了模板</span>
+</script>
+<script type="text/ng-template" id="project_template_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了模板 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+
+<script type="text/ng-template" id="item_template_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加文件 </strong></span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_template_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在模板 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 添加文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_template_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+
+</script>
+<script type="text/ng-template" id="project_template_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在模板 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="item_template_tags_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除标签</span>
+    {{activity.data.entity.name}}
+</script>
+<script type="text/ng-template" id="item_template_tags_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">设置标签</span>
+    {{activity.data.entity.name}}
+</script>
+
+<!--Page----------------------------------------------------------->
+
+<script type="text/ng-template" id="item_page_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加了文档</span>
+</script>
+<script type="text/ng-template" id="project_page_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">添加了文档 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_page_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了文档</span>
+</script>
+<script type="text/ng-template" id="project_page_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了文档 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_page_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改文档名称为 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_page_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改文档 </span>
+    <ng-include src="'source_name_link'"></ng-include>
+    <span class="verb"> 名称为 <strong>{{ activity.data.entity.name }}</strong> </span>
+</script>
+
+<script type="text/ng-template" id="item_page_new_version">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加了新版本</span>
+</script>
+<script type="text/ng-template" id="project_page_new_version">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在文档 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb"> 上添加了新版本 </span>
+</script>
+
+<script type="text/ng-template" id="item_page_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_page_watch_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在文档 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 上添加关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_page_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 移除关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_page_watch_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在文档 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 上移除关注 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_page_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_page_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在文档 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 上发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_page_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_page_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在文档 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 上删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_page_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了文档</span>
+</script>
+<script type="text/ng-template" id="project_page_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了文档 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+
+<script type="text/ng-template" id="item_page_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加文件 </strong></span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_page_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在文档 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 上添加文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_page_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+
+</script>
+<script type="text/ng-template" id="project_page_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在文档 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 上移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<!--Event----------------------------------------------------------->
+<script type="text/ng-template" id="item_event_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">创建了日程</span>
+</script>
+<script type="text/ng-template" id="project_event_create">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">创建了日程 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_event_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改日程名称为 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_event_update_name">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改日程 </span>
+    <ng-include src="'source_name_link'"></ng-include>
+    <span class="verb"> 名称为 <strong>{{ activity.data.entity.name }}</strong> </span>
+</script>
+
+<script type="text/ng-template" id="item_event_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了日程</span>
+</script>
+<script type="text/ng-template" id="project_event_delete">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">删除了日程 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_event_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改日程描述为 <strong>{{ activity.data.entity.summary }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_event_update_desc">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">修改日程 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+    <span class="verb"> 描述为 <strong>{{ activity.data.entity.summary }}</strong> </span>
+</script>
+
+<script type="text/ng-template" id="item_event_attendee_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加参与人 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_event_attendee_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在日程 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 添加参与人 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_event_attendee_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 移除参与人 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_event_attendee_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在日程 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 移除参与人 </span>
+    <ng-include src="'entity_avatar_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_event_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_event_comment_add">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在日程 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 发表了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_event_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+<script type="text/ng-template" id="project_event_comment_remove">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 在日程 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 删除了评论 <strong>{{ activity.data.entity.name }}</strong></span>
+</script>
+
+<script type="text/ng-template" id="item_event_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了日程</span>
+</script>
+<script type="text/ng-template" id="project_event_restore">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 恢复了日程 </span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+
+<script type="text/ng-template" id="item_event_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb"> 添加文件 </strong></span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+<script type="text/ng-template" id="project_event_attach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在日程 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb"> 添加文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>
+
+<script type="text/ng-template" id="item_event_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+
+</script>
+<script type="text/ng-template" id="project_event_detach_file">
+    <span class="actor">{{activity.actor.display_name}}</span>
+    <span class="verb">在日程 </span>
+    <ng-include src="'target_name_link'"></ng-include>
+    <span class="verb">移除文件</span>
+    <ng-include src="'entity_name_link'"></ng-include>
+</script>

@@ -1,0 +1,54 @@
+<dl class="frame add_edit_panel">
+	<div class="mail-edit-container">
+		<form name="mail_form" class="wt-form"
+			wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+			<div>
+				<div>
+<!-- 					<button class="btn js-popbox pull-right" data-placement="bottom"
+						ng-click="js_add_mail_tasks_pop($event,edit_mail)">
+						<i class="icon-user"></i>添加收件人
+					</button>
+ -->					<ul class="wt-row">
+						<div class="task-badges">
+							<span><label>收件人：</label></span>
+							<span ng-show="edit_mail.tasks.length>0"><label>已添加{{edit_mail.tasks.length}}个活动    <a class="icon-action icon-list"
+								href="javascript:;" data-ng-click="js_show_mail_list()"
+								title="查看列表"></a></label></span><br/>
+							<span class="task-badge" ng-show="show_mail_list"
+								ng-repeat="task in edit_mail.tasks">
+								{{task.name}}[{{task.email}}] <a class="icon-action icon-remove"
+								href="javascript:;" data-ng-click="js_toggle_task(task)"
+								title="移除该收件人"></a>
+							</span>
+						</div>
+					</ul>
+				</div>
+			</div>
+			<input type="text" id="new_mail_title" autofocus name="mail_title"
+				ng-model="edit_mail.subject" class="form-control help-block"
+				placeholder="邮件标题" required="">
+			<textarea type="text" ng-model="edit_mail.content"
+				name="mail_content" wt-ctrl-enter="js_save_mail(mail_form)"
+				placeholder="邮件内容(按Ctrl + 回车键提交)" wt-full-editor></textarea>
+<!--             <fa-editor id="fa-editor-mail"></fa-editor>
+ --><!--            <button class="btn btn-primary" ng-click="js_show_template()">添加模板</button>-->
+			<div class="mail_watch_bar">
+				<button class="btn btn-success mr_15"
+					wt-form-submit="js_save_mail(mail_form)" data-loading-text="发送中..."
+					loading-status="is_saving">发送</button>
+				<button class="btn btn-cancel" ng-click="js_cancel_edit_mail()">取消</button>
+<!-- 				<div class="pull-right">
+					<button class="btn js-popbox" data-placement="bottom"
+						ng-click="js_add_mail_watchers_pop($event,edit_mail)">
+						<i class="icon-eye-open"></i>添加关注
+					</button>
+					<ul>
+						<li ng-repeat="member in edit_mail.watchers"><wt-avatar
+								member="member" click="js_toggle_member(member)" size="30"></wt-avatar>
+						</li>
+					</ul>
+				</div>
+ -->			</div>
+		</form>
+	</div>
+</dl>

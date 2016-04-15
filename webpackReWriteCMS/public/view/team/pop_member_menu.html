@@ -1,0 +1,178 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-avatar">
+            <div class="avatar-body"
+                 ng-class="{true: 'member-pendding'}[[(selected_member.status==2 || selected_member.status==3)]]">
+                <button class="cancel icon-remove" ng-click="js_close()"></button>
+
+                <wt-avatar member="selected_member" size="56"></wt-avatar>
+                <div class="avatar-right">
+                    <h4 class="avatar-heading help-inline">{{selected_member.display_name}}</h4>
+                    <span class="text-muted pl_15">{{selected_member.role | role}}</span>
+
+                    <p>
+                        <span class="help-inline">@{{selected_member.name}}</span>
+                    </p>
+                </div>
+                <div class="member_desc ng-scope">
+                    <span class="text-muted ng-binding">{{ selected_member.desc || "他很懒，还没有个人说明" }}</span>
+                </div>
+            </div>
+
+            <div class="avatar-footer" ng-hide="!current_team.is_owner && !(current_team.curr_role | is_admin) && selected_member.uid != current_team.owner.uid">
+                <div class="pull-left color_gray" ng-if="selected_member.uid == current_team.owner.uid">
+                    团队所有者
+                </div>
+                <section ng-hide="selected_member.uid == current_team.owner.uid || !(current_team.curr_role | is_admin)">
+                    <div ng-show="(current_team.curr_role | is_admin) && selected_member.status | is_pending">
+                        <button ng-click="js_view_invite_code()" class="btn btn-danger mr_15">发送邀请链接</button>
+                        <button ng-click="js_step(4)" class="btn">移除</button>
+                    </div>
+                    <div ng-show="(current_team.curr_role | is_admin) && !(selected_member.status | is_pending)">
+                        <button ng-click="js_step(5);" class="btn btn-danger mr_15">设置权限</button>
+                        <button ng-click="js_step(2)" class="btn">移除</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </li>
+    <li ng-switch-when="10" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>成员设置</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li ng-hide="selected_member.uid == team.owner.uid" class="mr_15">
+                    <a ng-click="js_step(5);"><i class="icon-xx"></i> 设置权限</a>
+                </li>
+                <li ng-show="(!(selected_member.status | is_pending)) && (selected_member.uid != team.owner.uid)">
+                    <a ng-click="js_step(2)"><i class="icon-trash"></i> 从团队移除</a>
+                </li>
+                <li ng-show="(selected_member.status | is_pending)" class="divider"></li>
+                <li ng-show="(selected_member.status | is_pending)">
+                    <a ng-click="js_view_invite_code()"><i class="icon-xx"></i>发送邀请链接</a>
+                </li>
+                <li ng-show="(selected_member.status | is_pending)">
+                    <a ng-click="js_step(4)"><i class="icon-xx"></i> 取消邀请</a>
+                </li>
+
+            </ul>
+        </div>
+    </li>
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>设置分组</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li ng-repeat="group in team.groups">
+                    <a href="javascript:;" tabindex="-1" ng-click="js_set_group(selected_member, group)">
+                        <i ng-class="{false: 'icon-xx', true: 'icon-ok'}[selected_member.group_id==group.group_id]"
+                           class="color_gray"></i>
+                        <span class="pl_5">{{group.name}}</span>
+                    </a>
+                </li>
+                <li ng-show="team.groups==0">
+                    <div class="empty-menu">还未新建分组</div>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li ng-switch-when="2" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>移除成员</h3>
+        </div>
+        <div class="popbox-body">
+            <div class="part-loading" data-ng-hide="loading_unique_admin_prjs_done"></div>
+            <div class="alert alert-info" data-ng-show="loading_unique_admin_prjs_done && unique_admin_prjs.length == 0">被移除的成员，将不能再访问该团队的任何信息，但相关的数据不会被删除。</div>
+            <div class="alert alert-warning" data-ng-show="loading_unique_admin_prjs_done && unique_admin_prjs.length > 0">
+                该成员在当前团队中有{{unique_admin_prjs.length}}个项目是唯一负责人，删除后，这些项目将无法添加新成员，请谨慎操作。
+            </div>
+            <button data-ng-show="loading_unique_admin_prjs_done" ng-click="js_delete_member(selected_member)" class="btn btn-danger" data-loading-text="删除中..."
+                    loading-status="is_deleting_member">确定移除
+            </button>
+        </div>
+    </li>
+    <li ng-switch-when="3" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>{{selected_member.display_name}}</h3>
+        </div>
+        <div class="popbox-body" wt-scroll>
+            <ul class="popbox-menu">
+                <li ng-repeat="member_project in member_projects_auth">
+                    <a href="">
+                        <span class="pull-left text-muted">{{member_project.name}}</span>
+                        <span class="pull-right">{{member_project.curr_role | role}}</span>
+                    </a>
+                </li>
+            </ul>
+            <span ng-show="member_projects_auth != null && member_projects_auth.length == 0">没有参与的项目</span>
+        </div>
+    </li>
+    <li ng-switch-when="4" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>取消邀请</h3>
+        </div>
+        <div class="popbox-body">
+            <div class="alert alert-info">取消邀请后，发送给该成员的邀请链接将会失效，成员加入该团队需要你再次发送邀请。</div>
+            <button class="btn btn-danger" ng-click="js_cancel_invite(selected_member)" data-loading-text="取消中..."
+                    loading-status="is_canceling_invite">取消邀请
+            </button>
+        </div>
+    </li>
+    <li ng-switch-when="5" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>设置权限</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li>
+                    <a ng-click="js_set_user_as_admin()">
+                        <i ng-class="{true:'icon-ok',false:'icon-xx'}[(selected_member.role | is_admin)]"
+                           class="color_gray"></i>
+                        <strong>管理员</strong>
+                        <br/>
+                        <span class="text-muted pl_20">可以创建项目，邀请成员加入团队</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a ng-click="js_set_user_as_member()">
+                        <i ng-class="{true:'icon-ok',false:'icon-xx'}[!(selected_member.role | is_admin)]"
+                           class="color_gray"></i>
+                        <strong>成员</strong>
+                        <br/>
+                        <span class="text-muted pl_20">访问和操作自己参与的项目</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </li>
+
+    <li ng-switch-when="6" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>发送邀请链接</h3>
+        </div>
+        <div class="popbox-body">
+            <div class="alert alert-info">如果 <strong>{{ selected_member.display_name }}</strong>
+                没有收到邀请邮件，可以把下面的邀请链接直接发给他：
+            </div>
+            <input class="input form-control help-block" wt-click-select type="text"
+                   ng-model="selected_member.invite_url" readonly="readonly">
+        </div>
+    </li>
+</ul>

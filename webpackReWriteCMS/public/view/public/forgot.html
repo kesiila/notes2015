@@ -1,0 +1,58 @@
+<div class="other-warp forgot-wrap" data-ng-controller="user_forgot_ctrl">
+    <div data-minheight="58" class="single-panel clearfix">
+        <div class="single-panel-inner mini">
+            <div class="single-panel-header">
+                <h3>重置密码</h3>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section" ng-hide="send_success">
+                    <form ng-hide="send_success" class="wt-form form-horizontal"
+                          wt-form-validate="{blurTrig:false,showMsg:false}"
+                          name="forget_form" novalidate>
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">邮箱：</label>
+
+                            <div class="col-xs-10">
+                                <input type="email" class="form-control" name="forget_email"
+                                       ng-model="forget_email"
+                                       placeholder="输入注册邮箱" required max-length="30" autofocus="autofocus"/>
+                                <!--wt-remote-unique-check="{url:'/api/user/email/check?email={{forget_email}}',isExists:false}"-->
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="forget_form.$errors.length > 0">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-10">
+                                <div class="alert alert-danger">
+                                    <i class="icon-remove-sign mr_5"></i>
+                                    {{forget_form.$errors[0]}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-10">
+                                <button type="button" wt-form-submit="js_forget_password(forget_form)"
+                                        data-loading-text="正在发送邮件..."
+                                        loading-status="is_sending"
+                                        class="btn btn-success">重置密码
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="success-panel" ng-show="send_success">
+                    <i class="imgicon-success"></i>
+                    <br/><br/>
+                    <span>重置密码的地址已经通过邮件发送至你的邮箱{{ forget_email }}，
+                        <br>
+                    请跟随邮件里的引导来重设你的登录密码！
+                    </span>
+                </div>
+            </div>
+            <div class="single-panel-footer">
+                <a class="pull-right" href="/signin">返回登录</a>
+            </div>
+        </div>
+    </div>
+</div>

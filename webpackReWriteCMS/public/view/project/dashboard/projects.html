@@ -1,0 +1,112 @@
+<div class="layout_content">
+    <div class="mod_navbar">
+        <div class="title">
+            <h3><i class="icon-inbox mr_10"></i>项目</h3>
+        </div>
+        <div class="main">
+            <div class="pull-right">
+                <a href="/project/add" class="btn btn-danger mr_15">新建项目
+                </a>
+                <div class="btn-group">
+                    <button class="btn" ng-class="{'grid': 'active'}[view_type]" ng-click="js_view_toggle('grid')">
+                        <i class="icon-th-large"></i>
+                    </button>
+                    <button class="btn" ng-class="{'list': 'active'}[view_type]" ng-click="js_view_toggle('list')">
+                        <i class="icon-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layout_content_main no_sidebar height-nonav" wt-scroll>
+        <div class="projects-panel" data-ng-show="global.loading_done">
+            <div class="project-grid-panel"  ng-show="view_type == 'grid'">
+                <div class="projects-panel-header" ng-hide="(projects | filter:{is_star:1}).length==0"> <i class="icon-star"></i> 常用项目</div>
+                <div class="project-grid ui-sortable"
+                     sortable="project_sort_options" ng-hide="(projects | filter:{is_star:1}).length==0">
+                    <div class="project-item show-star" ng-repeat="project in projects | filter:{is_star:1}" project-id="{{ project.pid }}"
+                         project-pos="{{ project.pos }}">
+                        <a href="javascript:;" ng-class="{1: 'star-started', 0: ''}[project.is_star]"
+                           ng-click="js_star_toggle($event,project)" class="star"
+                           title="{{ {1: '从常用项目移除', 0: '设置为常用项目'}[project.is_star] }}"
+                           ng-hide="project.archived == '1'">
+                            <i ng-class="{1: 'icon-star', 0: 'icon-star-empty'}[project.is_star]"></i>
+                        </a>
+                        <a class="center" href="/project/{{project.pid}}">
+                            <i ng-class="project.pic" ng-style="{color:project.bg}"></i>
+                            <h4>{{project.name}}</h4>
+                        </a>
+                    </div>
+                </div>
+                <div data-ng-repeat="team in teams">
+                    <div class="projects-panel-header">
+                        <a href="/teams/{{team.team_id}}"><i class="icon-sitemap"></i> {{team.name}}</a></div>
+                    <div ng-show="view_type == 'grid'"
+                         class="project-grid"
+                         ng-class="{'ui-sortable':team.projects.length!=0}"
+                         sortable="{true:project_sort_options}[team.projects.length!=0]">
+                        <div class="project-item" ng-repeat="project in team.projects" project-id="{{ project.pid }}"
+                             project-pos="{{ project.pos }}" data-ng-class="{1:'show-star'}[project.is_star]">
+                            <a href="javascript:;" ng-class="{1: 'star-started', 0: ''}[project.is_star]"
+                               ng-click="js_star_toggle($event,project)" class="star"
+                               title="{{ {1: '从常用项目移除', 0: '设置为常用项目'}[project.is_star] }}"
+                               ng-hide="project.archived == '1'">
+                                <i ng-class="{1: 'icon-star', 0: 'icon-star-empty'}[project.is_star]"></i>
+                            </a>
+                            <a class="center" href="/project/{{project.pid}}">
+                                <i ng-class="project.pic" ng-style="{color:project.bg}"></i>
+                                <h4>{{project.name}}</h4>
+                            </a>
+                        </div>
+                        <div class="project-item projects-empty" ng-show="team.projects.length==0">
+                            <a class="center" href="javascript:;" wt-disable-drag>
+                                <i class="icon-inbox"></i>
+                                <h4>还没有参与任何项目</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div ng-show="view_type == 'list'"
+                 class="project-list project-panel">
+                <div class="empty-panel" ng-show="projects.length == 0 && global.loading_done" ng-cloak>
+                    <i class="icon-inbox"></i><br/>
+                    <span>还没有任何项目</span>
+                </div>
+                <dl class="frame" ng-show="projects.length > 0">
+                    <dd>
+                        <div class="wt-row" ng-repeat="project in projects"
+                             ng-click="js_goto_project($event, project)" data-ng-class="{1:'show-star'}[project.is_star]">
+                            <div class="column column-star">
+                                <a href="javascript:;" ng-class="{1: 'star-started', 0: ''}[project.is_star]"
+                                   ng-click="js_star_toggle($event,project)" class="star"
+                                   title="{{ {1: '从常用项目移除', 0: '设置为常用项目'}[project.is_star] }}"
+                                   ng-hide="project.archived == '1'">
+                                    <i ng-class="{1: 'icon-star', 0: 'icon-star-empty'}[project.is_star]"></i>
+                                </a>
+                                &nbsp;
+                            </div>
+                            <div class="column column-icon">
+                                <i ng-class="project.pic" ng-style="{color:project.bg}"></i>
+                            </div>
+                            <div class="column column-name">
+                                <h4>{{project.name}}</h4>
+                            </div>
+                            <div class="column column-admin">
+                                <wt-avatar ng-repeat="member in project.admins"
+                                           class="js-popbox member mr_5"
+                                           member="member" size="30"></wt-avatar>
+                            </div>
+                            <div class="column column-member">
+                                <i class="icon-user mr_5"></i>{{project.member_count}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            
+        </div>
+    </div>
+</div>

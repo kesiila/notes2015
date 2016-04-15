@@ -1,0 +1,48 @@
+<div class="prj_sidebar_step_body">
+    <ul class="prj_sidebar_step_menu">
+        <li ng-if="project.info.curr_role==1&&project.info.archived==0">
+            <a href="javascript:;" ng-click="js_step(31)">
+                修改基本信息</a>
+         </li>
+<!--        <li ng-if="project.info.curr_role==1&&project.info.archived==0">
+            <a href="javascript:;" ng-click="js_step(32)">
+                修改项目标识</a>
+        </li><li ng-if="project.info.curr_role==1&&project.info.archived==0">
+            <a href="javascript:;" ng-click="js_step(33)">
+                项目偏好设置</a>
+        </li>
+         <li class="divider" ng-if="project.info.curr_role==1&&project.info.archived==0"></li>
+
+         <li ng-if="project.info.curr_role==1&&project.info.archived==0">
+            <a href="javascript:;" ng-click="js_step(34)">
+                归档项目
+            </a>
+        </li>-->
+        
+         <li ng-if="project.info.curr_role==1&&project.info.archived==0">
+            <a href="javascript:;" ng-click="js_step(39)">
+                移动项目
+            </a>
+        </li>
+
+
+<!--         <li ng-if="project.info.curr_role==1&&project.info.archived==1">
+            <a href="javascript:;" ng-click="js_step(35)">
+                激活项目</a>
+        </li>-->
+         <li ng-if="project.info.curr_role==1&&project.info.archived==0&&project.info.pid.indexOf('-SYSTEM')==-1">
+            <a href="javascript:;" ng-click="js_step(36)">
+                删除项目</a>
+        </li>
+        <li class="divider" ng-if="project.info.curr_role==1"></li>
+
+<!--        <li ng-if="project.info.archived==0">
+            <a href="javascript:;" ng-click="js_step(37)">
+                邮件通知</a>
+        </li>
+        <li>
+            <a href="javascript:;" ng-click="js_step(38)">
+                退出项目</a>
+        </li>-->
+     </ul>
+</div>

@@ -1,0 +1,89 @@
+<dl class="frame add_edit_panel clearfix">
+    <div class="customer-add-wapper">
+        <form class="wt-form" name="add_video_form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate
+              role="form">
+            <!-- 基本信息 -->
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">标题</span>
+                        <input type="text" id="new_video_title" maxlength="100" name="video_title" autofocus
+                               ng-model="new_element.title" class="form-control" placeholder="标题" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">格式</span>
+                        <select class="form-control"
+                                ng-model="new_element.format"
+                                ng-options="format.value as format.name for format in static_formats">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">文件</span>
+                        <input type="file" id="new_video_mediaFile" maxlength="100" name="video_mediaFile" autofocus
+                               ng-model="new_element.mediaFile" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">文件链接</span>
+                        <input type="text" id="new_video_link" maxlength="100" name="video_link" autofocus
+                               ng-model="new_element.link" class="form-control" placeholder="文件链接" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 作者 -->
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">作者</span>
+                        <input type="text" id="new_video_authorName" maxlength="100" name="video_authorName" autofocus
+                               ng-model="new_element.authorName" class="form-control" placeholder="作者用户名" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">作者简介</span>
+                        <input type="text" id="new_video_profile" maxlength="100" name="video_profile" autofocus
+                               ng-model="new_element.profile" class="form-control" placeholder="作者简介">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">封面</span>
+                        <input type="file" id="new_video_imageFile" maxlength="100" name="video_imageFile" autofocus
+                               ng-model="new_element.imageFile" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon fs_15">封面链接</span>
+                        <input type="text" id="new_video_image" maxlength="100" name="video_image" autofocus
+                               ng-model="new_element.image" class="form-control" placeholder="封面链接" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 视频介绍 -->
+            <div class="col-xs-12">
+                <div class="pos_relative editor-container mt_10"
+                     ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                                false: 'height-main-min-j4-new-template-by-auto-mailbox-inner-with-one-input-above'}[$root.global.is_outter]">
+                    <wt-new-editor class="" edit-content="new_element.content">
+                    </wt-new-editor>
+                </div>
+                <br/>
+            </div>
+        </form>
+    </div>
+</dl>

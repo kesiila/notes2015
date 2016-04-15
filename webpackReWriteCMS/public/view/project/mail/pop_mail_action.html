@@ -1,0 +1,39 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>邮件选项</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li><a ng-click="js_step(1)"><i
+                        class="icon-eye-open"></i> 添加关注</a></li>
+
+                <li><a ng-click="js_step(2)"><i
+                        class=" icon-trash"></i> 删除</a></li>
+            </ul>
+        </div>
+    </li>
+
+    <li ng-switch-when="1" class="popbox-step-li">
+        <wt-toggle-members toggle-click="js_toggle_watch($event, member, xEntity)" pid="pid"
+                           type="watch" entity="edit_mail"  all-member-click="js_watch_all($event, members, xEntity)"/>
+
+    </li>
+    <li ng-switch-when="2" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>删除邮件</h3>
+        </div>
+        <div class="popbox-body">
+            <!--<span>邮件删除后会放在回收站，可以在回收站选择<br/>恢复或者彻底删除。<br/></span>-->
+            <span>警告：邮件删除后会将无法找回！</span>
+        </div>
+        <div class="popbox-footer">
+            <button ng-click="js_delete_mail(edit_mail)" class="btn btn-danger" data-loading-text="删除中..."
+                    loading-status="is_deleting">确定删除
+            </button>
+        </div>
+    </li>
+</ul>

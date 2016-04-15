@@ -1,0 +1,215 @@
+
+<div class="prj_panel layout_content">
+
+	<div class="layout_content_main height-noheader">
+		<div class="mod_navbar">
+			<ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+			<div class="main">
+				<div class="toolbar_panel pull-right" ng-show="global.loading_done">
+					<div class="btn-group js-popbox mr_15" data-placement="bottom"
+						data-align="right"
+						wt-permission="[permission,project.info.curr_role,1,2]">
+ 						<button class="btn btn-danger"
+							wt-tracker="Project Task Page|Nav|Open Add Task"
+							ng-click="js_show_project_workflow($event)">定制流程</button>
+ 
+						<!--                       <div class="btn-group js-popbox"  ng-controller="customerImportCtrl">
+                            <span class="btn fileinput-button btn-success">批量导入
+                                 <input wt-uploadfile="file_upload_option"
+                                        multiple type="file" name="files[]" title="选择一个excel文件"/>
+                            </span>
+                                <button type="button" class="btn btn-success dropdown-toggle mr_15" data-toggle="dropdown">
+                                    <i class="icon-caret-down"></i>
+                                </button>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="javascript:;" ng-click="js_trigger_upload($event)"
+                                           wt-tracker="Task Panel|Right|UploadFile-More-Form Local">
+                                            <i class="icon-xx"></i> 本地上传文件</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" ng-show="!is_folder" ng-click="js_add_folder_pop($event)"
+                                           wt-tracker="File List|Right|Create New Folder">
+                                            <i class="icon-xx"></i> 下载excel模板
+                                        </a>
+                                    </li>
+                                </ul>
+                        </div>-->
+
+
+						<!--                             <a class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                               wt-tracker="Project Task Page|Nav|Add Task-More">
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;" id="btn_new_task" wt-click="js_add_task_pop($event)"
+                                       wt-tracker="Project Task Page|Nav|Add Task-More-Task">
+                                        <i class="icon-xx"></i> 新建活动</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" id="btn_new_entry" wt-click="js_add_entry_pop($event)"
+                                       wt-tracker="Project Task Page|Nav|Add Task-More-Entry">
+                                        <i class="icon-xx"></i> 新建列表</a>
+                                </li>
+                            </ul>
+ -->
+					</div>
+
+	<!-- 				<div class="btn-group js-popbox mr_15">
+						<button class="btn" ng-class="{'list': 'active'}[view_type]"
+							tooltip="列表视图" ng-click="js_view_toggle('list')">
+							<i class="icon-list"></i>
+						</button>
+						<button class="btn" ng-class="{'grid': 'active'}[view_type]"
+							tooltip="阶段视图" ng-click="js_view_toggle('grid')">
+							<i class="icon-th-large"></i>
+						</button>
+
+					</div>
+ -->					<div class="btn-group js-popbox mr_15">
+
+						<button class="btn" ng-click="js_show_project_tasks_filter($event)">
+							<i class="icon-filter"></i>
+						</button>
+						<!-- 						<a class="btn dropdown-toggle" href="javascript:;"
+							data-toggle="dropdown"> <i class="icon-caret-down"></i>
+						</a>
+						<ul class="dropdown-menu pull-right">
+							<li><a href="javascript:;"
+								ng-click="js_show_assign_me_tasks()"> <i
+									ng-class="{true:'icon-ok',false:'icon-xx'}[current_filter_type == 'assign_me']"></i>
+									分配给我的活动
+							</a></li>
+							<li><a href="javascript:;"
+								ng-click="js_show_my_watch_tasks()"> <i
+									ng-class="{true:'icon-ok',false:'icon-xx'}[current_filter_type == 'my_watch']"></i>
+									我关注的活动
+							</a></li>
+							<li><a href="javascript:;"
+								ng-click="js_show_my_create_tasks()"> <i
+									ng-class="{true:'icon-ok',false:'icon-xx'}[current_filter_type == 'my_create']"></i>
+									我创建的活动
+							</a></li>
+							<li class="divider"></li>
+							<li><a href="javascript:;" ng-click="js_filter_pop($event)">
+									<i class="icon-xx"></i> 活动筛选
+							</a></li>
+						</ul>
+ -->
+					</div>
+					<button class="btn" wt-go-to="/project/{{pid}}/archive"
+						data-ng-show="permission==4">查看归档活动</button>
+					<!-- 					<button class="btn js-popbox" data-placement="bottom"
+						data-align="right"
+						wt-tracker="Project Task Page|Nav|Toggle Pop More"
+						ng-click="js_show_more_menu($event)"
+						wt-permission="[permission,project.info.curr_role,1,2]">
+						更多&nbsp;<i class="icon-caret-down"></i>
+					</button>
+					
+ -->
+					<button class="btn" ng-click="js_right_sidebar_toggle($event)">
+						<i
+							ng-class="{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]"></i>
+					</button>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="entries_panel js-sortable" data-height="118"
+			ng-mouseover="js_mouseover_entries_panel($event)"
+			ng-mousemove="js_mousemove_entries_panel($event)"
+			wt-scroll='{"horizontalScroll":true,"advanced":{"autoExpandHorizontalScroll":true,"autoScrollOnFocus":false}}'>
+			<div class="entries_panel_sortarea" sortable="entries_sort_options">
+				<div id="entry_main_{{ entry.entry_id }}" class="entry"
+					ng-class="{'entry-selected':entry.selected == true}"
+					ng-repeat="entry in entries track by entry.entry_id"
+					entry-id="{{entry.entry_id}}" pos="{{ entry.pos }}">
+					<div class="entry_header">
+						<div class="entry_header_title js-editable">
+							<h2>
+								{{entry.desc}} <i
+									data-ng-class="{true:'icon-eye-open',false:''}[entry.is_watched]"></i>
+							</h2>
+
+						</div>
+
+						<a href="javascript:;" class="js-popbox entry_header_menu"
+							wt-permission="[permission,project.info.curr_role,1,2]"
+							ng-click="js_show_entry_menu($event,entry)"
+							wt-tracker="Project Task Page|Main-Entry|Open Pop Entry Menu"
+							data-placement="bottom" data-align="left"> <i
+							class="icon-play-circle"></i>
+						</a>
+					</div>
+
+
+					<div class="entry-task-panel" wt-scroll data-scrollnoheight="250">
+						<wt-task-composer class="entry-add-top-composer"
+							task-save="js_add_task($event, new_task, entry, isTop);"
+							position="top" composer-show="entry.task_top_enabled"></wt-task-composer>
+						<div class="entry-tasks js-sortable" sortable="tasks_sort_options">
+							<wt-task ng-repeat="task in entry.tasks" task="task"
+								ng-hide="task.is_filter"
+								class="right_click_trigger slide-trigger js-popbox"
+								data-placement="bottom" data-align="left"
+								ng-mouseleave="js_mouseleave_task($event,task)"
+								ng-class="{'task-selected':task.selected == true,'task-first':$first,'task-last':$last,'task-last-nocomposer':($last&&(project.info.archived==1||project.info.curr_role==3)) }"
+								droppable="member_drop_options"
+								task-entry-id="{{task.entry_id}}" task-pos="{{task.pos}}"
+								ng-click="js_open_task_detail($event,task)"> </wt-task>
+						</div>
+						<wt-task-composer class="entry-add-bottom-composer"
+							task-save="js_add_task($event, new_task, entry, isTop);"
+							position="bottom" composer-show="entry.task_bottom_enabled"></wt-task-composer>
+
+					</div>
+
+					<div class="entry-task-footer"
+						wt-permission="[permission,project.info.curr_role,1,2]">
+						<a href="javascript:;" class="js-add-task-composer"
+							ng-click="js_open_add_task_composer($event, entry)"
+							wt-tracker="Project Task Page|Main-Entry|Footer Add Task"><span
+							ng-hide="entry.archived == 2">新建活动</span>&nbsp;</a>
+					</div>
+				</div>
+			</div>
+			<!--             <div class="entry-new" ng-show="global.loading_done" ng-class="{true:'entry-add'}[!is_show_add_entry]">
+                <a ng-hide="is_show_add_entry" href="javascript:;"
+                   ng-click="is_show_add_entry = !is_show_add_entry"
+                   ng-class="{true:'entry-add'}[!is_show_add_entry]"
+                   wt-tracker="Project Task Page|Main|Add Entry"
+                   wt-permission="[permission,project.info.curr_role,1,2]">
+                    <i class="icon-plus"></i> 新建列表
+                </a>
+
+                <div class="m_10" ng-show="is_show_add_entry" wt-show-edit="is_show_add_entry">
+                    <div class="form-group">
+                        <input name="entry_name" ng-model="entry_name" placeholder="列表名" wt-enter="js_add_entry(entry_name)"
+                               type="text" class="form-control" required autofocus/>
+                    </div>
+                    <div class="form-group">
+                        <button ng-click="js_add_entry(entry_name)"
+                                data-loading-text="保存中..."
+                                class="btn btn-success mr_15"
+                                wt-tracker="Project Task Page|Main|Add Entry-OK"
+                                loading-status="is_adding_entry">确定
+                        </button>
+                        <button ng-click="is_show_add_entry = false" class="btn"
+                                wt-tracker="Project Task Page|Main|Add Entry-Cancel"
+                                >取消</button>
+                    </div>
+                </div>
+            </div>
+ -->
+		</div>
+	</div>
+	<div class="layout_right_sidebar height-noheader">
+		<ng-include src="'/view/project/sidebar/sidebar.html'"></ng-include>
+	</div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

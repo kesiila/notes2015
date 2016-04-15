@@ -1,0 +1,216 @@
+<div data-ng-controller="forum_category_ctrl">
+<div class="page_navbar">
+    <div class="page-navbar-warp">
+        <div class="title">
+            <h3>
+                <a href="/club">
+                    <i class="icon-comments-alt mr_10"></i>
+                    用户社区
+                </a>
+            </h3>
+        </div>
+        <div class="main">
+            <div class="toolbar_panel pull-right">
+                <a class="btn btn-danger" href="/club/draft?category=0" target="_self">我要发帖</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="forum-panel">
+    <div class="forum-container">
+    <div class="forum-content col-xs-12 col-sm-9">
+            <div class="forum-category-wrapper">
+                <div class="forum-heading">
+                    <h3>所有问答</h3>
+
+                </div>
+                <div class="thread-list" ng-init="threads_stats={}">
+
+
+                    <div class="wt-row thread-item">
+                        <div class="thread-item-inner">
+                            <div class="row">
+                                <div class="col-sm-1 col-xs-2 avatar avatar-40">
+                                        <span class="avatar-face">
+                                        <img ng-src="https://wt-avatars.oss.aliyuncs.com/40/{{clubUsers['84a28e71629b88'].avatar || 'default_avatar.png'}}"
+                                             alt="{{clubUsers['84a28e71629b88'].display_name}}">
+                                        </span>
+                                </div>
+                                <div class="col-sm-11 col-xs-10 text">
+                                    <div class="row primary">
+
+                                        <div class="col-sm-9 col-xs-9 thread-title">
+                                            <h4>
+                                                <a href="/club/tutorial/d53072f9326d4bf2978e8ce5e437f43c">
+                                                    <span class="forum-badge">推荐</span>
+                                                    【长期更新】帮助视频合辑
+                                                </a>
+                                            </h4>
+
+                                        </div>
+                                        <div class="col-sm-3 thread-counts">
+                                            <!--<span class="thread-total-view forum-badge icon-eye-open">625</span>-->
+                                            <span class="thread-total-comment">5</span>
+                                        </div>
+                                    </div>
+                                    <div class="row secondary hidden-xs">
+                                        <div class="col-sm-5 col-xs-5 thread-meta">
+                                            <span ng-bind="clubUsers['84a28e71629b88'].display_name || 'UnmetUser'"></span>
+                                            分享于
+                                            <span ng-bind="1405070629874|fromNow"></span>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-3">
+
+                                        </div>
+                                        <div class="col-sm-4 thread-comment-meta" ng-if="'34241abb28ea8c'">
+                                            <span ng-bind="clubUsers['34241abb28ea8c'].display_name"></span>
+                                            最后回复于
+                                            <span ng-bind="1408604566370|fromNow"></span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="category-pager">
+                    <ul class="pagination">
+                        <li class="disabled">
+                            <a href="javascript:;" class="paginator-previous">上一页</a>
+                        </li>
+                        <li class="active">
+                            <a href="?page=1">1</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=2">2</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=3">3</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=4">4</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=5">5</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=6">6</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=7">7</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=8">8</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=9">9</a>
+                        </li>
+                        <li class="paginator-page">
+                            <a href="?page=10">10</a>
+                        </li>
+                        <li class="">
+                            <a href="?page=2" class="paginator-next">下一页</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="visible-xs">&nbsp;</div>
+        <div class="sidebar col-xs-12 col-sm-3">
+            <div class="sidebar-inner">
+                <div class="sidebar-widget" ng-init="message_count = 0">
+                    <h4>
+                        <a href="/club/mine">我的社区</a>
+                    </h4>
+                    <ul>
+                        <li>
+                            <a ng-show="message_count > 0" href="/club/mine">您有
+                                <span class="thread-total-comment" ng-bind="message_count"></span>
+                                条新回复
+                            </a>
+                            <a ng-show="message_count <= 0" href="/club/mine">暂无新回复</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-widget">
+                    <h4>版块</h4>
+                    <ul>
+
+
+                        <li>
+                            <a href="/club/all">
+                                所有问答
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/club/news">
+                                官方分享
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/club/tutorial">
+                                新手上路
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/club/feedback">
+                                用户反馈
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/club/skills">
+                                使用技巧
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/club/teamwork">
+                                协同之道
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/club/activities">
+                                线下活动
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/club/ycbar">
+                                易成酒吧
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>关注微信</h4>
+
+                    <div class="contact-code">
+                        <img src="https://dn-wtbox.qbox.me/img/index/contact-code.png?ver=3.0.10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

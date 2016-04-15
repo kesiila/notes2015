@@ -1,0 +1,48 @@
+<div class="popbox-header">
+	<button class="cancel icon-remove" ng-click="js_close()"></button>
+	<h3>帐户</h3>
+</div>
+<div class="popbox-avatar">
+	<div class="avatar-body">
+		<div class="clearfix">
+			<wt-avatar member="global.me" size="56" wt-disable-drag></wt-avatar>
+
+			<div class="avatar-right">
+				<h4 class="avatar-heading help-inline mr_15">{{global.me.display_name||global.me.name}}</h4>
+				<span class="help-inline color_gray">@{{global.me.name}}</span>
+				<p>
+					<span class="help-inline">{{global.me.email}}</span>
+				</p>
+			</div>
+		</div>
+		<ul class="popbox-menu" style="margin-top: 15px;">
+			<li class="divider"></li>
+			<!--            <li><a href="javascript:'';" ng-click="js_to_account()"><i class="icon-user mr_5"></i>帐户设置</a></li>-->
+
+
+			<li ng-show="!global.is_outter"><a href="/account_settings"><i
+					class="icon-user mr_5"></i>帐户设置</a></li>
+			<li ng-show="global.is_outter"><a
+				ng-click="to_account_settings()" href="javascript:;"><i
+					class="icon-user mr_5"></i>帐户设置</a></li>
+			<!-- <li><a href="/account/teams"><i class="icon-sitemap mr_5"></i>团队管理</a></li>-->
+			<!--            <li class="divider"></li>-->
+			<li ng-show="!global.is_outter"><a href="/share"><i
+					class="icon-thumbs-up-alt mr_5"></i>推荐给好友</a></li>
+			<li ng-show="global.is_outter"><a ng-click="to_share()"
+				href="javascript:;"><i class="icon-thumbs-up-alt mr_5"></i>推荐给好友</a></li>
+			<li ng-show="!global.is_outter"><a href="/account_charge"><i
+					class="icon-yen mr_5"></i>充值换积分</a></li>
+			<li ng-show="global.is_outter"><a ng-click="to_charge()"
+				href="javascript:;"><i class="icon-yen mr_5"></i>充值换积分</a></li>
+			<!--<li class="divider"></li>-->
+			<!--            <li><a href="javascript:;" ng-click="goto_shortcuts()"><i class="icon-keyboard mr_5"></i>键盘快捷键</a></li>-->
+			<li><a href="/page/help01.html" target="_blank"><i
+					class="icon-question-sign mr_5"></i>帮助中心</a></li>
+		</ul>
+	</div>
+
+	<div class="avatar-footer">
+		<button ng-click="js_user_logout()" class="btn btn-danger">退出</button>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="cascading-wapper pos_relative clearfix">
+    <span class="nothing"></span>
+    <input ng-model="all" ng-click="open('show')" placeholder="选择{{label}}" type="text" class="form-control col-xs-12" />
+    <span class="pos_absolute" ng-click="clear()" style="top:9px;right:10px;z-index:10; color:#aaa; font-size:14px" ng-show="!!all">清空</span>
+    <div ng-show="show" class="cascading" style="max-height: 240px;padding-right: 0px;" wt-scroll="">
+        <ul  ng-hide="showFirst">
+            <li style="vertical-align:top" ng-repeat="item in firsts" ng-click="set.first(item.code,item.cnName)"
+                ng-class="{'active': firstkey === item.code}">
+                <a href="javascript:;">{{ item.cnName }}</a>
+            </li>
+        </ul>
+
+        <ul ng-show="seconds.length>0">
+            <li ng-repeat="item in seconds" ng-click="set.second(item.code,item.cnName)"
+                ng-class="{'active': secondkey === item.code}">
+                <a href="javascript:;">{{ item.cnName }}</a>
+            </li>
+        </ul>
+
+        <ul ng-show="thirds.length>0">
+            <li ng-repeat="item in thirds" ng-click="set.third(item.code,item.cnName)"
+                ng-class="{'active': thirdkey === item.code}">
+                <a href="javascript:;">{{ item.cnName }}</a>
+            </li>
+        </ul>
+        
+        <ul ng-show="fourths.length>0">
+            <li ng-repeat="item in fourths" ng-click="set.fourth(item.code,item.cnName)"
+                ng-class="{'active': fourthkey === item.code}">
+                <a href="javascript:;">{{ item.cnName }}</a>
+            </li>
+        </ul>
+
+    </div>
+</div>

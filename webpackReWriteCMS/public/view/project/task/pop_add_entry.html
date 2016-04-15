@@ -1,0 +1,18 @@
+﻿<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>新建列表</h3>
+</div>
+<form name="add_entry_form" wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate>
+    <div class="popbox-body w_300">
+        <input name="entry_name" ng-model="name" placeholder="列表名"
+               type="text" class="form-control w_260" required autofocus/>
+    </div>
+    <div class="popbox-footer">
+        <button wt-form-submit="js_add_entry(add_entry_form, name)"
+                data-loading-text="保存中..."
+                class="btn btn-success mr_15"
+                loading-status="is_save_ing">确定
+        </button>
+        <button ng-click="js_close(result)" class="btn">取消</button>
+    </div>
+</form>

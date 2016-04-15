@@ -1,0 +1,32 @@
+<ul class="tabs">
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'summary']" href="/teams/{{team_id}}/admin/summary">
+            摘要
+        </a>
+    </li>
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'basic']" href="/teams/{{team_id}}/admin/basic">
+            基本设置
+        </a>
+    </li>
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'members']" href="/teams/{{team_id}}/admin/members">
+            成员管理
+        </a>
+    </li>
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'projects']" href="/teams/{{team_id}}/admin/projects">
+            项目管理
+        </a>
+    </li>
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'security']" href="/teams/{{team_id}}/admin/security">
+            安全日志
+        </a>
+    </li>
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'consultant']" href="/teams/{{team_id}}/admin/consultant">
+            专属顾问
+        </a>
+    </li>
+</ul>

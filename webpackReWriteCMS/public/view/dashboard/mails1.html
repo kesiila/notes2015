@@ -1,0 +1,163 @@
+<div class="layout_content" ng-show="global.loading_done ">
+	<div class="layout_content_main height-noheader" ng-class="{true:'nosidebar_in',false:'nosidebar_out'}[global.right_sidebar_is_fold]">
+
+		<div class="mod_navbar">
+
+            <div class="title">
+				<h3>
+                    <span class="cursor" ng-click="all_mails()"><i class="icon-envelope mr_10"></i>已发邮件</span>
+                    <span ng-show="!!mail_filter_name"><i class="icon-angle-right"></i>{{mail_filter_name}}</span>
+                </h3>
+			</div>
+
+            <!-- 按时间和状态过滤部分 -->
+			<div class="main">
+				<div class="toolbar_panel pull-right">
+
+                    <div class="ptb_11 mr_115">
+                        <div class="btn dropdown-toggle" style="float:left;margin-bottom: 10px;margin-right:20px;padding:8px 10px;font-size:14px;">
+                            <a data-toggle="dropdown" href="javascript:;">
+                                {{filter_status[filter_status_index].name}}
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <!-- 显示排序条件 -->
+                            <ul class="dropdown-menu pull-right">
+                                <li ng-repeat="status in filter_status" ng-click="choose_status_filter($index)">
+                                    <a href="javascript:;" ng-class="{true: 'active'}[$index==filter_status_index]">{{status.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="btn dropdown-toggle" style="float:left;margin-bottom: 10px;padding:8px 10px;font-size:14px;">
+                            <a data-toggle="dropdown" href="javascript:;">
+                                {{filter_date[filter_date_index].name}}
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <!-- 显示排序条件 -->
+                            <ul class="dropdown-menu pull-right">
+                                <li ng-repeat="data in filter_date" ng-click="choose_date_filter($index)">
+                                    <a href="javascript:;" ng-class="{true: 'active'}[$index==filter_date_index]">{{data.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="rightpanel-wrapper">
+			<div class="height-nonav" wt-scroll>
+                <div wt-slide-show="show_add_mail" slide-change="js_slide_change(value)">
+                    <ng-include src="'/view/common/mail/add_or_edit_mail.html'"></ng-include>
+                </div>
+
+				<dl class="frame" data-minheight="160">
+
+                    <dt style="border-bottom: 0px;">
+                    <div id="mail-list" style="padding: 10px;">
+                        <table style="width: 100%;height: auto;">
+                            <tr>
+                                <th align="center" width="5%">
+                                    <span class="title" ng-if="mails.length > 0">
+                                        <input ng-model="selectAll" ng-click="toggleAll(mails)" type="checkbox"  >
+						            </span>
+                                </th>
+                                <th align="left" width="10%">邮件状态</th>
+                                <th align="left" width="37%">收件人</th>
+                                <th align="left" width="38%">邮件标题</th>
+                                <th align="right" width="10%">发送时间&nbsp;<a ng-click="sortMails()" href="javascript:;"><i ng-show="!isDESC" class="icon-arrow-up"></i><i  ng-show="isDESC"class="icon-arrow-down"></i></a></th>
+                            </tr>
+
+                            <tr ng-if="part_loading_done && mails.length > 0" ng-class="{'active':mail.mail_id == locator.show_detail_mail_id}" class="slide-trigger" ng-repeat="mail in mails" data-ng-click="js_open_mail_detail(mail)">
+                                <td align="left">
+                                    <div class="column column-read">
+                                        <a href="javascript:;" class="checkbox">
+                                            <label> <input ng-click="toggle(mail)" ng-model="mail.checked" type="checkbox"/></label>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td align="left">
+                                    <div class="column column-action">
+                                        <h4>{{mail.mailStatus}}</h4>
+                                    </div>
+                                </td>
+                                <td align="left" ng-mouseleave="mail_to($index)">
+                                    <div ng-mouseover="mail_to($index,mail.cid)">
+                                        {{mail.to}}
+
+                                        <div ng-mouseleave="mail_to($index)" id="customer{{$index}}" class="mail-to box-shadow hide">
+                                            <div style="padding:2px 5px;;border-bottom: 1px solid #E1E1E1">
+                                                <p>国家：{{entity.countryCnName}}</p>
+                                                <p>公司：{{entity.company}}</p>
+                                                <p>联系人：{{entity.name}}</p>
+                                            </div>
+
+                                            <div align="center">
+                                                <a href="javascript:;" ng-click="mail_list(mail.cid,'to',$event)" title="历史邮件">
+                                                    该活动所有邮件
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                                <td align="left" ng-mouseleave="mail_template($index)">
+                                    <div ng-mouseover="mail_template($index,mail.template)">
+                                        {{mail.name}}
+                                        <div ng-mouseleave="mail_template($index)" id="template{{$index}}" class="mail-to box-shadow hide">
+                                            <div style="padding:2px 5px;;border-bottom: 1px solid #E1E1E1">
+                                                <p>模板名称：{{entity.name}}</p>
+                                            </div>
+
+                                            <div align="center">
+                                                <a href="javascript:;" ng-click="mail_list(mail.template,'template',$event)" title="历史邮件">
+                                                    该模板所有邮件
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <div class="column column-datetime">
+                                        {{mail.create_date | fromNow}}
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr ng-if="part_loading_done && mails.length == 0">
+                                <td colspan="5">
+                                    <div class="empty-panel noborder" align="center">
+                                        <i class="icon-envelope-alt"></i><br>
+                                        <span>邮件箱为空</span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr ng-if="!part_loading_done">
+                                <td colspan="5">
+                                    <div class="load-more part-loading"></div>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="category-pager pull-right"  ng-show="part_loading_done && mails.length > 0">
+                        <pagination ng-model="currentPage" total-items="data_count"
+                                    items-per-page="queryCondition.size" max-size="5" rotate="true"
+                                    direction-links="true" previous-text="上一页" next-text="下一页"
+                                    boundary-links="true" first-text="首页" last-text="尾页"
+                                    num-pages="numPages" ng-show="data_count>0"></pagination>
+                    </div>
+					</dt>
+				</dl>
+
+			</div>
+		</div>
+	</div>
+    <ng-include src="'/view/common/sidebar/sidebar.html'"></ng-include>
+<!--    <!--发送邮件成功后的提示-->
+    <ng-include ng-show ="$root.show_mail_prompt" src="'/view/common/mail_prompt.html'"></ng-include>-->
+</div>

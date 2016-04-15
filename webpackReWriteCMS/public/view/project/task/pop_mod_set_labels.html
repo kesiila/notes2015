@@ -1,0 +1,54 @@
+<div class="popbox-body">
+    <form class="form-horizontal labels" role="form" wt-enter="js_set_lables(blue, green, orange, purple, red, yellow)">
+        <div class="form-group">
+            <label for="blue" class="col-xs-2 control-label">
+                <span class="task-label blue-label" for="blue"></span>
+            </label>
+            <div class="col-xs-10">
+                <input type="text" autofocus="" ng-model="blue" class="js-label-title form-control" id="blue" name="blue" placeholder="未定义组内标记">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="green" class="col-xs-2 control-label">
+                <span class="task-label green-label" for="green"></span>
+            </label>
+            <div class="col-xs-10">
+                <input type="text" autofocus="" ng-model="green" class="js-label-title form-control" id="green" name="green" placeholder="未定义组内标记">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="orange" class="col-xs-2 control-label">
+                <span class="task-label orange-label" for="orange"></span>
+            </label>
+            <div class="col-xs-10">
+                <input type="text" autofocus="" ng-model="orange" class="js-label-title form-control" id="orange" name="orange" placeholder="未定义组内标记">
+            </div>
+        </div><div class="form-group">
+        <label for="purple" class="col-xs-2 control-label">
+            <span class="task-label purple-label" for="purple"></span>
+        </label>
+        <div class="col-xs-10">
+            <input type="text" autofocus="" ng-model="purple" class="js-label-title form-control" id="purple" name="purple" placeholder="未定义组内标记">
+        </div>
+    </div><div class="form-group">
+        <label for="red" class="col-xs-2 control-label">
+            <span class="task-label red-label" for="red"></span>
+        </label>
+        <div class="col-xs-10">
+            <input type="text" autofocus="" ng-model="red" class="js-label-title form-control" id="red" name="red" placeholder="未定义组内标记">
+        </div>
+    </div><div class="form-group">
+        <label for="yellow" class="col-xs-2 control-label">
+            <span class="task-label yellow-label" for="yellow"></span>
+        </label>
+        <div class="col-xs-10">
+            <input type="text" autofocus="" ng-model="yellow" class="js-label-title form-control" id="yellow" name="yellow" placeholder="未定义组内标记">
+        </div>
+    </div>
+
+    </form>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_set_lables(blue, green, orange, purple, red, yellow)" class="btn btn-success mr_15" data-loading-text="保存中..." loading-status="is_save_ing">确定</button>
+    <button ng-click="js_step(0)" class="btn">取消</button>
+</div>

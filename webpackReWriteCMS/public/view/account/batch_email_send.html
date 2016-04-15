@@ -1,0 +1,65 @@
+<div class="layout_content">
+
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-user mr_10"></i>用户管理</h3>
+            </div>
+        </div>
+
+        <div class="center-panel-container height-nonav" wt-scroll ng-show="global.loading_done">
+            <dl class="frame" data-minheight="160">
+                <dt>
+                    <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+                </dt>
+                <dd>
+                    <div class="mail-edit-container">
+                        <div class="input-group">
+                            已选择{{choose_addressee_count}}位活动
+                        </div>
+                        <div class="input-group" id="industry">
+                            <wt-cascading
+                                    flag="flag"
+                                    placeholder="按行业选择活动"
+                                    source="json/industry.json"
+                                    firstkey="new_mail.mainIndustryCode"
+                                    first="new_mail.mainIndustryCnName"
+                                    second="new_mail.subIndustryCnName"
+                                    secondkey="new_mail.subIndustryCode"
+                                    >
+                            </wt-cascading>
+                            <span class="input-group-addon fs_15 cursor" ng-click="choose_addressee()"><i class="icon icon-ok"></i></span>
+                        </div>
+
+                        <input type="email" id="new_mail_from" autofocus
+                               ng-model="new_mail.from" class="form-control help-block"
+                               placeholder="回复邮箱" required="">
+
+                        <input type="text" id="new_mail_name" autofocus
+                               ng-model="new_mail.name" class="form-control help-block"
+                               placeholder="邮件标题" required="">
+
+                        <textarea type="text" ng-model="new_mail.content"
+                                  placeholder="邮件内容(按Ctrl + 回车键提交)" wt-full-editor></textarea>
+
+                        <div class="mail_watch_bar">
+                            <form class="btn-group" method="POST" enctype="multipart/form-data" file-upload="upload_exclude_list">
+                            <span class="btn btn-success fileinput-button" ng-class="{'disabled':isUpload}">
+                                <i class="icon-plus"></i>
+                                <span>导入排除列表</span>
+                                <input type="file" name="emailexcludelist">
+                            </span>
+                            </form>
+                            <button class="btn btn-success mr_15"
+                                    ng-click="sys_send_email()" data-loading-text="发送中..."
+                                    loading-status="is_saving">发送</button>
+                            <button class="btn btn-cancel" ng-click="cancel_edit_mail()">取消</button>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <!--发送邮件成功后的提示-->
+    <ng-include ng-show ="$root.show_mail_prompt" src="'/view/common/mail_prompt.html'"></ng-include>
+</div>

@@ -1,0 +1,138 @@
+<div ng-hide="post.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/post/post_title.html'">
+    </div>
+    <!--<wt-badges post="post"></wt-badges>-->
+    <!--<wt-post-target target="post.target"></wt-post-target>-->
+    <wt-post-tags post="post" tagtype="normal"></wt-post-tags>
+    <div class="new-tag"
+         ng-show="global.is_outter==false"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(post)"
+           wt-tracker="Task Panel|Main|Add Attachments"
+           ng-hide="post.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="post.is_add_tag_edit"
+             wt-show-edit="post.is_add_tag_edit">
+            <div>
+
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, post, tag)' }"
+                       wt-enter="js_add_tag(post, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="Task Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(post, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(post)">取消
+            </button>
+        </div>
+    </div>
+
+    <!--    <wt-add-tag tag="post"></wt-add-tag>-->
+    <!--<div class="task-desc wt-row" ng-if="customer.isPaid<5">
+        <label class="col-xs-4 control-label p_0">剩余发件额度：</label>
+        {{post.mailSendLimit}}
+    </div>-->
+    <div class="task-desc wt-row"
+         ng-show="post.is_edit || post.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>中文标题</label>
+        {{post.title}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="post.is_edit || post.enName.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>英文标题</label>
+        {{post.enName}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="post.is_edit || post.summary.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>话题概要</label>
+        {{post.summary}}
+    </div>
+
+
+
+    <div class="task-desc wt-row"
+         ng-show="post.is_edit || post.imageUrl.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>图像URL</label> <img style="width: 120px"
+								src="{{post.imageUrl}}" alt="{{ post.imageUrl }}" />
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="post.is_edit || post.url.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>话题URL</label> {{post.url}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="post.is_edit || post.content.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>话题内容</label>
+        <div class="task-desc-text markdown" wt-markdown="post.content"></div>
+    </div>
+</div>
+<div class="edit-section"
+     ng-show="post.is_edit && (!post.show_part || post.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">中文标题</span> <input autofocus=""
+                                                              ng-model="post.temp_title"
+                                                              wt-enter="js_set_update($event, post)"
+                                                              class="form-control" placeholder="中文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">英文标题</span> <input autofocus=""
+                                                              ng-model="post.temp_enName"
+                                                              wt-enter="js_set_update($event, post)"
+                                                              class="form-control" placeholder="英文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">话题概要</span> <input autofocus=""
+                                                              ng-model="post.temp_summary"
+                                                              wt-enter="js_set_update($event, post)"
+                                                              class="form-control" placeholder="话题概要" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">图片URL</span> <input autofocus=""
+                                                               ng-model="post.temp_imageUrl"
+                                                               class="form-control" placeholder="图片URL" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">活动URL</span> <input autofocus=""
+                                                               ng-model="post.temp_url"
+                                                               class="form-control" placeholder="活动URL" type="text">
+        </div>
+    </div>
+    <div>
+        <textarea ng-model="post.temp_content" type="text" class="w_100p" style="min-height: 100px"
+                  wt-ctrl-enter="js_set_update($event, post)" wt-full-editor=""
+                  placeholder="添加活动描述(按Ctrl + 回车键提交)"></textarea>
+    </div>
+    <div class="form-group">
+        <button ng-click="js_set_update($event, post)"
+                data-loading-text="保存中..." loading-status="post.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="Task Panel|Main|Edit Task-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(post)" class="btn"
+                wt-tracker="Task Panel|Main|Edit Task-Cancel">取消
+        </button>
+    </div>
+</div>

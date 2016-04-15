@@ -1,0 +1,244 @@
+<div class="content_sidebar height-noheader" wt-sidebar-toggle="global.right_sidebar_is_fold"
+     data-ng-controller="prj_sidebar_ctrl">
+<!-- <div class="content_sidebar_header collapse_show">
+    <ul class="list-inline">
+        <li ng-class="{'active':(global.project_sidebar_foldview=='module')}">
+            <a href="javascript:;" ng-click="global.project_sidebar_foldview = 'module'" title="应用">
+                <i class="icon-th-large"></i>
+            </a>
+        </li>
+        <li ng-class="{'active':(global.project_sidebar_foldview=='member')}">
+            <a href="javascript:;" ng-click="global.project_sidebar_foldview = 'member'" title="成员">
+                <i class="icon-user"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="hr"></div>
+</div>
+ -->
+
+<div class="content_sidebar_main" data-height="119">
+    <div data-maxheight="168" data-scrollnoheight="168" 
+         ng-show="(global.right_sidebar_is_fold==false) || global.right_sidebar_is_fold==true && global.project_sidebar_foldview=='module'">
+        <ul class="content_sidebar_module">
+            <li ng-class="{'active':global.project_iconmenu=='program'}">
+                <a ng-href="/project/{{pid}}/program"
+                   wt-tracker="RightSidebar|Module|Goto Task" title="活动(Shift+T)">
+                    <i class="icon-user"></i><br/>活动</a>
+            </li>
+            <li ng-class="{'active':global.project_iconmenu=='develop'}">
+                <a ng-href="/project/{{pid}}/develop"
+                   wt-tracker="RightSidebar|Module|Goto Task" title="开发(Shift+T)">
+                    <i class="icon-spinner"></i><br/>开发</a>
+            </li>
+            <li ng-class="{'active':global.project_iconmenu=='mail'}">
+                <a ng-href="/project/{{pid}}/mail"
+                   wt-tracker="RightSidebar|Module|Goto Mail" title="邮件(Shift+M)">
+                    <i class="icon-envelope"></i><br/>邮件</a>
+            </li>
+            <li ng-class="{'active':global.project_iconmenu=='template'}">
+                <a ng-href="/project/{{pid}}/template"
+                   wt-tracker="RightSidebar|Module|Goto Template" title="模板(Shift+T)">
+                    <i class="icon-list-alt"></i><br/>模板</a>
+            </li>
+<!--             
+            <li ng-class="{'active':global.project_iconmenu=='event'}">
+                <a ng-href="/project/{{pid}}/event"
+                   wt-tracker="RightSidebar|Module|Goto Calendar" title="日历(Shift+E)">
+                    <i class="icon-calendar"></i><br/>日历</a></li>
+ -->            <li ng-class="{'active':global.project_iconmenu=='file'}">
+                <a ng-href="/project/{{pid}}/file"
+                   wt-tracker="RightSidebar|Module|Goto File" title="文件(Shift+F)">
+                    <i class="icon-file"></i><br/>文件</a>
+            </li>
+            <li ng-class="{'active':global.project_iconmenu=='post'}">
+                <a ng-href="/project/{{pid}}/post"
+                   wt-tracker="RightSidebar|Module|Goto Post" title="问答(Shift+C)">
+                    <i class="icon-list-alt"></i><br/>问答</a>
+            </li>
+<!--              <li ng-class="{'active':global.project_iconmenu=='page'}">
+                <a ng-href="/project/{{pid}}/page"
+                   wt-tracker="RightSidebar|Module|Goto Page" title="文档(Shift+D)">
+                    <i class="icon-file-text-alt"></i><br/>文档</a>
+            </li>
+              <li ng-class="{'active':global.project_iconmenu=='graph'}">
+                <a ng-href="/project/{{pid}}/graph"
+                   wt-tracker="RightSidebar|Module|Goto Graph" title="简报(Shift+G)">
+                    <i class="icon-bar-chart"></i><br/>简报</a>
+            </li>
+ -->         </ul>
+    </div>
+    <div class="hr collapse_hide"></div>
+
+    <div class="content_sidebar_header2 collapse_hide">
+        <ul>
+            <li ng-class="{'active':(global.project_sidebar_view=='member')}">
+                <a href="javascript:;" ng-click="global.project_sidebar_view = 'member'" title="项目成员">
+                    成员
+                </a>
+            </li>
+            <li ng-class="{'active':(global.project_sidebar_view=='chat')}">
+                <a href="javascript:;" ng-click="js_change_prj_sidebar_view('chat');" title="在线聊天">
+                    聊天
+                </a>
+            </li>
+            <!--<li data-ng-show="global.loading_done" class="collapse_hide" wt-permission="[permission,project.info.curr_role,1,1]">-->
+                <!--<a href="javascript:;" class="js-popbox" data-placement="left" title="添加成员" ng-click="js_add_prj_member_pop($event)">-->
+                    <!--<i class="icon-plus"></i>-->
+                <!--</a>-->
+            <!--</li>-->
+
+        </ul>
+        <div class="hr"></div>
+    </div>
+
+
+    <div class="prj_sidebar_body">
+        <div ng-show="(global.project_sidebar_view == 'member' && global.right_sidebar_is_fold==false) || global.right_sidebar_is_fold==true && global.project_sidebar_foldview=='member'"
+             class="prj_member_list" wt-scroll
+             ng-class="{true:'fold'}[global.right_sidebar_is_fold]"
+             ng-controller="prj_member_ctrl"
+             data-height="{{{true:'154',false:'289'}[global.right_sidebar_is_fold]}}" wt-scroll>
+
+            <ul>
+                <li data-ng-show="global.loading_done" wt-permission="[permission,project.info.curr_role,1,1]">
+                    <div class="js-popbox member"
+                         ng-click="js_add_prj_member_pop($event)"
+                         wt-tracker="Project Task Page|Right|Open Pop Member Add User"
+                         data-placement="left" data-align="auto">
+                        <a class="avatar-add" href="javascript:;">
+                            <span class="o">
+                            <i class="icon-plus"></i>
+                            </span>
+                            <span class="hide_fold ml_15">添加成员</span>
+                        </a>
+                    </div>
+                </li>
+                <li ng-repeat="member in project.members">
+                    <div ng-click="js_prj_member_pop($event,member)"
+                         wt-tracker="Project Task Page|Right|Open Pop Member Card"
+                         class="js-popbox member" data-placement="left"
+                         ng-class="{true: 'member-pendding'}[[(member.status==2 || member.status==3)]]"
+                         title="{{ {2:'成员还未接受邀请', 3: '成员已经退出团队'}[member.status] }}">
+                        <wt-avatar member="member" status="true" name="true"
+                                   drag="{true: $parent.draggable_options,false:''}[member.status==1 && member.role != 3 && project.info.curr_role!=3]"></wt-avatar>
+                        <i class="icon-user member-admin hide_fold"
+                           title="{{ {1:'负责人', 3:'访客'}[member.role] }}"
+                           ng-class="{1:'member-admin', 3:'member-guest'}[member.role]"
+                           ng-show="member.role==1 || member.role==3"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="prj-chat-panel" ng-show="global.project_sidebar_view == 'chat' && !global.right_sidebar_is_fold"
+             data-height="289"
+             data-ng-controller="prj_chat_ctrl">
+            <div class="chat-messages-list" data-height="{{409+(global_fileupload_queue().length*50)}}" wt-scroll>
+                <div class="clearfix">
+                    <div class="part-loading" data-ng-hide="loading_chat_done"></div>
+                    <a class="sidebar_view_more" ng-if="loading_chat_done && has_more_chat"
+                       href="/project/{{pid}}/chat">更多聊天记录</a>
+
+                    <div class="chat-message-item" data-ng-repeat="message in messages"
+                         data-ng-class="{true:'me',false:'member'}[message.is_me]">
+                        <div ng-if="message.show_date || message.show_time" class="date-time">
+                            <span class="data-time-inner">
+                                <span ng-if="message.show_date">{{message.create_date | dateFormat}}</span>
+                                {{message.create_date | timeFormat}}
+                            </span>
+                        </div>
+                        <wt-avatar member="message.from" size="30" wt-disable-drag></wt-avatar>
+                        <div class="chat-message-panel">
+                            <div class="chat-message-body">
+                                <div class="chat-message-arraw border"></div>
+                                <div class="chat-message-arraw bg"></div>
+                                <div class="chat-message-content markdown-chat" ng-if="message.body.type == 1"
+                                     wt-markdown="message.body.content">
+                                </div>
+                                <div class="chat-message-content markdown-chat" ng-if="message.body.type == 3">
+                                    <div class="chat-message-upload">
+                                        <div class="preview-icon"
+                                             ng-class="{true:'fancybox-file'}[message.body.content.isImg]"
+                                             data-fancybox-group="chatgroup"
+                                             data-fancybox-href="{{message.body.content | wtBoxView}}"
+                                             data-fancybox-type="image">
+                                            <img ng-src="{{message.body.content.icon | wtBox}}"
+                                                 alt="{{ message.body.content.name }}"/>
+                                        </div>
+                                        <div class="file-name"
+                                             ng-click="js_navigate_detail($event,message.body.content)"
+                                             title="{{message.body.content.name}}">{{message.body.content.name}}
+                                        </div>
+                                        <div class="file-size">{{message.body.content.size | fileSize}}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <span class="alert alert-danger" data-ng-show="limit_error">
+                        <i class="icon-remove-sign"></i> 请输入小于200个字符</span>
+                </div>
+            </div>
+            <div class="chat-send-panel">
+                <!--上传队列列表-->
+                <div class="chat-upload-queue">
+                    <div class="chat-upload-item" ng-repeat="file in global_fileupload_queue()">
+                        <div class="file-name" title="{{file.name}}">{{file.name}}</div>
+                                        <span class="error" ng-show="file.error">
+                                            <span class="label label-danger">{{ file.error | fileuploadErrorInfo }}</span>
+                                            <br/>
+                                        </span>
+
+                        <div ng-hide="file.error" class="progress progress-striped active"
+                             ng-class="{pending: 'in'}[file.$state()]"
+                             file-upload-progress="file.$progress()">
+                            <div class="progress-bar progress-bar-success" ng-style="{width: num + '%'}"></div>
+                        </div>
+                        <span href="javascript:;" class="cancel" ng-click="file.$cancel()" ng-hide="!file.$cancel">
+                            取消
+                        </span>
+                    </div>
+                </div>
+
+                <textarea class="form-control" ng-change="js_change_message()" wt-ctrl-enter="js_send_message()"
+                          wt-comment-atwho="atwho_members" wt-comment-atwho="atwho_members" rows="3" type="text"
+                          ng-model="input_message" placeholder="按 Ctrl+回车键 发送"></textarea>
+
+                <div class="chat-send-bar">
+                    <div class="chat-send-ex">
+                        <a href="javascript:;" class="js-popbox" data-placement="left" data-align="bottom"
+                           wt-pop-emoji="js_insert_emoji(emoji)"><i class="icon-smile"></i></a>
+                        <a href="javascript:;" class="icon-file" ng-click="js_chat_upload_files($event)"></a>
+                        <input wt-uploadfile="file_upload_option" class="hide"
+                               multiple type="file" name="files[]" title="添加文件"/>
+                    </div>
+                    <button class="btn btn-success btn-sm" type="button" data-ng-click="js_send_message()">发送
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="hr content_sidebar_footer_hr"></div>
+<ul class="content_sidebar_footer">
+    <li>
+        <a href="javascript:;" data-ng-click="js_right_sidebar_toggle()" tooltip-placement="top"
+           tooltip="{{{true:'展开',false:'折叠'}[global.right_sidebar_is_fold]}}">
+            <i class="{{{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]}}"></i>
+        </a>
+    </li>
+    <li class="collapse_hide">
+        <a href="/project/{{pid}}/setting" tooltip-placement="top" tooltip="设置">
+            <i class="icon-cog"></i></a>
+    </li>
+    <li class="collapse_hide">
+        <a href="/project/{{pid}}/trash" tooltip-placement="top" tooltip="回收站">
+            <i class="icon-trash"></i></a>
+    </li>
+</ul>
+</div>
+

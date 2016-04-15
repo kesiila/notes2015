@@ -1,0 +1,330 @@
+<html lang="zh-CN" id="inner">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+    <!--SEO-->
+    <meta name="fragment" content="!">
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0"/>
+    <title data-ng-bind="{true:' ('+notice_count+') '}[notice_count > 0]+{true:global.title,false:'正在加载中'}[global.loading_done]+' - 棒呆'"></title>
+    <link rel="Shortcut Icon" ng-href="{{{true:'/img/favicon_unread.ico',false:'/img/favicon.ico'}[notice_count > 0]}}">
+    <meta name="keywords" content="轻游学,留学,课外活动,教育">
+    <script type="text/javascript" src="/lib/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.route.js"></script>
+    <!-- endbuild -->
+    <!-- build:css /styles/font-awesome.css -->
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
+    <!-- endbuild -->
+
+    <!-- build:css /styles/base_common.css -->
+    <link rel="stylesheet" type="text/css" href="/css/base_common.css"/>
+    <!-- endbuild -->
+
+    <!-- build:css /styles/base_inner.css -->
+    <link rel="stylesheet" type="text/css" href="/css/base_inner.css"/>
+    <!-- endbuild -->
+    <!-- build:css /styles/main.css -->
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tags.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/select2.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tool_set.css">
+    <link type="text/css" rel="stylesheet" href="/css/charge.css">
+    <!-- endbuild -->
+
+    <!--<link type="text/css" rel="stylesheet" href="/css/1.css"/>-->
+    <!--    <link type="text/css" rel="stylesheet" href="/css/product_tags.css"/>-->
+
+</head>
+<body style="overflow-y:hidden" data-spy="scroll" class="ng-cloak" data-ng-cloak
+      wt-shift-cutover="js_shift_cutover($keyCode)"
+      wt-shortcut-key="js_shortcut_key($keyCode)">
+<!-- 		<div id="loadingInit" ng-if="global.loading_init"></div> -->
+<!--[if lte IE 9]>
+<script type="text/javascript">
+    window.location.href = "/modernise.html";
+</script>
+<![endif]-->
+<header id="header" style="z-index: 90">
+    <div ng-include="'/view/common/fastlane_header.html'"></div>
+</header>
+<div id="inbox" ng-style="{false:{left:'220px'}}[$root.global.left_panel_is_fold]" ng-if="$root.global.show_inbox">
+    <wt-inbox-view></wt-inbox-view>
+</div>
+<div id="searchbox" ng-style="{false:{left:'220px'}}[$root.global.left_panel_is_fold]"
+     ng-if="$root.global.show_searchbox&&$root.global.boxshow_type=='searchbox'">
+    <wt-searchbox-view></wt-searchbox-view>
+</div>
+<div id="scorebox" ng-style="{false:{left:'220px'}}[$root.global.left_panel_is_fold]"
+     ng-if="$root.global.show_scorebox&&$root.global.boxshow_type=='scorebox'">
+    <wt-scorebox-view></wt-scorebox-view>
+</div>
+<div id="mailbox" ng-style="{false:{left:'220px'}}[$root.global.left_panel_is_fold]"
+     ng-if="$root.global.show_mailbox&& ( $root.global.boxshow_type=='mailbox' || $root.global.boxshow_type=='generatorbox')"
+     ng-class="{true:'visible_hidden'}[$root.$root.global.show_generatorbox == true]">
+    <wt-mailbox-view></wt-mailbox-view>
+</div>
+<div id="generatorbox" ng-if="$root.global.show_generatorbox && $root.global.boxshow_type=='generatorbox'">
+    <wt-generatorbox-view></wt-generatorbox-view>
+</div>
+<div id="wrap-all">
+    <!--     <wt-feedback></wt-feedback>
+     -->
+    <div id="main">
+        <div class="layout_col2" data-ng-controller="main_panel_ctrl"
+             wt-left-menu-toggle="$root.global.left_panel_is_fold">
+            <div class="leftpanel height-noheader" style="z-index: 0;">
+                <ng-include src="'/view/common/fastlane_left_menu.html'"></ng-include>
+            </div>
+            <div class="centerpanel height-noheader">
+                <data-ng-view></data-ng-view>
+            </div>
+        </div>
+    </div>
+    <div class="slide-content height-noheader" wt-sliding-show="locator.show_slide">
+        <div data-ng-show="locator.type == 'video'" data-ng-include="'/view/entity/video/video.html'"></div>
+        <div data-ng-show="locator.type == 'article'" data-ng-include="'/view/entity/article/article.html'"></div>
+        <div data-ng-show="locator.type == 'task'" data-ng-include="'/view/entity/task.html'"></div>
+        <div data-ng-show="locator.type == 'project'" data-ng-include="'/view/entity/project/project.html'"></div>
+        <div data-ng-show="locator.type == 'file'" data-ng-include="'/view/entity/file.html'"></div>
+        <div data-ng-show="locator.type == 'page'" data-ng-include="'/view/entity/page.html'"></div>
+        <div data-ng-show="locator.type == 'post'" data-ng-include="'/view/entity/post/post.html'"></div>
+        <div data-ng-show="locator.type == 'user'" data-ng-include="'/view/entity/user/user.html'"></div>
+        <div data-ng-show="locator.type == 'organizer'" data-ng-include="'/view/entity/organizer/organizer.html'"></div>
+        <div data-ng-show="locator.type == 'goods'" data-ng-include="'/view/entity/goods/goods.html'"></div>
+        <div data-ng-show="locator.type == 'order'" data-ng-include="'/view/entity/order/order.html'"></div>
+        <div data-ng-show="locator.type == 'coupon'" data-ng-include="'/view/entity/coupon/coupon.html'"></div>
+        <div data-ng-show="locator.type == 'template'" data-ng-include="'/view/entity/template.html'"></div>
+        <div data-ng-show="locator.type == 'event'" data-ng-include="'/view/entity/event.html'"></div>
+        <div data-ng-show="locator.type == 'mail'" data-ng-include="'/view/entity/mail.html'"></div>
+    </div>
+</div>
+
+<div id="loading" data-ng-hide="global.loading_done"></div>
+<div class='notifications center-top'></div>
+
+<script>
+    var wt = window.wt = {};
+    if (window.sessionStorage.name) {//已登录
+        wt.me = {};
+//    	wt.env = "dev";
+        wt.me.token = window.sessionStorage.token;
+        wt.me.uid = window.sessionStorage.uid;//用户id
+        wt.me.role = window.sessionStorage.role;//用户权限等级
+        wt.me.score = parseInt(window.sessionStorage.score) || 0;//用户积分
+        wt.me.name = window.sessionStorage.name || "";//用户登录帐号
+        wt.me.email = window.sessionStorage.email;//注册邮箱地址
+        wt.me.display_name = window.sessionStorage.display_name || window.sessionStorage.name;//昵称
+        wt.me.reply_email = window.sessionStorage.reply_email;//回复邮件地址
+        wt.me.companyName = window.sessionStorage.companyName;//公司名称
+        wt.me.mainIndustryCode = window.sessionStorage.mainIndustryCode;//一级行业编号
+        wt.me.subIndustryCode = window.sessionStorage.subIndustryCode;//二级行业编号
+        wt.me.mainIndustryName = window.sessionStorage.mainIndustryName;//一级行业名称
+        wt.me.subIndustryName = window.sessionStorage.subIndustryName;//二级行业名称
+        wt.me.search_setting = window.sessionStorage.search_setting;//二级行业名称
+        wt.me.defaultTemplate = window.sessionStorage.defaultTemplate;//默认模板
+        wt.me.status = "1";
+        wt.me.avatar = "default_avatar.png";
+    }
+</script>
+<!--<script src="/test/ueditor.config.js"></script>-->
+<!--<script src="/test/ueditor.all.js"></script>-->
+
+<!-- build:js /scripts/asset.js -->
+<script src="/lib/sockjs.js"></script>
+<script src="/lib/stomp.js"></script>
+<script src="/lib/md5.js"></script>
+<script src="/lib/moment.js"></script>
+<script src="/lib/moment.zh-cn.js"></script>
+
+<script src="/lib/jquery/jquery.ui.js"></script>
+<script src="/lib/jquery/jquery.bootstrap.js"></script>
+<script src="/lib/jquery/jquery.notify.js"></script>
+<!--在光标处插入，用于gollum eidtor插入变量-->
+<script src="/lib/jquery/jquery.selection.js"></script>
+<script src="/lib/jquery/jquery.gollum.js"></script>
+
+<script src="/lib/jquery/jquery.fullcalendar.js"></script>
+<script src="/lib/jquery/jquery.mousewheel.js"></script>
+<script src="/lib/jquery/jquery.mCustomScrollbar.js"></script>
+<script src="/lib/jquery/jquery.caret.js"></script>
+<script src="/lib/jquery/jquery.atwho.js"></script>
+<script src="/lib/jquery/jquery.jcrop.js"></script>
+<script src="/lib/jquery/jquery.hotkeys.js"></script>
+<script src="/lib/jquery/jquery.select2.js"></script>
+<script src="/lib/jquery/markdown.min.js"></script>
+
+<script src="/lib/loadImage/loadimage.js"></script>
+<script src="/lib/loadImage/loadimage.meta.js"></script>
+<script src="/lib/loadImage/loadimage.exif.js"></script>
+<script src="/lib/loadImage/loadimage.exif.map.js"></script>
+<script src="/lib/loadImage/loadimage.orientation.js"></script>
+<script src="/lib/loadImage/loadimage.ios.js"></script>
+
+<script src="/lib/fileupload/jquery.fileupload.js"></script>
+<script src="/lib/fileupload/jquery.fileupload.process.js"></script>
+<script src="/lib/fileupload/jquery.fileupload.validate.js"></script>
+<script src="/lib/fileupload/jquery.fileupload.image.js"></script>
+<script src="/lib/fileupload/jquery.fileupload.audio.js"></script>
+<script src="/lib/fileupload/jquery.fileupload.video.js"></script>
+<script src="/lib/fileupload/jquery.fileupload.ui.js"></script>
+
+<script src="/lib/fancybox/jquery.fancybox.js"></script>
+<script src="/lib/fancybox/jquery.fancybox.buttons.js"></script>
+<script src="/lib/fancybox/jquery.fancybox.media.js"></script>
+<script src="/lib/fancybox/jquery.fancybox.thumbs.js"></script>
+
+
+<script src="/lib/angular/angular.resource.js"></script>
+<script src="/lib/angular/angular.sanitize.js"></script>
+
+<script src="/lib/angular/animate.js"></script>
+<script src="/lib/angular/angular-strap.js"></script>
+<script src="/lib/angular/angular-strap.tpl.js"></script>
+
+<script src="/lib/angular/angular.ui.utils.js"></script>
+<script src="/lib/angular/angular.ui.bootstrap.js"></script>
+<script src="/lib/angular/angular.ui.date.js"></script>
+<script src="/lib/angular/angular.ui.calendar.js"></script>
+<script src="/lib/angular/angular.ui.popbox.js"></script>
+<script src="/lib/angular/angular.fileupload.js"></script>
+<script src="/lib/angular/angular.ui.select2.js"></script>
+
+
+<script src="/lib/sanitize/sanitize.js"></script>
+<script src="/lib/sanitize/sanitize.basic.js"></script>
+<script src="/lib/sanitize/sanitize.relaxed.js"></script>
+<script src="/lib/sanitize/sanitize.restricted.js"></script>
+
+<script src="/lib/underscore.js"></script>
+<script src="/lib/socket.io.js"></script>
+<script src="/lib/marked.js"></script>
+<script src="/lib/heyoffline.js"></script>
+<script src="/lib/ichart.js"></script>
+<script src="/lib/xss.js"></script>
+<!-- endbuild -->
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8PzYe6yA6ifkKg7p1xcd5v4o"></script>
+<script src="/lib/BMap/angular.BMap.js"></script>
+
+<!-- build:js /scripts/innerApp.js -->
+<script src="/scripts/kzi.js"></script>
+<script src="/scripts/kzi.status.js"></script>
+<script src="/scripts/kzi.constant.js"></script>
+
+<script src="/scripts/analysis.js"></script>
+<script src="/scripts/service.js"></script>
+<script src="/scripts/bus.js"></script>
+<script src="/scripts/filter.js"></script>
+<script src="/scripts/directive.js"></script>
+
+<!--<script src="/scripts/modules/tagCloud.js"></script>-->
+<script src="/scripts/modules/newEditor.js"></script>
+
+<script src="/scripts/modules/webdis.js"></script>
+
+<script src="/scripts/modules/bmap.js"></script>
+
+<script src="/scripts/innerApp.js"></script>
+
+<script src="/scripts/controller/head/headerCtrl.js"></script>
+<script src="/scripts/controller/fileupload/fileuploadCtrl.js"></script>
+<script src="/scripts/controller/team/teamCtrl.js"></script>
+<script src="/scripts/controller/team/teamAdminCtrl.js"></script>
+<script src="/scripts/controller/project/projectCtrl.js"></script>
+<script src="/scripts/controller/project/projectTasksCtrl.js"></script>
+<script src="/scripts/controller/project/projectEventCtrl.js"></script>
+<script src="/scripts/controller/project/projectGraphCtrl.js"></script>
+<script src="/scripts/controller/project/projectFileListCtrl.js"></script>
+<script src="/scripts/controller/project/projectPageCtrl.js"></script>
+<script src="/scripts/controller/project/projectPostCtrl.js"></script>
+<script src="/scripts/controller/project/projectTemplateCtrl.js"></script>
+<script src="/scripts/controller/project/projectMailCtrl.js"></script>
+<script src="/scripts/controller/project/projectChatsCtrl.js"></script>
+<script src="/scripts/controller/project/projectTrashCtrl.js"></script>
+<script src="/scripts/controller/project/projectSettingCtrl.js"></script>
+<script src="/scripts/controller/calendar/calendarCtrl.js"></script>
+<script src="/scripts/controller/activity/activityCtrl.js"></script>
+<script src="/scripts/controller/invite/inviteCtrl.js"></script>
+<script src="/scripts/controller/prj/prjMemberCtrl.js"></script>
+<script src="/scripts/controller/mail/InMailCtrl.js"></script>
+<script src="/scripts/controller/account/accountCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardCtrl.js"></script>
+<script src="/scripts/controller/browse/browseCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardTasksCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardOrganizersCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardGoodssCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardOrdersCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardCouponsCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardProgramsCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardFilesCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardProjectsCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardUsersCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardTagsCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardPostsCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardInboxCtrl.js"></script>
+<script src="/scripts/controller/dashboard/dashboardMailCtrl.js"></script>
+<script src="/scripts/controller/dashboard/mailboxCtrl.js"></script>
+<script src="/scripts/controller/dashboard/statisticsCtrl.js"></script>
+<script src="/scripts/controller/event/eventCtrl.js"></script>
+<script src="/scripts/controller/program/programsCtrl.js"></script>
+<script src="/scripts/controller/entity/project/projectCtrl.js"></script>
+<script src="/scripts/controller/post/postCtrl.js"></script>
+<script src="/scripts/controller/user/userCtrl.js"></script>
+<script src="/scripts/controller/organizer/organizerCtrl.js"></script>
+<script src="/scripts/controller/goods/goodsCtrl.js"></script>
+<script src="/scripts/controller/order/orderCtrl.js"></script>
+<script src="/scripts/controller/order/ordersCtrl.js"></script>
+/* article */
+<script src="/scripts/controller/article/articleCtrl.js"></script>
+<script src="/scripts/controller/article/newArticleCtrl.js"></script>
+<script src="/scripts/controller/article/dashboardArticlesCtrl.js"></script>
+/* video */
+<script src="/scripts/controller/video/videoCtrl.js"></script>
+<script src="/scripts/controller/video/dashboardVideoCtrl.js"></script>
+
+<script src="/scripts/controller/coupon/couponCtrl.js"></script>
+<script src="/scripts/controller/coupon/couponsCtrl.js"></script>
+<script src="/scripts/controller/template/templateCtrl.js"></script>
+<script src="/scripts/controller/template/commonTemplateCtrl_v5_1.js"></script>
+<script src="/scripts/controller/file/fileCtrl.js"></script>
+<script src="/scripts/controller/page/pageCtrl.js"></script>
+<script src="/scripts/controller/mail/entityMailCtrl.js"></script>
+<script src="/scripts/controller/comment/commentCtrl.js"></script>
+<script src="/scripts/controller/taskCtrl.js"></script>
+<script src="/scripts/controller/taskListCtrl.js"></script>
+<script src="/scripts/controller/userCtrl.js"></script>
+<script src="/scripts/controller/customerImportCtrl.js"></script>
+<script src="/scripts/controller/myPostsCtrl.js"></script>
+<script src="/scripts/controller/template/addNewTemplateCtrl.js"></script>
+<script src="/scripts/controller/dashboard/adminCtrl.js"></script>a
+<!-- <script src="/scripts/controller/inbox/inboxCtrl.js"></script> -->
+<script src="/scripts/controller/chatCtrl.js"></script>
+<script src="/scripts/route.js"></script>
+<!-- endbuild -->
+
+<!-- build:test -->
+<script src="/scripts/controller/testCtrl.js"></script>
+<!-- endbuild -->
+
+<script src="/scripts/template.js"></script>
+
+<script type="text/javascript">
+    angular.element(document).ready(function () {
+        angular.bootstrap(document, ['innerApp']);
+    });
+</script>
+
+<!--cnzz-->
+<!--<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan style='display: none;' id='cnzz_stat_icon_1253426362'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/stat.php%3Fid%3D1253426362%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>-->
+</body>
+</html>

@@ -1,0 +1,146 @@
+<div class="template">
+    <div class="page_navbar">
+        <div class="page-navbar-warp">
+            <div class="title">
+                <h3><a data-ng-click="click.in_out_view_toggle('public')">公共模板</a></h3>
+                <h3><a data-ng-click="click.in_out_view_toggle('private')">我的模板</a></h3>
+            </div>
+            <div class="btn-group js-popbox mr_15" style="float:right">
+                <button class="btn" ng-class="{'grid': 'active'}[view_type]"
+                        tooltip="详情视图" ng-click="click.view_toggle('grid')">
+                    <i class="icon-th-large"></i>
+                </button>
+                <button class="btn" ng-class="{'list': 'active'}[view_type]"
+                        tooltip="列表视图" ng-click="click.view_toggle('list')">
+                    <i class="icon-list"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="global.loading_done" wt-scroll>
+        <div class="main">
+            <div class="col-xs-2 col-md-2 left">
+                <nav class="catalog box-shadow">
+                    <div class="widget"><h4>分类</h4></div>
+                    <ul>
+                        <li>
+                            <a href="javascript:;"
+                               ng-class="{true: 'active'}[current_tab == -1]"
+                               ng-click="click.catalog(-1,'全部')">全部</a>
+                        </li>
+                        <li  ng-repeat="mainCatalog in catalog">
+                            <a ng-class="{true: 'active'}[current_tab == $index]" ng-click="click.catalog($index,mainCatalog.cnName)">
+                                {{mainCatalog.cnName}}
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-xs-10 col-md-10 container box-shadow">
+                <div class="widget" data-ng-show="in_out_view_type == 'public' || current_tab > -1 ">
+                    <h3>{{catalog_show_name}}</h3>
+                </div>
+                <dl class="frame" data-maxheight="0" data-ng-show="current_tab == -1 && in_out_view_type == 'private'">
+                    <dt>
+                    <ul class="tabs">
+                        <li>
+                            <a ng-class="{true: 'active'}[current_classify_tab == 0]" href="javascript:;" ng-click="js_change_classify_tab(0)">
+                                我的全部
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-class="{true: 'active'}[current_classify_tab == 1]" href="javascript:;" ng-click="js_change_classify_tab(1)">
+                                我创建的
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-class="{true: 'active'}[current_classify_tab == 2]" href="javascript:;" ng-click="js_change_classify_tab(2)">
+                                我分享的
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-class="{true: 'active'}[current_classify_tab == 3]" href="javascript:;" ng-click="js_change_classify_tab(3)">
+                                我下载的
+                            </a>
+                        </li>
+                    </ul>
+                    </dt>
+                    </dl>
+                <div class="fast-container">
+                    <!--柵格展示--begin-->
+                    <div data-ng-show="view_type == 'grid'"
+                         class="fa-item col-xs-12 col-md-6"
+                         ng-repeat="template in templates">
+                        <article class="item">
+                            <div class="head">
+                                <i class="color-block"></i>
+                                <a ng-click="locator.to_template(template.pid, template.template_id, true)" class="title" href="javascript:;">
+                                    <h4>{{template.name}}</h4>
+                                </a>
+                                <a class="favor"
+                                   ng-click="click.collect(template.pid, template.template_id)">
+                                    <button class="btn btn-default">收藏</button>
+                                </a>
+                            </div>
+                            <!--<aside class="summary" ng-bind-html="template.summary"></aside>-->
+                            <section class="center">
+                                <header class="inline-block">
+                                    <div class="title" ng-bind-html="template.summary"></div>
+                                </header>
+                                <p class="content markdown" wt-markdown="template.content">
+                            </section>
+                        </article>
+                    </div>
+                    <!--柵格展示--end-->
+                    <!--列表展示--begin-->
+                    <div ng-show="view_type == 'list'"
+                         class="template-list project-panel">
+                        <dl ng-show="templates.length > 0">
+                            <dd>
+                                <div class="wt-row" ng-repeat="template in templates">
+                                    <!--<div class="column column-star">-->
+                                    <!--<a href="javascript:;" ng-class="{1: 'star-started', 0: ''}[project.is_star]"-->
+                                    <!--ng-click="js_star_toggle($event,project)" class="star"-->
+                                    <!--title="{{ {1: '从常用项目移除', 0: '设置为常用项目'}[project.is_star] }}"-->
+                                    <!--ng-hide="project.archived == '1'">-->
+                                    <!--<i ng-class="{1: 'icon-star', 0: 'icon-star-empty'}[project.is_star]"></i>-->
+                                    <!--</a>-->
+                                    <!--</div>-->
+                                    <!--<div class="column column-icon">-->
+                                    <!--<i ng-class="project.pic" ng-style="{color:project.bg}"></i>-->
+                                    <!--</div>-->
+                                    <div class="head">
+                                        <i class="color-block"></i>
+                                        <a ng-click="locator.to_template(template.pid, template.template_id, true)" class="title" href="javascript:;">
+                                            <h4>{{template.name}}</h4>
+                                        </a>
+                                        <a class="favor">
+                                            <button class="btn btn-default">收藏</button>
+                                        </a>
+                                    </div>
+                                    <!--<div class="column column-admin">-->
+                                    <!--<wt-avatar ng-repeat="member in project.admins"-->
+                                    <!--class="js-popbox member mr_5"-->
+                                    <!--member="member" size="30"></wt-avatar>-->
+                                    <!--</div>-->
+                                    <!--<div class="column column-member">-->
+                                    <!--<i class="icon-user mr_5"></i>{{project.member_count}}-->
+                                    <!--</div>-->
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!--列表展示--end-->
+                </div>
+                <div class="loading-more-panel">
+                    <button ng-show="global.loading_done && has_more"
+                            class="btn" ng-click="click.more()"
+                            data-loading-text="加载中..."
+                            loading-status="!global.loading_done">加载更多...
+                    </button>
+                    <div class="load-more part-loading" ng-hide="global.loading_done"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

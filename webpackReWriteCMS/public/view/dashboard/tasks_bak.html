@@ -1,0 +1,188 @@
+<div class="layout_content">
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3>
+                    <i class="icon-user mr_10"></i>
+                    我的活动
+                </h3>
+            </div>
+            <div class="main">
+                <div class="toolbar_panel pull-right" >
+                    <div class="btn-group" style="margin-right: 5px">
+                        <button class="btn btn-danger"
+                                wt-tracker="Project Task Page|Nav|Open Add Task"
+                                ng-click="js_add_task_pop($event)">新建活动
+                        </button>
+                        <!--                        <button type="button" class="btn btn-danger dropdown-toggle mr_15" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a wt-tracker="Project Task Page|Nav|Import Customer"
+                                                   href="/customer/import">批量导入</a></li>
+                                        </ul>-->
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn btn-danger mR_15"
+                           wt-tracker="Project Task Page|Nav|Import Customer"
+                           href="/customer/import">批量导入
+                        </a>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn" ng-click="sortTastDates()" tooltip="切换显示顺序">
+                            <i ng-class="{'icon-sort-by-alphabet-alt':isDESC,'icon-sort-by-alphabet':!isDESC}"></i>
+                        </button>
+                    </div>
+
+                    <!--                    <div class="btn-group">
+                                    <button class="btn" ng-class="{'date': 'active'}[my_task_view]"
+                                            wt-tracker="Tasks Page|Nav|Sort By-Time"
+                                            tooltip-placement="bottom" tooltip="时间分组" ng-click="js_task_view_toggle('date')">
+                                        <i class="icon-time"></i>
+                                    </button>
+                                    <button class="btn" ng-class="{'prj': 'active'}[my_task_view]"
+                                            wt-tracker="Tasks Page|Nav|Sort By-Project"
+                                            tooltip-placement="bottom" tooltip="项目分组" ng-click="js_task_view_toggle('prj')">
+                                        <i class="icon-inbox"></i>
+                                    </button>
+                                </div>-->
+                    <button class="btn" ng-click="js_right_sidebar_toggle($event)">
+                        <i
+                                ng-class="{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]"></i>
+                    </button>
+
+                    <!-- 					<button class="btn js-popbox" data-placement="bottom"
+                data-align="right" ng-click="js_show_more_menu($event)"
+                wt-permission="[permission,project.info.curr_role,1,2]">
+                更多&nbsp;<i class="icon-caret-down"></i>
+            </button>
+-->
+                </div>
+
+            </div>
+        </div>
+        <div class="height-nonav" wt-scroll>
+                            <div wt-slide-show="show_add_mail"
+                                slide-change="js_slide_change(value)">
+                                <ng-include src="'/view/common/mail/add_or_edit_mail.html'"></ng-include>
+                            </div>
+            <!--			<div class="height-nonav" wt-scroll>
+                            <div wt-slide-show="show_add_mail"
+                                slide-change="js_slide_change(value)">
+                                <ng-include src="'/view/common/mail/add_or_edit_mail.html'"></ng-include>
+                            </div>-->
+            <div wt-slide-show="show_add_customer"
+                >
+                <ng-include src="'/view/common/task/pop_add_task.html'"></ng-include>
+            </div>
+            <div class="layout_split_panel">
+                <dl class="frame" data-minheight="160">
+                    <dt>
+                        <span class="title" title="全选"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                ng-show="tasks.length>0"
+                                ng-model="selectAll" ng-click="toggleAll(tasks)"
+                                type="checkbox">
+                        </span>
+                        <ul class="tabs">
+                            <li>
+                                <a href="javascript:;" ng-class="{'active':type==0}"
+                                   ng-click="load(0)">我全部的<span ng-if="teams[0].task_count>0">({{teams[0].task_count}})</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" ng-class="{'active':type==1}"
+                                   ng-click="load(1)">我私有的<span ng-if="teams[0].private_task_count>0">({{teams[0].private_task_count}})</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" ng-class="{'active':type==2}"
+                                   ng-click="load(2)">我分享的<span ng-if="teams[0].share_task_count>0">({{teams[0].share_task_count}})</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" ng-class="{'active':type==3}"
+                                   ng-click="load(3)">我收藏的<span ng-if="teams[0].download_task_count>0">({{teams[0].download_task_count}})</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </dt>
+                    <dd class="task-list-panel pt_0">
+                        <div class="empty-panel noborder"
+                             ng-if="part_loading_done && tasks.length == 0">
+                            <i class="icon-user"></i>
+                            <br>
+                            <span>还没有任何活动</span>
+                            <br/>
+                            <a class="btn btn-success" href="/customer" target="_blank">去收藏活动</a>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-item wt-row" ng-repeat="task in tasks"
+                                    ng-class="{'active':task.tid==locator.show_detail_task_id}">
+                                <div class="task-item-inner slide-trigger">
+                                    <div class="column column-read">
+                                        <div>
+                                            <a href="javascript:;" class="checkbox"><label> <input
+                                                    ng-click="toggle(task)" ng-model="task.checked"
+                                                    type="checkbox"/>
+                                            </label></a>
+                                        </div>	
+                                    </div>
+                                    <div class="column column-action"
+                                         ng-click="locator.to_task(task.pid, task.tid, true)">
+                                        <h4>
+                                            <span title="公司:{{task.company}}">{{task.company|abbrevition:26}}</span>
+                                            <span class="small" title="联系人:{{task.name}}" ng-show="task.name.length>0">{{task.name|abbrevition:10}}</span>
+                                            &nbsp;</h4>
+                                            <span class="entity"> <wt-contact task="task"></wt-contact>
+                                            </span>
+                                    </div>
+                                    <div class="column column-tag">
+                                        <span title="行业">{{task.subIndustryCnName}}</span>
+                                    </div>
+                                    <div class="column column-company">
+                                            <span class="entity" title="国家">{{task.countryCnName}}
+                                            </span>
+                                    </div>
+                                    <div class="column column-datetime">
+                                        <wt-tadges class="pt_15" task="task" style="line-height: normal"></wt-tadges>
+                                        <span title="创建时间">{{task.create_date | fromNow}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                    <div class="clearfix pager-wapper" ng-hide="numPages==1">
+                        <ul class="pull-left list-inline">
+                            <li>第 <input class="page-num" style="width: 25px"
+                                         type="text" ng-model="pageNum"> 页
+                            </li>
+                            <li ng-click="jumpToPage(pageNum)">
+                                <button>确定</button>
+                            </li>
+                            <li>每页显示 <select class="page-select" ng-model="itemsPerPage">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                            </select> 条
+                            </li>
+                            <li>{{currentPage}}/{{numPages}}</li>
+                        </ul>
+                        <div class="category-pager pull-right">
+                            <pagination ng-model="currentPage" total-items="totalItems"
+                                        items-per-page="itemsPerPage" max-size="5" rotate="false"
+                                        direction-links="true" previous-text="上一页" next-text="下一页"
+                                        boundary-links="true" first-text="首页" last-text="尾页"
+                                        num-pages="numPages"></pagination>
+                        </div>
+                    </div>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="layout_right_sidebar height-noheader"
+         ng-if="global.right_sidebar_is_show">
+        <ng-include src="'/view/common/sidebar/sidebar.html'"></ng-include>
+    </div>
+</div>

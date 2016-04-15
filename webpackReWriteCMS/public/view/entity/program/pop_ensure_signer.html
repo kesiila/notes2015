@@ -1,0 +1,19 @@
+<div class="popbox-header">
+    <h3 style="left: 14px">通知用户</h3>
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+</div>
+<form class="wt-form" novalidate role="form">
+    <div class="popbox-body">
+        已经和主办方确认成功，通知用户？
+    </div>
+
+    <div class="popbox-footer" data-ng-hide="ensure_success">
+        <button class="btn btn-success float_left" ng-click="ensure()"
+                data-loading-text="请求中..." loading-status="is_querying">确定</button>
+        <button ng-click="js_close()" class="btn">取消</button>
+    </div>
+    <div class="popbox-body" data-ng-show="ensure_success">
+        <p class="alert alert-success" data-ng-show="result_code==200">已成功通知用户 !</p>
+        <p class="alert alert-warning" data-ng-show="result_code!=200">操作失败！错误代码：{{result_code}}。</p>
+    </div>
+</form>

@@ -1,0 +1,50 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>从项目文件选择</h3>
+        </div>
+        <div class="popbox-bodywrapper fixed-width" wt-scroll>
+            <div class="popbox-body">
+                <div class="part-loading" ng-hide="prj_files_loaded"></div>
+                <ul class="popbox-menu">
+                    <li ng-repeat="file in files" ng-click="js_attach(file)">
+                        <a class="file-item-li-menu" ng-class="{0:'file-picfile', 1:'file-picfolder'}[file.type]"
+                           href="javascript:;">
+                            <img ng-src="{{file.icon | wtBox}}" alt="{{ file.name }}"/>
+                            <span class="file-name">{{file.name}}</span>
+                        </a>
+                    </li>
+                    <li  ng-show="files.length == 0 && prj_files_loaded">
+                        <div class="empty-menu">没有文件</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>从项目文件选择</h3>
+        </div>
+        <div class="popbox-bodywrapper fixed-width" wt-scroll>
+            <div class="popbox-body">
+                <div class="part-loading" ng-hide="prj_files_loaded"></div>
+                <ul class="popbox-menu">
+                    <li ng-repeat="file in sub_files" ng-click="js_attach(file)">
+                        <a class="file-item-li-menu" ng-class="{0:'file-picfile',1:'file-picfolder'}[file.type]"
+                           href="javascript:;">
+                            <img ng-src="{{file.icon | wtBox}}" alt="{{ file.name }}"/>
+                            <span class="file-name">{{file.name}}</span>
+                        </a>
+                    </li>
+                     <li ng-show="sub_files.length == 0 && prj_files_loaded">
+                        <div class="empty-menu">没有文件</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>

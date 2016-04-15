@@ -1,0 +1,95 @@
+<div class="prj_sidebar_step_body">
+    <div class="p_10">
+        <input type="text" class="form-control" ng-model="task_filter_text" ng-change="js_filter_text()" placeholder="输入查询条件"
+               />
+    </div>
+    <div class="hr"></div>
+
+    <dl class="prj_sidebar_dl" ng-if="labels_is_set">
+        <dt>按标签筛选</dt>
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="label-item" ng-repeat="label in labels_is_set">
+                    <a href="javascript:;" class="js-toggle-label-filter" ng-click="js_filter_label(label)">
+                        <span class="task-label {{label.name}}-label ml_5"></span>
+                        <span class="label-name help-inline ml_15">{{label.desc}}</span>
+                    </a>
+                    <i class="icon-ok" ng-if="js_label_is_filter(label.name)"></i>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <div class="hr" ng-if="labels_is_set"></div>
+
+    <dl class="prj_sidebar_dl">
+        <dt>按成员筛选</dt>
+        <dd>
+            <ul class="avatars task-filter-checkable">
+                <li ng-repeat="member in assigned_team_members">
+                    <div class="member">
+                        <wt-avatar member="member" size="30" name="[member.display_name,18] | cutstr" nameclass="ml_15" click="js_filter_member(member)"></wt-avatar>
+                        <i class="icon-ok" ng-if="js_member_is_filter(member.uid)"></i>
+                    </div>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <div class="hr"></div>
+
+    <dl class="prj_sidebar_dl">
+        <dt>按截止日期筛选</dt>
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="ptb_2">
+                    <a ng-click="js_filter_date('today')">
+                        <span class="ml_50">今天</span>
+                    </a>
+                    <i class="icon-ok" ng-if="task_filters.date == 'today'"></i>
+                </li>
+                <li class="ptb_2">
+                    <a ng-click="js_filter_date('tomorrow')">
+                        <span class="ml_50">明天</span>
+                    </a>
+                    <i class="icon-ok" ng-if="task_filters.date == 'tomorrow'"></i>
+                </li>
+                <li class="ptb_2">
+                    <a ng-click="js_filter_date('week')">
+                        <span class="ml_50">本周</span>
+                    </a>
+                    <i class="icon-ok" ng-if="task_filters.date == 'week'"></i>
+                </li>
+                <li class="ptb_2">
+                    <a ng-click="js_filter_date('nextweek')">
+                        <span class="ml_50">下周</span>
+                    </a>
+                    <i class="icon-ok" ng-if="task_filters.date == 'nextweek'"></i>
+                </li>
+                <li class="ptb_2">
+                    <a ng-click="js_filter_date('month')">
+                        <span class="ml_50">本月</span>
+                    </a>
+                    <i class="icon-ok" ng-if="task_filters.date == 'month'"></i>
+                </li>
+                <li class="ptb_2">
+                    <a ng-click="js_filter_date('due')">
+                        <span class="ml_50">已过期</span>
+                    </a>
+                    <i class="icon-ok" ng-if="task_filters.date == 'due'"></i>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+
+    <div class="hr"></div>
+    <dl class="prj_sidebar_dl">
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="ptb_2">
+                    <a ng-click="clear_task_filters()">
+                        <span class="ml_50">清除筛选</span>
+                    </a>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+</div>

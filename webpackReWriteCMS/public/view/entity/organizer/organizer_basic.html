@@ -1,0 +1,197 @@
+<div ng-hide="organizer.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/organizer/organizer_title.html'">
+    </div>
+    <!--<wt-badges organizer="organizer"></wt-badges>-->
+    <wt-organizer-tags organizer="organizer" tagtype="normal"></wt-organizer-tags>
+    <div class="new-tag"
+         ng-show="global.is_outter==false"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(organizer)"
+           wt-tracker="Task Panel|Main|Add Attachments"
+           ng-hide="organizer.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="organizer.is_add_tag_edit"
+             wt-show-edit="organizer.is_add_tag_edit">
+            <div>
+
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, organizer, tag)' }"
+                       wt-enter="js_add_tag(organizer, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="Task Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(organizer, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(organizer)">取消
+            </button>
+        </div>
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>中文标题</label>
+        {{organizer.title}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>机构id</label>
+        {{organizer.eid}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.enName.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>英文标题</label>
+        {{organizer.enName}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.address.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>详细地址</label>
+        {{organizer.address}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.poi.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>百度位置</label>
+        {{organizer.poi}}
+    </div>
+    <!--<div  class="wt-row  task-desc pos_relative clearfix" ng-if="organizer">-->
+        <!--<div class="w_100p h_200" style="margin-top: 15px;" ng-if="mapOptions">-->
+            <!--<baidu-map options="mapOptions"></baidu-map>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.contact.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>联系人名</label>
+        {{organizer.contact}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.email.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>联系方式</label>
+        {{organizer.email}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.imageUrl.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>图像URL</label> <img style="width: 120px"
+								src="{{organizer.imageUrl|imageFullPath}}" alt="{{ organizer.imageUrl }}" />
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.url.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>机构URL</label> {{organizer.url}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="organizer.is_edit || organizer.desc.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>描述</label>
+        <div class="task-desc-text markdown" wt-markdown="organizer.desc"></div>
+    </div>
+</div>
+<div class="edit-section"
+     ng-show="organizer.is_edit && (!organizer.show_part || organizer.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">中文标题</span> <input autofocus=""
+                                                              ng-model="organizer.temp_title"
+                                                              wt-enter="js_set_update($event, organizer)"
+                                                              class="form-control" placeholder="中文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">英文标题</span> <input autofocus=""
+                                                              ng-model="organizer.temp_enName"
+                                                              wt-enter="js_set_update($event, organizer)"
+                                                              class="form-control" placeholder="英文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">注册名称</span> <input autofocus=""
+                                                                     ng-model="organizer.temp_company"
+                                                                     wt-enter="js_set_update($event, organizer)"
+                                                                     class="form-control" placeholder="注册公司名称" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">详细地址</span> <input autofocus=""
+                                                              ng-model="organizer.temp_address"
+                                                              wt-enter="js_set_update($event, organizer)"
+                                                              class="form-control" placeholder="详细地址" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">联系人名</span> <input autofocus=""
+                                                              ng-model="organizer.temp_contact"
+                                                              wt-enter="js_set_update($event, organizer)"
+                                                              class="form-control" placeholder="机联系人名" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">联系方式</span> <input autofocus=""
+                                                              ng-model="organizer.temp_email"
+                                                              wt-enter="js_set_update($event, organizer)"
+                                                              class="form-control" placeholder="联系方式" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">百度位置</span> <input autofocus=""
+                                                                     ng-model="organizer.temp_poi"
+                                                                     wt-enter="js_set_update($event, organizer)"
+                                                                     class="form-control" placeholder="百度位置" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">图片URL</span> <input autofocus=""
+                                                               ng-model="organizer.temp_imageUrl"
+                                                               class="form-control" placeholder="图片URL" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">活动URL</span> <input autofocus=""
+                                                               ng-model="organizer.temp_url"
+                                                               class="form-control" placeholder="活动URL" type="text">
+        </div>
+    </div>
+    <div class="pos_relative editor-container mt_10"
+         ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                            false: 'height-main-min-j4-new-template-by-auto-mailbox-inner-with-one-input-above'}[$root.global.is_outter]">
+        <wt-new-editor class="" edit-content="organizer.temp_desc"
+                       wt-ctrl-enter="js_set_update($event, organizer)"
+                       placeholder="添加机构描述(按Ctrl + 回车键提交)"></wt-new-editor>
+    </div>
+    <div class="form-group">
+        <button ng-click="js_set_update($event, organizer)"
+                data-loading-text="保存中..." loading-status="organizer.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="Task Panel|Main|Edit Task-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(organizer)" class="btn"
+                wt-tracker="Task Panel|Main|Edit Task-Cancel">取消
+        </button>
+    </div>
+</div>

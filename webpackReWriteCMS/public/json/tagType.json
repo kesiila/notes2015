@@ -1,0 +1,18 @@
+{
+    "data":
+        [
+            {"code" : "tag","cnName" : "一般标签","children":[]},
+            {"code" : "theme","cnName" : "主题","children":[]},
+            {"code" : "category","cnName" : "目录","children":[]},
+            {"code" : "group","cnName" : "活动群体","children":[]},
+            {"code" : "age","cnName" : "年龄","children":[]},
+            {"code" : "grade","cnName" : "年级","children":[]},
+            {"code" : "organizer","cnName" : "机构类型","children":[]},
+            {"code" : "program","cnName" : "活动类型","children":[]},
+            {"code" : "user","cnName" : "用户类型","children":[]},
+            {"code" : "stay","cnName" : "住宿方式","children":[]}
+        ],
+	"label":"标签类型",
+	"version":"1.0",
+	"copyright":"@2014 上海思蓄力教育科技有限公司"
+}

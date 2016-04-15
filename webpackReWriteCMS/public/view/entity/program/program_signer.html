@@ -1,0 +1,44 @@
+<div ng-controller="signer_ctrl">
+    <div class="entity-title " ng-include="'/view/entity/program/program_title.html'">
+    </div>
+    <wt-organizer-info ng-show ="items.length > 0"  organizer-id="task.organizer_id"></wt-organizer-info>
+    <div class="empty-panel"
+         ng-show="items.length==0">
+        <i class="icon-comment"></i>
+        <br>
+        <span>
+            还没有预约信息
+        </span>
+    </div>
+    <div class="comment-list">
+        <div class="part-loading mt_20" wt-loading-done="signers_loading_done"></div>
+
+        <ul class="comments">
+            <li class="comment-item" ng-repeat="item in items"
+                repeat-done="js_repeat_done()">
+                <wt-avatar member="item.owner" size="40" class="comment-avatar"></wt-avatar>
+
+                <div class="comment">
+                    <a href="javascript:;" class="comment-name">
+                        {{item.owner.display_name}}
+                        <span class="{{item.owner | userRefRole:'class'}}">
+                            {{item.owner | userRefRole:role}}
+                        </span>
+        <span class="text-muted ml_15" title="签到码" ng-show="item.owner.sign_code">
+                            签到码：{{item.owner.sign_code}}</span>
+
+                    </a>
+                    <div>
+                        <span class="pull-right" ng-hide="item.owner.role === 'signer'">
+                              <button class="btn btn-sm" ng-click="actions.pop_cancel($event, task.eid, item.owner.uid)">取消</button>
+                        </span>
+                        <span class="pull-right mr_10" ng-hide="item.owner.role === 'signer'">
+                            <button class="btn btn-sm btn-success" data-ng-disabled="item.owner | isConfirmed" ng-click="actions.pop_ensure($event, task.eid, item.owner.uid)">确认</button>
+                        </span>
+                        <span class="color_gray">{{item.owner.create_date | fromNow }}</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

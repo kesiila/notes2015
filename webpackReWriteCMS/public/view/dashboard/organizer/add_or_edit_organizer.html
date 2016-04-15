@@ -1,0 +1,162 @@
+<dl class="frame add_edit_panel clearfix">
+	<div class="customer-add-wapper">
+		<form class="wt-form" name="add_organizer_form"
+			wt-form-validate="{blurTrig:false,showMsg:false}" novalidate
+			role="form">
+			<div class="col-xs-6">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15">中文名称</span> <input
+							type="text" id="new_oaganizer_title" maxlength="100"
+							name="organizer_title" autofocus ng-model="new_element.title"
+							class="form-control" placeholder="机构中文名称" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15">联系人名</span> <input
+							type="text" id="new_organizer_contact" maxlength="100"
+							name="organizer_contact" autofocus ng-model="new_element.contact"
+							class="form-control" placeholder="联系人">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15">公司名称</span> <input
+							type="text" id="new_organizer_company" maxlength="100"
+							name="organizer_imageurl" autofocus
+							ng-model="new_element.company" class="form-control"
+							placeholder="主办方公司注册名称">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15">图片URL</span> <input
+							type="text" id="new_organizer_imageurl" maxlength="100"
+							name="organizer_imageurl" autofocus
+							ng-model="new_element.imageUrl" class="form-control"
+							placeholder="图片URL">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="机构类型">机构类型</span>
+						<wt-cascading flag="flag" first="new_element.code_name"
+							firstkey="new_element.code" cascad="1"
+							source="api/codes/organizer/all"> </wt-cascading>
+					</div>
+				</div>
+				<div class="form-group" ng-show="">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="机构坐标">机构坐标</span>
+						<input ng-model="new_element.poi" class="form-control"
+							   placeholder="组织机构坐标(通过下面百度地图获得,不要手动输入!)" readonly>
+					</div>
+				</div>
+				<div class="form-group"
+					ng-show="add_customer_form.$errors.length > 0">
+					<div class="alert alert-danger">
+						<i class="icon-remove-sign mr_5"></i>
+						{{add_element_form.$errors[0]}}
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="form-group">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon fs_15">英文名称</span> <input
+								type="text" id="new_organizer_enname" maxlength="100"
+								name="organizer_enname" autofocus ng-model="new_element.enName"
+								class="form-control" placeholder="机构英文名称" required>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon fs_15">联系方式</span> <input
+								type="text" id="new_organizer_email" maxlength="100"
+								name="organizer_email" autofocus ng-model="new_element.email"
+								class="form-control" placeholder="联系方式">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon fs_15" title="机构规模">机构规模</span>
+							<wt-cascading flag="flag" first="new_element.code_sale_name"
+								firstkey="new_element.code_sale" cascad="1" lable="规模"
+								source="api/codes/organizer_scale/all"> </wt-cascading>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon fs_15" title="推广">推广位置</span>
+							<wt-cascading flag="flag" first="new_element.code_ad_name"
+								firstkey="new_element.code_ad" cascad="1"
+								source="api/codes/ad/all"> </wt-cascading>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon fs_15" title="机构坐标">机构地址</span>
+							<input ng-model="new_element.address" class="form-control"
+								   placeholder="机构详细地址">
+						</div>
+					</div>
+					<div class="form-group" ng-show="">
+						<div class="input-group">
+							<span class="input-group-addon fs_15" title="机构规模">机构品牌</span>
+							<wt-cascading flag="flag" first="new_element.groupId"
+										  firstkey="new_element.groupId" cascad="1" lable="品牌(默认为品牌名)"
+										  source="api/codes/organizer_scale/all"> </wt-cascading>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="form-group">
+					<div class="form-group">
+						<wt-cascading flag="flag"
+									  cascad="4"
+									  firstkey="new_element.code_address_1"
+									  first="new_element.code_address_1_name"
+									  secondkey="new_element.code_address_2"
+									  second="new_element.code_address_2_name"
+									  thirdkey="new_element.code_address_3"
+									  third="new_element.code_address_3_name"
+									  fourthkey="new_element.code_address_4"
+									  fourth="new_element.code_address_4_name"
+									  source="api/codes/address/all"></wt-cascading>
+					</div>
+					<div class="form-group" ng-show="">
+						<div class="w_100p h_200" style="margin-top: 15px;margin-bottom: 75px;">
+							<baidu-map options="mapOptions"></baidu-map>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="pos_relative editor-container mt_10"
+					 ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                                false: 'height-main-min-j4-new-template-by-auto-mailbox-inner-with-one-input-above'}[$root.global.is_outter]">
+					<wt-new-editor class="" edit-content="new_element.desc"></wt-new-editor>
+				</div>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="pull-right">
+					<button class="btn btn-success mr_15" data-loading-text="保存中..."
+						loading-status="is_saving" ng-click="save()">保存</button>
+					<button class="btn btn-cancel" ng-click="cancelForm()">取消</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</dl>

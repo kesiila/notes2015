@@ -1,0 +1,9 @@
+<h2  ng-click="js_show_editor(article)"
+	wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{article.title}}">{{article.title|abbrevition:30}}</span>
+	<p>
+		<em title="创建时间" ng-if="article.create_date" style="margin-left: 0px">
+			<i class="icon-flag" ng-show="article.is_edit "></i>
+		{{article.create_date | timefullFormatZHCN}} </em>
+	</p>
+</h2>

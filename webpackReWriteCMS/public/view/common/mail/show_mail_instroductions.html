@@ -1,0 +1,54 @@
+<dl class="frame add_edit_panel clearfix p_15" ng-controller="add_customer_ctrl">
+    <ul   style="font-size: 16px;
+            margin-right: 25px;
+          line-height: 150%;">
+        <li class="row" style="border-bottom: 1px solid #ddd;margin-bottom: 5px;">
+            <div class="col-sm-3"><span>邮件状态</span>
+            </div>
+            <div class="col-sm-9"><span>状态说明</span></div>
+        </li>
+        <li class="row" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>投递中</span></div>
+            <div class="col-sm-9 text-muted"><span>正在投递邮件</span></div>
+        </li>
+        <li class="row active" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>投递失败</span></div>
+            <div class="col-sm-9 text-muted"><span>由于网络原因，邮件提交给服务器失败了，系统会继续发送</span></div>
+        </li>
+        <li class="row" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>无效邮箱</span></div>
+            <div class="col-sm-9 text-muted"><span>这个邮箱是无效的</span></div>
+        </li>
+        <li class="row active" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>已投递</span></div>
+            <div class="col-sm-9 text-muted"><span>这个邮件已经投递给服务器了</span></div>
+        </li>
+        <li class="row" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>已发送</span></div>
+            <div class="col-sm-9 text-muted"><span>这个邮件已经发送了</span></div>
+        </li>
+        <li class="row active" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>已弹回</span></div>
+            <div class="col-sm-9 text-muted"><span>因为多种原因，邮件被弹回了</span></div>
+        </li>
+        <li class="row" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>已送达</span></div>
+            <div class="col-sm-9 text-muted"><span>邮件已经送达活动邮箱</span></div>
+        </li>
+        <li class="row active" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>已打开</span></div>
+            <div class="col-sm-9 text-muted"><span>活动已经打开了邮件</span></div>
+        </li>
+        <li class="row" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>点击链接</span></div>
+            <div class="col-sm-9 text-muted"><span>活动已经打开了邮箱，并点击了邮件里的链接</span></div>
+        </li>
+        <li class="row active" style="padding: 2px 0px;">
+            <div class="col-sm-3"><span>额度已满</span></div>
+            <div class="col-sm-9 text-muted"><span>今天不能给这个活动发送更多的邮件，排队等待中</span></div>
+        </li>
+        <li class="row pull-right" style="padding: 2px 0px;">
+            <a href="javascript:;" ng-click="js_show_mail_introductions()"> <i class="icon-chevron-up"></i> 收起</a>
+        </li>
+    </ul>
+</dl>

@@ -1,0 +1,77 @@
+<wt-avatar member="$root.global.me" size="40" class="new-comment-avatar"></wt-avatar>
+<div class="new-comment-edit">
+    <textarea wt-ctrl-enter="$js_save_comment($event,$comment)" wt-comment-atwho="atwho_members"
+              placeholder="说点什么(按Ctrl + 回车键提交)"
+              wt-pastefile="pastefile_option_comment"
+              ng-model="comment.message"
+            ></textarea>
+    <!--上传队列列表-->
+    <div class="comment-upload-queue">
+        <ul class="comment-attachments">
+            <wt-attachment ng-repeat="file in comment.files" del="js_del_attachment_comment($event, file)"></wt-attachment>
+        </ul>
+        <div class="comment-upload-item" ng-repeat="file in global_fileupload_queue_comment()">
+            <div class="file-name" title="{{file.name}}">{{file.name}}</div>
+            <span class="error" ng-if="file.error">
+                <span class="label label-danger">{{ file.error | fileuploadErrorInfo }}</span>
+                <br/>
+            </span>
+            <div ng-hide="file.error" class="progress progress-striped active"
+                 ng-class="{pending: 'in'}[file.$state()]"
+                 file-upload-progress="file.$progress()">
+                <div class="progress-bar progress-bar-success" ng-style="{width: num + '%'}"></div>
+            </div>
+            <span href="javascript:;" class="cancel" ng-click="file.$cancel()" ng-hide="!file.$cancel">
+                取消
+            </span>
+        </div>
+    </div>
+    <div class="add-controls">
+<!--
+         <ul class="nav nav-pills">
+            <li class="btn-group js-popbox dropup mr_5" data-placement="left" data-align="bottom">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
+                   wt-tracker="Comment Panel|Bottom|Add Comment-FileUpload"
+                   title="添加附件">
+                    <i class="icon-paper-clip"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:;" class="fileinput-button"><i class="icon-desktop"></i>本地上传
+                        <input type="file" name="files[]" title="添加附件"
+                               multiple wt-uploadfile="file_upload_option_comment"/></a></li>
+                    <li>
+                        <a href="javascript:;" ng-click="js_show_attach($event, task)"
+                           wt-tracker="Comment Panel|Bottom|Add Comment-FileUpload-SelecetExistFile">
+                            <i class="icon-file"></i>从项目文件选择
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="divider-v"></li>
+            <li class="js-popbox mr_10">
+                <a ng-click="$js_pop_emojis($event, comment)"
+                   wt-tracker="Comment Panel|Bottom|Add Comment-Emojis"
+                   data-placement="right" data-align="top"
+                   href="javascript:;">
+                    <i class="icon-smile"></i>
+                </a>
+            </li>
+            <li>
+                <a ng-click="$js_metion_member($event, comment)"
+                   wt-tracker="Comment Panel|Top|Add Comment-AtPeople"
+                   class="js-popbox mr_10 font_at" data-placement="right" data-align="top"
+                   href="javascript:;">@</a>
+            </li>
+        </ul>
+-->
+         <button class="btn btn-success pull-right ng-hide" data-loading-text="保存中..." loading-status="comment.is_saving"
+                ng-disabled="global_fileupload_queue_comment().length!=0"
+                wt-tracker="Comment Panel|Top|Add Comment-Save"
+                ng-click="$js_save_comment($event)">{{ {true:'文件上传中...',false:'发表评论'}[global_fileupload_queue_comment()!=0] }}
+        </button>
+        <button class="btn btn-success pull-right" data-loading-text="保存中..." loading-status="comment.is_saving"
+                wt-tracker="Comment Panel|Top|Add Comment-Save"
+                ng-click="$js_save_comment($event)">发表评论
+        </button>
+    </div>
+</div>

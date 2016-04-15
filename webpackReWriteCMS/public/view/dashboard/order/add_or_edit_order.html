@@ -1,0 +1,16 @@
+<dl class="frame add_edit_panel">
+<div class="order-edit-container">
+    <form name="order_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+        <div class="cascading-wapper mb_10">
+            <wt-cascading flag="flag" first="new_element.goods_title"
+                          firstkey="new_element.goods_id"
+                          cascad="1"
+                          source="api/codes/entity/goods">
+            </wt-cascading>
+        </div>
+        <input type="number" id="new_order_count" maxlength="100" name="order_count" autofocus ng-model="new_element.count" class="form-control help-block" placeholder="数量">
+
+    </form>
+</div>
+</dl>
+

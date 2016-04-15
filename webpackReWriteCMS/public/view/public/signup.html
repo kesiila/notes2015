@@ -1,0 +1,212 @@
+<div class="other-warp" data-ng-controller="user_signup_ctrl">
+    <div class="single-panel clearfix" style="padding-bottom: 260px;">
+        <div class="single-panel-inner " style="width:600px">
+            <div class="single-panel-header" >
+                    <h3  style="display:inline-block;width: 100%">
+                        注册
+                    </h3>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section" ng-show="show_signup">
+                    <form wt-form-validate="{blurTrig:true,showMsg:false}" name="register_form"
+                          novalidate class="form-horizontal wt-form">
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-zxs-2 control-label">账户类型：</label>-->
+
+                            <!--<div class="col-xs-10">-->
+                                <!--<table>-->
+                                    <!--<tr>-->
+                                        <!--<td>-->
+                                            <!--<div class="radio">-->
+                                                <!--<label>-->
+                                                    <!--<input class="ng-valid ng-dirty" type="radio" value="1" ng-model="signup_type">-->
+                                                    <!--公司&nbsp;&nbsp;&nbsp;-->
+                                                <!--</label>-->
+                                            <!--</div>-->
+                                        <!--</td>-->
+                                        <!--<td>-->
+                                            <!--<div class="radio">-->
+                                                <!--<label>-->
+                                                    <!--<input class="ng-valid ng-dirty" disabled type="radio" value="0" ng-model="signup_type">-->
+                                                    <!--个人-->
+                                                <!--</label>-->
+                                            <!--</div>-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!-- new-->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon icon-user"></i></span>
+                                <input class="form-control"  type="text" placeholder="输入用户名"
+                                name="signup_name" ng-model="signup_name"
+                                wt-focus="" autocomplete="off"
+                                wt-remote-unique-check="{url:'/api/user/name/check?name={{signup_name}}'}"
+                                wt-regex="^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$"
+                                required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-envelope mr_0" style="font-size:11px"></i></span>
+                                <input class="form-control" type="email" placeholder="输入常用邮箱地址"
+                                name="signup_email" ng-model="signup_email" required autocomplete="off"
+                                wt-remote-unique-check="{url:'/api/user/email/check?email={{signup_email}}'}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon fs_17"><i class="icon icon-lock"></i></span>
+                                <input class="form-control" type="password" placeholder="输入密码" autocomplete="off"
+                                name="signup_password" ng-model="signup_password" ng-minlength="6"
+                                required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon fs_17"><i class="icon icon-lock"></i></span>
+                                <input class="form-control" type="password" placeholder="再输入一遍密码" autocomplete="off"
+                                name="repeated_password" wt-repeat-password="signup_password"
+                                ng-model="repeated_password"/>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="recommend" >
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon icon-user"></i></span>
+                                <input title="推荐者帐号或邮箱" class="form-control" disabled type="text" placeholder="推荐者帐号或邮箱"
+                                       name="recommend" ng-model="recommend"/>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="register_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                            <i class="icon-remove-sign mr_5"></i> {{register_form.$errors[0]}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <button ng-disabled="agree_terms" wt-form-submit="js_submit(register_form)" type="button" class="btn btn-success btn-lg btn-block"
+                                data-loading-text="注册中..." loading-status="is_registering" style="letter-spacing: 5px;">免费注册
+                                </button>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="agree-terms" type="checkbox" checked="checked" ng-click="ifAgreeTerms()">
+                                &nbsp;&nbsp;&nbsp;我已阅读并同意&nbsp;
+                                    <a href="/page/terms.html" style="color:#d84c31; " target="_blank">网站使用协议</a>&nbsp;以及&nbsp;<a href="/page/secret.html" style="color:#d84c31; " target="_blank">隐私条款</a>
+
+                            </div>
+                        </div>
+
+
+<!--old-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-xs-3 control-label">用户名：</label>-->
+                            <!--<div class="col-xs-9">-->
+                                <!--<input class="form-control" type="text" placeholder="由字母、数字、下划线组成，以字母开头"-->
+                                       <!--name="signup_name" ng-model="signup_name"-->
+                                       <!--wt-focus="" autocomplete="off"-->
+                                       <!--wt-remote-unique-check="{url:'/api/user/name/check?name={{signup_name}}'}"-->
+                                       <!--wt-regex="^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$"-->
+                                       <!--required/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-xs-3 control-label">注册邮箱：</label>-->
+
+                            <!--<div class="col-xs-9">-->
+                                <!--<input class="form-control" type="email" placeholder="用于登录或密码重置"-->
+                                       <!--name="signup_email" ng-model="signup_email" required autocomplete="off"-->
+                                       <!--wt-remote-unique-check="{url:'/api/user/email/check?email={{signup_email}}'}"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-xs-3 control-label">登录密码：</label>-->
+
+                            <!--<div class="col-xs-9">-->
+                                <!--<input class="form-control" type="password" placeholder="最小长度6位" autocomplete="off"-->
+                                       <!--name="signup_password" ng-model="signup_password" ng-minlength="6"-->
+                                       <!--required/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-xs-3 control-label">重复密码：</label>-->
+
+                            <!--<div class="col-xs-9">-->
+                                <!--<input class="form-control" type="password" placeholder="再输入一次" autocomplete="off"-->
+                                       <!--name="repeated_password" wt-repeat-password="signup_password"-->
+                                       <!--ng-model="repeated_password"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="form-group" ng-if="">
+                            <label class="col-xs-3 control-label">所属行业：</label>
+
+                            <div class="col-xs-9">
+                                <wt-cascading flag="flag" first="currentMainIndustryName"
+                                              firstkey="currentMainIndustryCode"
+                                              second="currentSubIndustryName"
+                                              secondkey="currentSubIndustryCode"
+                                              source="json/industry.json">
+                                </wt-cascading>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="signup_type" ng-if="">
+                            <label class="col-xs-3 control-label"><span class="sm-font-color" style="padding-right: 8px;">(选填)</span>公司名称：</label>
+
+                            <div class="col-xs-9">
+                                <input class="form-control" type="text" placeholder="输入公司名称"
+                                       name="signup_team_name" ng-model="signup_team_name" autocomplete="off"
+                                       ng-maxlength="50"/>
+                            </div>
+                        </div>
+                        <!--<div class="form-group" ng-if="recommend" novalidate>-->
+                            <!--<label class="col-xs-3 control-label"><span class="sm-font-color" style="padding-right:22px;"></span>推荐人：</label>-->
+
+                            <!--<div class="col-xs-9">-->
+                                <!--&lt;!&ndash;<span ng-bind="recommend"></span>&ndash;&gt;-->
+                                <!--<input class="form-control" disabled type="text" placeholder="推荐者帐号或邮箱"-->
+                                       <!--name="recommend" ng-model="recommend"/>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-xs-3 control-label">-->
+                                <!--<input type="checkbox" checked="checked" ng-click="ifAgreeTerms()">-->
+                            <!--</label>-->
+                            <!--<div class="col-xs-9 pull-left mt_12">-->
+                                <!--我已阅读并同意&nbsp;<a href="/terms" style="color:#d84c31; " target="_blank">网站使用协议</a>&nbsp;以及&nbsp;<a href="/secret" style="color:#d84c31; " target="_blank">隐私条款</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group" ng-show="register_form.$errors.length > 0">-->
+                            <!--<label class="col-xs-3 control-label"></label>-->
+
+                            <!--<div class="col-xs-9">-->
+                                <!--<div class="alert alert-danger">-->
+                                    <!--<i class="icon-remove-sign mr_5"></i> {{register_form.$errors[0]}}-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="col-xs-3"></div>-->
+                            <!--<div class="col-xs-9">-->
+                                <!--<button ng-disabled="agree_terms" wt-form-submit="js_submit(register_form)" type="button" class="btn btn-success btn-lg btn-block"-->
+                                        <!--data-loading-text="注册中..." loading-status="is_registering">免费注册-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                    </form>
+                </div>
+
+                <div class="success-panel" ng-show="signup_success">
+                    <i class="imgicon-success"></i><br/><br/>
+                    <span>恭喜你成功注册棒呆留学平台！</span><br/>
+                    <span ng-show="ifActived">请尽快登录邮箱，完成注册，神秘惊喜等着你！</span>
+                    <a ng-hide="ifActived" href="javascript:;" wt-tracker="Signup Page|Success|Goto Team" ng-click="js_goto_team()">点击进入公司首页</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>添加关注</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+    <div class="popbox-body">
+        <input type="text" autofocus="" ng-model="search_user_input" placeholder="搜索成员" class="form-control help-block" />
+        <br/>
+        <ul class="popbox-menu">
+            <li class="member-item" ng-repeat="member in members | filterMembers:search_user_input">
+                <a href="javascript:;" tabindex="-1" ng-click="js_toggle_watch(member)">
+                    <i ng-class="{0: 'icon-xx', 1: 'icon-ok'}[member.is_watch]" class="color_gray"></i>
+                    <wt-avatar member="member" faceclass="plr_5" name="true" size="30"></wt-avatar>
+                </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="javascript:;" ng-click="js_watch_all()">
+                    <i class="icon-xx"></i>
+                    <span ng-bind="{true:'添加全部成员',false:'所有成员已关注'}[file.watchers.length < members.length]"></span>
+                    ({{ file.watchers.length }}/{{ members.length }})</a>
+            </li>
+        </ul>
+    </div>
+</div>

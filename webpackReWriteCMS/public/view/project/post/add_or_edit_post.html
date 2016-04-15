@@ -1,0 +1,48 @@
+<dl class="frame add_edit_panel">
+<div class="post-edit-container">
+    <form name="post_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+
+        <input type="text" id="new_post_title" maxlength="100" name="post_title" autofocus ng-model="addPost.title" class="form-control help-block" placeholder="问答名称" required>
+
+        <!--<div class="cascading-wapper mb_10" ng-if="global.me.role==0">-->
+            <!--<wt-cascading flag="flag" first="addPost.f_typename"-->
+                          <!--firstkey="addPost.f_type"-->
+                          <!--second="addPost.s_typename"-->
+                          <!--secondkey="addPost.s_type"-->
+                          <!--source="json/manager/postType.json">-->
+            <!--</wt-cascading>-->
+        <!--</div>-->
+
+        <!--<div class="cascading-wapper mb_10" ng-if="global.me.role==1">
+            <wt-cascading flag="flag" first="addPost.f_typename"
+                          firstkey="addPost.f_type"
+                          second="addPost.s_typename"
+                          secondkey="addPost.s_type"
+                          source="json/postType.json">
+            </wt-cascading>
+        </div>-->
+
+        <div class="cascading-wapper mb_10">
+            <wt-cascading flag="flag" first="addPost.s_typename"
+                          firstkey="addPost.s_type"
+                          cascad="1"
+                          source="json/postType0.json">
+            </wt-cascading>
+        </div>
+
+        <textarea ng-model="addPost.content" type="text" wt-full-editor=""
+                  placeholder="详细描述一下你想知道的"></textarea>
+
+        <div class="template_watch_bar" ng-if="global.me.role==0">
+            <label class="cursor"><input type="radio" value="00" name="f_type" ng-model="addPost.f_type" checked="checked|{{addPost.f_type='00'}}"/>精华库</label>
+            <label class="cursor"><input type="radio" value="01" name="f_type" ng-model="addPost.f_type" checked="checked|{{addPost.f_type='01'}}" style="margin-left: 30px;"/>模板库</label>
+        </div>
+        <div class="post_watch_bar">
+            <button class="btn btn-success mr_15" data-loading-text="保存中..."
+                    loading-status="is_saving"  ng-click="add_post()">保存</button>
+            <button class="btn btn-cancel" ng-click="cancelForm()">取消</button>
+        </div>
+    </form>
+</div>
+</dl>
+

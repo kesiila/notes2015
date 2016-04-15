@@ -1,0 +1,19 @@
+<div class="form-group task-badges">
+    <div class="input-group">
+        <span class="input-group-addon fs_15" title="起止时间">起止时间</span>
+        <div class="plr_5">
+            <span class="ai-yellow task-badge cursor"  ng-click="actions.popSelect($event)">
+                   <i class="icon-plus"></i>
+           </span>
+        </div>
+    </div>
+    <div>
+        <div ng-repeat="dateTime in datelist" style="padding: 3px 5px 3px 0px">
+        <span class="task-badge">
+		 {{dateTime.start_date|timeFullFormat}}&nbsp;&nbsp;=>&nbsp;&nbsp;{{dateTime.end_date|timeFullFormat}}
+            <a class="icon-action icon-remove" href="javascript:;"
+               data-ng-click="actions.deleteDateByIndex(datelist, $index)" title="移除此条起止时间"></a>
+	    </span>
+        </div>
+    </div>
+</div>

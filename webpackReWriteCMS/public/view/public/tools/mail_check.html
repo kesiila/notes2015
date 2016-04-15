@@ -1,0 +1,153 @@
+<div class="layout_content prj_panel mailbox-click-other-donot-hide" ng-controller="mail_check_ctrl">
+    <div class="" style="min-height: 900px">
+        <div class="forum-panel" >
+            <div class="forum-container">
+                <div class="row " style="margin-right: 20%" >
+                                <span class="jiathis_style_24x24 pull-right" style="display: inline-block;">
+                                    <a class="jiathis_button_qzone"  title="分享到QQ空间"></a>
+                                    <a class="jiathis_button_weixin" title="分享到微信"></a>
+                                    <a class="jiathis_button_tsina" title="分享到新浪微博"></a>
+                                    <a href="http://www.jiathis.com/share?uid=2006672" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" title="更多" target="_blank"></a>
+                                    <a class="jiathis_counter_style" style="display: none;"></a>
+                                </span>
+                </div>
+                <script type="text/javascript" >
+                    var jiathis_config={
+                        title:"轻松做留学，就上棒呆！",
+                        data_track_clickback:true,
+                        siteNum:15,
+                        sm:"email,renren,tsohu,feixin,kaixin001,cqq,tieba,hi,tianya,baidu,alibaba,hexun,douban,qq,ishare",
+                        summary:"",
+                        shortUrl:false,
+                        hideMore:false,
+                        showClose:true
+                    }
+                    $(function(){
+                        setTimeout(function(){
+                            jiathis_config={summary:"邮件验证工具留学版。发邮件总是不回，就因为手里很多活动的邮箱都是无效的？" +
+                            "想知道一个老活动的邮箱是不是还在使用中？使用棒呆邮件验证工具，剔除掉现有活动中的无效邮箱，让你的邮件到达率和回复率得到大幅度提升!"}},500);
+                    })
+                </script>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2006672" charset="utf-8"></script>
+                <div class="rightpanel-wrapper" style="width: 600px;margin-left:auto;margin-right: auto;margin-top: 30px">
+                    <div class="row">
+                        <div class="input-group block-inline" style="margin-left: 15px;">
+                            <h2 style="margin-top: 25px;margin-bottom: 5px"><img style="margin-right: 15px;width: 30px" src="/img/tools/sidebar_mail_check.png" >
+                                邮箱验证
+                            </h2>
+
+                        </div>
+                        <div  id="email_verify" style="margin-right: 15px;margin-top: 42px;font-size: 16px" class="input-group block-inline pull-right" >
+                            <a  href ng-click=" show_export_input('one_export')" ng-class="{true: 'active'}[export_input=='one_export']"
+                                style="padding: 0px 10px 2px;">单个验证</a>
+                            <a   href ng-click="show_export_input('batch_export')" ng-class="{true: 'active'}[export_input=='batch_export']"
+                                 style="padding: 0px 10px 2px;">批量验证</a>
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <!--<div class="row " style="margin-top: 10px;padding-left: 25px;"><span style="color:#999;font-size: 14px;">(暂不支持Hotmail和Yahoo邮箱的验证)</span></div>-->
+                    <div ng-show="export_input=='batch_export' ">
+                            <textarea  class="form-control " ng-class="{true: 'mail_check_textarea_background'}[batch_email_content=='']"  style="width: 100%;height: 250px;margin: 25px 0px 10px 0px;" ng-model="batch_email_content"
+                                    ></textarea>
+                    </div>
+                    <div ng-show="export_input=='batch_export'" class="text-left">
+                        <button class="btn btn-primary" type="button"
+                                ng-click="batch_email_validate()" ng-disabled="!batch_email_content || ( max_mail!=0 && dynamic_mail != max_mail)" >
+                            <span ng-show="!show_progressbar">批量验证</span>
+                            <span ng-show="show_progressbar">验证中...{{dynamic_mail}}/{{max_mail}}</span>
+                        </button>
+                        <span style="color:#999;margin-left: 10px">(暂不支持Hotmail和Yahoo邮箱的验证)</span>
+                    </div>
+                    <!-- 进度条 -->
+                    <!--<div >-->
+                    <!--<progressbar animate="false" value="100*dynamic_mail/max_mail" class="progress-striped active"  type="success"><b>{{dynamic_mail}}/{{max_mail}}</b></progressbar>-->
+                    <!--</div>-->
+                    <div class="row" ng-show="export_input=='one_export'" style="padding-bottom: 20px;margin-bottom: 20px; margin-top: 50px ; margin-left: -30px">
+                        <div class="input-group" style="width:600px;left:30px;">
+                            <input class="form-control" type="email"
+                                   wt-focus="email_input_focus"
+                                   ng-change="show_mail_status=false" ng-model="check_email" wt-enter="email_validate()"
+                                   placeholder="请输入需要验证的邮箱"/>
+                                <span class="input-group-btn pos_relative">
+                                    <a href="javascript:;" class="pos_absolute" title="一键清空"
+                                       ng-click="clear_email_input()"
+                                       ng-show="check_email" style="left:-18px;z-index: 3"><span style="font-size:18px;height:38px;line-height: 38px">×</span></a>
+                                    <button class="btn btn-primary" type="button" style="  padding-left: 40px; padding-right: 40px;"
+                                            ng-click="email_validate()" ng-disabled="!check_email" loading-status="is_checking" data-loading-text="验证中...">
+                                        验证
+                                    </button>
+                                 </span>
+                        </div>
+                        <div class="row " style="margin-top: 15px;padding-left: 45px;"><span style="color:#999;">(暂不支持Hotmail和Yahoo邮箱的验证)</span></div>
+                    </div>
+                    <div class="popbox-body" data-ng-show="submit_hint">
+                        <p class="alert alert-success text-center">{{submit_hint_word}}</p>
+                    </div>
+                    <div class="row block-advanced-search" style="padding-top: 42px;" ng-show="mail_list.length>0">
+                        <div class="block-advanced-search__title clearfix pl_15 pr_15 mb_10"
+                             style="border-bottom: solid 1px #e1e1e1;margin-bottom: 0px">
+                            <span class="pull-left" style="font-size: 24px">验证结果</span>
+                            <button  class="show_underline " ng-click="clear()"
+                                     style="border: none;background-color: transparent; outline: none;padding-top: 7px;padding-left:10px;color:#999; "  >清空</button>
+                            <button ng-if="" class="btn btn-primary pull-right" type="button" style="padding: 3px 15px 3px 15px;margin-top: 2px;"
+                                    ng-click="batch_send_mail()" ng-disabled="excel_contents==''"  title="发送所有有效邮箱">
+                                一键全发
+                            </button>
+                            <form  name="export_email"  class="pull-right" action="/api/mails/address/export" method="POST"  enctype="multipart/form-data">
+                                <input  name="excel_header" value="{{excel_header}}"  type="hidden" />
+                                <input  name="excel_contents" value="{{excel_contents}}"  type="hidden" />
+                                <button ng-disabled="excel_contents==''" class="show_underline" ng-click="submit_export(excel_contents)"
+                                        type="submit" style="border: none;background-color: transparent;color: #257db9; margin-right: 10px ;outline: none;padding-top: 7px"  >导出有效邮箱</button>
+                            </form>
+
+                        </div>
+                        <div class="block-advanced-search__content" ng-show="!property.search_block_visible">
+                            <div class="wt-row" style="padding-top: 0px; padding-bottom: 0px" ng-repeat="mail_detail in mail_list">
+                                <div class=" col-sm-7">
+                                    <div class="search-item__title" style="margin: 14px 0px;">
+                                        <h4 style="font-size: 16px">{{mail_detail.mail}}</h4>
+                                    </div>
+                                </div>
+                                <div class=" col-sm-5" style="margin-top:10px;margin-bottom: 10px;">
+                                    <div class="search-item__title pull-right" style="margin-right: 9px;" >
+                                            <span style="margin-right: 22px;"  ng-show="mail_detail.mail_status_code=='1' ">
+                                                <span style="color:#333"
+                                                        >{{mail_detail.mail_status}}</span>
+                                                <!--ng-style="{true:{color:'#79c455'},false:{color:'#d84c31'}}[mail_detail.mail_status_code=='0']"-->
+                                                <img src="/img/tools/invalid.png" style="height:16px;margin-bottom: 2px;">
+                                            </span>
+                                            <span style="margin-right: 22px;" ng-show="mail_detail.mail_status_code=='0'">
+                                                <span style="color:#333">{{mail_detail.mail_status}}</span>
+                                                <img src="/img/tools/valid.png"  style="height:16px;margin-bottom: 2px;">
+                                            </span>
+                                             <span style="margin-right: 22px;" title="网络等原因验证失败,可以重新验证" ng-show="mail_detail.mail_status_code=='-1'">
+                                                <span style="color:#333"
+                                                        >{{mail_detail.mail_status}}</span>
+                                                <img src="/img/tools/invalid.png" style="height:16px;margin-bottom: 2px;">
+                                            </span>
+                                            <span style="margin-right: 22px" title="不支持验证此邮箱"  ng-show=" mail_detail.mail_status_code=='-99' ">
+                                                <span style="color:#333">{{mail_detail.mail_status}}</span>
+                                                <img src="/img/tools/error.png" style="height:16px;margin-bottom: 2px;"/>
+                                            </span>
+
+                                            <span ng-show="mail_detail.mail_status_code == '0'">
+                                                <button class="btn btn-success btn-sm" style="padding: 3px 15px;" ng-click="send_mail(mail_detail)">
+                                                    <span >发邮件</span>
+                                                </button>
+                                            </span>
+                                            <span ng-show="mail_detail.mail_status_code != '0'" >
+                                                <button class="btn btn-default btn-sm" ng-disabled="true" style="padding: 3px 15px;background-color: #BEC1C4;border-color:#BEC1C4;  " >
+                                                    <span style="color:#fff;text-shadow: 0 0px 0 #fff;">发邮件</span>
+                                                </button>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

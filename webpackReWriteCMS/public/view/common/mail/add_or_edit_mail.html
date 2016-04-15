@@ -1,0 +1,117 @@
+<dl class="frame add_edit_panel">
+    <div class="mail-edit-container">
+        <form name="mail_form" class="wt-form form-horizontal"
+              wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+            <div class="form-group" style="margin-bottom: 8px">
+                <label class=" w_100 control-label p_0" style="vertical-align: top;">收件人：</label>
+
+                <div class="pull-right mr_45" ng-show=""><a href="javascript:;"><i class="icon-chevron-down"></i></a>
+                </div>
+                <div class="task-badges block-inline w_50p" style="padding-top: 7px">
+                     <span ng-show="edit_mail.tasks.length>0"><label>已添加{{edit_mail.tasks.length}}个活动
+                         <a class="icon-action icon-list"
+                            href="javascript:;" data-ng-click="js_show_mail_list()"
+                            title="查看列表"></a></label></span><br/>
+                    <!--   <input type="text"  ui-select2="edit_mail.selectOptions" ng-model="edit_mail.taskNames" style="width: 300px"/>-->
+                    <span class="task-badge" style="margin-bottom: 5px;margin-right: 3px" ng-show="show_mail_list"
+                          ng-repeat="task in edit_mail.tasks track by $index">
+                        <span title="{{ task.name }}">{{task.name|abbrevition:12}}</span><span class="text-muted"
+                                                                                               title="地址">&lt;{{task.email}}&gt;
+                        <a class="icon-action icon-remove close_icon_style" href="javascript:;" ng-show=""
+                           data-ng-click="js_toggle_task(task)" title="移除该收件人"></a>
+                        </span>
+                     </span>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 8px">
+                <label class="w_100 control-label p_0">回复地址：</label>
+
+                <div class="block-inline w_50p" ng-hide="editorPreview.previewedOrNot" style="vertical-align: middle">
+                    <input class="form-control input-sm" ng-model="edit_mail.email"
+                           style="height: 32px" type="email" placeholder="回复地址" required/>
+                </div>
+                <span ng-hide="editorPreview.previewedOrNot" class="ml_15" style="color:#999">用于接收活动回信</span>
+
+                <div ng-show="editorPreview.previewedOrNot" class="block-inline w_50p" style="vertical-align: middle">
+                    <div style="height: 32px" class="ptb_5">{{ edit_mail.email }}</div>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 8px">
+                <label class="w_100 control-label p_0 text-right">发件人：</label>
+
+                <div ng-hide="editorPreview.previewedOrNot" class="block-inline w_50p" style="vertical-align: middle">
+                    <input class="form-control" ng-model="edit_mail.display_name"
+                           style="height: 32px" type="text" placeholder="显示名字">
+                </div>
+
+                <div class="block-inline w_50p" ng-show="editorPreview.previewedOrNot" style="vertical-align: middle">
+                    <div style="height: 32px" class="ptb_5">{{ edit_mail.display_name }}</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+            <dt style="padding-left: 5px">
+            <ul class="tabs" ng-show="">
+                <li>
+                    <a href="javascript:;" style="margin: 0px;"
+                       ng-class="{true:'active'}[newTemplate.tabs.current_tab=='writeByMyself']"
+                       ng-click="newTemplate.changeTab('writeByMyself')">手动创建</a>
+                </li>
+                <li>
+                    <a href="javascript:;" ng-class="{true:'active'}[newTemplate.tabs.current_tab=='writeByGenerator']"
+                       ng-click="newTemplate.changeTab('writeByGenerator')">神笔哆哆</a>
+                </li>
+            </ul>
+            </dt>
+            <!-- <textarea type="text" ng-model="edit_mail.content" style="padding: 15px 15px 0px 15px"
+                       name="mail_content" wt-ctrl-enter="js_save_mail(mail_form)" insert-var = "true" recievers="edit_mail.tasks"
+                       placeholder="邮件内容(可以在右侧选择邮件模板)" wt-full-editor></textarea>-->
+            <dd style="padding: 0px">
+                <div class="wne-title mt_10"><input type="text" class="wne-title-input" placeholder="邮件标题" style="width: 100%;padding-top: 10px;padding-bottom: 5px;
+                        height: auto;background: #fff;font-size: 18px;font-family: 'Segoe UI Light', SegoeUILightWF, Arial, sans-serif;
+                        border: 1px solid #e3e5f1;padding-left: 10px;line-height: normal;"
+                                                    ng-model="edit_mail.subject"
+                                                    tabindex="1"
+                                                    required wtAutofocus>
+                    <!--  ng-show="newTemplate.tabs.current_tab=='writeByGenerator' "-->
+                    <!--                <div class="wne-title-input" style="min-height: 41px" ng-show=""
+                                         ng-hide="newGenerator.edit_or_preview =='edit'">{{ edit_mail.subject }}
+                                    </div>-->
+                    <div class="title-seperator-line"></div>
+                </div>
+                <div ng-show="newTemplate.tabs.current_tab=='writeByMyself'">
+                    <div class="pos_relative editor-container mt_10"
+                         ng-class="{true:'height-main-min-j4-new-template-by-hand-mailbox-in-outter',false:'height-main-min-j4-new-template-by-hand-mailbox'}[$root.global.is_outter]">
+                    <wt-new-editor edit-content="edit_mail.content"
+                                   set-variable="js_set_template_variables()"
+                                   has-variable="true"
+                                   get-one="js_template_get_one()"
+                                   preview-in-modal="true"
+                                       edit-title="edit_template.summary"></wt-new-editor>
+                    </div>
+                </div>
+                <div ng-show="newTemplate.tabs.current_tab=='writeByGenerator'">
+                    <div class="pos_relative editor-container mt_10 height-main-min-j4-new-template-by-auto-mailbox"
+                         ng-class="{true:'height-main-min-j4-new-template-by-auto-mailbox-in-outter',false:'height-main-min-j4-new-template-by-auto-mailbox'}[$root.global.is_outter]">
+                    <wt-new-editor edit-content="edit_mail.content"
+                                       set-variable="js_set_template_variables()"
+                                       has-variable="true"
+                                       get-one="js_template_get_one()"
+                                       edit-title="edit_template.summary"></wt-new-editor>
+                    </div>
+                </div>
+                <div class="mail_watch_bar clearfix">
+                    <button class="btn btn-default pull-left" ng-click="show_save_template()">保存为模板</button>
+                    <button class="btn btn-cancel pull-right" ng-click="js_cancel_edit_mail()">取消</button>
+                    <button class="btn btn-success mr_15 pull-right"
+                            ng-click="newGenerator.send_mail_btn_click(mail_form)" data-loading-text="发送中..."
+                            ng-disabled="!edit_mail.content"
+                            loading-status="is_saving">发送
+                    </button>
+                </div>
+            </dd>
+        </form>
+    </div>
+</dl>

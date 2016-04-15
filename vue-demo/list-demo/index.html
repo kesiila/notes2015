@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主播列表</title>
+</head>
+<style>
+    .load-more {
+        border: 1px solid #333;
+        background: #333333;
+        width: 300px;
+        text-align: center;
+        color: #ffffff;
+        padding: 10px 5px;
+    }
+    h3{
+        color: red;
+    }
+</style>
+<body>
+<div id="app">
+    <ul>
+        <template v-for="videoBlock in videoBlockList">
+           <h3>{{videoBlock.day|dayToDate|shortDateFilter}}</h3>
+            <li v-for="video in videoBlock.videoList" track-by="$index">
+                <h4>{{video.title}}</h4>
+
+                <p>{{video.profile}}</p>
+                <!--<img v-bind:src="video.imgUrl" alt="">-->
+
+                <p>{{video.create_date|cnTimeFilter}}</p>
+            </li>
+        </template>
+
+        <div class="load-more" @click="loadMore">{{hasMore? '加载更多': '没有更多了' }}</div>
+    </ul>
+</div>
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="bundle.js"></script>
+</html>

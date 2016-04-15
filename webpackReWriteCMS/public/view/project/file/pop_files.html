@@ -1,0 +1,38 @@
+<div class="modal upload-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="js_close(result)" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h3>从项目文件选择</h3>
+            </div>
+            <div class="modal-body upload-body">
+                <div class="pop-left-right">
+                    <div class="file-panel height-nonav" wt-scroll>
+                        <ul class="file-items">
+                            <li class="file-item" ng-repeat="file in files" ng-click="js_attach(file)"
+                                wt-title="{
+                                    0:file.name + '\n大小：' + file.size + '\n修改时间：' + (file.update_date | timeFormatZHCN),
+                                    1:file.name + '\n修改时间：' + (file.update_date | timeFormatZHCN)}
+                                    [file.type]">
+                                <a class="file-pic" ng-class="{0:'file-picfile',1:'file-picfolder'}[file.type]"
+                                   href="javascript:;">
+                                    <img ng-src="{{file.icon | wtBox}}" alt="{{ file.name }}"/>
+                                </a>
+
+                                <div class="file-name">{{file.name}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="js_ok()" class="btn btn-success float_left" aria-hidden="true">确定
+                </button>
+                <button type="button" ng-click="js_close()" class="btn float_left" data-dismiss="modal"
+                        aria-hidden="true">取消
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

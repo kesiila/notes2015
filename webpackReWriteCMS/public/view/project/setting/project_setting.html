@@ -1,0 +1,188 @@
+<div class="layout_content prj_panel">
+
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main">
+                <div class="toolbar_panel pull-right">
+                </div>
+            </div>
+        </div>
+        <div class="split-panel setting-panel height-nonav" wt-scroll ng-show="global.loading_done">
+
+            <dl class="frame" data-minheight="160">
+                <dt>
+                    <ul class="tabs">
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[step==2]"
+                               ng-show="project.info.curr_role==1&&project.info.archived==0"
+                               ng-click="js_step(2)">
+                                基本信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[step==3]"
+                                ng-show="project.info.curr_role==1&&project.info.archived==0"
+                                ng-click="js_step(3)">
+                                项目标识
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[step==1]"
+                               ng-show="project.info.archived==0"
+                               ng-click="js_step(1)">
+                                邮件通知
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[step==5]"
+                               ng-show="project.info.curr_role==1&&project.info.archived==0"
+                               ng-click="js_step(5)">
+                                归档项目
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[step==7]"
+                               ng-show="project.info.curr_role==1&&project.info.archived==1"
+                               ng-click="js_step(7)">
+                                激活项目
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[step==4]"
+                               ng-click="js_step(4)">
+                                退出项目
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-class="{true:'active'}[step==6]"
+                               ng-show="project.info.curr_role==1&&project.info.archived==0"
+                               ng-click="js_step(6)">
+                                删除项目
+                            </a>
+                        </li>
+                    </ul>
+                </dt>
+                <dd>
+                    <div class="split-panel-right">
+                        <div class="stand-panel" ng-show="step == 1">
+                            <div class="stand-panel-body">
+                                <div ng-show="project.info.is_notify==1&&project.info.archived==0">
+                                    <span>当前邮件通知开启，您将收到关于该项目的所有邮件通知。可以选择关闭邮件通知，您将不会收到邮件通知。</span><br/><br/>
+                                    <button class="btn btn-success" ng-click="js_prj_unnotify()"><i class="icon-off"></i> 关闭邮件通知</button>
+                                </div>
+
+                                <div ng-show="project.info.is_notify==0&&project.info.archived==0">
+                                    <span>当前邮件通知关闭，您将不会收到关于该项目的所有邮件通知。可以选择再次启用邮件通知。</span><br/><br/>
+                                    <button class="btn btn-success" ng-click="js_prj_notify()"><i class="icon-bell"></i> 打开邮件通知</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stand-panel" ng-show="step == 2">
+                            <div class="stand-panel-body">
+                                <form name="prj_update_form" wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form form-horizontal" role="form" novalidate>
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label">项目名称：</label>
+                                        <div class="col-xs-9">
+                                            <input type="text" ng-model="project.new_name" placeholder="项目名称" name="prj_name" autofocus required
+                                                   class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label">项目描述：</label>
+                                        <div class="col-xs-9">
+                                            <textarea ng-model="project.new_desc" placeholder="为项目添加简短描述（可选）" name="prj_desc" rows="4" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-xs-3 control-label"></label>
+                                        <div class="col-xs-9">
+                                            <button wt-form-submit="js_prj_update(prj_update_form)" data-loading-text="保存中..." class="btn btn-success mr_15" loading-status="is_prj_saveing">确定</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="stand-panel" ng-show="step == 3">
+                            <div class="stand-panel-body">
+                                <form name="prj_logo_form" wt-form-validate="{blurTrig:false,showMsg:false}" class="wt-form" novalidate>
+                                    <div class="prj-colors">
+                                        <ul class="list-inline">
+                                            <li ng-repeat="prj_color in prj_colors">
+                                                 <span ng-click="js_color_select(prj_color)"
+                                                       class="prj_color"
+                                                       ng-style="{backgroundColor:prj_color}">
+                                                        <i class="icon-white icon-ok" ng-show=prj_color==project.info.bg></i>
+                                                 </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="prj-icons">
+                                        <ul class="list-inline">
+                                            <li ng-repeat="prj_icon in prj_icons">
+                                                 <span ng-click="js_icon_select(prj_icon)"
+                                                       class="prj_icon"
+                                                       ng-style="{color:project.info.bg}">
+                                                        <i class="{{prj_icon}}"></i>
+                                                 </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button wt-form-submit="js_prj_set_logo(prj_logo_form)" data-loading-text="保存中..." class="btn btn-success mr_15" loading-status="is_logo_saving">确定</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="stand-panel" ng-show="step == 4">
+                            <div class="stand-panel-body">
+                                <div ng-hide="project.info.curr_role==1&&project.admins.length==1">
+                                <span>
+                                    退出项目后，你将无法再访问该项目内容，但相关的数据不会被删除。请输入项目的完整名称，确认要退出该项目：<br/><br/>
+                                </span>
+                                    <input type="text" class="form-control" ng-model="prj_name" placeholder="项目名称">
+                                    <br/>
+                                </div>
+                            <span ng-show="project.info.curr_role==1&&project.admins.length==1">
+                                您是项目唯一负责人，因此不能退出项目。<br/><br/>
+                            </span>
+                                <button
+                                        ng-click="js_prj_quit(prj_name)" ng-disabled="prj_name != project.info.name" class="btn btn-danger" data-loading-text="退出中..." loading-status="is_quiting">确定退出</button>
+                            </div>
+                        </div>
+
+                        <div class="stand-panel" ng-show="step == 5">
+                            <div class="stand-panel-body">
+                                <span>项目归档后，项目内容将成只读，不能被更新。选择重新激活后，项目将恢复正常<br/><br/></span>
+                                <button ng-click="js_prj_archive()" data-loading-text="归档中..." loading-status="is_archiving" class="btn btn-success">确定归档</button>
+                            </div>
+                        </div>
+
+                        <div class="stand-panel" ng-show="step == 6">
+                            <div class="stand-panel-body">
+                                <span>
+                                    删除项目后，所有的内容都将被删除，并且不能恢复。请输入项目的完整名称，确认要删除该项目：<br/><br/>
+                                </span>
+                                <input type="text" class="form-control" ng-model="prj_name" wt-enter="js_prj_del(prj_name)" placeholder="项目名称">
+                                <br/>
+                                <button ng-click="js_prj_del(prj_name)" ng-disabled="prj_name != project.info.name" class="btn btn-danger" data-loading-text="删除中..." loading-status="is_deleting">确认并删除</button>
+                            </div>
+                        </div>
+
+                        <div class="stand-panel" ng-show="step == 7">
+                            <div class="stand-panel-body">
+                                <span>激活项目后，项目成员可以正常访问和操作项目内容<br/><br/></span>
+                                <button ng-click="js_prj_unarchive()" data-loading-text="激活中..." loading-status="is_unarchiving"  class="btn btn-success">确定激活</button>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

@@ -1,0 +1,62 @@
+<div class="layout_content">
+<div class="layout_content_main no_sidebar height-noheader">
+<div class="mod_navbar">
+    <div class="title">
+        <h3><i class="icon-user mr_10"></i>帐户设置</h3>
+    </div>
+    <div class="main">
+        <div class="pull-right">
+
+        </div>
+    </div>
+</div>
+<div class="center-panel-container height-nonav" wt-scroll>
+
+<dl class="frame" data-minheight="160">
+<dt>
+    <!--<span class="title">安全设置</span>-->
+    <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+
+</dt>
+<dd>
+    <div data-ng-hide="part_loading_done" class="part-loading mt_20"></div>
+
+    <div class="table-list" data-ng-show="part_loading_done">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>登录地址</th>
+                <th>活动端</th>
+                <th>登录时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="history in account_histories">
+                <td>{{from_index + $index}}</td>
+                <td>{{history.location + '（'+ history.ipaddress + '）'}}</td>
+                <td>
+                    Web端
+                </td>
+                <td><span class="mr_15">{{history.create_date | timeFormatZHCN}}</span>
+                    {{history.create_date | fromNow}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" data-ng-show="account_histories.length == 0">
+                    还没有任何登录记录
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <div class="pull-right" wt-pagination="security_pagination_opts"></div>
+    </div>
+
+
+</dd>
+</dl>
+
+</div>
+</div>
+</div>

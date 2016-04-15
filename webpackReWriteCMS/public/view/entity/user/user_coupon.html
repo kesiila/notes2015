@@ -1,0 +1,40 @@
+<div ng-controller="entity_coupons_ctrl">
+	<div class="entity-title "
+		ng-include="'/view/entity/user/user_title.html'"></div>
+	<wt-tadges task="task"></wt-tadges>
+	<div class="wt-row ">
+		<h4 class="pull-right">
+			<span href="javascript:;" data-ng-click="js_to_coupon()">优惠券</span> <span
+				ng-if="coupons.length>0">({{coupons.length}})</span>
+		</h4>
+	</div>
+	    <div class="empty-panel"
+            ng-show="coupons.length==0">
+        <i class="icon-money"></i>
+        <br>
+        <span>
+            还没有任何优惠券
+        </span>
+    </div>
+ 
+	<div class="entity-list">
+		<div class="part-loading mt_20"
+			wt-loading-done="loading_done"></div>
+
+		<ul class="entitys">
+			<li class="entity-item" id="entity_item_{{coupon.eid}}"
+				ng-repeat="coupon in coupons">
+
+				<div class="entity">
+					<a href="javascript:;" class="entity-name"> {{coupon.title}}
+					</a> <span class="entity-meta"> <span
+						data-ng-class="{true:'date',false:''}[entity.type==1&&global.is_login == true]">有效期：{{coupon.expire
+							| timeFullFormatZHCN }}</span>
+					</span>
+
+					<div class="current-entity" wt-markdown='coupon.eid | abbrevition:200'></div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

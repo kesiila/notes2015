@@ -1,0 +1,131 @@
+<!--<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="http://mat1.gtimg.com/app/openjs/openjs.js#autoboot=no&debug=no"></script>-->
+
+<div class="single-panel height-noheader" wt-scroll data-scrollnoheight="1">
+    <div class="share-panel">
+        <br/><br/>
+        <h3 class="mb_100">分享棒呆给你的小伙伴们<br><br>
+            <span style="font-size: 16px;">每推荐一个用户注册<br>系统会自动给你奖励&nbsp;<span style="font-size: 26px" ng-bind="scoreConfig.recommend"></span>&nbsp;积分哟！</span>
+        </h3>
+
+        <div id="share-wohoo"></div>
+
+        <div class="share-section link-share" style="border-bottom: 0px;height: 300px">
+            <h4>1.分享到你的空间</h4>
+            <div class="pt_15">
+                <div class="col-xs-4">
+                    内容预览<input type="hidden" id="url" value="http://www.bonday.cn/signup?recommendby={{global.me.name}}">
+                </div>
+                <div class="col-xs-8">
+                    <!-- JiaThis Button BEGIN -->
+                    <div class="jiathis_style_24x24 pull-right">
+                        <a class="jiathis_button_qzone" title="分享到QQ空间"></a>
+                        <a class="jiathis_button_weixin" title="分享到微信"></a>
+                        <a class="jiathis_button_tsina" title="分享到新浪微博"></a>
+                        <a class="jiathis_button_tqq" title="分享到腾讯微博"></a>
+                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+                    </div>
+                    <!-- JiaThis Button END -->
+                </div>
+                <dl>
+                    <dd>
+                        <div class="col-xs-12 pl_0">
+                            <textarea id="share_msg" ng-model="share_msg" required="请输入分享类容" class="message form-control help-block" rows="8">
+                            </textarea>
+                            <span class="pull-right mt_5">你也可以把上面的文字内容贴到各类留学QQ群里哦！</span>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+
+        </div>
+        <div class="share-section link-share">
+            <h4>2.复制链接发送给好友，赢取积分</h4>
+
+            <div class="pt_15">
+                <div class="col-xs-8">
+                    <input type="text" id="share-url" class="form-control col-xs-3" value="http://www.bonday.cn/signup?recommendby={{global.me.name}}"><br>
+                    <span class="pull-right">你也可以把链接放到QQ群和留学论坛里哦！</span>
+                </div>
+                <div class="col-xs-4">
+                    <button onclick="copy_code('share-url')" type="button"class="btn btn-success mr_15" >
+                        复制链接
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="share-section mail-share">
+            <h4>3.发送邮件给你的小伙伴</h4>
+
+            <div class="pt_45 clearfix">
+                <form class="form-horizontal wt-form" role="form" name="share_friend_form" novalidate
+                      wt-form-validate="{blurTrig:false,showMsg:false}"
+                      wt-enter="js_invite_enter($event,invite_member_form)">
+
+                    <div class="form-group">
+                        <div class="col-xs-8">
+                            <input type="email" class="form-control col-xs-3" placeholder="输入邮箱地址"
+                                   ng-model="share_email" ng-change="clear_err_info(share_friend_form)" required wt-regex="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+
+                        </div>
+                        <div class="col-xs-4">
+                            <button ng-click="send_share_email(share_friend_form)" type="button"
+                                    class="btn btn-success mr_15" data-loading-text="发送中..."
+                                    loading-status="is_sending">
+                                发送邀请
+                            </button>
+                        </div>
+                    </div>
+
+                    <dl>
+                        <dt>
+                            邮件预览
+                        </dt>
+                        <dd>
+                            <div class="col-xs-8 pl_0">
+                                <textarea required="" class="message form-control help-block" rows="5"
+                                          ng-model="share_desc" ng-change="clear_err_info(share_friend_form)"  name="share_desc">
+                                </textarea>
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="col-xs-8 pl_0">
+                                <div class="alert alert-danger mt_12" ng-show="share_friend_form.$errors.length > 0">
+                                    <i class="icon-remove-sign"></i> <span
+                                        ng-bind="share_friend_form.$errors[0]"></span>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+<script type="text/javascript" >
+    var jiathis_config = {url: "",title: "上棒呆，学做留学！",summary:"上棒呆,找活动无比easy, 快速发送批量邮件，1小时的开发量抵得上原来1天多!"};
+
+    $(function(){
+        setTimeout(function(){jiathis_config.url=$("#url").val(),
+                jiathis_config.summary=$("#share_msg").val()
+        },400);
+    });
+
+    function copy_code(id)
+    {
+        if (window.clipboardData)
+        {
+            window.clipboardData.setData("Text", $("#"+id).val());
+            alert('copy成功！');
+        }
+        else
+        {
+            $("#"+id).focus().select();
+            alert("你使用的是非IE核心浏览器，请按下 Ctrl+C 复制代码到剪贴板!");
+        };
+    };
+</script>

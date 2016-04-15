@@ -1,0 +1,103 @@
+<dl class="frame add_edit_panel clearfix">
+	<div class="customer-add-wapper">
+		<form class="wt-form" name="add_customer_form"
+			wt-form-validate="{blurTrig:false,showMsg:false}" novalidate
+			role="form">
+			<div class="col-xs-6">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15">标题</span> <input type="text"
+							id="new_program_title" maxlength="100" name="program_title"
+							autofocus ng-model="new_element.title" class="form-control"
+							placeholder="活动名称" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15">图片</span> <input type="text"
+							id="new_program_imageurl" maxlength="100" name="program_imageurl"
+							autofocus ng-model="new_element.imageUrl" class="form-control"
+							placeholder="活动图片URL">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="类型">类型</span>
+						<wt-cascading flag="flag"
+							first="new_element.code_program_type_name"
+							firstkey="new_element.code_program_type" cascad="1"
+							source="api/codes/program_type/all"> </wt-cascading>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="最小年龄">minAge</span>
+						<input type="number" class="form-control" ng-model="new_element.minAge" placeholder="最小年龄"/>
+					</div>
+				</div>
+
+				<div class="form-group"
+					ng-show="add_customer_form.$errors.length > 0">
+					<div class="alert alert-danger">
+						<i class="icon-remove-sign mr_5"></i>
+						{{add_element_form.$errors[0]}}
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="活动地点">地点</span>
+						<wt-cascading cascad="4"
+							firstkey="new_element.code_address_1"
+							first="new_element.code_address_1_name"
+							secondkey="new_element.code_address_2"
+							second="new_element.code_address_2_name"
+							thirdkey="new_element.code_address_3"
+							third="new_element.code_address_3_name"
+							fourthkey="new_element.code_address_4"
+							fourth="new_element.code_address_4_name"
+							source="api/codes/address/all"> </wt-cascading>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="活动机构">机构</span>
+						<wt-cascading flag="flag" first="new_element.organizer_name"
+							firstkey="new_element.organizer_id" cascad="1"
+							source="api/codes/entity/organizer"> </wt-cascading>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="住宿方式">项目</span>
+						<wt-cascading flag="flag" first="new_element.project_name"
+							firstkey="new_element.pid" cascad="1"
+							source="api/codes/entity/project"> </wt-cascading>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon fs_15" title="最大年龄">maxAge</span>
+						<input type="number" class="form-control" ng-model="new_element.maxAge" placeholder="最大年龄"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12">
+					<wt-date-list datelist="new_element.date_list"></wt-date-list>
+			</div>
+			<div class="col-xs-12">
+				<div class="pos_relative editor-container mt_10"
+					 ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                                false: 'height-main-min-j4-new-template-by-auto-mailbox-inner-with-one-input-above'}[$root.global.is_outter]">
+					<wt-new-editor class="" edit-content="new_element.desc"></wt-new-editor>
+				</div>
+				<br />
+			</div>
+		</form>
+	</div>
+</dl>
+
+

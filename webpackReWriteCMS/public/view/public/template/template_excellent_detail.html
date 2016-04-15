@@ -1,0 +1,53 @@
+<div class="template-wapper">
+	<!--<div class="page_navbar">-->
+		<!--<div class="page-navbar-warp">-->
+			<!--<div class="title">-->
+				<!--<h3><a href="/template"><i class="icon-list-alt mr_10"></i> 开发信</a></h3>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+		<div class="forum-panel">
+			<div class="forum-container">
+				<div class="col-xs-2 sidebar">
+					<div class="sidebar-inner">
+						<div class="sidebar-widget">
+							<div id="tabs_div">
+								<a href="/template/excellent" ng-class="{true: 'active'}[queryCondition.f_type=='00']">精品</a>
+								<a href="/template" ng-class="{true:'active'}[queryCondition.f_type=='01']">模板</a>
+							</div>
+							<ul class="clearfix">
+                                <li>
+                                    <a href="/template/excellent" ng-class="{'active':queryCondition.mainCatalogCode==''}">全部
+                                        <span ng-show="all_count>=0">({{all_count}})</span>
+                                    </a>
+                                </li>
+                                <li ng-repeat="mainCatalog in catalogs">
+                                    <a ng-if="queryCondition.f_type=='01'" href="/template?type={{mainCatalog.code}}" ng-class="{true: 'active'}[queryCondition.mainCatalogCode == mainCatalog.code]">
+                                        {{mainCatalog.cnName}}<span ng-show="mainCatalog.count>=0">({{mainCatalog.count}})</span>
+                                	</a>
+									<a ng-if="queryCondition.f_type=='00'" href="/template/excellent?type={{mainCatalog.code}}" ng-class="{true: 'active'}[queryCondition.mainCatalogCode == mainCatalog.code]">
+										{{mainCatalog.cnName}}<span ng-show="mainCatalog.count>=0">({{mainCatalog.count}})</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="box-shadow ptb_5 pl_15"
+							ng-show="$root.global.is_login">
+							<h4>
+								<a href="javascript:;" ng-click="go_to_inner_template()"><i
+									class="icon-list-alt ai-green mr_10"></i>我的模板</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-10 forum-content">
+                    <div class="forum-category-wrapper">
+                        <div class="thread-list">
+                            <div ng-include="'/view/public/template/detail.html'"></div>
+                            <!--<div ng-include="'/view/public/post/post_detail.html'"></div>-->
+                        </div>
+                    </div>
+				</div>
+			</div>
+	</div>
+</div>

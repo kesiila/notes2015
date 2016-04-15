@@ -1,0 +1,8 @@
+User-agent: *
+
+Disallow: /scripts/
+Disallow: /api/
+Disallow: /project/
+Disallow: /mail/
+Disallow: /account/
+Disallow: /teams/

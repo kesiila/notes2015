@@ -1,0 +1,10 @@
+<h2  ng-click="js_show_editor(coupon)"
+	wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{coupon.title}}">{{coupon.title|abbrevition:30}}</span>
+    <em class="pull-right" title="结束时间" ng-if="coupon.endDate"><i class="icon-flag"
+		ng-show="coupon.is_edit || coupon.countryCnName.length>0 || permission==4"></i>
+		结束时间:{{coupon.endDate | dateFormat}} </em>
+    <em class="pull-right" title="结束时间" ng-if="coupon.startDate"><i class="icon-flag"
+		ng-show="coupon.is_edit || coupon.countryCnName.length>0 || permission==4"></i>
+		起始时间:{{coupon.startDate | dateFormat}} </em>
+</h2>

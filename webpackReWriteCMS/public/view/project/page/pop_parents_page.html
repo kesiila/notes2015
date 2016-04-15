@@ -1,0 +1,16 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>选择父文档</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+    <div class="popbox-body">
+        <ul class="popbox-menu">
+            <li ng-repeat="page in pages">
+                <a href="/project/{{ pid }}/page/add/{{page.page_id}}">
+                    <i class="icon-file-text-alt"></i>
+                    {{page.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

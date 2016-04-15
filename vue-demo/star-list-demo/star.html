@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="copyright" content="www.bonday.cn"/>
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>明星主播主体内容</title>
+    <link rel="stylesheet" type="text/css" href="../../css/bonday.css"/>
+    <script>
+        window.tplLevel = 2;
+    </script>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        .block {
+
+        }
+
+        .block .title {
+            font-size: 16px;
+            padding: 8px 10px;
+            font-weight: normal;
+            color: rgb(35%, 30%, 30%);
+            background: rgb(98%, 95%, 95%);
+        }
+
+        .block .content {
+            padding: 10px 5px;
+            margin-left: -30px;
+            margin-right: -30px;
+        }
+
+        .img-wrapper-h2 {
+            position: relative;
+            width: 50%;
+            height: 120px;
+            display: inline-block;
+            padding: 3px;
+            margin: 3px;
+        }
+
+        .img-wrapper-h3 {
+            position: relative;
+            display: inline-block;
+            width: 33%;
+            height: 100px;
+            padding: 3px;
+            margin: 3px;
+        }
+
+        .img-wrapper-h2 img, .img-wrapper-h3 img {
+            position: absolute;
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            z-index: -1;
+        }
+
+        .img-wrapper-h2 .desc-bg, .img-wrapper-h3 .desc-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(30%, 30%, 30%, .3);
+        }
+
+        .desc {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .desc h4, .desc p {
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 16px;
+            padding: 3px;
+        }
+
+        .desc h4 {
+            font-size: 16px
+        }
+
+        .desc p {
+            font-size: 14px
+        }
+    </style>
+</head>
+<body @click="multi">
+<char-index :data="hashList"></char-index>
+<input v-model="keyword" style="width: 100%; height: 38px; line-height: 38px; position: fixed; top: 0px"
+       placeholder="按学校名称筛选"/>
+<div v-for="school in schools | filterBy keyword in 'name'" track-by="$index" class="block">
+    <h4 class="title" id="{{school.anchor_id}}">{{school.name}}</h4>
+    <ul class="content">
+        <li class="img-wrapper-h3" v-for="student in school.students">
+            <div v-if="student.avatar">
+                <div class="desc-bg">
+                    <div class="desc">
+                        <h4>{{student.name}}</h4>
+
+                        <p>{{student.mediaNums}}段视频</p>
+                    </div>
+                </div>
+                <img :src="student.avatar|realImgPath">
+            </div>
+            <img v-else src="../img/empty2.png">
+        </li>
+    </ul>
+</div>
+</body>
+<script src="../node_modules/vue/dist/vue.min.js"></script>
+<script src="../script/utils/util.js"></script>
+<script>
+    Vue.filter('realImgPath', function (value) {
+        return 'http://bonday.oss-cn-hangzhou.aliyuncs.com/' + value;
+    });
+
+    Vue.filter('realHref', function (value) {
+        return '#' + value;
+    });
+    Vue.component('char-index', {
+        template: '<ul style="position: fixed;top:50%;transform: translateY(-50%);right:10px;z-index: 10;list-style: none"> <li v-for="char in data" @click="toComponent(char.anchor_id)">{{char.anchor_name}}</li></ul>',
+        props: {
+            data: Array,
+            require: true
+        },
+        methods: {
+            toComponent: function (char) {
+                var anchor = document.getElementById(char);
+                var animateId;
+                var start = window.scrollY;
+                var end = anchor.offsetTop;
+                var step = (end - start > 0 ? end - start : start - end) / 15;
+                (function drawFrame() {
+                    animateId = requestAnimationFrame(drawFrame);
+                    if (start < end) {
+                        start += step;
+                        console.log('start < end' + '\tend:' + end + "\tstart:" + start);
+                        window.scroll(0, start);
+                        if (start >= end) cancelAnimationFrame(animateId);
+                    } else {
+                        start -= step;
+                        console.log('start>end' + '\tend:' + end + "\tstart:" + start);
+                        window.scroll(0, start);
+                        if (start <= end) cancelAnimationFrame(animateId);
+                    }
+                })();
+            }
+        }
+    });
+    function mockNameIds(array) {
+        var map = [];
+        return array.map(function (item) {
+            var name = item.name.substring(0, 1);
+            var id = item.name.substring(0, 1);
+            if (map.indexOf(name) > -1) {
+
+            } else {
+                map.push(name);
+                item.anchor_name = name;
+                item.anchor_id = id;
+            }
+            return item;
+        })
+    }
+    new Vue({
+        el: "body",
+        data: {
+            schools: mockNameIds(
+                    [{
+                        "id": "567bc144d4c65145b47886c0",
+                        "name": "康奈尔大学",
+                        "enName": "Cornell University",
+                        "sort": 88,
+                        "students": [{
+                            "name": "XZ He",
+                            "type": 0,
+                            "display_name": "XZ He",
+                            "avatar": "562da8ed0cf2c1678cf6bad0.jpg",
+                            "school": "哈佛大学法学院",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886bf",
+                        "name": "纽约大学",
+                        "enName": "New York University",
+                        "sort": 97
+                    }, {
+                        "id": "567bc144d4c65145b47886be",
+                        "name": "南加州大学",
+                        "enName": "University Of Southern California",
+                        "sort": 87,
+                        "students": [{
+                            "name": "Shijun Chen",
+                            "type": 0,
+                            "display_name": "Shijun Chen",
+                            "avatar": "562a4c370cf2b9d37485774a.jpg",
+                            "school": "纽约大学Stern商学院本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Olivia Zhang",
+                            "type": 0,
+                            "display_name": "Olivia Zhang",
+                            "avatar": "562d05020cf2ab5aafba4a54.jpg",
+                            "school": "波莫纳学院本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Allan Xu",
+                            "type": 0,
+                            "display_name": "Allan Xu",
+                            "avatar": "562a609a0cf2b9d374857795.jpg",
+                            "school": "纽约大学本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Xiaoning Sun",
+                            "type": 0,
+                            "display_name": "Xiaoning Sun",
+                            "avatar": "562a51660cf2b9d374857775.jpg",
+                            "school": "约翰霍普金斯大学本科",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886bd",
+                        "name": "罗切斯特大学",
+                        "enName": "University of Rochester",
+                        "sort": 31
+                    }, {
+                        "id": "567bc144d4c65145b47886bc",
+                        "name": "芝加哥大学",
+                        "enName": "University of Chicago",
+                        "sort": 17,
+                        "students": [{
+                            "name": "XZ He",
+                            "type": 0,
+                            "display_name": "XZ He",
+                            "avatar": "562da8ed0cf2c1678cf6bad0.jpg",
+                            "school": "哈佛大学法学院",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886bb",
+                        "name": "斯坦佛大学",
+                        "enName": "Stanford University",
+                        "sort": 83,
+                        "students": [{
+                            "name": "Simiao Li",
+                            "type": 0,
+                            "display_name": "Simiao Li",
+                            "avatar": "562b537b0cf208ed0eb20280.jpg",
+                            "school": "耶鲁大学本科",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886ba",
+                        "name": "杜克大学",
+                        "enName": "Duke University",
+                        "sort": 84,
+                        "students": [{
+                            "name": "Tiffany Mai",
+                            "type": 0,
+                            "display_name": "Tiffany Mai",
+                            "avatar": "24367668-c5f5-4b4b-aaee-7771dc9cb5ce1448867643937.jpg",
+                            "school": "加州大学戴维斯分校",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Joanna Gao",
+                            "type": 0,
+                            "display_name": "Joanna Gao",
+                            "avatar": "f69ce682-efb5-4a12-b78f-7c4c852b521d1448875481136.jpg",
+                            "school": "布尔茅尔学院",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886b9",
+                        "name": "乔治城大学",
+                        "enName": "Georgetown University",
+                        "sort": 5,
+                        "students": [{
+                            "name": "Oranda Hou",
+                            "type": 0,
+                            "display_name": "Oranda Hou",
+                            "avatar": "562a4d290cf2b9d374857755.jpg",
+                            "school": "宾夕法尼亚大学沃顿商学院本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Anlan Zhu",
+                            "type": 0,
+                            "display_name": "Anlan Zhu",
+                            "avatar": "562a5de00cf2b9d374857784.jpg",
+                            "school": "加州大学伯克利分校本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Daniel Yuan",
+                            "type": 0,
+                            "display_name": "Daniel Yuan",
+                            "avatar": "562b4e050cf208ed0eb20246.jpg",
+                            "school": "耶鲁大学本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Zhining Zhu",
+                            "type": 0,
+                            "display_name": "Anna Zhu",
+                            "avatar": "562a4f2a0cf2b9d374857761.jpg",
+                            "school": "加州大学伯克利分校本科",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886b8",
+                        "name": "西北大学",
+                        "enName": "Northwestern University",
+                        "sort": 87,
+                        "students": [{
+                            "name": "Stefanie Wang",
+                            "type": 0,
+                            "display_name": "Stefanie Wang",
+                            "avatar": "7ce6dc71-1afc-402c-8fcc-d82f619f1d541448621245392.jpg",
+                            "school": "康奈尔大学本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Jason Li",
+                            "type": 0,
+                            "display_name": "Jason Li",
+                            "avatar": "56305a9c0cf2f0ad7416e82e.jpg",
+                            "school": "卡耐基梅隆大学本科",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886b7",
+                        "name": "圣母大学",
+                        "enName": "University of Notre Dame",
+                        "sort": 1,
+                        "students": [{
+                            "name": "May Li",
+                            "type": 0,
+                            "display_name": "May Li",
+                            "avatar": "562e5c370cf260d8b1916682.jpg",
+                            "school": "乔治城大学本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Connie Kang",
+                            "type": 0,
+                            "display_name": "Connie Kang",
+                            "avatar": "562d02dc0cf2ab5aafba4a34.jpg",
+                            "school": "宾夕法尼亚大学沃顿商学院本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Michelle Zhou",
+                            "type": 0,
+                            "display_name": "Michelle Zhou",
+                            "avatar": "562d03120cf2ab5aafba4a39.jpg",
+                            "school": "约翰霍普金斯大学本科",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc144d4c65145b47886b6",
+                        "name": "宾夕法尼亚大学",
+                        "enName": "University of Pennsylvania",
+                        "sort": 0,
+                        "students": [{
+                            "name": "Stefanie Wang",
+                            "type": 0,
+                            "display_name": "Stefanie Wang",
+                            "avatar": "7ce6dc71-1afc-402c-8fcc-d82f619f1d541448621245392.jpg",
+                            "school": "康奈尔大学本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Jason Li",
+                            "type": 0,
+                            "display_name": "Jason Li",
+                            "avatar": "56305a9c0cf2f0ad7416e82e.jpg",
+                            "school": "卡耐基梅隆大学本科",
+                            "mediaNums": 0
+                        }]
+                    }, {
+                        "id": "567bc143d4c65145b47886b5",
+                        "name": "耶鲁大学",
+                        "enName": "Yale University",
+                        "sort": 30,
+                        "students": [{
+                            "name": "Ye Tao",
+                            "type": 0,
+                            "display_name": "Ye Tao",
+                            "avatar": "562da9ae0cf2c1678cf6bad8.jpg",
+                            "school": "耶鲁大学硕士",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Kuan Yan",
+                            "type": 0,
+                            "display_name": "Kuan Yan",
+                            "avatar": "562da95b0cf2c1678cf6bad5.jpg",
+                            "school": "西北大学本科",
+                            "mediaNums": 0
+                        }, {
+                            "name": "XZ He",
+                            "type": 0,
+                            "display_name": "XZ He",
+                            "avatar": "562da8ed0cf2c1678cf6bad0.jpg",
+                            "school": "哈佛大学法学院",
+                            "mediaNums": 0
+                        }, {
+                            "name": "Kid Zhao",
+                            "type": 0,
+                            "display_name": "Kid Zhao",
+                            "avatar": "562da8a80cf2c1678cf6bace.jpg",
+                            "school": "哥伦比亚大学本科",
+                            "mediaNums": 0
+                        }]
+                    }]
+            )
+        },
+        methods: {
+            multi: function () {
+                return;
+                this.schools = this.schools.concat(this.schools);
+            }
+        },
+        computed: {
+            hashList: function () {
+                return this.schools;
+            }
+        }
+    });
+</script>
+</html>

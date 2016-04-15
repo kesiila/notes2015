@@ -1,0 +1,18 @@
+<dl data-minheight="160" class="frame">
+	<ul class="nav nav-pills nav-stacked">
+<!-- 		<li
+			ng-class="{true:'active'}[active_team_admin_nav_tab=='member']">
+			<a ng-href="/teams/{{team_id}}"><i class=" icon-user"></i><br />成员</a>
+		</li>
+ -->		<li
+			ng-class="{true:'active'}[active_team_admin_nav_tab=='projects']">
+			<a ng-href="/teams/{{team_id}}/projects"><i class="icon-inbox"></i><br />项目</a>
+		</li>
+		<li ng-class="{true:'active'}[active_team_admin_nav_tab=='admin']"
+			>
+			<a
+			ng-href="{{'/teams/'+current_team.team_id+{true:'/admin',false:'/setting'}[current_team.owner.uid == global.me.uid]}}"><i
+				class="icon-cog "></i><br />设置</a>
+		</li>
+	</ul>
+</dl>

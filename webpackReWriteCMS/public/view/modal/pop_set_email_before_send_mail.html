@@ -1,0 +1,44 @@
+<div class="click-other-dont-hide">
+    <div class="modal-header" style="background-color: #5cb85c;">
+        <h4 class="modal-title" style="color:#fff;">邮件设置
+            <i class="pull-right icon-close cursor"
+               style="margin-top: 5px;margin-right: 5px;color: #fff;font-size: 16px"
+               ng-click="modalCtrl.close()"></i>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="center-block">
+            <div class="form-group">
+                <lable class="col-xs-3 h_38 lh-40 fs_16 text-right control-label" style="vertical-align: middle">发件人:
+                </lable>
+                <div class="col-xs-9">
+                    <input class="form-control" placeholder="显示名称" ng-model="$parent.edit_mail.display_name"
+                           type="text"/>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="form-group" style="margin-bottom: 0px">
+                <lable class="col-xs-3 h_38 lh-40 fs_16 text-right control-label" style="vertical-align: middle">回复地址：
+                </lable>
+                <div class="col-xs-9">
+                    <input class="form-control" placeholder="邮件的回复地址" ng-model="$parent.edit_mail.email"
+                           type="email"/>
+                </div>
+                <div class="col-xs-9 col-xs-offset-3 mt_10">
+                    <span class="text-muted">此邮箱地址用以接收活动回信</span>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="">
+                <label for="" class="col-xs-3 control-label"></label>
+
+                <div class="col-xs-9">
+                    <button class="ml_15 btn btn-success pull-right" ng-click="modalCtrl.confirm_send()">
+                        确定
+                    </button>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </div>
+</div>

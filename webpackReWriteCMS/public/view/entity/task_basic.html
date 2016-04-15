@@ -1,0 +1,243 @@
+<div ng-hide="task.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/task_title.html'">
+    </div>
+    <!--<wt-badges task="task"></wt-badges>-->
+    <div class="ml_30" ng-show="task.isPaid=='0'">
+        <a  href style="color: #8a959e;">
+            <!--今日剩余<span class="color-active fs_16">{{task.mailSendLimit}}</span>个邮件发送名额-->
+            <span ng-if="task.mailSendLimit>0" style="background-color: #5bc0de;border: 1px solid #5bc0de;padding: .1em 0.1em .1em; color: #fff;">可接收邮件</span>
+            <span ng-if="task.mailSendLimit<=0" title="该活动今日可接收邮件额度已用完"
+                  style="background-color: #BEC1C4;border: 1px solid #BEC1C4;padding: .1em 0.1em .1em; color: #fff; ">
+                不接收邮件</span>
+            <span ng-if="task.mailSendLimit<=0" title="该活动今日可接收邮件额度已用完">可先收藏该活动，以待下次开发</span>
+        </a>
+    </div>
+    <wt-tags task="task"></wt-tags>
+    <div class="new-tag"
+         ng-show="global.is_outter==false"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(task)"
+           wt-tracker="Task Panel|Main|Add Attachments"
+           ng-hide="task.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="task.is_add_tag_edit"
+             wt-show-edit="task.is_add_tag_edit">
+            <div>
+
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, task, tag)' }"
+                       wt-enter="js_add_tag(task, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="Task Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(task, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(task)">取消
+            </button>
+        </div>
+    </div>
+
+    <!--    <wt-add-tag tag="task"></wt-add-tag>-->
+    <!--<div class="task-desc wt-row" ng-if="customer.isPaid<5">
+        <label class="col-xs-4 control-label p_0">剩余发件额度：</label>
+        {{task.mailSendLimit}}
+    </div>-->
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.company.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-home mr_5 ai-gray"></i>公司</label>
+        {{task.company}}
+    </div>
+
+
+    <div class="task-desc wt-row" ng-show="!task.is_edit">
+        <label class="col-xs-2 control-label p_0"><i class="icon-envelope mr_5 ai-gray"></i>Email</label>
+
+        <span ng-show="!task.email  || task.mailStatus==1 || task.isPaid==1" wt-tracker="Task Panel|Main|Send Mail">{{task.email}}</span>
+        <a href="javascript:;" ng-show="task.email && task.mailStatus<1 && task.isPaid==0" title="查看该邮箱需10积分" ng-click="js_get_mail($event)">{{task.email}}</a>
+
+        <span class="ml_15" ng-show="task.email &&task.mailStatus==0" title="验证有效" style="color: darkgreen">
+            <img src="/img/tools/valid.png" style="height:16px;margin-bottom: 2px;"/>
+        </span>
+        <span class="ml_15 color-active" ng-show="task.email &&task.mailStatus==1" title="验证无效">
+            <img src="/img/tools/invalid.png" style="height:16px;margin-bottom: 2px;"/>
+        </span>
+        <!--原来的红色样式  btn  btn-danger-->
+        <button ng-disabled="!task.email || task.mailStatus==1"
+                class="btn btn-success btn-sm ml_15" ng-click="js_send_mail(task)"
+        wt-hint-once="" content="马上给活动发一封开发邮件，不用花钱哦" hint-name="customer_sendmail_first_hint" placement="top"
+                >免费发邮件
+        </button>
+        <button ng-show="!task.email || task.mailStatus==1 || (task.mailStatus==-1 && task.isPaid==1)"
+                class="btn btn-sm ml_15 btn-success" ng-click="search_email(task)">查找新邮箱
+        </button>
+        <!--<buttom ng-show="$root.global.is_login && ($root.global.me.role==0 || task.mailStatus==1)"-->
+                <!--class="btn btn-sm ml_15 btn-danger" ng-click="search_email(task)">猜邮箱-->
+        <!--</buttom>-->
+        <!--<buttom ng-show="$root.global.is_login && ($root.global.me.role==0 || task.mailStatus==-1)" ng-click="js_check_mail(task)"-->
+                <!--class="btn btn-sm ml_15 btn-danger" data-loading-text="验证中..." loading-status="is_email_checking">验证邮箱-->
+        <!--</buttom>-->
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.mainIndustryCode.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-sitemap mr_5 ai-gray"></i>行业</label> {{task.mainIndustryCnName}}
+        {{task.subIndustryCnName}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.products.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-glass mr_5 ai-gray"></i>产品</label> {{task.products}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.website.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-globe mr_5 ai-gray"></i>网址</label> <a href="{{task.website}}"
+                                                                  target="_blank">{{task.website}}</a>
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.address.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-building mr_5 ai-gray"></i>地址</label> {{task.address}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="!task.is_edit && task.phone.length>0">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-phone mr_5"></i>电话</label> {{task.phone}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="!task.is_edit && task.fax.length>0">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-globe mr_5"></i>传真</label> {{task.fax}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="task.is_edit || task.description.length>0 || task.desc.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>描述</label>
+
+        <div class="task-desc-text markdown" wt-markdown="task.desc"></div>
+    </div>
+</div>
+<div class="edit-section"
+     ng-show="task.is_edit && (!task.show_part || task.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15"><i
+                    class="icon icon-user"></i></span> <input autofocus=""
+                                                              ng-model="task.temp_name"
+                                                              wt-enter="js_set_update($event, task)"
+                                                              class="form-control" placeholder="活动名称" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15"><i class="icon icon-envelope"></i></span>
+
+            <a href="javascript:;" class="ml_20 mt_20" ng-show="task.email && task.mailStatus<1 && task.isPaid==0" title="查看该邮箱需10积分" ng-click="js_get_mail($event)">{{task.email}}</a>
+
+                                                            <input autofocus="" ng-show="!task.email  || task.mailStatus==1 || task.isPaid==1"
+                                                                  ng-model="task.temp_email"
+                                                                  wt-enter="js_set_update($event, task)"
+                                                                  class="form-control" placeholder="Email" required=""
+                                                                  type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15"><i
+                    class="icon icon-home"></i></span> <input autofocus=""
+                                                              ng-model="task.temp_company"
+                                                              class="form-control" ng-maxlength="50" placeholder="公司"
+                                                              type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">
+                <i class="icon icon-building"></i>
+            </span> <input autofocus=""
+                           ng-model="task.temp_position"
+                           class="form-control" placeholder="职位" ng-maxlength="50" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15 fix-border-right-radius">
+                <i class="icon icon-flag"></i>
+            </span>
+            <wt-cascading
+                    class="fix-border-left-radius border-right-radius"
+                    flag="flag"
+                    source="json/country.json"
+                    firstkey="task.temp_zoneCode"
+                    first="task.temp_zoneCnName"
+                    second="task.temp_countryCnName"
+                    secondkey="task.temp_countryCode"
+                    wt-enter="js_set_update($event, task)"></wt-cascading>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15 fix-border-right-radius"><i
+                    class="icon icon-sitemap"></i></span>
+            <wt-cascading
+                    class="fix-border-left-radius border-right-radius"
+                    flag="flag"
+                    placeholder="选择行业"
+                    source="json/industry.json"
+                    firstkey="task.temp_mainIndustryCode"
+                    first="task.temp_mainIndustryCnName"
+                    second="task.temp_subIndustryCnName"
+                    secondkey="task.temp_subIndustryCode"
+                    wt-enter="js_set_update($event, task)"></wt-cascading>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15"><i
+                    class="icon icon-glass"></i></span> <input autofocus=""
+                                                               ng-model="task.temp_products"
+                                                               wt-enter="js_set_update($event, task)"
+                                                               class="form-control" placeholder="产品列表(以逗号,隔开)"
+                                                               type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15"><i
+                    class="icon icon-building"></i></span> <input autofocus=""
+                                                                  ng-model="task.temp_address"
+                                                                  class="form-control" placeholder="地址" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15"><i
+                    class="icon icon-globe"></i></span> <input autofocus=""
+                                                               ng-model="task.temp_website"
+                                                               class="form-control" placeholder="网址" type="text">
+        </div>
+    </div>
+    <a href="javascript:;" ng-click="toggle_desc()">添加活动描述</a>
+
+    <div ng-show="show_desc">
+        <textarea ng-model="task.temp_desc" type="text" class="w_100p" style="min-height: 100px"
+                  wt-ctrl-enter="js_set_update($event, task)" wt-editor-bk=""
+                  placeholder="添加活动描述(按Ctrl + 回车键提交)"></textarea>
+    </div>
+    <div class="form-group">
+        <button ng-click="js_set_update($event, task)"
+                data-loading-text="保存中..." loading-status="task.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="Task Panel|Main|Edit Task-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(task)" class="btn"
+                wt-tracker="Task Panel|Main|Edit Task-Cancel">取消
+        </button>
+    </div>
+</div>

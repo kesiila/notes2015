@@ -1,0 +1,81 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-time mr_10"></i>全部动态</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="height-nonav" wt-scroll>
+            <dl class="frame" data-minheight="160">
+                <dt>
+                <ul class="tabs">
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 0]" href="javascript:;" ng-click="js_change_tab(0)">
+                            全部
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 1]" href="javascript:;" ng-click="js_change_tab(1)">
+                            活动
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 2]" href="javascript:;" ng-click="js_change_tab(2)">
+                           邮件
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 3]" href="javascript:;" ng-click="js_change_tab(3)">
+                           模板
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 4]" href="javascript:;" ng-click="js_change_tab(4)">
+                           问答
+                        </a>
+                    </li>
+<!--                     <li>
+                        <a ng-class="{true: 'active'}[current_tab == 4]" href="javascript:;" ng-click="js_change_tab(4)">
+                            文档
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-class="{true: 'active'}[current_tab == 5]" href="javascript:;" ng-click="js_change_tab(5)">
+                            日程
+                        </a>
+                    </li>
+ -->                </ul>
+
+                </dt>
+                <dd>
+                    <div class="empty-panel" ng-show="feeds != null && feeds.length == 0 && part_loading_done">
+                        <i class="icon-time"></i><br>
+                        <span>没有任何动态</span>
+                    </div>
+                    <div class="feed-list" ng-show="feeds.length > 0">
+                        <div class="wt-row feed-item" ng-repeat="feed in feeds">
+                            <wt-feed></wt-feed>
+                        </div>
+                    </div>
+                    <div class="loading-more-panel">
+                        <div class="part-loading" data-ng-hide="part_loading_done">
+                        </div>
+                        <button class="btn" ng-show="has_more && part_loading_done"
+                                data-loading-text="加载中..."
+                                loading-status="!part_loading_done"
+                                ng-click="load_feeds_more($event);">
+                            加载更多...
+                        </button>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+</div>

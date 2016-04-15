@@ -1,0 +1,30 @@
+<div>
+    <div class="activity-day" ng-show="activity.is_show_date">
+        <span class="year">{{[activity.published,'YYYY'] | momentFormat}}年<br/></span>
+        <strong>{{[activity.published,'MM/DD'] | momentFormat}}<br/></strong>
+        <span class="weekday">{{[activity.published,'ddd'] | momentFormat}}</span>
+    </div>
+    <div class="activity-icon">
+        <i ng-class="activity.verb | activityIcon"></i>
+    </div>
+    <div class="activity-meta">
+        <span class="date" wt-title="[activity.published,'HH:mm'] | momentFormat">{{[activity.published,'HH:mm'] | momentFormat}}</span>
+    </div>
+    <wt-avatar member="activity.actor" size="30" class="activity-avatar"></wt-avatar>
+
+    <div class="activity-itemwarp">
+    <span class="activity">
+        <!--<wt-include src="tpl_prefix + activity.template"></wt-include>-->
+        <span class="actor">{{activity.actor.display_name}}</span>
+        <span class="verb" ng-bind-html-unsafe="verb"></span>
+        <a class="target" title="{{display_entity.name}}" href="javascript:;" ng-click="js_to_entity(display_entity)">
+            {{display_entity.name}}
+        </a>
+
+        <!--<span class="verb">{{verb2}}</span>-->
+        <!--<a class="target" title="{{display_entity.name}}" href="javascript:;">-->
+            <!--{{display_entity.name}}-->
+        <!--</a>-->
+    </span>
+    </div>
+</div>

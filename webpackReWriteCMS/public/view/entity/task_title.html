@@ -1,0 +1,22 @@
+<!--<a class="task_check" ng-click="js_complete_task(task)"-->
+	<!--wt-tracker="Task Panel|Main|Edit Task-Toggle Complete"> <i-->
+    <!--class="ai-gray"-->
+	<!--ng-class="{0: 'icon-user', 1: 'icon-user'}[task.completed]"></i>-->
+<!--</a>-->
+<h2 ng-click="js_show_editor(task)"
+    ng-show="(!task.show_part || task.show_part==1 || task.show_part==2) && (task.collected || (task.uid ==global.me.uid)) && global.is_outter == false"
+    wt-tracker="Task Panel|Main|Edit Task">
+	<span title="联系人:{{task.name}}" ng-show="task.name">{{task.name|abbrevition:30}}</span>
+    <span ng-show="!task.name" class="text-muted">暂无联系人</span>
+    <em><strong title="职位">{{task.position}}</strong></em><em class="pull-right" title="所属机构:{{task.organizer.name}}"><i class="icon-flag"
+		ng-show="task.is_edit || task.countryCnName.length>0 || permission==4"></i>
+		{{task.countryCnName}} </em>
+</h2>
+<h2 ng-show="!((!task.show_part || task.show_part==1 || task.show_part==2) && (task.collected || (task.uid ==global.me.uid)) && global.is_outter == false)"
+	wt-tracker="Task Panel|Main|Edit Task">
+    <span title="联系人:{{task.name}}">{{task.name|abbrevition:30}}</span>
+    <span ng-show="!task.name" class="text-muted">暂无联系人</span>
+    <em><strong title="职位">{{task.position}}</strong></em><em class="pull-right" title="所属机构:{{task.organizer.name}}"><i class="icon-flag"
+		ng-show="task.is_edit || task.countryCnName.length>0 || permission==4"></i>
+		{{task.countryCnName}} </em>
+</h2>

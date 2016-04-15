@@ -1,0 +1,167 @@
+<div data-ng-controller="entity_organizer_ctrl"
+	class="entity-panel template-panel organizer-panel" wt-dragfile="dragfile_option">
+    <div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+    <div ng-show="section_loading_done && !organizer_exist" class="alert alert-warning text-center"
+         style="padding: 10px;margin:10% 15px">
+        <span>机构信息不存在</span>
+    </div>
+	<div class="entity-panel-wrapper"  ng-show="section_loading_done && organizer_exist">
+		<div class="entity-panel-header">
+			<a class="name" href="javascript:;"
+				ng-show="global.is_outter == false"
+				ng-click="locator.to_project(project.info.pid, 'organizer')"> <i
+				class="{{project.info.pic}} mr_10"
+				ng-style="{color:project.info.bg}"></i> {{project.info.name}}&nbsp;
+			</a>
+			<ul class="nav nav-pills">
+				<li ng-show="permission==16" class="entity-warning">机构已经于
+					{{organizer.update_date | timeFormatZHCN}} 删除了</li>
+                <!--<li data-placement="bottom" class="js-popbox" >-->
+                    <!--<a href="javascript:;" ng-show="global.is_login&&global.is_outter&&!template.collected" ng-click="js_collect(organizer)"><i class="icon-book"></i>收藏</a>-->
+                    <!--<a href="javascript:;" class="disabled" ng-show="global.is_login&&global.is_outter&&organizer.collected"><i class="icon-book"></i>已收藏</a>-->
+                <!--</li>-->
+				<!--<li wt-permission="[permission,project.info.curr_role,1,2]"
+					ng-show="global.me.role==0 || (organizer.uid ==global.me.uid && global.is_outter == false)">
+                    <a href="javascript:;" ng-class="{true:'disabled'}[global.me.role!=0 && (organizer.uid != global.me.uid || organizer.is_edit)]"
+					    ng-click="show_organizer_editor(organizer)" title="编辑">
+                        <i class="icon-pencil"></i>编辑
+				    </a>
+                </li>-->
+
+                <li data-placement="bottom" class="js-popbox" >
+                    <a href="javascript:;" ng-show="organizer.isHot==0 && global.is_login && global.me.role==0" ng-click="js_hot(organizer)"><i class="icon-book"></i>设为热门</a>
+                    <a href="javascript:;" ng-show="organizer.isHot==1 && global.is_login && global.me.role==0" ng-click="js_hot(organizer)"><i class="icon-book"></i>取消热门</a>
+                </li>
+
+
+                <li>
+                    <a href="javascript:;" ng-class="{true:'disabled'}[global.me.role!=0 && (organizer.uid != global.me.uid || organizer.is_edit)]"
+                       ng-click="show_organizer_editor(organizer)" title="编辑">
+                        <i class="icon-pencil"></i>编辑1233141
+                    </a>
+                </li>
+
+				<li>
+                    <a href="javascript:;" ng-show="(organizer.uid ==global.me.uid) &&global.is_outter == false"
+					ng-class="{true:'disabled'}[organizer.is_published==1]" wt-entity-share="[permission,project.info.pid,'organizers',organizer.organizer_id,organizer.is_published]">
+                        <i class="icon-share" title="{{ {true:'已分享',false:'分享'}[organizer.is_published==1] }}"></i>
+						{{ {true:'已分享',false:'分享'}[organizer.is_published==1] }}
+                    </a>
+                </li>
+				<li class="divider-v"
+					wt-permission="[permission,project.info.curr_role,1,2]"></li>
+                <li data-placement="bottom" class="js-popbox" >
+                    <a href="javascript:;" ng-show="global.is_outter && organizer.collected==0" ng-click="js_collect(organizer)"><i class="icon-book"></i>关注</a>
+                    <a href="javascript:;" class="disabled" ng-show="global.is_login && global.is_outter && organizer.collected==1"><i class="icon-book"></i>已关注</a>
+                </li>
+
+                <li class="js-popbox" data-placement="bottom" ng-show="global.is_outter == false"
+					wt-permission="[permission,project.info.curr_role,1,2]"><a
+					href="#" class="dropdown-toggle" data-toggle="dropdown"
+					title="添加附件"> <i class="icon-paper-clip"></i>附件
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="javascript:;" class="fileinput-button"><i
+								class="icon-desktop"></i>本地上传 <input type="file" name="files[]"
+								title="添加附件" multiple wt-uploadfile="file_upload_option" /></a></li>
+						<li><a href="javascript:;"
+							ng-click="js_show_attach($event, organizer)"><i class="icon-file"></i>从项目文件选择</a></li>
+					</ul></li>
+
+				<!--<li wt-permission="[permission,project.info.curr_role,1,2]"
+                    ng-show="global.me.role==0 || (organizer.uid ==global.me.uid && global.is_outter == false)">
+                    <a href="javascript:;" ng-class="{true:'disabled'}[global.me.role!=0 && organizer.is_published==1]" ng-click="js_trash($event,organizer.organizer_id)">
+                        <i class="icon-trash"></i>删除
+                    </a>
+                </li>-->
+
+                <li ng-show="global.me.role==0 || (organizer.uid ==global.me.uid && global.is_outter == false)">
+                    <a href="javascript:;" ng-click="js_trash($event,organizer)">
+                        <i class="icon-trash"></i>删除
+                    </a>
+                    <!--<a href="javascript:;" ng-show="global.me.role!=0 && organizer.is_published==1" ng-class="{true:'disabled'}[global.me.role!=0 && organizer.is_published==1]" ng-click="js_trash($event,organizer)">-->
+                        <!--<i class="icon-trash"></i>删除-->
+                    <!--</a>-->
+                </li>
+
+				<li class="divider-v"></li>
+				<li><a href="javascript:;" style="padding-top: 10px;padding-bottom: 10px;" ng-click="js_close()" title="关闭">
+						<i class="icon-remove"></i>
+				</a></li>
+			</ul>
+		</div>
+		<div class="entity-panel-body height-nonav"
+			wt-scroll='{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}'>
+			<div class="entity-content-panel">
+				<div class="content-module editable-module">
+					<div ng-hide="organizer.is_edit">
+						<div class="entity-title ml_30">
+							<h2 ng-click="js_show_editor(organizer)">{{organizer.title}}</h2>
+						</div>
+                        <wt-badges-organizer class="ml_30" organizer="organizer"></wt-badges-organizer>
+                        <!--<wt-add-tag  tag="organizer"></wt-add-tag>-->
+						<div class="ml_30 mt_15">
+							<div class="markdown" wt-markdown='organizer.desc'></div>
+						</div>
+					</div>
+					<div class="edit-section" ng-show="organizer.is_edit">
+						<div>
+							<input type="text" autofocus ng-model="organizer.temp_name"
+								wt-enter="js_set_content(organizer)" class="form-control help-block"
+								placeholder="机构名称" maxlength="100" required>
+
+							<!--<div class="cascading-wapper mb_15" ng-if="global.me.role==0">
+								<wt-cascading flag="flag" first="f_typeName"
+									firstkey="organizer.temp_f_type" second="s_typeName"
+									secondkey="organizer.temp_s_type"
+									source="json/manager/organizerType.json"> </wt-cascading>
+							</div>
+
+							<div class="cascading-wapper mb_15" ng-if="global.me.role==1">
+								<wt-cascading flag="flag" first="organizer.f_typeName"
+									firstkey="organizer.temp_f_type" second="organizer.s_typeName"
+									secondkey="organizer.temp_s_type" source="json/organizerType.json">
+								</wt-cascading>
+							</div>-->
+
+
+                            <textarea wt-ctrl-enter="js_update_organizer(organizer)"
+                                      ng-model="organizer.temp_content" type="text" wt-full-editor=""
+                                      placeholder="机构内容(按Ctrl + 回车键提交)"></textarea>
+						</div>
+
+						<div class="form-group">
+							<button ng-click="js_update_organizer(organizer)"
+								data-loading-text="保存中..." class="btn btn-success mr_15"
+								loading-status="is_setting_content">保存</button>
+							<button ng-click="js_cancel_editor(organizer)" class="btn">取消</button>
+						</div>
+					</div>
+				</div>
+				<div class="content-module dragfile-hover-show"
+					ng-show="organizer.files.length > 0 || global_fileupload_queue().length>0">
+					<h4>
+						<i class="icon-paper-clip"></i>附件
+					</h4>
+					<div class="entity-attachments">
+						<ul>
+							<wt-attachment ng-repeat="file in organizer.files"
+								del="js_del_attachment($event, file)"
+								del-permission="permission==1 && ( project.info.curr_role==1 || project.info.curr_role==2)"></wt-attachment>
+							<wt-attachment class="attachment-progress"
+								ng-repeat="file in global_fileupload_queue()"></wt-attachment>
+							<li class="dragfile-hover-placeholder"><span class="name"><i
+									class="icon-upload-alt"></i>松开上传文件</span></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="content-module" id="organizers_tab_module" ng-cloak>
+					<ng-include src="'/view/common/tab_comment_activity.html'"></ng-include>
+					<br/>
+					<br/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

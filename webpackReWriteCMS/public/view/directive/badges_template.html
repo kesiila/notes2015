@@ -1,0 +1,10 @@
+<div class="template-badges">
+    <i ng-show="!$root.global.is_outter" ng-class="{0: 'color_gray icon-lock', 1: 'ai-green icon-unlock'}[template.is_published]" title="{{ {0:'私有', 1: '已分享'}[template.is_published] }}"></i>
+    <!--<i ng-show="template.collected&&global.is_outter"  class="ai-green icon-star" title="已收藏"></i>-->
+    <span ng-show="template.collect_count>0" class='icon-user template-badge font_light_gray_color' title='收藏量'>{{template.collect_count}}</span>
+    <span ng-show="template.comment_count>0" class='icon-comment-alt template-badge font_light_gray_color' title='评论数'>{{template.comment_count}}</span>
+    <span ng-show="template.click_count>0" class='icon-eye-open template-badge font_light_gray_color' title='浏览量'>{{template.click_count}}</span>
+    <span ng-show="template.praiser_count>0" class='icon-thumbs-up template-badge font_light_gray_color' title='点赞人数'>{{template.praiser_count}}</span>
+    &nbsp;
+</div>
+

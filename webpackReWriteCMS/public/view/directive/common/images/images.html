@@ -1,0 +1,19 @@
+<style>
+    .images-list-wrapper .image-item a {
+        display: none;
+    }
+    .images-list-wrapper .image-item:hover a {
+        display: block !important;
+    }
+</style>
+<ul class="images-list-wrapper" style="padding: -5px">
+    <li class="image-item block-inline m_5 pos_relative"  ng-repeat="image in images">
+        <img ng-src="{{image|imageFullPath}}" alt="" width="100" height="50"/>
+        <a class="pos_absolute" style="top:0px; left: 0px;" ng-click="moveToFirst(image)">
+            <i class="icon" ng-class="{false:'icon-star-empty ai-yellow',true: 'icon-flag ai-red'}[$first]"></i>
+        </a>
+        <a class="pos_absolute"  style="top:0px;right: 0px" ng-click="remove(image)">
+            <i class="icon icon-remove ai-yellow"></i>
+        </a>
+    </li>
+</ul>

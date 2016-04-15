@@ -1,0 +1,64 @@
+<div class="layout_content">
+
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-user mr_10"></i>用户管理</h3>
+            </div>
+        </div>
+
+        <div class="center-panel-container height-nonav" wt-scroll ng-show="global.loading_done">
+            <dl class="frame" data-minheight="160">
+                <dt>
+                    <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+                </dt>
+                <dd>
+                    <div>
+                        <div class="panel-section">
+                            <h4>根据用户名查看信息</h4>
+                        </div>
+                        <div class="panel-section">
+
+                            <div class="col-xs-4 pl_0">
+                                <input ng-model="user_name" wt-enter="find_user_by_name()" type="text" maxlength="50" style="width:100%;" class="form-control"
+                                       placeholder="请输入用户名" required/>
+                            </div>
+                            <button class="btn btn-primary" type="button" ng-click="find_user_by_name()">
+                                <i class="icon-search fs_20"></i>
+                            </button>
+                        </div>
+                        <div class="panel-section mt_20">
+                            <button ng-disabled="!can_update"
+                                    class="btn btn-success mr_15" ng-click="set_user_status(1)"
+                                    loading-status="is_update1" data-loading-text="冻结中...">冻结
+                            </button>
+                            <button ng-disabled="!can_update"
+                                    class="btn btn-success mr_15" ng-click="set_user_status(0)"
+                                    loading-status="is_update0" data-loading-text="激活中...">激活
+                            </button>
+                        </div>
+                        <div class="panel-section mt_20 col-xs-4">
+                            <div class="part-loading mt_20" ng-hide="part_loading_done"></div>
+                            <div data-ng-show="part_loading_done">
+                                <div ng-show="!show_user">没有用户的信息！</div>
+                                <div ng-show="show_user">
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">账户状态：{{account_status}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">用户名：{{user.name}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">注册邮箱：{{user.email}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">注册时间：{{user.create_date | fromNow}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">公司：{{user.companyName}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">行业：{{user.f_tradename}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">权限：{{user.role}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">积分：{{user.badges.score}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">私有活动数：{{user.badges.customers_private_count}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">分享活动数：{{user.badges.customers_share_count}}</span>
+                                    <span style="display: block;padding: 10px;border-bottom:1px solid #808080;">收藏活动数：{{user.badges.customers_download_count}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

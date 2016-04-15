@@ -1,0 +1,35 @@
+
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>设置组内标记</h3>
+        </div>
+        <div class="popbox-body">
+            <ul class="popbox-menu">
+                <li class="label-item" ng-repeat="label in labels" >
+                    <a href="javascript:;" class="js-toggle-label-filter" ng-click="js_toggle_label(label)" ng-hide="label.desc==''|| label.desc==null " >
+                        <span class="task-label {{label.name}}-label text-center" >
+                            <i ng-class="{0: 'icon-xx', 1: 'icon-ok'}[label.assigned]" class="icon-white" style="line-height: 24px;"></i>
+                        </span>
+                        <span class="label-name">{{label.desc}}</span>
+                    </a>
+                </li>
+                <li ng-show="labels==0">
+                    <div class="empty-menu">还未定义组内标记</div></li>
+                <li class="divider"></li>
+                <li><a ng-click="js_goto_set_labels()"><i class="icon-tags"></i> 定义组内标记</a></li>
+            </ul>
+        </div>
+    </li>
+
+    <li ng-switch-when="1" class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(2)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>定义组内标记</h3>
+        </div>
+
+        <ng-include src="'/view/project/task/pop_mod_set_labels.html'"></ng-include>
+    </li>
+</ul>

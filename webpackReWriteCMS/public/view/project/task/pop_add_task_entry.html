@@ -1,0 +1,96 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>新建活动</h3>
+        </div>
+        <form name="add_task_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+              class="wt-form" novalidate role="form">
+            <div class="popbox-body w_300 pb_0" ng-if="entries.length > 0">
+                <div class="form-group">
+                    <div>
+                        <textarea class="js-task-name form-control ng-pristine ng-valid" autofocus=""
+                                  placeholder="输入活动内容" required name="task_name"
+                                  ng-model="new_task.name" wt-enter="js_add_task(add_task_form, new_task)">
+                        </textarea>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label>列表：</label>
+                    <div>
+                        <select class="form-control" name="entry_select" ng-model="new_task.entry" required=""
+                                ng-options="entry as entry.name for entry in entries">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>截止日期：</label>
+
+                    <div>
+                        <input type="text" class="form-control" required="" ng-model="new_task.expire_date" readonly ng-click="js_step(1)" >
+                    </div>
+                </div>
+                <div class="form-group" ng-show="add_task_form.$errors.length > 0">
+                    <div>
+                        <div class="alert alert-danger">
+                            <i class="icon-remove-sign"></i> {{add_task_form.$errors[0]}}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button wt-form-submit="js_add_task(add_task_form, new_task)"
+                                data-loading-text="保存中..."
+                                class="btn btn-success mr_15"
+                                loading-status="is_saving_task">保存
+                        </button>
+                        <button ng-click="js_close(result)" class="btn">取消</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popbox-body w_300 part-loading" data-ng-if="loading_entries"></div>
+            <div class="popbox-body w_300 pb_0" data-ng-if="entries.length == 0">
+                <div ng-show="entries.length == 0">
+                    <p class="alert alert-info">必须创建列表后才可以创建活动哦！
+                    </p>
+                    <!--<button href="javascript:;" class="btn btn-success" ng-click="js_to_add_entry_pop()">开始添加列表</button>-->
+                </div>
+            </div>
+        </form>
+    </li>
+    <li ng-switch-when="1" class="popbox-step-li">
+
+        <div class="popbox-header">
+            <button class="back icon-chevron-left" ng-click="js_step(0)"></button>
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>设置截止日期</h3>
+        </div>
+        <div class="popbox-body">
+
+            <ul class="list-inline m_0">
+                <li>
+                    <a href="javascript:;" ng-click="js_set_expire_date('today')">今天</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="javascript:;" ng-click="js_set_expire_date('tomorrow')">明天</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="javascript:;" ng-click="js_set_expire_date('week')">本周</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="javascript:;" ng-click="js_set_expire_date('next_week')">下周</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="javascript:;" ng-click="js_set_expire_date('month')">本月</a>
+                </li>
+            </ul>
+            <div wt-datepicker="new_task.expire_date" select="js_step(0)"></div>
+
+        </div>
+    </li>
+</ul>

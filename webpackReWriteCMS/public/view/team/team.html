@@ -1,0 +1,101 @@
+<div class="layout_content">
+	<div class="layout_content_main no_sidebar ">
+		<div class="mod_navbar">
+			<div class="title">
+				<ng-include src="'/view/team/team_title.html'"></ng-include>
+			</div>
+			<div class="main">
+				<div class="pull-right">
+					<ng-include src="'/view/team/team_admin_top_tab.html'"></ng-include>
+				</div>
+			</div>
+		</div>
+		<div class="main-content height-nonav" wt-scroll>
+			<div class="center-right-panel">
+				<div class="center-panel">
+					<div class="center-panel-inner">
+						<dl class="frame" data-minheight="160">
+							<div class="box-panel-body">
+								<dt>
+									<span class="title">成员</span>
+									<ul class="tabs"
+										ng-if="global.team_module.view | permission:current_team.permission">
+										<li><a
+											ng-class="{true: 'active'}[member_current_tab == 'member']"
+											href="javascript:;" ng-click="member_set_tab('member')">
+												团队成员 </a></li>
+										<li><a
+											ng-class="{true: 'active'}[member_current_tab == 'guest']"
+											href="javascript:;" ng-click="member_set_tab('guest')">
+												团队访客 </a></li>
+									</ul>
+								</dt>
+								<div class="" ng-show="member_current_tab === 'member'">
+									<div class="part-loading mt_20"
+										data-ng-hide="part_loading_done"></div>
+									<div data-ng-show="part_loading_done" class="team-panel">
+										<ul class="avatars"
+											ng-if="global.team_module.view_base | permission:current_team.permission">
+											<li ng-show="current_team.curr_role | is_admin"
+												class="avatar-invite"><a class="avatar-add avatar-56"
+												href="/teams/{{current_team.team_id}}/invite"> <span
+													class="o"> <i class="icon-plus"></i>
+												</span> <br>邀请成员
+											</a></li>
+											<li
+												ng-repeat="member in members | filter:teamMembersFilter() | filter:isStatusOkFilter()">
+												<wt-avatar member="member" size="56"
+													name="[member.display_name,10] | cutstr" namebr="true"
+													status="true" click="js_show_member_menu($event,member)"
+													class="js-popbox member m_15" data-placement="right"
+													role="member.role" is-team="true" data-align="top"></wt-avatar>
+											</li>
+										</ul>
+										<div
+											ng-if="(members | filter:{status:2}).length > 0 && (global.team_module.view | permission:current_team.permission) ">
+											<dt class="tabs m_15"></dt>
+											<h4 class="ml_10">已邀请成员</h4>
+											<ul class="avatars"
+												ng-if="global.team_module.view_base | permission:current_team.permission">
+												<li
+													ng-repeat="member in members | filter:teamMembersFilter() | filter:isStatusPendingFilter()">
+													<wt-avatar member="member" size="56"
+														name="[member.display_name,10] | cutstr" namebr="true"
+														status="true" click="js_show_member_menu($event,member)"
+														class="js-popbox member m_15" data-placement="right"
+														data-auto-adapt="true" role="member.role" is-team="true"
+														data-align="top"></wt-avatar>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="team-panel"
+									ng-if="(members | filter:{role:3}).length > 0 && member_current_tab === 'guest' ">
+									<ul class="avatars">
+										<li ng-repeat="member in members | filter:{role:3}"><wt-avatar
+												member="member" size="56"
+												name="[member.display_name,10] | cutstr" namebr="true"
+												click="js_show_member_menu($event,member)"
+												class="js-popbox member m_15" status="true" is-team="true"
+												data-placement="right" data-align="top"></wt-avatar></li>
+									</ul>
+								</div>
+								<div class="empty-panel"
+									ng-if="(members | filter:{role:3}).length == 0 && member_current_tab === 'guest'">
+									<i class="icon-user"></i> <br /> <span>该团队暂时没有访客</span>
+								</div>
+							</div>
+							<div class="box-panel-body"></div>
+						</dl>
+					</div>
+				</div>
+				<div class="right-panel">
+					<ng-include
+						src="'/view/team/team_admin_task_stats_widget.html'"></ng-include>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-include src="'/view/team/team_not_found.html'"></ng-include>

@@ -1,0 +1,219 @@
+<div class="post layout_content">
+
+    <!--<div class="page_navbar">-->
+        <!--<div class="page-navbar-warp">-->
+            <!--<div class="title">-->
+                <!--<h3><a href="/club"> <i class="icon-book mr_10"></i>留学问答</a></h3>-->
+            <!--</div>-->
+            <!--<button class="btn btn-success pull-right mt_12 mr_45" wt-tracker="Project Task Page|Nav|Open Add Task"-->
+                    <!--ng-click="add_post.show_add_post()">我要提问-->
+            <!--</button>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div class="forum-panel">
+        <div class="forum-container" style="padding-left:10px">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 sidebar">
+                <div class="sidebar-inner">
+                    <div class="sidebar-widget">
+                        <div id="tabs_div">
+                            <a ng-href="/post?page=1&type=" ng-class="{true: 'active'}[header_menu=='post']">精华</a>
+                            <a ng-href="/club?page=1&type=" class= "active" ng-class="{true:'active'}[header_menu=='club']">问答</a>
+                        </div>
+                        <ul>
+                            <li>
+                                <a ng-class="{true: 'active'}[current_code == '0']" href="/club">全部<span
+                                        ng-show="post_all_count>=0">({{post_all_count}})</span></a>
+                            </li>
+                            <li ng-repeat="postType in postTypes">
+                                <a ng-class="{true: 'active'}[current_code == postType.code]"
+                                   ng-href="/club?type={{postType.code}}"> {{postType.cnName}}<span
+                                        ng-show="postType.count>=0">({{postType.count}})</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box-shadow ptb_5 pl_15"
+                         ng-show="$root.global.is_login">
+                        <h4>
+                            <a href="javascript:;" ng-click="toMyPosts()"><i
+                                    class="icon-comment ai-green mr_10"></i>我的问答</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10">
+
+                <div class="forum-content ng-hide" ng-show="add_post.show_add_new_post"
+                     style="height:auto;min-height: 5px;margin-bottom: 20px;">
+                    <div class="forum-category-wrapper" style="padding-bottom: 20px;">
+                        <div class="post-edit-container">
+                            <form name="post_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}"
+                                  novalidate="">
+
+                                <input type="text" id="post_title" ng-focus="add_post.clear_warming('post_title')"
+                                       maxlength="100" name="post_title" autofocus ng-model="add_post.data.title"
+                                       class="form-control help-block" placeholder="问答名称" required>
+
+                                <div class="cascading-wapper mb_10">
+                                    <div class="cascading-wapper">
+
+                                        <input id="post_type" ng-focus="add_post.clear_warming('post_type')"
+                                               ng-model="add_post.data.s_typename" ng-click="add_post.show_s_type()"
+                                               placeholder="选择问答分类" type="text" class="form-control"/>
+
+                                        <div ng-show="add_post.show_types" class="cascading"
+                                             style="max-height: 240px;padding-right: 0px" wt-scroll="">
+                                            <ul>
+                                                <li ng-repeat="postType in postTypes"
+                                                    ng-click="add_post.choose_s_type($index)"
+                                                    ng-class="{'active': add_post.s_type_index == $index}">
+                                                    <a href="javascript:;">{{ postType.cnName }}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <textarea id="post_content" ng-focus="add_post.clear_warming('post_content')"
+                                          ng-model="add_post.data.content" wt-full-editor=""
+                                          placeholder="详细描述一下你的问题" style="height: 55%;"></textarea>
+
+                                <div class="template_watch_bar" ng-if="global.is_login && global.me.role==0">
+                                    <label class="cursor"><input type="radio" value="00" name="f_type"
+                                                                 ng-model="add_post.data.f_type"
+                                                                 checked="checked|{{add_post.data.f_type='00'}}"/>精华库</label>
+                                    <label class="cursor"><input type="radio" value="01" name="f_type"
+                                                                 ng-model="add_post.data.f_type"
+                                                                 checked="checked|{{add_post.data.f_type='01'}}"
+                                                                 style="margin-left: 30px;"/>模板库</label>
+                                </div>
+                                <div class="post_watch_bar">
+                                    <button class="btn btn-success mr_15" data-loading-text="提交中..."
+                                            loading-status="is_saving" ng-click="add_post.add()">提交问题
+                                    </button>
+                                    <button class="btn btn-cancel" ng-click="add_post.show_add_post()">取消</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-content clearfix" ng-show="!add_post.show_add_new_post">
+                    <div class="forum-category-wrapper">
+                        <div class="forum-heading clearfix">
+                            <h3 class="pull-left" style="line-height: 1.7em">
+								<span>
+                                    <a  href="/club">全部</a>
+                                </span>
+                                <span ng-show="classify_show_name!=''">
+                                    <i class="icon-angle-right"></i>
+                                    <span>{{classify_show_name}}</span>
+								</span>
+                            </h3>
+                            <h3 class="pull-left ml_5" style="line-height: 1.7em" ng-if="total_count>0">({{total_count}})</h3>
+
+                            <!-- 排序部分 -->
+                            <div class="btn-group pull-right mr_15" style="margin-top: -3px">
+                                <!-- ng-click="sortPostDates('')" -->
+                                <button class="btn btn-success mr_15" style="border-radius: 3px;" wt-tracker="Project Task Page|Nav|Open Add Task"
+                                        ng-click="add_post.show_add_post()">我要提问
+                                </button>
+                                <a class="btn dropdown-toggle ptb_11 mr_15 pull-right"
+                                   data-toggle="dropdown" href="javascript:;">
+                                    <i class="icon-caret-down"></i>
+                                </a>
+                                <!-- 显示排序条件 -->
+                                <ul class="dropdown-menu dropdown-menu-right" tooltip="选择排序条件">
+                                    <li ng-repeat="item in postSort_filterItems"
+                                        style="text-align: center"><a
+                                            ng-click="sortPostDates(item)" href="javascript:;"> <i
+                                            ng-class="{false:'icon-xx'}[item.value==currentSortItem.value]"
+                                            wt-show="item.value!=currentSortItem.value"></i> <i
+                                            ng-class="{true:'icon-long-arrow-down',false:'icon-long-arrow-up'}[req.isDESC==true]"
+                                            ng-show="item.value==currentSortItem.value"></i> {{item.name
+                                        }}
+                                    </a></li>
+                                </ul>
+                                <button class="btn ptb_11 pull-right" ng-click="change_sort()"
+                                        tooltip="{{ {true:'降序',false:'升序'}[req.isDESC==true] }}">
+									<span><i
+                                            ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[req.isDESC==true]"></i></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="thread-list">
+                            <div class="empty-panel"
+                                 ng-show="!total_count && global.loading_done">
+                                <i class="icon-list-alt"></i> <br/> <span>还没有任何问答</span>
+                            </div>
+
+                            <!-- ng-click="to_post_detailed(post.post_id)" -->
+
+                            <div class="wt-row thread-item slide-trigger cursor"
+                                 ng-class="{'active':post.post_id == locator.show_detail_post_id}"
+                                 ng-click="to_post_detailed(post)"
+                                 ng-repeat="post in posts">
+                                <div class="col-sm-12 thread-item-inner">
+                                    <div class="row primary">
+                                        <div class="col-sm-10 text-ellipsis thread-title pos_relative">
+                                            <i class="color-block" style="top: 10px; left: 15px"></i>
+                                            <!-- 文章标题 -->
+                                            <!--<h4 ng-if="global.me.role==0" class="col-xs-12 text-ellipsis">
+                                                <a href="javascript:;">{{post.name}}</a>
+                                            </h4>
+                                            <h4 ng-if="global.me.role!=0" class="col-xs-12 text-ellipsis">
+                                                <a href="/club/{{post.post_id}}">{{post.name}}</a>
+                                            </h4>-->
+                                            <h4 class="col-xs-12 text-ellipsis">
+                                                <a href="javascript:;" title="问答标题">
+                                                    <span ng-show="post.f_type=='00'"
+                                                          class="color-active">{{post.name}}</span>
+                                                    <span ng-show="post.f_type!='00'">{{post.name}}</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="col-sm-2 visible-hover thread-counts text-right">
+                                            <!--收藏按钮-->
+                                            <button class="btn btn-sm mt_12 mr_15 btn-danger"
+                                                    wt-stop-propagation="click" ng-hide="post.collected"
+                                                    ng-click="post_collect(post)">关注
+                                            </button>
+                                            <button class="btn btn-sm mt_12 mr_15 btn-default disabled"
+                                                    ng-show="post.collected">已关注
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                    <div class="row  sm-font-color secondary">
+
+                                        <!-- 关注数 浏览数 -->
+                                        <div class="col-sm-3 pull-left text-left text-ellipsis">
+                                            <wt-badges-post class="div-over" post="post"></wt-badges-post>
+                                        </div>
+
+                                        <!-- 发布人信息 -->
+                                        <div class="col-md-3 col-sm-3 pull-right text-right text-ellipsis">
+                                            <span class="mr_15" title="{{ post.owner.display_name }}">{{post.create_date | fromNow}}&nbsp;by&nbsp;{{post.owner.display_name}}</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-pager pull-right">
+                            <pagination2 ng-model="currentPage" total-items="total_count"
+                                         items-per-page="req.size" max-size="5" rotate="true"
+                                         direction-links="true" previous-text="上一页" next-text="下一页"
+                                         boundary-links="true" first-text="首页" last-text="尾页"
+                                         num-pages="numPages" ng-show="total_count>10"
+                                         type="current_code"></pagination2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,417 @@
+<div data-ng-controller="entity_task_ctrl"
+	 class="entity-panel task-panel" wt-dragfile="dragfile_option">
+	<div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+	<div ng-show="section_loading_done && !task_exist"
+		 class="alert alert-warning text-center"
+		 style="padding: 10px; margin: 10% 15px">
+		<span>活动信息不存在</span>
+	</div>
+	<div class="entity-panel-wrapper"
+		 ng-show="section_loading_done && task_exist">
+		<div class="entity-panel-header">
+			<a href="javascript:;" class="name" ng-show="false"
+			   ng-click="locator.to_project(project.info.pid, 'task')"
+			   wt-tracker="Task Panel|Main|Goto Project"> <i
+					class="{{project.info.pic}} icon-home mr_10"
+					ng-style="{color:project.info.bg}"></i> {{project.info.name}}
+			</a>
+			<ul class="nav nav-pills">
+				<li ng-show="permission==16" class="entity-warning">活动已经于
+					{{task.update_date | timeFormatZHCN}} 删除了</li>
+				<li ng-show="permission==32" class="entity-info">活动已经于
+					{{task.update_date | timeFormatZHCN}} 归档了</li>
+				<li ng-show="permission==32" class="divider-v"></li>
+				<li ng-show="permission==32"><a href="javascript:;"
+												ng-click="js_show_entry_menu($event, task)" title="激活"> <i
+						class="icon-undo"></i>激活
+				</a></li>
+				<!--编辑按钮的状态切换 可点击条件：已登录，并且不再编辑状态，并且已支付或活动邮件信息错误 -->
+				<li data-placement="bottom" ng-show="$root.global.is_login"
+					class="js-popbox"><a href="javascript:;"
+										 ng-show="!task.is_edit" ng-click="js_show_editor(task)" title="可编辑">
+					<i class="icon-pencil"></i>编辑
+				</a> <a href="javascript:;"
+						ng-show="task.is_edit || ($root.global.me.role>0)"
+						class="disabled"
+						title="{{ {false:'可编辑',true:'正在编辑'}[task.is_edit] }}"> <i
+						class="icon-pencil"></i>编辑
+				</a></li>
+
+				<!--分享按钮的状态切换-->
+				<li
+						ng-show="task.xtype=='programs' && $root.global.is_outter == false">
+					<a href="javascript:;" title="发布"
+					   ng-click="js_task_share($event,task)" ng-if="task.status == 0">
+						<i class="icon-share"></i>发布
+					</a>
+					<a href="javascript:;" title="已公开" class="disabled"
+					   ng-if="task.status == 1">
+						<i class="icon-share"></i>已公开
+					</a>
+				</li>
+
+				<!--切换热门状态--start-->
+				<li data-placement="bottom"
+					ng-show="$root.global.is_login && global.me.role==0"
+					class="js-popbox"><a href="javascript:;"
+										 ng-show="task.isHot==0" ng-click="js_hot(task)"><i
+						class="icon-book"></i>设为热门</a> <a href="javascript:;"
+														  ng-show="task.isHot==1" ng-click="js_hot(task)"><i
+						class="icon-book"></i>取消热门</a></li>
+
+				<!--收藏与已收藏的状态切换--end-->
+				<li data-placement="bottom" class="js-popbox">
+					<a class="cursor" ng-click="js_show_date_setter($event, task)" title="设置起止时间">
+						<i class="icon-time"></i>设置起止时间
+					</a>
+				</li>
+
+				<!-- ng-if 弃用 -->
+				<li data-placement="bottom" class="js-popbox" ng-if
+					wt-permission="[permission,project.info.curr_role,1,2]"><a
+						href="javascript:;"
+						ng-click="js_show_datepicker($event, task,true)" title="截止日期">
+					<i class="icon-time"></i>起始日期
+				</a></li>
+				<li data-placement="bottom" class="js-popbox" ng-if
+					wt-permission="[permission,project.info.curr_role,1,2]"><a
+						href="javascript:;"
+						ng-click="js_show_datepicker($event, task,false)" title="截止日期">
+					<i class="icon-time"></i>结束日期
+				</a></li>
+				<!-- end-->
+
+				<li class="divider-v" ng-show="global.is_outter == false"
+					wt-permission="[permission,project.info.curr_role,1,2]"></li>
+				<li class="js-popbox" data-placement="bottom"
+					ng-show="global.is_outter == false"
+					wt-permission="[permission,project.info.curr_role,1,2]"><a
+						href="#" class="dropdown-toggle" data-toggle="dropdown"
+						title="添加附件"> <i class="icon-paper-clip"></i>附件
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="javascript:;" class="fileinput-button"><i
+								class="icon-desktop"></i>本地上传 <input name="files[]" title="添加附件"
+																	 multiple="" wt-uploadfile="file_upload_option" type="file"></a>
+						</li>
+						<li><a href="javascript:;"
+							   ng-click="js_show_attach($event, task)"><i class="icon-file"></i>从项目文件选择</a></li>
+					</ul></li>
+
+
+				<li data-placement="bottom" class="js-popbox"
+					wt-permission="[permission,project.info.curr_role,1,2]"
+					ng-hide="permission==16 || permission==32 || global.is_outter == true">
+					<a
+							href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"
+							title="更多"> <i class="icon-chevron-down"></i>更多
+					</a>
+					<ul class="dropdown-menu pull-right">
+						<!-- 						<li data-placement="bottom" class="js-popbox"
+                    wt-permission="[permission,project.info.curr_role,1,2]"><a
+                    href="javascript:;" ng-click="js_archive($event, task)"
+                    title="归档"> <i class="icon-archive"></i>归档
+                </a></li>
+-->
+						<li wt-permission="[permission,project.info.curr_role,1,2]"
+							ng-show="global.is_outter == false"><a href="javascript:;"
+																   ng-click="js_show_todo(task)" title="添加检查项"> <i
+								class="icon-th-list"></i>检查项
+						</a></li>
+						<!--<li ng-show="!$root.global.is_outter || global.me.role==0"><a-->
+								<!--href="javascript:;" ng-click="js_add_program($event, task)"> <i-->
+								<!--class="icon-trash"></i>以此新建-->
+						<!--</a></li>-->
+						<li ng-show="!$root.global.is_outter || global.me.role==0"><a
+								href="javascript:;" ng-click="js_trash($event, task)"> <i
+								class="icon-trash"></i>删除
+						</a></li>
+						<li ng-show="!$root.global.is_outter || global.me.role==0"><a
+								href="javascript:;" ng-click="js_trash_group($event, task)"> <i
+								class="icon-trash"></i>批量删除
+						</a></li>
+						<li ng-show="!$root.global.is_outter || global.me.role==0"><a
+								href="javascript:;" ng-click="js_sync_image($event, task)"> <i
+								class="icon-trash"></i>同步图片
+						</a></li>
+						<li ng-show="task.status == -1 && !$root.global.is_outter || global.me.role==0"><a
+								href="javascript:;" ng-click="js_untrash($event, task)"> <i
+								class="icon-trash"></i>恢复
+						</a></li>
+
+
+						<!-- 						<li wt-permission="[permission,project.info.curr_role,1,2]"
+                                            class="divider"></li>
+                 -->
+						<!--  						<li wt-permission="[permission,project.info.curr_role,1,2]" ng-show="global.is_outter == false"><a
+							href="javascript:;" ng-click="js_move($event, task)"><i
+								class="icon-share-alt"></i>移动</a></li>
+ -->
+						<!-- 						<li wt-permission="[permission,project.info.curr_role,1,2]"><a
+							href="javascript:;" ng-click="js_show_copy($event, task)"><i
+								class="icon-copy"></i>拷贝</a></li>
+ -->
+					</ul></li>
+
+				<li class="divider-v"></li>
+
+				<li><a href="javascript:;"
+					   style="padding-top: 10px; padding-bottom: 10px;"
+					   ng-click="js_close()" title="关闭"> <i class="icon-remove"></i>
+				</a></li>
+			</ul>
+		</div>
+		<div class="entity-panel-body height-nonav"
+			 wt-scroll="{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}">
+			<div class="content-panel">
+				<div class="content-module editable-module" id="tasks_tab_module"
+					 ng-if="task.xtype=='programs'" ng-cloak=""
+					 ng-include="'/view/entity/program/program_basic.html'"
+					 ng-show="!task.show_part || task.show_part==1"></div>
+				<div class="content-module editable-module" id="contact_tab_module"
+					 ng-if="task.xtype=='programs'" ng-cloak=""
+					 ng-include="'/view/entity/program/program_tags.html'"
+					 ng-show="task.show_part==2"></div>
+				<!--<div class="content-module editable-module"-->
+				<!--ng-if="task.xtype=='programs'" ng-cloak=""-->
+				<!--ng-include="'/view/entity/program/program_fee.html'"-->
+				<!--ng-show="task.show_part==3"></div>-->
+				<!--<div class="content-module editable-module"-->
+				<!--ng-if="task.xtype=='programs'" ng-cloak=""-->
+				<!--ng-include="'/view/entity/program/program_arrangement.html'"-->
+				<!--ng-show="task.show_part==4"></div>-->
+				<!--<div class="content-module editable-module"-->
+				<!--ng-if="task.xtype=='programs'" ng-cloak=""-->
+				<!--ng-include="'/view/entity/program/program_stay.html'"-->
+				<!--ng-show="task.show_part==5"></div>-->
+				<!--<div class="content-module editable-module"-->
+				<!--ng-if="task.xtype=='programs'" ng-cloak=""-->
+				<!--ng-include="'/view/entity/program/program_trade.html'"-->
+				<!--ng-show="task.show_part==6"></div>-->
+				<div class="content-module editable-module"
+					 ng-cloak=""
+					 ng-include="'/view/entity/program/program_signer.html'"
+					 ng-if="task.show_part==7"></div>
+				<div class="content-module editable-module" id="comment_tab_module"
+					 ng-cloak="" ng-include="'/view/entity/task_comment.html'"
+					 ng-show="(task.show_part==8)"></div>
+				<div class="content-module editable-module" id="activity_tab_module"
+					 ng-cloak="" ng-include="'/view/entity/task_activity.html'"
+					 ng-show="task.show_part==9"></div>
+
+				<div class="content-module ml_30"
+					 ng-show="(global.is_outter == false) && (!task.show_part || task.show_part==1) && (task.is_todo_edit || task.todos.length &gt; 0)">
+					<h4>
+						<i class="icon-th-list"></i>检查项
+					</h4>
+
+					<div class="progress-warp">
+						<span ng-bind="task.percentage+'%'"></span>
+						<progressbar value="task.percentage" type="success"></progressbar>
+					</div>
+					<div class="task-todos">
+						<ul class="sortable" sortable="todo_sort_options">
+							<li class="todo-item" ng-repeat="todo in task.todos"
+								pos="{{ todo.pos }}" todo-id="{{ todo.todo_id }}"><a
+									class="todo-item-check" ng-click="js_complete_todo(task, todo)"
+									wt-tracker="Task Panel|Main|Edit Attachments-Toggle Complete">
+								<i
+										ng-class="{0: 'icon-check-empty', 1: 'icon-check-sign'}[todo.checked]"></i>
+							</a>
+								<div class="todo-item-edit editable">
+									<p ng-hide="todo.is_todo_edit"
+									   ng-click="js_show_todo_editor(todo)"
+									   wt-tracker="Task Panel|Main|Edit Attachments">
+										{{todo.name}} 由 {{todo.owner_name}}提交</p>
+									<div class="edit" ng-show="todo.is_todo_edit"
+										 wt-show-edit="todo.is_todo_edit">
+										<div class="todo-edit-control">
+											<input ng-model="todo.name" class="form-control"
+												   ui-keyup="{'esc':'js_keyup_todo($event, task, todo)'}"
+												   wt-enter="js_save_todo(null, todo)" type="text">
+										</div>
+										<button ng-click="js_save_todo($event,todo)"
+												wt-tracker="Task Panel|Main|Edit Attachments-Save"
+												data-loading-text="保存" loading-status="todo.is_saving"
+												class="btn btn-success todo-save">保存</button>
+										<button class="btn btn-link todo-del"
+												wt-tracker="Task Panel|Main|Edit Attachments-Delete"
+												ng-click="js_del_todo(task, todo)">删除</button>
+									</div>
+								</div></li>
+						</ul>
+					</div>
+					<div class="new-todo"
+						 wt-permission="[permission,project.info.curr_role,1,2]">
+						<a href="javascript:;" ng-click="js_show_add_todo_editor(task)"
+						   wt-tracker="Task Panel|Main|Add Attachments"
+						   ng-hide="task.is_add_todo_edit"> 添加检查项 </a>
+
+						<div class="new-todo-control" ng-show="task.is_add_todo_edit"
+							 wt-show-edit="task.is_add_todo_edit">
+							<div>
+								<input class="new-todo-text form-control"
+									   ng-model="todo.temp_name"
+									   ui-keyup="{'esc':'js_keyup_add_todo($event, task, todo)' }"
+									   wt-enter="js_add_todo(task, todo)" placeholder="输入检查项内容"
+									   type="text">
+							</div>
+							<button class="btn btn-success" data-loading-text="添加"
+									loading-status="todo.is_saving"
+									wt-tracker="Task Panel|Main|Add Attachments-Add"
+									ng-click="js_add_todo(task, todo)">添加</button>
+							<button class="btn btn-link todo-del"
+									wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+									ng-click="js_cancel_add_todo_editor(task)">取消</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="content-module dragfile-hover-show"
+					 ng-show="(!task.show_part || task.show_part==1) && (task.files.length &gt; 0 || global_fileupload_queue().length&gt;0)">
+					<h4>
+						<i class="icon-paper-clip"></i>附件
+					</h4>
+
+					<div class="entity-attachments">
+						<ul>
+							<wt-attachment ng-repeat="file in task.files"
+										   del="js_del_attachment($event, file)"
+										   del-permission="permission==1 &amp;&amp; ( project.info.curr_role==1 || project.info.curr_role==2)"></wt-attachment>
+							<!--上传队列列表-->
+							<wt-attachment class="attachment-progress"
+										   ng-repeat="file in global_fileupload_queue()"></wt-attachment>
+
+							<!--拖拽上传提示-->
+							<li class="dragfile-hover-placeholder"><span class="name"><i
+									class="icon-upload-alt"></i>松开上传文件</span></li>
+						</ul>
+					</div>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+			</div>
+			<div class="sidebar-panel" data-minheight="120">
+				<div class="sidebar-module">
+					<h4>显示内容</h4>
+
+					<div class="task-labels">
+						<button class="btn btn-block js-popbox"
+								ng-class="{'active ai-red':task.show_part == 1}"
+								wt-tracker="Task Panel|Right|Setting Label"
+								ng-click="js_show_part_1(task)" data-placement="left">
+							<i class="icon-flag"></i>基本信息
+						</button>
+						<button class="btn btn-block js-popbox"
+								ng-class="{'active ai-red':task.show_part == 2}"
+								wt-tracker="Task Panel|Right|Setting Label"
+								ng-click="js_show_part_2(task)" data-placement="left">
+							<i class="icon-tags"></i>类目属性
+						</button>
+						<!--            <button class="btn btn-block js-popbox" ng-if="task.xtype=='programs'"  ng-class="{'active ai-red':task.show_part == 3}"
+                    wt-tracker="Task Panel|Right|Setting Label"
+                    ng-click="js_show_part_3(task)" data-placement="left">
+                <i class="icon-money"></i>费用说明
+            </button>
+            <button class="btn btn-block js-popbox" ng-if="task.xtype=='programs'"  ng-class="{'active ai-red':task.show_part == 4}"
+                    wt-tracker="Task Panel|Right|Setting Label"
+                    ng-click="js_show_part_4(task)" data-placement="left">
+                <i class="icon-calendar"></i>行程安排</i>
+            </button>
+            <button class="btn btn-block js-popbox" ng-if="task.xtype=='programs'"  ng-class="{'active ai-red':task.show_part == 5}"
+                    wt-tracker="Task Panel|Right|Setting Label"
+                    ng-click="js_show_part_5(task)" data-placement="left">
+                <i class="icon-home"></i>住宿安排
+            </button>
+            <button class="btn btn-block js-popbox" ng-if="task.xtype=='programs'"  ng-class="{'active ai-red':task.show_part == 6}"
+                    wt-tracker="Task Panel|Right|Setting Label"
+                    ng-click="js_show_part_6(task)" data-placement="left">
+                <i class="ai-blue icon-shopping-cart"></i>商品属性
+            </button>
+            <button class="btn btn-block js-popbox" ng-if="task.xtype=='programs' && task.collected"  ng-class="{'active ai-red':task.show_part == 7}"
+                    wt-tracker="Task Panel|Right|Setting Label"
+                    ng-click="js_show_part_7(task)" data-placement="left">
+                <i class="icon-envelope"></i>来往邮件
+            </button>-->
+						<button class="btn btn-block js-popbox"
+								ng-show = "task.is_lesson"
+								ng-class="{'active ai-red':task.show_part == 7}"
+								wt-tracker="Task Panel|Right|Setting Label"
+								ng-click="js_show_part_7(task)" data-placement="left">
+							<i class="icon-tags"></i>预约信息
+						</button>
+						<button class="btn btn-block js-popbox"
+								ng-class="{'active ai-red':task.show_part == 8}"
+								wt-tracker="Task Panel|Right|Setting Label"
+								ng-click="js_show_part_8(task)" data-placement="left">
+							<i class="icon-comments"></i>活动评论
+						</button>
+						<button class="btn btn-block js-popbox"
+								wt-tracker="Task Panel|Right|Setting Label"
+								ng-class="{'active ai-red':task.show_part == 9}"
+								ng-click="js_show_part_9(task)" data-placement="left">
+							<i class="icon-history"></i>历史记录
+						</button>
+					</div>
+				</div>
+				<!-- 				<div class="sidebar-module"
+        ng-hide="task.labels.length==0 &amp;&amp; (project.info.curr_role==3 || project.info.archived==1 || permission==32 || permission==16)">
+        <h4>邮件模板</h4>
+        <div class="task-labels">
+            <ul>
+                <li class="task-label green-label"
+                    ng-repeat="template in task.templates">{{template.name}} <a
+                    class="icon-action icon-remove" href="javascript:;"
+                    data-ng-click="js_remove_template(template)" title="移除该模板"></a>
+                </li>
+            </ul>
+            <button class="btn btn-block js-popbox"
+                wt-tracker="Task Panel|Right|Setting Label"
+                wt-permission="[permission,project.info.curr_role,1,2]"
+                ng-click="js_assign_template($event, task)" data-placement="left">
+                <i class="icon-tag"></i>设置邮件模板
+            </button>
+        </div>
+    </div>
+-->
+				<!--                 <div class="sidebar-module" ng-hide="task.members.length==0 &amp;&amp; (project.info.curr_role==3 || project.info.archived==1 || permission==32 || permission==16)">
+        <h4>分配</h4>
+        <div class="entity-members">
+            <ul>
+                <li ng-repeat="member in task.members">
+                    <wt-avatar member="member" class="js-popbox" pop-member="member" wt-pop-member="pop_member_options" data-placement="left"></wt-avatar>
+                </li>
+                <li wt-permission="[permission,project.info.curr_role,1,2]">
+                    <a class="avatar-add js-popbox" href="javascript:;" wt-tracker="Task Panel|Right|Add Assign" ng-click="js_assign_member($event, task)" data-placement="left">
+                        <span class="o">
+                            <i class="icon-plus"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar-module">
+        <h4>关注</h4>
+        <div class="entity-members">
+            <ul>
+                <li ng-repeat="member in task.watchers">
+                    <wt-avatar member="member" class="js-popbox" pop-member="member" wt-pop-member="pop_watcher_options" data-placement="left"></wt-avatar>
+                </li>
+                <li wt-permission="[permission,project.info.curr_role,1,3]">
+                    <a class="avatar-add js-popbox" href="javascript:;" wt-tracker="Task Panel|Right|Add Watch" ng-click="js_watch_task($event, task)" data-placement="left">
+                        <span class="o">
+                            <i class="icon-plus"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+-->
+			</div>
+		</div>
+	</div>
+</div>

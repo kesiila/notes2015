@@ -1,0 +1,57 @@
+<ul class="popbox-step" ng-switch on="step">
+    <li ng-switch-default class="popbox-step-li">
+        <div class="popbox-header">
+            <button class="cancel icon-remove" ng-click="js_close()"></button>
+            <h3>选择转让的成员</h3>
+        </div>
+        <div class="popbox-body">
+
+            <input type="text" autofocus="" ng-model="search_user_input" placeholder="搜索成员"
+                   class="form-control help-block"/>
+            <br>
+
+            <div class="part-loading" wt-loading-done="members_loading_done"></div>
+            <ul class="popbox-menu">
+                <li class="member-item" ng-repeat="member in team_members | filterMembers:search_user_input">
+                    <a href="javascript:;" tabindex="-1" ng-click="js_to_transfer_confirm(member)">
+                        <wt-avatar member="member" name="true" atname="true" size="30" faceclass="plr_5"></wt-avatar>
+                    </a>
+                </li>
+                <li class="empty-menu-nomin-h" ng-show="members_loading_done && (team_members | isNullOrEmpty)">
+                    没有可以转让的团队成员
+                </li>
+            </ul>
+        </div>
+    </li>
+    <!--<li ng-switch-when="1" class="popbox-step-li">-->
+        <!--<div class="popbox-header">-->
+            <!--<button class="back icon-chevron-left" ng-click="js_step(0)"></button>-->
+            <!--<button class="close" ng-click="js_close()">&times;</button>-->
+            <!--<h3>确认密码继续操作</h3>-->
+        <!--</div>-->
+        <!--<div class="popbox-body">-->
+            <!--<wt-confirm-password class="w_300" confirm-success="js_step(2)"></wt-confirm-password>-->
+        <!--</div>-->
+    <!--</li>-->
+
+    <!--<li ng-switch-when="2" class="popbox-step-li">-->
+        <!--<div class="popbox-header">-->
+            <!--<button class="back icon-chevron-left" ng-click="js_step(1)"></button>-->
+            <!--<button class="cancel icon-remove" ng-click="js_close()"></button>-->
+            <!--<h3>确认转让团队</h3>-->
+        <!--</div>-->
+        <!--<div class="popbox-body">-->
+            <!--<p class="alert alert-info mb_0">-->
+                <!--确认要把团队转让给 {{ selected_member.display_name }} 么？<br>-->
+                <!--转让之后你将没有权限管理此团队(包括修改团队信息、解散团队等功能)。</p>-->
+        <!--</div>-->
+        <!--<div class="popbox-footer">-->
+            <!--<button class="btn btn-danger float_left" data-loading-text="正在转让中..."-->
+                    <!--loading-status="is_transferring"-->
+                    <!--ng-click="js_transfer(selected_member)">确认转让-->
+            <!--</button>-->
+            <!--<button class="btn float_left" ng-click="js_close()">取消转让-->
+            <!--</button>-->
+        <!--</div>-->
+    <!--</li>-->
+</ul>

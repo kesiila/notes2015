@@ -1,0 +1,157 @@
+<div data-ng-controller="entity_file_ctrl" class="entity-panel file-panel" wt-dragfile="dragfile_option">
+    <div class="part-loading mt_60" wt-loading-done="section_loading_done"></div>
+    <div class="entity-panel-wrapper" ng-show="section_loading_done">
+        <div class="entity-panel-header">
+            <a href="javascript:;" class="name" ng-click="locator.to_project(project.info.pid, 'file')">
+                <i class="{{project.info.pic}} mr_10" ng-style="{color:project.info.bg}"></i>
+                {{project.info.name}}
+            </a>
+            <ul class="nav nav-pills">
+                <li ng-show="permission==16" class="entity-warning">文件已经于 {{file.update_date | timeFormatZHCN}} 删除了</li>
+                <li><a ng-href="{{file | wtBoxDownload}}" target="_blank" title="下载">
+                        <i class="icon-download-alt"></i>下载
+                    </a>
+                </li>
+                <li class="divider-v"></li>
+                <li wt-permission="[permission,project.info.curr_role,1,2]">
+                    <a href="javascript:;" class="fileinput-button" title="更新">
+                        <input wt-uploadfile="file_upload_new_option" multiple="" name="files[]" title="更新" type="file">
+                        <i class="icon-upload-alt"></i>更新
+                    </a>
+                </li>
+                <li class="js-popbox" data-placement="bottom" ng-hide="permission==16">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" title="更多">
+                    <i class="icon-chevron-down"></i>更多
+                </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li wt-permission="[permission,project.info.curr_role,1,2]">
+                            <a href="javascript:;" ng-class="{true:'disabled'}[file.is_edit]" ng-click="js_show_editor(file)" title="编辑">
+                                <i class="icon-pencil"></i>编辑
+                            </a>
+                        </li>
+                        <li wt-permission="[permission,project.info.curr_role,1,2]"><a href="javascript:;" ng-click="js_move($event, file)"><i class="icon-share-alt"></i>移动</a></li>
+                        <li wt-permission="[permission,project.info.curr_role,1,2]"><a href="javascript:;" ng-click="js_trash($event, file)"><i class="icon-trash"></i>删除</a></li>
+                        <li wt-permission="[permission,project.info.curr_role,1,2]" class="divider"></li>
+                        <li><a href="javascript:;" wt-entity-share="[permission,project.info.pid,'files',file.fid]"><i class="icon-share"></i>共享</a></li>
+                        <li><a href="javascript:;" ng-click="js_show_versions($event, file)"><i class="icon-time"></i>历史版本</a></li>
+                    </ul>
+                </li>
+
+                <li class="divider-v"></li>
+
+                <li><a href="javascript:;" style="padding-top: 10px;padding-bottom: 10px;"
+                       ng-click="js_close()" title="关闭">
+                    <i class="icon-remove"></i>
+                </a>
+                </li>
+            </ul>
+        </div>
+        <div class="entity-panel-body height-nonav" wt-scroll="{&quot;advanced&quot;:{&quot;autoScrollOnFocus&quot;:false}}">
+            <div class="entity-content-panel">
+                <div class="content-module editable-module">
+                    <div ng-hide="file.is_edit">
+                        <div class="entity-title">
+                            <h2 ng-click="js_show_editor(file)">
+                                {{file.name}}
+                            </h2>
+                        </div>
+                        <div class="entity-meta">
+                            <wt-avatar member="file.update_user" name="true" size="40"></wt-avatar>
+                            <span>上传于{{file.update_date | fromNow}}</span>
+                            <span class="size">
+                                大小：<em>{{file.size | fileSize}}</em>
+                            </span>
+                        </div>
+                        <div class="entity-meta">
+                            {{file.path}}
+                        </div>
+                        <div>
+                            <div class="markdown" wt-markdown="file.desc"></div>
+                        </div>
+                    </div>
+                    <div class="edit-section" ng-show="file.is_edit">
+                        <div>
+                            <input wt-enter="js_set_update($event, file)" autofocus="" ng-model="file.temp_name" class="form-control help-block" placeholder="文件名称" required="" type="text">
+                            <textarea ng-model="file.temp_desc" type="text" wt-ctrl-enter="js_set_update($event, file)" wt-editor="" placeholder="添加文件描述"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button ng-click="js_set_update($event, file)" data-loading-text="保存中..." class="btn btn-success mr_15">保存
+                            </button>
+                            <button ng-click="js_cancel_editor(file)" class="btn">取消</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dragfile-hover-placeholder">
+                    <span class="name"><i class="icon-upload-alt"></i>松开上传文件</span>
+                </div>
+                <div class="content-module file-icon dragfile-hover-hide" ng-hide="file.is_edit">
+                    <div ng-hide="global_fileupload_queue().length>0 || file.path.length==0" ng-class="{true:'fancybox-file'}[file.is_img]" data-fancybox-group="file_detail" href="%7B%7Bfile%20%7C%20wtBoxView%7D%7D" data-fancybox-type="image">
+                        <img ng-src="{{file | wtBoxView}}" alt="{{ file.name }}">
+                    </div>
+
+
+                    <div class="file-icon-queue" ng-show="global_fileupload_queue().length>0">
+                        <div ng-repeat="file in global_fileupload_queue()">
+                            <div data-file-upload-preview="file"></div>
+
+                             <span class="error" ng-show="file.error">
+                                <span class="label label-danger">{{ file.error | fileuploadErrorInfo }}</span>
+                                <br>
+                                <br>
+                            </span>
+                            <a href="javascript:;" class="cancel" ng-click="file.$cancel()" ng-hide="!file.$cancel">
+                                取消
+                            </a>
+
+                            <div ng-hide="file.error" class="progress progress-striped active" ng-class="{pending: 'in'}[file.$state()]" file-upload-progress="file.$progress()">
+                                <div class="progress-bar progress-bar-success" ng-style="{width: num + '%'}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-module" ng-show="file.link_count > 0">
+                    <h4><i class="icon-link"></i>相关链接</h4>
+
+                    <div class="entity-links">
+                        <ul>
+                            <li class="link-item" ng-repeat="task in file.tasks">
+                                <i class="icon-check"></i>
+                                <a href="javascript:;" ng-click="locator.to_task(file.pid, task.tid)">{{task.name}}</a>
+                            </li>
+                            <li class="link-item" ng-repeat="post in file.posts">
+                                <i class="icon-list-alt"></i>
+                                <a href="javascript:;" ng-click="locator.to_post(file.pid, post.post_id)">{{post.name}}</a>
+                            </li>
+                            <li class="link-item" ng-repeat="event in file.events">
+                                <i class="icon-calendar"></i>
+                                <a href="javascript:;" ng-click="locator.to_event(file.pid, event.event_id)">{{event.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-module">
+                    <h4><i class="icon-user"></i>关注</h4>
+                    <div class="entity-members">
+                        <ul>
+                            <li ng-repeat="member in file.watchers">
+                                <wt-avatar member="member" class="js-popbox" pop-member="member" wt-pop-member="pop_watcher_options" data-placement="left"></wt-avatar>
+                            </li>
+                            <li wt-permission="[permission,project.info.curr_role,1,3]">
+                                <a class="avatar-add js-popbox" href="javascript:;" ng-click="js_watch_file($event, file)" data-placement="right">
+                                    <span class="o">
+                                        <i class="icon-plus"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-module" id="files_tab_module" ng-cloak="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

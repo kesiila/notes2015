@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function getInput(){
+        var input_char = document.getElementById("input_char").value;
+        window.opener.document.write(input_char);
+    }
+</script>
+
+</body>
+<input id="input_char" type="text" value="输入些文字" />
+<button onclick="getInput()">点击我试试</button>
+</body>
+</html>

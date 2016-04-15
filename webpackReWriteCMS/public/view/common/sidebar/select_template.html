@@ -1,0 +1,22 @@
+<div class="common_sidebar_step_body" ng-controller="filter_template_ctrl">
+    <input type="text" autofocus="" ng-model="search_template_input" wt-enter="js_get_template(search_template_input)"
+           placeholder="搜索邮件模板" class="form-control help-block"/>
+    <ul class="common_sidebar_step_menu">
+        <li class="member-item"
+            ng-repeat="template in templates | filterTasks:search_template_input">
+            <a href="javascript:;" tabindex="-1"
+               ng-click="js_toggle_template(template,templates)">
+                <i wt-show="template.checked"
+                   class="more_gray icon-ok"></i><i class="icon-list-alt more_gray"
+
+                                                    style="margin-right: 10px"></i><span title="{{ template.name }}"
+                                                                                         ng-bind-html="template.name|abbrevition:30 | highlight:search_template_input:caseSensitive"></span>
+            </a></li>
+        <li class="divider"></li>
+        <li><a href="javascript:;"
+               style="text-align: center"
+               ng-show="has_more && part_loading_done" ng-click="load_templates_more()"
+               data-loading-text="加载中..." loading-status="!part_loading_done">加载更多...</a></li>
+    </ul>
+
+</div>

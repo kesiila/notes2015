@@ -1,0 +1,43 @@
+<div id="task_main_{{ task.tid }}" task-id="{{task.tid}}"
+	class="task task_style">
+	<div class="entry-task-labels"></div>
+	<div class="entry-task-main"
+		ng-class="{1:'task-main-completed'}[task.completed]">
+		<!-- 		<a class="entry-task-check" id="task_check_{{ task.tid }}"
+			wt-click="js_complete_task($event, entry, task)"> <i
+			ng-class="{'task': 'icon-user', '': 'icon-user'}[task.xtype]"></i>
+		</a> -->
+		<a ng-if="task.xtype=='tasks'" class="entry-task-check"
+			id="task_check_{{ task.tid }}"
+			wt-click="js_complete_task($event,task)"
+			wt-tracker="Task Panel|Main|Edit Task-Toggle Complete"> <i
+			class="ai-gray icon-user" ng-if="task.completed == -1"
+			title="点击进入活动交易流程，可在交易墙跟踪"></i> <i class="ai-dark-blue icon-user"
+			ng-if="task.completed == 0" title="点击退出活动交易流程"></i> <i
+			class="ai-gray icon-user" ng-if="task.completed == 1"
+			title="交易完成，点击重新进入活动交易流程，可在交易墙跟踪"></i>
+		</a>  <a class="entry-task-title" href="javascript:;">{{task.name}} <em
+			ng-if="task.xtype=='tasks'" class="pull-right">{{task.company}}</em>
+		</a>
+
+		<div ng-hide="hide_action">
+			<a href="javascript:;" id="icon_action_task_{{ task.tid }}"
+				class="js-popbox entry-task-menu"
+				wt-permission="[permission,project.info.curr_role,1,2]"
+				data-placement="right" data-align="middle" data-auto-adapt="true"
+				wt-click="js_show_task_menu($event, entry, task)"> <i
+				class="icon-play-circle"></i>
+			</a>
+		</div>
+	</div>
+	<wt-tadges task="task"></wt-tadges>
+	<!--     <div class="entry-task-members"
+         ng-show="task.members !=null && task.members.length > 0">
+        <wt-avatar ng-repeat="member in task.members"
+                   class="js-popbox member" pop-member="member" stop-propagation="true" wt-pop-member="pop_member_options" pop-extended-attr="task"
+                   member="member" size="30"></wt-avatar>
+    </div>
+ -->
+</div>
+
+

@@ -1,0 +1,78 @@
+<div class="content_sidebar height-noheader" wt-sidebar-toggle="global.right_sidebar_is_fold"
+     data-ng-controller="sidebar_ctrl">
+<!-- <div class="content_sidebar_header collapse_show">
+    <ul class="list-inline">
+        <li ng-class="{'active':(global.project_sidebar_foldview=='module')}">
+            <a href="javascript:;" ng-click="global.project_sidebar_foldview = 'module'" title="应用">
+                <i class="icon-th-large"></i>
+            </a>
+        </li>
+        <li ng-class="{'active':(global.project_sidebar_foldview=='member')}">
+            <a href="javascript:;" ng-click="global.project_sidebar_foldview = 'member'" title="成员">
+                <i class="icon-user"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="hr"></div>
+</div>
+ -->
+
+<div class="content_sidebar_main" data-height="119">
+
+    <div class="content_sidebar_header2 collapse_hide">
+        <ul>
+            <li ng-class="{'active':(global.project_sidebar_view=='member')}">
+                <a href="javascript:;" ng-click="global.project_sidebar_view = 'member'" title="项目成员">
+                    活动
+                </a>
+            </li>
+            <li ng-class="{'active':(global.project_sidebar_view=='chat')}">
+                <a href="javascript:;" ng-click="js_change_prj_sidebar_view('chat');" title="在线聊天">
+                    模板
+                </a>
+            </li>
+            <!--<li data-ng-show="global.loading_done" class="collapse_hide" wt-permission="[permission,project.info.curr_role,1,1]">-->
+                <!--<a href="javascript:;" class="js-popbox" data-placement="left" title="添加成员" ng-click="js_add_prj_member_pop($event)">-->
+                    <!--<i class="icon-plus"></i>-->
+                <!--</a>-->
+            <!--</li>-->
+
+        </ul>
+        <div class="hr"></div>
+    </div>
+
+
+    <div class="prj_sidebar_body">
+        <div ng-show="(global.project_sidebar_view == 'member' && global.right_sidebar_is_fold==false) || global.right_sidebar_is_fold==true && global.project_sidebar_foldview=='member'"
+             class="prj_member_list" wt-scroll
+             ng-class="{true:'fold'}[global.right_sidebar_is_fold]"
+             ng-controller="prj_member_ctrl"
+             data-height="{{{true:'154',false:'289'}[global.right_sidebar_is_fold]}}" wt-scroll>
+
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="hr content_sidebar_footer_hr"></div>
+<ul class="content_sidebar_footer">
+    <li>
+        <a href="javascript:;" data-ng-click="js_right_sidebar_toggle()" tooltip-placement="top"
+           tooltip="{{{true:'展开',false:'折叠'}[global.right_sidebar_is_fold]}}">
+            <i class="{{{true:'icon-step-backward',false:'icon-step-forward'}[global.right_sidebar_is_fold]}}"></i>
+        </a>
+    </li>
+    <li class="collapse_hide">
+        <a href="/project/{{pid}}/setting" tooltip-placement="top" tooltip="设置">
+            <i class="icon-cog"></i></a>
+    </li>
+    <li class="collapse_hide">
+        <a href="/project/{{pid}}/trash" tooltip-placement="top" tooltip="回收站">
+            <i class="icon-trash"></i></a>
+    </li>
+</ul>
+</div>
+

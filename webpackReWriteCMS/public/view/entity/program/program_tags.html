@@ -1,0 +1,169 @@
+<div>
+	<div class="entity-title "
+		ng-include="'/view/entity/program/program_title.html'"></div>
+	<wt-tadges task="task"></wt-tadges>
+	<div class="wt-row" style="border-bottom: 0px">&nbsp;</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>活动权限</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'permission')"
+			wt-hint-once="" content="设置活动权限"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="permission"></wt-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>活动类型</label>
+		<button
+				class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'program_type')"
+				title="设置活动类型" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="program_type"></wt-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>活动类别</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'lesson_type')"
+			title="设置活动类别" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="lesson_type"></wt-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>活动主题</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'program')"
+			wt-hint-once="" content="设置活动主题"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="program"></wt-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>活动目录</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'category')"
+			wt-hint-once="" content="设置活动目录"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="category"></wt-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>活动群体</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'group')"
+			wt-hint-once="" content="设置活动群体"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="group"></wt-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>住宿方式</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'stay')"
+			wt-hint-once="" content="设置住宿方式"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="stay"></wt-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>适合年龄</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'age')"
+			wt-hint-once="" content="设置适合年龄"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="age"></wt-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>适合年级</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'grade')"
+			wt-hint-once="" content="设置适合年级"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="grade"></wt-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>机构类型</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'organizer')"
+			wt-hint-once="" content="设置机构类型"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="organizer"></wt-tags>
+	</div>
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>地址</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'address')"
+			wt-hint-once="" content="设置推广位置"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="address"></wt-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>推广位置</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_tag($event, task,'ad')"
+			wt-hint-once="" content="设置推广位置"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+		<wt-tags task="task" tagtype="ad"></wt-tags>
+	</div>
+
+	<div class="task-desc wt-row">
+		<label class="col-xs-2 control-label p_0"><i class="mr_5"></i>主题</label>
+		<button 
+			class="btn btn-success btn-sm ml_15 pull-right" ng-click="js_assign_project($event, task,'theme')"
+			wt-hint-once="" content="设置推广位置"
+			hint-name="customer_sendmail_first_hint" placement="top">设置
+		</button>
+	</div>
+	<div class="wt-row">
+	  <div class="task-badges"> 
+		<span class="ai-yellow task-badge" ng-repeat="project in task.projects" ng-if="('project_default' != project.pid)">
+			{{project.title}} <a ng-show="!global.is_outter" wt-permission="[permission,project.info.curr_role,1,2]" class="icon-action icon-remove" href="javascript:;"
+			data-ng-click="js_remove_project(task, project)" title="从该项目移除"></a>
+		</span>
+	  </div>
+	</div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+</div>

@@ -1,0 +1,18 @@
+<ul class="tabs">
+	<li><a ng-href="/teams/{{team_id}}"
+		ng-class="{true:'active'}[active_team_admin_nav_tab=='member']">成员</a></li>
+	<li><a ng-href="/teams/{{team_id}}/projects"
+		ng-class="{true: 'active'}[active_team_admin_nav_tab=='projects']">项目</a></li>
+	<li
+		>
+		<a ng-href="/teams/{{team_id}}/tasks"
+		ng-class="{true: 'active'}[active_team_admin_nav_tab=='tasks']">任务</a>
+	</li>
+	<li
+		>
+		<a
+		ng-href="{{'/teams/'+current_team.team_id+{true:'/admin',false:'/setting'}[current_team.owner.uid==
+		global.me.uid]}}"
+		ng-class="{true:'active'}[active_team_admin_nav_tab=='admin']">设置</a>
+	</li>
+</ul>

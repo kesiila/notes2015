@@ -1,0 +1,114 @@
+<dl class="frame add_edit_panel clearfix" ng-controller="add_customer_ctrl">
+    <div class="customer-add-wapper">
+    <form class="wt-form"
+          name="add_customer_form"
+          wt-form-validate="{blurTrig:false,showMsg:false}"
+          novalidate
+          role="form">
+        <div class="col-xs-7">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-home"></i></span>
+                    <input class="form-control" type="text" name="customer_company" ng-model="newCustomer.company" required="" placeholder="公司"  ng-maxlength="50">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-user"></i></span>
+                    <input class="form-control" type="text" name="customer_name" ng-model="newCustomer.name" placeholder="联系人" required  ng-maxlength="30">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-envelope"></i></span>
+                    <input class="form-control" name="customer_email" type="email" ng-model="newCustomer.email" placeholder="邮箱"  required wt-regex="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-gear"></i></span>
+                    <wt-cascading
+                            flag="flag"
+                            placeholder="行业"
+                            source="json/industry.json"
+                            firstkey="newCustomer.mainIndustryCode"
+                            first="newCustomer.mainIndustryCnName"
+                            second="newCustomer.subIndustryCnName"
+                            secondkey="newCustomer.subIndustryCode"
+                            >
+                    </wt-cascading>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-flag"></i></span>
+                    <wt-cascading
+                            flag="flag"
+                            placeholder="国家"
+                            source="json/country.json"
+                            firstkey="newCustomer.zoneCode"
+                            first="newCustomer.zoneCnName"
+                            second="newCustomer.countryCnName"
+                            secondkey="newCustomer.countryCode"
+                            >
+                    </wt-cascading>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-building"></i></span>
+                    <input class="form-control"  name="customer_phone" type="text" ng-model="newCustomer.phone"  placeholder="电话">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-globe"></i></span>
+                    <input class="form-control" type="text" ng-model="newCustomer.website" placeholder="网址">
+                </div>
+            </div>
+<!--             <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-book"></i></span>
+                    <input class="form-control" type="text" ng-model="newCustomer.position" placeholder="职位">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon fs_15"><i class="icon icon-home"></i></span>
+                    <input ng-model="newCustomer.products" type="text" class="form-control" placeholder="产品列表(以逗号,隔开)">
+                </div>
+            </div>-->
+            <div class="form-group" ng-show="add_customer_form.$errors.length > 0">
+                <div class="alert alert-danger">
+                    <i class="icon-remove-sign mr_5"></i> {{add_customer_form.$errors[0]}}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-5" >
+            <!--wt-hint-once=""  content="把活动联系信息直接贴过来试试！"-->
+            <!--hint-name="tasks_addtask_first_hint" placement="top"-->
+            <textarea class="form-control" placeholder="{{placeholder}}" ng-model="copyStr"></textarea>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <span ng-hide="pid">选择项目</span>
+                <select class="btn mr_15" ng-model="currentProjectId" ng-hide="pid"
+                        ng-options="project.pid as project.name for project in projects">
+                </select>
+                <button wt-form-submit="js_add_customer(add_customer_form)"
+                        data-loading-text="保存中..."
+                        class="btn btn-success mr_15"
+                        loading-status="is_save_ing">保存
+                </button>
+                <button ng-click="js_cancel_add()" class="btn">取消</button>
+            </div>
+        </div>
+    </form>
+</div>
+</dl>

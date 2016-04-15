@@ -1,0 +1,90 @@
+<div class="layout_content">
+
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-user mr_10"></i>帐户设置</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+
+                </div>
+            </div>
+        </div>
+        <div class="center-panel-container height-nonav" ng-show="global.loading_done" wt-scroll>
+
+            <dl class="frame" data-minheight="160">
+                <dt>
+                <!--<span class="title">消息设置</span>-->
+                    <ng-include src="'/view/account/account_tabs.html'"></ng-include>
+
+                </dt>
+                <dd>
+                    <div data-ng-hide="part_loading_done" class="part-loading mt_20"></div>
+                    <div data-ng-show="part_loading_done" >
+                        <div class="sub-section">
+                            <h5>邮件通知</h5>
+                            <span>当有新活动分配或者有新的话题要求你关注时，会发送邮件给你</span>
+
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="notice_by_email" ng-change="js_email_notice(1)"
+                                           ng-model="notice_by_email" value="1"/>
+                                    开启邮件通知
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="notice_by_email" ng-change="js_email_notice(0)"
+                                           ng-model="notice_by_email" value="0"/>
+                                    关闭邮件通知
+                                </label>
+                            </div>
+                        </div>
+                        <div class="sub-section">
+                            <h5>免打扰设置</h5>
+                            <span>当你Web版是在线状态时，不发送邮件通知，避免重复消息的打扰</span>
+
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="notice_for_smart" ng-change="js_smart_notice(1)" value="1"
+                                           ng-model="notice_for_smart"/>
+                                    免打扰开启
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="notice_for_smart" ng-change="js_smart_notice(0)" value="0"
+                                           ng-model="notice_for_smart"/>
+                                    免打扰关闭
+                                </label>
+                            </div>
+                        </div>
+                        <div class="sub-section">
+                            <h5>桌面通知</h5>
+                            <span>当有重要操作或者有成员AT你时，系统会弹出气泡提示，只对Chrome和Safari有效</span>
+
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="notice_for_desktop" ng-change="js_desk_notice(1)"
+                                           value="1" ng-model="desk_notice"/>
+                                    开启桌面通知
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="notice_for_desktop" ng-change="js_desk_notice(0)"
+                                           value="0" ng-model="desk_notice"/>
+                                    关闭桌面通知
+                                </label>
+                            </div>
+                        </div>
+                        <!--<button class="btn btn-success">保存</button>-->
+                    </div>
+                </dd>
+            </dl>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4701 @@
+{
+  "name": "check_rules",
+  "data": [
+    {
+      "key": "22mag",
+      "weight": 1.8
+    },
+    {
+      "key": "40oz",
+      "weight": 1.8
+    },
+    {
+      "key": "44mag",
+      "weight": 1.8
+    },
+    {
+      "key": "9mm",
+      "weight": 1.8
+    },
+    {
+      "key": "abduct",
+      "weight": 1.6
+    },
+    {
+      "key": "abh",
+      "weight": 1.4
+    },
+    {
+      "key": "aboard",
+      "weight": 0.8
+    },
+    {
+      "key": "abuse",
+      "weight": 0.4
+    },
+    {
+      "key": "access",
+      "weight": 0.2
+    },
+    {
+      "key": "accommodation",
+      "weight": 0.4
+    },
+    {
+      "key": "accumulator",
+      "weight": 1.8
+    },
+    {
+      "key": "acid",
+      "weight": 0.4
+    },
+    {
+      "key": "acquisition",
+      "weight": 0.4
+    },
+    {
+      "key": "addict",
+      "weight": 1.2
+    },
+    {
+      "key": "adult",
+      "weight": 0.6
+    },
+    {
+      "key": "adventure",
+      "weight": 1.2
+    },
+    {
+      "key": "aerobic",
+      "weight": 0.8
+    },
+    {
+      "key": "agency",
+      "weight": 0.6
+    },
+    {
+      "key": "aintree",
+      "weight": 1.8
+    },
+    {
+      "key": "airfare",
+      "weight": 1.6
+    },
+    {
+      "key": "airgun",
+      "weight": 1.8
+    },
+    {
+      "key": "airhead",
+      "weight": 0.8
+    },
+    {
+      "key": "airline",
+      "weight": 1.6
+    },
+    {
+      "key": "airplane",
+      "weight": 1.2
+    },
+    {
+      "key": "airport",
+      "weight": 1.6
+    },
+    {
+      "key": "ak47",
+      "weight": 1.8
+    },
+    {
+      "key": "album",
+      "weight": 1.6
+    },
+    {
+      "key": "alcohol",
+      "weight": 1.8
+    },
+    {
+      "key": "ale",
+      "weight": 0.8
+    },
+    {
+      "key": "algorithm",
+      "weight": 0.4
+    },
+    {
+      "key": "alkaloid",
+      "weight": 1.2
+    },
+    {
+      "key": "allergies",
+      "weight": 1.8
+    },
+    {
+      "key": "allergy",
+      "weight": 1.8
+    },
+    {
+      "key": "allodynia",
+      "weight": 1.6
+    },
+    {
+      "key": "allowed",
+      "weight": 0.4
+    },
+    {
+      "key": "alter",
+      "weight": 0.4
+    },
+    {
+      "key": "ammo",
+      "weight": 1
+    },
+    {
+      "key": "ammunition",
+      "weight": 1.6
+    },
+    {
+      "key": "amphetamine",
+      "weight": 1.8
+    },
+    {
+      "key": "amuse",
+      "weight": 1.2
+    },
+    {
+      "key": "anaesthesia",
+      "weight": 1.6
+    },
+    {
+      "key": "anal",
+      "weight": 1.4
+    },
+    {
+      "key": "analgesia",
+      "weight": 1.2
+    },
+    {
+      "key": "analgesic",
+      "weight": 1.2
+    },
+    {
+      "key": "anarchist",
+      "weight": 1.8
+    },
+    {
+      "key": "anarchy",
+      "weight": 0.4
+    },
+    {
+      "key": "anarchy",
+      "weight": 1.4
+    },
+    {
+      "key": "anesthesia",
+      "weight": 1.6
+    },
+    {
+      "key": "angeldust",
+      "weight": 1.2
+    },
+    {
+      "key": "animosity",
+      "weight": 0.8
+    },
+    {
+      "key": "annihilate",
+      "weight": 1.6
+    },
+    {
+      "key": "anonymous",
+      "weight": 0.4
+    },
+    {
+      "key": "ante",
+      "weight": 1.8
+    },
+    {
+      "key": "antique",
+      "weight": 1
+    },
+    {
+      "key": "antiviral",
+      "weight": 0.6
+    },
+    {
+      "key": "antivirus",
+      "weight": 0.6
+    },
+    {
+      "key": "anul",
+      "weight": 4
+    },
+    {
+      "key": "anus",
+      "weight": 1.2
+    },
+    {
+      "key": "anxiety",
+      "weight": 1.8
+    },
+    {
+      "key": "apartment",
+      "weight": 0.4
+    },
+    {
+      "key": "applicant",
+      "weight": 1.8
+    },
+    {
+      "key": "appointment",
+      "weight": 1.6
+    },
+    {
+      "key": "apprenticeship",
+      "weight": 1.2
+    },
+    {
+      "key": "appz",
+      "weight": 0.4
+    },
+    {
+      "key": "aquarium",
+      "weight": 1.8
+    },
+    {
+      "key": "aquarius",
+      "weight": 1.8
+    },
+    {
+      "key": "archery",
+      "weight": 1.8
+    },
+    {
+      "key": "archive",
+      "weight": 0.4
+    },
+    {
+      "key": "archivecrack",
+      "weight": 1.8
+    },
+    {
+      "key": "arena",
+      "weight": 1.4
+    },
+    {
+      "key": "aries",
+      "weight": 1.8
+    },
+    {
+      "key": "armed",
+      "weight": 1.2
+    },
+    {
+      "key": "aroused",
+      "weight": 1.2
+    },
+    {
+      "key": "arrival",
+      "weight": 0.4
+    },
+    {
+      "key": "arse",
+      "weight": 1.2
+    },
+    {
+      "key": "arse",
+      "weight": 1.4
+    },
+    {
+      "key": "arseface",
+      "weight": 1.8
+    },
+    {
+      "key": "arsehole",
+      "weight": 1.8
+    },
+    {
+      "key": "arthritis",
+      "weight": 1.8
+    },
+    {
+      "key": "arthrodesis",
+      "weight": 1.8
+    },
+    {
+      "key": "arthroplasty",
+      "weight": 1.8
+    },
+    {
+      "key": "arthroscopy",
+      "weight": 1.8
+    },
+    {
+      "key": "artillery",
+      "weight": 0.8
+    },
+    {
+      "key": "aryan",
+      "weight": 1.8
+    },
+    {
+      "key": "ass",
+      "weight": 0.4
+    },
+    {
+      "key": "assassinate",
+      "weight": 1.8
+    },
+    {
+      "key": "assault",
+      "weight": 1.2
+    },
+    {
+      "key": "asshole",
+      "weight": 1.8
+    },
+    {
+      "key": "assmaster",
+      "weight": 1.8
+    },
+    {
+      "key": "assreamer",
+      "weight": 1.8
+    },
+    {
+      "key": "asswipe",
+      "weight": 1.8
+    },
+    {
+      "key": "asthma",
+      "weight": 1.8
+    },
+    {
+      "key": "astrology",
+      "weight": 1.8
+    },
+    {
+      "key": "astronomy",
+      "weight": 1.8
+    },
+    {
+      "key": "athlete",
+      "weight": 1.8
+    },
+    {
+      "key": "athletics",
+      "weight": 1.8
+    },
+    {
+      "key": "attack",
+      "weight": 0.8
+    },
+    {
+      "key": "attack",
+      "weight": 1.2
+    },
+    {
+      "key": "atv",
+      "weight": 1.8
+    },
+    {
+      "key": "b1g",
+      "weight": 4
+    },
+    {
+      "key": "babe",
+      "weight": 0.8
+    },
+    {
+      "key": "babes",
+      "weight": 0.8
+    },
+    {
+      "key": "bacardi",
+      "weight": 1.8
+    },
+    {
+      "key": "baccarat",
+      "weight": 1.8
+    },
+    {
+      "key": "backdoor",
+      "weight": 0.4
+    },
+    {
+      "key": "backpack",
+      "weight": 0.8
+    },
+    {
+      "key": "baggage",
+      "weight": 0.8
+    },
+    {
+      "key": "ballet",
+      "weight": 1.8
+    },
+    {
+      "key": "band",
+      "weight": 0.6
+    },
+    {
+      "key": "barbecue",
+      "weight": 1.8
+    },
+    {
+      "key": "barbeque",
+      "weight": 1
+    },
+    {
+      "key": "barbie",
+      "weight": 1.8
+    },
+    {
+      "key": "barbiturate",
+      "weight": 1.2
+    },
+    {
+      "key": "barf",
+      "weight": 1.2
+    },
+    {
+      "key": "bargain",
+      "weight": 1.2
+    },
+    {
+      "key": "barrel",
+      "weight": 0.4
+    },
+    {
+      "key": "baseball",
+      "weight": 1.8
+    },
+    {
+      "key": "basketball",
+      "weight": 1.8
+    },
+    {
+      "key": "bastard",
+      "weight": 1.8
+    },
+    {
+      "key": "battery",
+      "weight": 0.6
+    },
+    {
+      "key": "bbq",
+      "weight": 1.4
+    },
+    {
+      "key": "bdsm",
+      "weight": 1.6
+    },
+    {
+      "key": "beach",
+      "weight": 1.6
+    },
+    {
+      "key": "beaner",
+      "weight": 1.2
+    },
+    {
+      "key": "beastiality",
+      "weight": 2
+    },
+    {
+      "key": "beat",
+      "weight": 0.6
+    },
+    {
+      "key": "beer",
+      "weight": 0.4
+    },
+    {
+      "key": "beneficiary",
+      "weight": 1.6
+    },
+    {
+      "key": "beretta",
+      "weight": 1.8
+    },
+    {
+      "key": "bestiality",
+      "weight": 1.8
+    },
+    {
+      "key": "bet",
+      "weight": 0.4
+    },
+    {
+      "key": "betting",
+      "weight": 1.2
+    },
+    {
+      "key": "bicycle",
+      "weight": 1.8
+    },
+    {
+      "key": "bigot",
+      "weight": 0.6
+    },
+    {
+      "key": "bike",
+      "weight": 1.2
+    },
+    {
+      "key": "bingo",
+      "weight": 1.4
+    },
+    {
+      "key": "bitch",
+      "weight": 1.2
+    },
+    {
+      "key": "bitch",
+      "weight": 1.2
+    },
+    {
+      "key": "bitchslap",
+      "weight": 1.8
+    },
+    {
+      "key": "blackbox",
+      "weight": 0.4
+    },
+    {
+      "key": "blackjack",
+      "weight": 1.8
+    },
+    {
+      "key": "blacks",
+      "weight": 0.8
+    },
+    {
+      "key": "blade",
+      "weight": 0.4
+    },
+    {
+      "key": "blockbuster",
+      "weight": 1.8
+    },
+    {
+      "key": "blonde",
+      "weight": 0.8
+    },
+    {
+      "key": "blood",
+      "weight": 1.2
+    },
+    {
+      "key": "bloods",
+      "weight": 1.2
+    },
+    {
+      "key": "bloody",
+      "weight": 1
+    },
+    {
+      "key": "blow",
+      "weight": 0.4
+    },
+    {
+      "key": "blowout",
+      "weight": 0.8
+    },
+    {
+      "key": "blunt",
+      "weight": 0.6
+    },
+    {
+      "key": "bomb",
+      "weight": 0.4
+    },
+    {
+      "key": "bomb",
+      "weight": 1.8
+    },
+    {
+      "key": "bondage",
+      "weight": 1.8
+    },
+    {
+      "key": "boner",
+      "weight": 1.6
+    },
+    {
+      "key": "bong",
+      "weight": 0.6
+    },
+    {
+      "key": "bonghit",
+      "weight": 1.8
+    },
+    {
+      "key": "bonus",
+      "weight": 0.4
+    },
+    {
+      "key": "boobs",
+      "weight": 1.2
+    },
+    {
+      "key": "booked",
+      "weight": 0.4
+    },
+    {
+      "key": "bookies",
+      "weight": 1.8
+    },
+    {
+      "key": "bookmaker",
+      "weight": 1.8
+    },
+    {
+      "key": "booty",
+      "weight": 1.2
+    },
+    {
+      "key": "booze",
+      "weight": 1.8
+    },
+    {
+      "key": "bosom",
+      "weight": 1
+    },
+    {
+      "key": "bourbon",
+      "weight": 1.8
+    },
+    {
+      "key": "boutique",
+      "weight": 1.4
+    },
+    {
+      "key": "bowl",
+      "weight": 0.6
+    },
+    {
+      "key": "bowling",
+      "weight": 1.8
+    },
+    {
+      "key": "boxing",
+      "weight": 1.2
+    },
+    {
+      "key": "brawl",
+      "weight": 1.2
+    },
+    {
+      "key": "brewsky",
+      "weight": 0.8
+    },
+    {
+      "key": "broadway",
+      "weight": 0.8
+    },
+    {
+      "key": "brothel",
+      "weight": 1.4
+    },
+    {
+      "key": "brotherhood",
+      "weight": 0.6
+    },
+    {
+      "key": "browse",
+      "weight": 0.8
+    },
+    {
+      "key": "bsdm",
+      "weight": 1.8
+    },
+    {
+      "key": "budweiser",
+      "weight": 1.2
+    },
+    {
+      "key": "bug",
+      "weight": 0.4
+    },
+    {
+      "key": "bugger",
+      "weight": 0.8
+    },
+    {
+      "key": "bugger",
+      "weight": 0.6
+    },
+    {
+      "key": "bukkake",
+      "weight": 3.2
+    },
+    {
+      "key": "bullshit",
+      "weight": 1.2
+    },
+    {
+      "key": "bureau",
+      "weight": 0.4
+    },
+    {
+      "key": "burn",
+      "weight": 0.4
+    },
+    {
+      "key": "bust",
+      "weight": 0.8
+    },
+    {
+      "key": "busty",
+      "weight": 1.2
+    },
+    {
+      "key": "butt",
+      "weight": 0.8
+    },
+    {
+      "key": "butts",
+      "weight": 0.8
+    },
+    {
+      "key": "buy",
+      "weight": 0.8
+    },
+    {
+      "key": "buyout",
+      "weight": 0.4
+    },
+    {
+      "key": "buzzed",
+      "weight": 1.4
+    },
+    {
+      "key": "bypass",
+      "weight": 0.4
+    },
+    {
+      "key": "cabaret",
+      "weight": 1.8
+    },
+    {
+      "key": "cabin",
+      "weight": 1.2
+    },
+    {
+      "key": "calcar",
+      "weight": 1.2
+    },
+    {
+      "key": "caliber",
+      "weight": 0.4
+    },
+    {
+      "key": "camp",
+      "weight": 1
+    },
+    {
+      "key": "campground",
+      "weight": 1.8
+    },
+    {
+      "key": "camping",
+      "weight": 1.8
+    },
+    {
+      "key": "cams",
+      "weight": 0.8
+    },
+    {
+      "key": "cancellation",
+      "weight": 0.6
+    },
+    {
+      "key": "cancer",
+      "weight": 1.2
+    },
+    {
+      "key": "candidate",
+      "weight": 1
+    },
+    {
+      "key": "cannabis",
+      "weight": 1.8
+    },
+    {
+      "key": "canoe",
+      "weight": 1.8
+    },
+    {
+      "key": "capricorn",
+      "weight": 1.8
+    },
+    {
+      "key": "captain",
+      "weight": 0.6
+    },
+    {
+      "key": "caravan",
+      "weight": 1.8
+    },
+    {
+      "key": "careerbuilder",
+      "weight": 1.2
+    },
+    {
+      "key": "careercity",
+      "weight": 1.8
+    },
+    {
+      "key": "careerweb",
+      "weight": 1.8
+    },
+    {
+      "key": "cash",
+      "weight": 0.8
+    },
+    {
+      "key": "catch",
+      "weight": 0.6
+    },
+    {
+      "key": "causalgia",
+      "weight": 1.2
+    },
+    {
+      "key": "cavity",
+      "weight": 0.8
+    },
+    {
+      "key": "celeb",
+      "weight": 1.8
+    },
+    {
+      "key": "celebration",
+      "weight": 1.8
+    },
+    {
+      "key": "chalet",
+      "weight": 1.8
+    },
+    {
+      "key": "chance",
+      "weight": 0.4
+    },
+    {
+      "key": "charter",
+      "weight": 0.6
+    },
+    {
+      "key": "checkout",
+      "weight": 1.2
+    },
+    {
+      "key": "chick",
+      "weight": 0.4
+    },
+    {
+      "key": "chick",
+      "weight": 1.4
+    },
+    {
+      "key": "chicks",
+      "weight": 1.8
+    },
+    {
+      "key": "chinaman",
+      "weight": 0.4
+    },
+    {
+      "key": "chink",
+      "weight": 0.6
+    },
+    {
+      "key": "chiva",
+      "weight": 1.8
+    },
+    {
+      "key": "choke",
+      "weight": 1.2
+    },
+    {
+      "key": "cholesterol",
+      "weight": 1.8
+    },
+    {
+      "key": "chronic",
+      "weight": 1.6
+    },
+    {
+      "key": "cinema",
+      "weight": 1.8
+    },
+    {
+      "key": "circulatory",
+      "weight": 1.2
+    },
+    {
+      "key": "classic",
+      "weight": 0.8
+    },
+    {
+      "key": "classical",
+      "weight": 1.8
+    },
+    {
+      "key": "cleavage",
+      "weight": 0.8
+    },
+    {
+      "key": "clit",
+      "weight": 1.8
+    },
+    {
+      "key": "clits",
+      "weight": 1.8
+    },
+    {
+      "key": "clown",
+      "weight": 1.4
+    },
+    {
+      "key": "club",
+      "weight": 0.6
+    },
+    {
+      "key": "coach",
+      "weight": 1.2
+    },
+    {
+      "key": "coast",
+      "weight": 0.4
+    },
+    {
+      "key": "cocaine",
+      "weight": 1.8
+    },
+    {
+      "key": "cock",
+      "weight": 1.2
+    },
+    {
+      "key": "cock",
+      "weight": 1
+    },
+    {
+      "key": "cocks",
+      "weight": 1.2
+    },
+    {
+      "key": "cocksucker",
+      "weight": 1.8
+    },
+    {
+      "key": "code",
+      "weight": 0.4
+    },
+    {
+      "key": "codeine",
+      "weight": 1.8
+    },
+    {
+      "key": "codez",
+      "weight": 1.8
+    },
+    {
+      "key": "coding",
+      "weight": 0.4
+    },
+    {
+      "key": "coding",
+      "weight": 0.8
+    },
+    {
+      "key": "collection",
+      "weight": 1.2
+    },
+    {
+      "key": "colt",
+      "weight": 0.4
+    },
+    {
+      "key": "comedy",
+      "weight": 1.8
+    },
+    {
+      "key": "comminuted",
+      "weight": 1.2
+    },
+    {
+      "key": "competition",
+      "weight": 0.6
+    },
+    {
+      "key": "complimentary",
+      "weight": 0.8
+    },
+    {
+      "key": "concert",
+      "weight": 1.8
+    },
+    {
+      "key": "condom",
+      "weight": 1.6
+    },
+    {
+      "key": "confidential",
+      "weight": 0.4
+    },
+    {
+      "key": "confidentiality",
+      "weight": 0.4
+    },
+    {
+      "key": "console",
+      "weight": 0.4
+    },
+    {
+      "key": "consolidate",
+      "weight": 0.8
+    },
+    {
+      "key": "constipation",
+      "weight": 1.2
+    },
+    {
+      "key": "coors",
+      "weight": 1.2
+    },
+    {
+      "key": "copayment",
+      "weight": 0.4
+    },
+    {
+      "key": "corona",
+      "weight": 1
+    },
+    {
+      "key": "cottaging",
+      "weight": 0.8
+    },
+    {
+      "key": "coupon",
+      "weight": 1.4
+    },
+    {
+      "key": "cpm",
+      "weight": 1.2
+    },
+    {
+      "key": "crack",
+      "weight": 1.2
+    },
+    {
+      "key": "cracked",
+      "weight": 0.6
+    },
+    {
+      "key": "cracker",
+      "weight": 1.2
+    },
+    {
+      "key": "crackz",
+      "weight": 1.8
+    },
+    {
+      "key": "craft",
+      "weight": 1.4
+    },
+    {
+      "key": "crank",
+      "weight": 1.4
+    },
+    {
+      "key": "craps",
+      "weight": 0.4
+    },
+    {
+      "key": "crash",
+      "weight": 0.4
+    },
+    {
+      "key": "creampie",
+      "weight": 1.6
+    },
+    {
+      "key": "crips",
+      "weight": 0.8
+    },
+    {
+      "key": "crotch",
+      "weight": 1.2
+    },
+    {
+      "key": "cruise",
+      "weight": 1.2
+    },
+    {
+      "key": "cum",
+      "weight": 1.6
+    },
+    {
+      "key": "cunnilingus",
+      "weight": 2
+    },
+    {
+      "key": "cunt",
+      "weight": 2
+    },
+    {
+      "key": "cunt",
+      "weight": 1.8
+    },
+    {
+      "key": "cunts",
+      "weight": 2
+    },
+    {
+      "key": "currency",
+      "weight": 0.4
+    },
+    {
+      "key": "customs",
+      "weight": 1.2
+    },
+    {
+      "key": "cyanide",
+      "weight": 1.2
+    },
+    {
+      "key": "cyberattack",
+      "weight": 0.8
+    },
+    {
+      "key": "cybercrime",
+      "weight": 1.2
+    },
+    {
+      "key": "cybersecurity",
+      "weight": 0.8
+    },
+    {
+      "key": "cycle",
+      "weight": 0.6
+    },
+    {
+      "key": "dagger",
+      "weight": 1.2
+    },
+    {
+      "key": "dago",
+      "weight": 1.2
+    },
+    {
+      "key": "damage",
+      "weight": 0.4
+    },
+    {
+      "key": "dance",
+      "weight": 1.2
+    },
+    {
+      "key": "darkie",
+      "weight": 0.4
+    },
+    {
+      "key": "darky",
+      "weight": 0.4
+    },
+    {
+      "key": "darts",
+      "weight": 1.8
+    },
+    {
+      "key": "dci",
+      "weight": 0.8
+    },
+    {
+      "key": "dea1",
+      "weight": 4
+    },
+    {
+      "key": "dea1s",
+      "weight": 4
+    },
+    {
+      "key": "dea1z",
+      "weight": 4
+    },
+    {
+      "key": "debug",
+      "weight": 0.4
+    },
+    {
+      "key": "decode",
+      "weight": 1.2
+    },
+    {
+      "key": "decrypt",
+      "weight": 0.8
+    },
+    {
+      "key": "deductible",
+      "weight": 0.8
+    },
+    {
+      "key": "defeat",
+      "weight": 1.2
+    },
+    {
+      "key": "defense",
+      "weight": 0.6
+    },
+    {
+      "key": "dego",
+      "weight": 1.2
+    },
+    {
+      "key": "denervation",
+      "weight": 1.6
+    },
+    {
+      "key": "denied",
+      "weight": 0.4
+    },
+    {
+      "key": "dental",
+      "weight": 0.8
+    },
+    {
+      "key": "depression",
+      "weight": 1.6
+    },
+    {
+      "key": "descrambler",
+      "weight": 1.2
+    },
+    {
+      "key": "destroy",
+      "weight": 1.2
+    },
+    {
+      "key": "detect",
+      "weight": 0.4
+    },
+    {
+      "key": "devil",
+      "weight": 0.8
+    },
+    {
+      "key": "diabetic",
+      "weight": 1.2
+    },
+    {
+      "key": "diagnosis",
+      "weight": 1.8
+    },
+    {
+      "key": "diarrhea",
+      "weight": 0.8
+    },
+    {
+      "key": "dick",
+      "weight": 0.4
+    },
+    {
+      "key": "dick",
+      "weight": 0.4
+    },
+    {
+      "key": "dickhead",
+      "weight": 1.8
+    },
+    {
+      "key": "dicks",
+      "weight": 0.4
+    },
+    {
+      "key": "diet",
+      "weight": 0.8
+    },
+    {
+      "key": "digestive",
+      "weight": 0.8
+    },
+    {
+      "key": "digital",
+      "weight": 0.6
+    },
+    {
+      "key": "dike",
+      "weight": 0.8
+    },
+    {
+      "key": "dike",
+      "weight": 1.2
+    },
+    {
+      "key": "dildo",
+      "weight": 1.8
+    },
+    {
+      "key": "dimebag",
+      "weight": 1.8
+    },
+    {
+      "key": "disable",
+      "weight": 0.4
+    },
+    {
+      "key": "disco",
+      "weight": 1.8
+    },
+    {
+      "key": "discotheque",
+      "weight": 1.8
+    },
+    {
+      "key": "discover",
+      "weight": 1.8
+    },
+    {
+      "key": "discus",
+      "weight": 1.8
+    },
+    {
+      "key": "disorder",
+      "weight": 0.8
+    },
+    {
+      "key": "dj",
+      "weight": 1
+    },
+    {
+      "key": "dock",
+      "weight": 0.4
+    },
+    {
+      "key": "doctor",
+      "weight": 0.8
+    },
+    {
+      "key": "doggystyle",
+      "weight": 2
+    },
+    {
+      "key": "dogmatist",
+      "weight": 0.4
+    },
+    {
+      "key": "domination",
+      "weight": 1.2
+    },
+    {
+      "key": "domination",
+      "weight": 1.2
+    },
+    {
+      "key": "dong",
+      "weight": 0.6
+    },
+    {
+      "key": "dope",
+      "weight": 0.4
+    },
+    {
+      "key": "downers",
+      "weight": 0.8
+    },
+    {
+      "key": "downline",
+      "weight": 1.2
+    },
+    {
+      "key": "downloadz",
+      "weight": 1.2
+    },
+    {
+      "key": "dreamcast",
+      "weight": 1.8
+    },
+    {
+      "key": "drug",
+      "weight": 1.4
+    },
+    {
+      "key": "drunk",
+      "weight": 1.8
+    },
+    {
+      "key": "dss",
+      "weight": 0.4
+    },
+    {
+      "key": "dssware",
+      "weight": 1.2
+    },
+    {
+      "key": "dumb",
+      "weight": 0.8
+    },
+    {
+      "key": "dumbass",
+      "weight": 1.2
+    },
+    {
+      "key": "dyke",
+      "weight": 1.2
+    },
+    {
+      "key": "dynamite",
+      "weight": 1.2
+    },
+    {
+      "key": "dysaesthesia",
+      "weight": 1.6
+    },
+    {
+      "key": "dysfunction",
+      "weight": 1.2
+    },
+    {
+      "key": "ecstacy",
+      "weight": 1.2
+    },
+    {
+      "key": "ecstacy",
+      "weight": 1.8
+    },
+    {
+      "key": "ecstasy",
+      "weight": 1.2
+    },
+    {
+      "key": "ecstasy",
+      "weight": 1.6
+    },
+    {
+      "key": "education",
+      "weight": 0.4
+    },
+    {
+      "key": "eightball",
+      "weight": 1.2
+    },
+    {
+      "key": "embark",
+      "weight": 1.2
+    },
+    {
+      "key": "emulator",
+      "weight": 1.2
+    },
+    {
+      "key": "enable",
+      "weight": 0.4
+    },
+    {
+      "key": "encode",
+      "weight": 0.6
+    },
+    {
+      "key": "encrypt",
+      "weight": 0.4
+    },
+    {
+      "key": "endocrine",
+      "weight": 1.2
+    },
+    {
+      "key": "enlargo",
+      "weight": 3.2
+    },
+    {
+      "key": "enrollee",
+      "weight": 0.4
+    },
+    {
+      "key": "enthusiast",
+      "weight": 0.6
+    },
+    {
+      "key": "eob",
+      "weight": 3
+    },
+    {
+      "key": "epidural",
+      "weight": 1.2
+    },
+    {
+      "key": "equestrian",
+      "weight": 1.8
+    },
+    {
+      "key": "erectile",
+      "weight": 0.8
+    },
+    {
+      "key": "erection",
+      "weight": 1.8
+    },
+    {
+      "key": "erotic",
+      "weight": 2
+    },
+    {
+      "key": "erotik",
+      "weight": 2
+    },
+    {
+      "key": "euphoria",
+      "weight": 0.4
+    },
+    {
+      "key": "euphoric",
+      "weight": 0.4
+    },
+    {
+      "key": "evite",
+      "weight": 1.2
+    },
+    {
+      "key": "examination",
+      "weight": 0.8
+    },
+    {
+      "key": "exciting",
+      "weight": 0.6
+    },
+    {
+      "key": "excrete",
+      "weight": 1
+    },
+    {
+      "key": "excretion",
+      "weight": 1
+    },
+    {
+      "key": "excursion",
+      "weight": 0.4
+    },
+    {
+      "key": "execution",
+      "weight": 0.8
+    },
+    {
+      "key": "exhibition",
+      "weight": 0.6
+    },
+    {
+      "key": "expedia",
+      "weight": 1.8
+    },
+    {
+      "key": "explode",
+      "weight": 1.2
+    },
+    {
+      "key": "explore",
+      "weight": 0.6
+    },
+    {
+      "key": "explosion",
+      "weight": 1.8
+    },
+    {
+      "key": "explosive",
+      "weight": 1.2
+    },
+    {
+      "key": "exterminate",
+      "weight": 0.4
+    },
+    {
+      "key": "extremist",
+      "weight": 1.2
+    },
+    {
+      "key": "facesit",
+      "weight": 1.2
+    },
+    {
+      "key": "fag",
+      "weight": 1.2
+    },
+    {
+      "key": "faggot",
+      "weight": 1.8
+    },
+    {
+      "key": "famous",
+      "weight": 1.2
+    },
+    {
+      "key": "fanfics",
+      "weight": 1.2
+    },
+    {
+      "key": "fans",
+      "weight": 1.2
+    },
+    {
+      "key": "fantasies",
+      "weight": 1.2
+    },
+    {
+      "key": "fantasy",
+      "weight": 0.4
+    },
+    {
+      "key": "fantasy",
+      "weight": 1.8
+    },
+    {
+      "key": "felch",
+      "weight": 1.8
+    },
+    {
+      "key": "felch",
+      "weight": 1.2
+    },
+    {
+      "key": "felching",
+      "weight": 1
+    },
+    {
+      "key": "fellatio",
+      "weight": 1.8
+    },
+    {
+      "key": "femdom",
+      "weight": 1.8
+    },
+    {
+      "key": "ferret",
+      "weight": 0.4
+    },
+    {
+      "key": "ferry",
+      "weight": 1.2
+    },
+    {
+      "key": "festival",
+      "weight": 1.6
+    },
+    {
+      "key": "fetische",
+      "weight": 1.6
+    },
+    {
+      "key": "fetish",
+      "weight": 0.4
+    },
+    {
+      "key": "fi2ee",
+      "weight": 4
+    },
+    {
+      "key": "field",
+      "weight": 0.6
+    },
+    {
+      "key": "fight",
+      "weight": 0.4
+    },
+    {
+      "key": "filez",
+      "weight": 1.2
+    },
+    {
+      "key": "film",
+      "weight": 1.2
+    },
+    {
+      "key": "filth",
+      "weight": 0.4
+    },
+    {
+      "key": "final",
+      "weight": 0.6
+    },
+    {
+      "key": "firearm",
+      "weight": 1.8
+    },
+    {
+      "key": "firewall",
+      "weight": 0.8
+    },
+    {
+      "key": "fishing",
+      "weight": 1.8
+    },
+    {
+      "key": "fisting",
+      "weight": 2
+    },
+    {
+      "key": "fisting",
+      "weight": 1
+    },
+    {
+      "key": "flasher",
+      "weight": 1.2
+    },
+    {
+      "key": "flask",
+      "weight": 0.8
+    },
+    {
+      "key": "flight",
+      "weight": 1.2
+    },
+    {
+      "key": "flightsim",
+      "weight": 1.8
+    },
+    {
+      "key": "flood",
+      "weight": 0.4
+    },
+    {
+      "key": "fluffer",
+      "weight": 0.8
+    },
+    {
+      "key": "football",
+      "weight": 1.8
+    },
+    {
+      "key": "foreplay",
+      "weight": 1.6
+    },
+    {
+      "key": "fornicate",
+      "weight": 1.8
+    },
+    {
+      "key": "free",
+      "weight": 0.4
+    },
+    {
+      "key": "freebase",
+      "weight": 1.8
+    },
+    {
+      "key": "freepic",
+      "weight": 0.4
+    },
+    {
+      "key": "ftpz",
+      "weight": 1.2
+    },
+    {
+      "key": "fucked",
+      "weight": 1.2
+    },
+    {
+      "key": "fudgepacker",
+      "weight": 1.8
+    },
+    {
+      "key": "fukka",
+      "weight": 1
+    },
+    {
+      "key": "furious",
+      "weight": 0.8
+    },
+    {
+      "key": "fury",
+      "weight": 1
+    },
+    {
+      "key": "g4y",
+      "weight": 4
+    },
+    {
+      "key": "gallery",
+      "weight": 0.8
+    },
+    {
+      "key": "gamble",
+      "weight": 1.4
+    },
+    {
+      "key": "gambling",
+      "weight": 1.8
+    },
+    {
+      "key": "game",
+      "weight": 1.6
+    },
+    {
+      "key": "gamecube",
+      "weight": 1.8
+    },
+    {
+      "key": "gaming",
+      "weight": 1.8
+    },
+    {
+      "key": "ganga",
+      "weight": 1.8
+    },
+    {
+      "key": "gangbang",
+      "weight": 2
+    },
+    {
+      "key": "gangbangs",
+      "weight": 2
+    },
+    {
+      "key": "ganja",
+      "weight": 1.8
+    },
+    {
+      "key": "garden",
+      "weight": 1.2
+    },
+    {
+      "key": "gassing",
+      "weight": 0.4
+    },
+    {
+      "key": "gay",
+      "weight": 0.4
+    },
+    {
+      "key": "gay",
+      "weight": 0.4
+    },
+    {
+      "key": "gayboy",
+      "weight": 1.8
+    },
+    {
+      "key": "gaylord",
+      "weight": 0.8
+    },
+    {
+      "key": "gbh",
+      "weight": 1.8
+    },
+    {
+      "key": "gemini",
+      "weight": 1.8
+    },
+    {
+      "key": "genocide",
+      "weight": 1.2
+    },
+    {
+      "key": "gimp",
+      "weight": 1.8
+    },
+    {
+      "key": "gin",
+      "weight": 1
+    },
+    {
+      "key": "gizz",
+      "weight": 1.2
+    },
+    {
+      "key": "gizzum",
+      "weight": 1.6
+    },
+    {
+      "key": "glider",
+      "weight": 1.8
+    },
+    {
+      "key": "glock",
+      "weight": 1.8
+    },
+    {
+      "key": "goal",
+      "weight": 1.2
+    },
+    {
+      "key": "gobbler",
+      "weight": 0.8
+    },
+    {
+      "key": "golf",
+      "weight": 1.8
+    },
+    {
+      "key": "gollywog",
+      "weight": 1.2
+    },
+    {
+      "key": "goodwood",
+      "weight": 1.8
+    },
+    {
+      "key": "gook",
+      "weight": 0.8
+    },
+    {
+      "key": "gory",
+      "weight": 1
+    },
+    {
+      "key": "gourmet",
+      "weight": 1.4
+    },
+    {
+      "key": "gram",
+      "weight": 0.8
+    },
+    {
+      "key": "grenade",
+      "weight": 1.4
+    },
+    {
+      "key": "gringo",
+      "weight": 1
+    },
+    {
+      "key": "guarantee",
+      "weight": 0.4
+    },
+    {
+      "key": "guest",
+      "weight": 0.4
+    },
+    {
+      "key": "guide",
+      "weight": 0.4
+    },
+    {
+      "key": "gun",
+      "weight": 1.2
+    },
+    {
+      "key": "gymnasium",
+      "weight": 1.8
+    },
+    {
+      "key": "gymnastics",
+      "weight": 1.8
+    },
+    {
+      "key": "gyppo",
+      "weight": 1.8
+    },
+    {
+      "key": "h0t",
+      "weight": 4
+    },
+    {
+      "key": "hack",
+      "weight": 1.2
+    },
+    {
+      "key": "hacker",
+      "weight": 1.8
+    },
+    {
+      "key": "hackersoftware",
+      "weight": 1.8
+    },
+    {
+      "key": "hackertool",
+      "weight": 1.8
+    },
+    {
+      "key": "hackerz",
+      "weight": 1.8
+    },
+    {
+      "key": "hackology",
+      "weight": 1.8
+    },
+    {
+      "key": "hackz",
+      "weight": 1.8
+    },
+    {
+      "key": "hallucinogen",
+      "weight": 1.8
+    },
+    {
+      "key": "hammered",
+      "weight": 1
+    },
+    {
+      "key": "hammerskin",
+      "weight": 1.8
+    },
+    {
+      "key": "handgun",
+      "weight": 1.8
+    },
+    {
+      "key": "handicap",
+      "weight": 0.4
+    },
+    {
+      "key": "hangover",
+      "weight": 1.8
+    },
+    {
+      "key": "hardcore",
+      "weight": 0.8
+    },
+    {
+      "key": "hash",
+      "weight": 0.4
+    },
+    {
+      "key": "hashish",
+      "weight": 1.8
+    },
+    {
+      "key": "hate",
+      "weight": 0.4
+    },
+    {
+      "key": "headhunter",
+      "weight": 1.8
+    },
+    {
+      "key": "heartburn",
+      "weight": 0.4
+    },
+    {
+      "key": "hemp",
+      "weight": 1.2
+    },
+    {
+      "key": "hentai",
+      "weight": 1.6
+    },
+    {
+      "key": "hermaphrodite",
+      "weight": 1.6
+    },
+    {
+      "key": "heroin",
+      "weight": 1.8
+    },
+    {
+      "key": "heroine",
+      "weight": 1.8
+    },
+    {
+      "key": "hgh",
+      "weight": 1.6
+    },
+    {
+      "key": "highscore",
+      "weight": 1.8
+    },
+    {
+      "key": "hike",
+      "weight": 1
+    },
+    {
+      "key": "hipaa",
+      "weight": 0.4
+    },
+    {
+      "key": "hire",
+      "weight": 0.4
+    },
+    {
+      "key": "hitler",
+      "weight": 1.8
+    },
+    {
+      "key": "hiv",
+      "weight": 3
+    },
+    {
+      "key": "hmo",
+      "weight": 0.4
+    },
+    {
+      "key": "hoax",
+      "weight": 0.4
+    },
+    {
+      "key": "hoaxz",
+      "weight": 1.8
+    },
+    {
+      "key": "hobby",
+      "weight": 1.4
+    },
+    {
+      "key": "hockey",
+      "weight": 1.8
+    },
+    {
+      "key": "hoe",
+      "weight": 0.8
+    },
+    {
+      "key": "holiday",
+      "weight": 0.8
+    },
+    {
+      "key": "holocaust",
+      "weight": 1.2
+    },
+    {
+      "key": "holster",
+      "weight": 1.8
+    },
+    {
+      "key": "homo",
+      "weight": 1.4
+    },
+    {
+      "key": "horny",
+      "weight": 1.2
+    },
+    {
+      "key": "horoscope",
+      "weight": 1.8
+    },
+    {
+      "key": "horserace",
+      "weight": 1.8
+    },
+    {
+      "key": "horserace",
+      "weight": 1.8
+    },
+    {
+      "key": "hotel",
+      "weight": 1.4
+    },
+    {
+      "key": "hotjob",
+      "weight": 1.8
+    },
+    {
+      "key": "hottest",
+      "weight": 0.8
+    },
+    {
+      "key": "humidor",
+      "weight": 0.4
+    },
+    {
+      "key": "humor",
+      "weight": 0.8
+    },
+    {
+      "key": "humour",
+      "weight": 1.8
+    },
+    {
+      "key": "hump",
+      "weight": 0.6
+    },
+    {
+      "key": "hurdles",
+      "weight": 1.2
+    },
+    {
+      "key": "hurt",
+      "weight": 0.8
+    },
+    {
+      "key": "hustler",
+      "weight": 1
+    },
+    {
+      "key": "hydroponic",
+      "weight": 1.2
+    },
+    {
+      "key": "hymie",
+      "weight": 0.8
+    },
+    {
+      "key": "hyperaesthesia",
+      "weight": 1.8
+    },
+    {
+      "key": "hyperalgesia",
+      "weight": 1.8
+    },
+    {
+      "key": "hyperpathia",
+      "weight": 1.8
+    },
+    {
+      "key": "hypnotic",
+      "weight": 0.4
+    },
+    {
+      "key": "hypoaesthesia",
+      "weight": 1.8
+    },
+    {
+      "key": "icewarez",
+      "weight": 1.8
+    },
+    {
+      "key": "illegal",
+      "weight": 0.4
+    },
+    {
+      "key": "immunization",
+      "weight": 0.8
+    },
+    {
+      "key": "indoor",
+      "weight": 1.2
+    },
+    {
+      "key": "infantilism",
+      "weight": 1.6
+    },
+    {
+      "key": "inflammation",
+      "weight": 1.2
+    },
+    {
+      "key": "inhalant",
+      "weight": 0.4
+    },
+    {
+      "key": "inject",
+      "weight": 1.2
+    },
+    {
+      "key": "injury",
+      "weight": 0.4
+    },
+    {
+      "key": "innings",
+      "weight": 1.8
+    },
+    {
+      "key": "insecure",
+      "weight": 0.4
+    },
+    {
+      "key": "insurance",
+      "weight": 0.8
+    },
+    {
+      "key": "intercourse",
+      "weight": 1.8
+    },
+    {
+      "key": "interview",
+      "weight": 1.2
+    },
+    {
+      "key": "ipod",
+      "weight": 1.8
+    },
+    {
+      "key": "ireie",
+      "weight": 0.6
+    },
+    {
+      "key": "island",
+      "weight": 1.2
+    },
+    {
+      "key": "itunes",
+      "weight": 1.6
+    },
+    {
+      "key": "jackoff",
+      "weight": 1.4
+    },
+    {
+      "key": "jackpot",
+      "weight": 1.8
+    },
+    {
+      "key": "javelin",
+      "weight": 1.8
+    },
+    {
+      "key": "jazz",
+      "weight": 1.2
+    },
+    {
+      "key": "jerk",
+      "weight": 0.8
+    },
+    {
+      "key": "jerkoff",
+      "weight": 1.4
+    },
+    {
+      "key": "jew",
+      "weight": 0.4
+    },
+    {
+      "key": "jewelry",
+      "weight": 1.2
+    },
+    {
+      "key": "jews",
+      "weight": 1
+    },
+    {
+      "key": "jizz",
+      "weight": 1.6
+    },
+    {
+      "key": "jizzum",
+      "weight": 1.8
+    },
+    {
+      "key": "job",
+      "weight": 0.6
+    },
+    {
+      "key": "jobdirect",
+      "weight": 1.8
+    },
+    {
+      "key": "jobseeker",
+      "weight": 1.8
+    },
+    {
+      "key": "jobsonline",
+      "weight": 1.8
+    },
+    {
+      "key": "jobtrak",
+      "weight": 1.8
+    },
+    {
+      "key": "jockey",
+      "weight": 1.8
+    },
+    {
+      "key": "joke",
+      "weight": 1.8
+    },
+    {
+      "key": "journey",
+      "weight": 0.8
+    },
+    {
+      "key": "joy",
+      "weight": 0.6
+    },
+    {
+      "key": "joypad",
+      "weight": 1.8
+    },
+    {
+      "key": "joystick",
+      "weight": 1.8
+    },
+    {
+      "key": "judo",
+      "weight": 1.8
+    },
+    {
+      "key": "jugs",
+      "weight": 0.8
+    },
+    {
+      "key": "juicy",
+      "weight": 0.6
+    },
+    {
+      "key": "jukebox",
+      "weight": 1.8
+    },
+    {
+      "key": "karaoke",
+      "weight": 1.8
+    },
+    {
+      "key": "karate",
+      "weight": 1.8
+    },
+    {
+      "key": "kayak",
+      "weight": 1.6
+    },
+    {
+      "key": "keg",
+      "weight": 1.8
+    },
+    {
+      "key": "ketamine",
+      "weight": 1.8
+    },
+    {
+      "key": "kick",
+      "weight": 0.4
+    },
+    {
+      "key": "kidnap",
+      "weight": 1.6
+    },
+    {
+      "key": "kill",
+      "weight": 0.4
+    },
+    {
+      "key": "kill",
+      "weight": 0.8
+    },
+    {
+      "key": "kinky",
+      "weight": 1.6
+    },
+    {
+      "key": "kkk",
+      "weight": 1.8
+    },
+    {
+      "key": "klan",
+      "weight": 1.8
+    },
+    {
+      "key": "kluge",
+      "weight": 1.2
+    },
+    {
+      "key": "knife",
+      "weight": 1.2
+    },
+    {
+      "key": "knights",
+      "weight": 0.4
+    },
+    {
+      "key": "knives",
+      "weight": 1.2
+    },
+    {
+      "key": "knob",
+      "weight": 0.4
+    },
+    {
+      "key": "kraut",
+      "weight": 0.8
+    },
+    {
+      "key": "labia",
+      "weight": 1.6
+    },
+    {
+      "key": "labor",
+      "weight": 0.6
+    },
+    {
+      "key": "labor",
+      "weight": 0.4
+    },
+    {
+      "key": "lacrosse",
+      "weight": 1.8
+    },
+    {
+      "key": "lager",
+      "weight": 1.4
+    },
+    {
+      "key": "land",
+      "weight": 0.4
+    },
+    {
+      "key": "lardass",
+      "weight": 1
+    },
+    {
+      "key": "latex",
+      "weight": 1.4
+    },
+    {
+      "key": "laugh",
+      "weight": 0.8
+    },
+    {
+      "key": "leader",
+      "weight": 0.6
+    },
+    {
+      "key": "league",
+      "weight": 0.6
+    },
+    {
+      "key": "leisure",
+      "weight": 1.2
+    },
+    {
+      "key": "lesbian",
+      "weight": 1
+    },
+    {
+      "key": "lesbo",
+      "weight": 1.2
+    },
+    {
+      "key": "lez",
+      "weight": 0.8
+    },
+    {
+      "key": "liability",
+      "weight": 1.2
+    },
+    {
+      "key": "libra",
+      "weight": 1.8
+    },
+    {
+      "key": "lick",
+      "weight": 0.4
+    },
+    {
+      "key": "linkz",
+      "weight": 1.2
+    },
+    {
+      "key": "liplocked",
+      "weight": 1.2
+    },
+    {
+      "key": "lips",
+      "weight": 0.4
+    },
+    {
+      "key": "liquor",
+      "weight": 1.2
+    },
+    {
+      "key": "loan",
+      "weight": 0.4
+    },
+    {
+      "key": "lock",
+      "weight": 0.4
+    },
+    {
+      "key": "lodging",
+      "weight": 0.4
+    },
+    {
+      "key": "lottery",
+      "weight": 1.8
+    },
+    {
+      "key": "lowest",
+      "weight": 1.2
+    },
+    {
+      "key": "lsd",
+      "weight": 1.8
+    },
+    {
+      "key": "lubricant",
+      "weight": 1.2
+    },
+    {
+      "key": "lubrication",
+      "weight": 0.4
+    },
+    {
+      "key": "luck",
+      "weight": 0.4
+    },
+    {
+      "key": "luggage",
+      "weight": 1.2
+    },
+    {
+      "key": "lust",
+      "weight": 1.2
+    },
+    {
+      "key": "luxury",
+      "weight": 0.4
+    },
+    {
+      "key": "m14",
+      "weight": 1.2
+    },
+    {
+      "key": "mace",
+      "weight": 1.4
+    },
+    {
+      "key": "machete",
+      "weight": 1.8
+    },
+    {
+      "key": "magic",
+      "weight": 1.4
+    },
+    {
+      "key": "magnum",
+      "weight": 1.6
+    },
+    {
+      "key": "mall",
+      "weight": 0.8
+    },
+    {
+      "key": "manhood",
+      "weight": 1.6
+    },
+    {
+      "key": "marihuana",
+      "weight": 1.8
+    },
+    {
+      "key": "marijuana",
+      "weight": 1.8
+    },
+    {
+      "key": "martini",
+      "weight": 1.8
+    },
+    {
+      "key": "massacre",
+      "weight": 0.4
+    },
+    {
+      "key": "massacre",
+      "weight": 0.8
+    },
+    {
+      "key": "mastercard",
+      "weight": 1.8
+    },
+    {
+      "key": "masturbation",
+      "weight": 1.8
+    },
+    {
+      "key": "match",
+      "weight": 0.6
+    },
+    {
+      "key": "medicaid",
+      "weight": 1.2
+    },
+    {
+      "key": "medicare",
+      "weight": 1.2
+    },
+    {
+      "key": "medigap",
+      "weight": 1.2
+    },
+    {
+      "key": "meds",
+      "weight": 1.2
+    },
+    {
+      "key": "memorabilia",
+      "weight": 1.8
+    },
+    {
+      "key": "merger",
+      "weight": 0.4
+    },
+    {
+      "key": "mescaline",
+      "weight": 1.8
+    },
+    {
+      "key": "metatarsalgia",
+      "weight": 1.8
+    },
+    {
+      "key": "meth",
+      "weight": 0.6
+    },
+    {
+      "key": "methamphetamine",
+      "weight": 1.8
+    },
+    {
+      "key": "militia",
+      "weight": 1.2
+    },
+    {
+      "key": "minge",
+      "weight": 1.2
+    },
+    {
+      "key": "miracle",
+      "weight": 1.2
+    },
+    {
+      "key": "misuse",
+      "weight": 0.4
+    },
+    {
+      "key": "mlm",
+      "weight": 1.2
+    },
+    {
+      "key": "modifier",
+      "weight": 1.2
+    },
+    {
+      "key": "modify",
+      "weight": 0.4
+    },
+    {
+      "key": "moped",
+      "weight": 1.4
+    },
+    {
+      "key": "moron",
+      "weight": 1
+    },
+    {
+      "key": "morphine",
+      "weight": 1.8
+    },
+    {
+      "key": "mortgage",
+      "weight": 0.8
+    },
+    {
+      "key": "motel",
+      "weight": 1.8
+    },
+    {
+      "key": "motherfukka",
+      "weight": 1.8
+    },
+    {
+      "key": "motorcross",
+      "weight": 1.8
+    },
+    {
+      "key": "motorsport",
+      "weight": 1.8
+    },
+    {
+      "key": "movie",
+      "weight": 0.8
+    },
+    {
+      "key": "mp3",
+      "weight": 0.8
+    },
+    {
+      "key": "mp5",
+      "weight": 1.2
+    },
+    {
+      "key": "mpeg",
+      "weight": 0.4
+    },
+    {
+      "key": "mpeg2vcr",
+      "weight": 1.2
+    },
+    {
+      "key": "mrn",
+      "weight": 4
+    },
+    {
+      "key": "multimedia",
+      "weight": 0.6
+    },
+    {
+      "key": "multiplayer",
+      "weight": 1.8
+    },
+    {
+      "key": "murder",
+      "weight": 0.4
+    },
+    {
+      "key": "murder",
+      "weight": 1.2
+    },
+    {
+      "key": "museum",
+      "weight": 1.6
+    },
+    {
+      "key": "music",
+      "weight": 1.2
+    },
+    {
+      "key": "n64",
+      "weight": 1.8
+    },
+    {
+      "key": "naawp",
+      "weight": 1.2
+    },
+    {
+      "key": "naked",
+      "weight": 1.2
+    },
+    {
+      "key": "narcotic",
+      "weight": 1.8
+    },
+    {
+      "key": "narcotic",
+      "weight": 1.2
+    },
+    {
+      "key": "nascar",
+      "weight": 1.8
+    },
+    {
+      "key": "nasty",
+      "weight": 1.2
+    },
+    {
+      "key": "nationjob",
+      "weight": 1.8
+    },
+    {
+      "key": "naughty",
+      "weight": 1.6
+    },
+    {
+      "key": "nazi",
+      "weight": 1.8
+    },
+    {
+      "key": "nba",
+      "weight": 1.8
+    },
+    {
+      "key": "necklacing",
+      "weight": 1.4
+    },
+    {
+      "key": "necrofil",
+      "weight": 2
+    },
+    {
+      "key": "needlework",
+      "weight": 1.8
+    },
+    {
+      "key": "negro",
+      "weight": 0.8
+    },
+    {
+      "key": "nekked",
+      "weight": 1
+    },
+    {
+      "key": "netwarez",
+      "weight": 1.8
+    },
+    {
+      "key": "neuritis",
+      "weight": 1.8
+    },
+    {
+      "key": "neuropathic",
+      "weight": 1.8
+    },
+    {
+      "key": "nfl",
+      "weight": 1.8
+    },
+    {
+      "key": "nhl",
+      "weight": 1.8
+    },
+    {
+      "key": "nicotine",
+      "weight": 1.8
+    },
+    {
+      "key": "nigga",
+      "weight": 0.8
+    },
+    {
+      "key": "nigger",
+      "weight": 0.8
+    },
+    {
+      "key": "nightclub",
+      "weight": 1.8
+    },
+    {
+      "key": "nightstick",
+      "weight": 1.6
+    },
+    {
+      "key": "nintendo",
+      "weight": 1.8
+    },
+    {
+      "key": "nip",
+      "weight": 0.4
+    },
+    {
+      "key": "nips",
+      "weight": 1
+    },
+    {
+      "key": "niteclub",
+      "weight": 1.8
+    },
+    {
+      "key": "nitrous",
+      "weight": 0.8
+    },
+    {
+      "key": "nobwit",
+      "weight": 0.8
+    },
+    {
+      "key": "nookie",
+      "weight": 1.8
+    },
+    {
+      "key": "nooky",
+      "weight": 1.2
+    },
+    {
+      "key": "nudity",
+      "weight": 1.2
+    },
+    {
+      "key": "nuke",
+      "weight": 0.4
+    },
+    {
+      "key": "nurse",
+      "weight": 0.8
+    },
+    {
+      "key": "occupation",
+      "weight": 1.2
+    },
+    {
+      "key": "odds",
+      "weight": 0.8
+    },
+    {
+      "key": "oem",
+      "weight": 1.2
+    },
+    {
+      "key": "offense",
+      "weight": 0.6
+    },
+    {
+      "key": "olympic",
+      "weight": 1.8
+    },
+    {
+      "key": "oozie",
+      "weight": 1.6
+    },
+    {
+      "key": "opel",
+      "weight": 1.8
+    },
+    {
+      "key": "openhack",
+      "weight": 1.8
+    },
+    {
+      "key": "opera",
+      "weight": 1.8
+    },
+    {
+      "key": "opiate",
+      "weight": 1.2
+    },
+    {
+      "key": "opium",
+      "weight": 1.8
+    },
+    {
+      "key": "opium",
+      "weight": 1.6
+    },
+    {
+      "key": "opponent",
+      "weight": 0.6
+    },
+    {
+      "key": "opportunities",
+      "weight": 0.6
+    },
+    {
+      "key": "opportunity",
+      "weight": 0.6
+    },
+    {
+      "key": "opted",
+      "weight": 1.2
+    },
+    {
+      "key": "optedin",
+      "weight": 1.2
+    },
+    {
+      "key": "optedout",
+      "weight": 1.2
+    },
+    {
+      "key": "optin",
+      "weight": 1.2
+    },
+    {
+      "key": "optout",
+      "weight": 1.2
+    },
+    {
+      "key": "oral",
+      "weight": 0.8
+    },
+    {
+      "key": "orbitz",
+      "weight": 1.8
+    },
+    {
+      "key": "orchestra",
+      "weight": 1.8
+    },
+    {
+      "key": "orgy",
+      "weight": 1.4
+    },
+    {
+      "key": "orif",
+      "weight": 1.2
+    },
+    {
+      "key": "osteotomy",
+      "weight": 1.8
+    },
+    {
+      "key": "ounce",
+      "weight": 0.8
+    },
+    {
+      "key": "outdoors",
+      "weight": 1.2
+    },
+    {
+      "key": "overdose",
+      "weight": 1.8
+    },
+    {
+      "key": "overseas",
+      "weight": 0.4
+    },
+    {
+      "key": "p1cs",
+      "weight": 4
+    },
+    {
+      "key": "paedophile",
+      "weight": 2
+    },
+    {
+      "key": "paganism",
+      "weight": 1.6
+    },
+    {
+      "key": "pain",
+      "weight": 0.8
+    },
+    {
+      "key": "painting",
+      "weight": 1.2
+    },
+    {
+      "key": "pantomime",
+      "weight": 1.8
+    },
+    {
+      "key": "panty",
+      "weight": 1.6
+    },
+    {
+      "key": "parasthesia",
+      "weight": 1.6
+    },
+    {
+      "key": "party",
+      "weight": 0.6
+    },
+    {
+      "key": "party",
+      "weight": 0.4
+    },
+    {
+      "key": "passport",
+      "weight": 0.8
+    },
+    {
+      "key": "password",
+      "weight": 0.6
+    },
+    {
+      "key": "patch",
+      "weight": 0.4
+    },
+    {
+      "key": "payout",
+      "weight": 1.8
+    },
+    {
+      "key": "pcp",
+      "weight": 1.8
+    },
+    {
+      "key": "pecker",
+      "weight": 0.8
+    },
+    {
+      "key": "peckerwood",
+      "weight": 1.8
+    },
+    {
+      "key": "pee",
+      "weight": 0.8
+    },
+    {
+      "key": "peenis",
+      "weight": 4
+    },
+    {
+      "key": "peepshow",
+      "weight": 1.8
+    },
+    {
+      "key": "penetrate",
+      "weight": 0.4
+    },
+    {
+      "key": "penetration",
+      "weight": 0.4
+    },
+    {
+      "key": "penis",
+      "weight": 1.8
+    },
+    {
+      "key": "pervert",
+      "weight": 1
+    },
+    {
+      "key": "peyote",
+      "weight": 1.8
+    },
+    {
+      "key": "pharmacy",
+      "weight": 0.8
+    },
+    {
+      "key": "photograph",
+      "weight": 1.2
+    },
+    {
+      "key": "photography",
+      "weight": 1.2
+    },
+    {
+      "key": "phreak",
+      "weight": 1.8
+    },
+    {
+      "key": "phreaking",
+      "weight": 1.8
+    },
+    {
+      "key": "phuck",
+      "weight": 1.4
+    },
+    {
+      "key": "phuk",
+      "weight": 1.4
+    },
+    {
+      "key": "physical",
+      "weight": 0.6
+    },
+    {
+      "key": "physician",
+      "weight": 0.8
+    },
+    {
+      "key": "picpost",
+      "weight": 1.2
+    },
+    {
+      "key": "pictures",
+      "weight": 0.6
+    },
+    {
+      "key": "pill",
+      "weight": 0.4
+    },
+    {
+      "key": "pimp",
+      "weight": 1.2
+    },
+    {
+      "key": "pimps",
+      "weight": 1.2
+    },
+    {
+      "key": "pink",
+      "weight": 0.4
+    },
+    {
+      "key": "pint",
+      "weight": 0.6
+    },
+    {
+      "key": "pipe",
+      "weight": 0.4
+    },
+    {
+      "key": "pisces",
+      "weight": 1.8
+    },
+    {
+      "key": "piss",
+      "weight": 0.8
+    },
+    {
+      "key": "pissed",
+      "weight": 1.2
+    },
+    {
+      "key": "pisser",
+      "weight": 1.8
+    },
+    {
+      "key": "pissing",
+      "weight": 1.2
+    },
+    {
+      "key": "pistol",
+      "weight": 1.8
+    },
+    {
+      "key": "pitcher",
+      "weight": 1.8
+    },
+    {
+      "key": "plane",
+      "weight": 0.4
+    },
+    {
+      "key": "playboy",
+      "weight": 1.8
+    },
+    {
+      "key": "player",
+      "weight": 1.2
+    },
+    {
+      "key": "playgirl",
+      "weight": 1.8
+    },
+    {
+      "key": "playmate",
+      "weight": 0.6
+    },
+    {
+      "key": "playstation",
+      "weight": 1.8
+    },
+    {
+      "key": "pleasure",
+      "weight": 1.2
+    },
+    {
+      "key": "poem",
+      "weight": 1.8
+    },
+    {
+      "key": "poison",
+      "weight": 0.8
+    },
+    {
+      "key": "poker",
+      "weight": 1.8
+    },
+    {
+      "key": "polevault",
+      "weight": 1.8
+    },
+    {
+      "key": "polo",
+      "weight": 1.8
+    },
+    {
+      "key": "poof",
+      "weight": 1
+    },
+    {
+      "key": "popper",
+      "weight": 1
+    },
+    {
+      "key": "porn",
+      "weight": 1.6
+    },
+    {
+      "key": "porno",
+      "weight": 1.6
+    },
+    {
+      "key": "pot",
+      "weight": 0.4
+    },
+    {
+      "key": "powerline",
+      "weight": 1.6
+    },
+    {
+      "key": "ppo",
+      "weight": 0.4
+    },
+    {
+      "key": "practitioner",
+      "weight": 1.2
+    },
+    {
+      "key": "pregnancy",
+      "weight": 0.4
+    },
+    {
+      "key": "prick",
+      "weight": 1.2
+    },
+    {
+      "key": "prick",
+      "weight": 0.4
+    },
+    {
+      "key": "privacy",
+      "weight": 0.4
+    },
+    {
+      "key": "private",
+      "weight": 0.4
+    },
+    {
+      "key": "prize",
+      "weight": 0.4
+    },
+    {
+      "key": "pro",
+      "weight": 0.6
+    },
+    {
+      "key": "progz",
+      "weight": 1.8
+    },
+    {
+      "key": "protect",
+      "weight": 0.4
+    },
+    {
+      "key": "ps2",
+      "weight": 1.8
+    },
+    {
+      "key": "psx",
+      "weight": 1.8
+    },
+    {
+      "key": "psychedelic",
+      "weight": 0.4
+    },
+    {
+      "key": "pub",
+      "weight": 0.6
+    },
+    {
+      "key": "pubes",
+      "weight": 1.2
+    },
+    {
+      "key": "pubic",
+      "weight": 1.4
+    },
+    {
+      "key": "publisher",
+      "weight": 1.2
+    },
+    {
+      "key": "puke",
+      "weight": 1.2
+    },
+    {
+      "key": "punk",
+      "weight": 1.6
+    },
+    {
+      "key": "purchase",
+      "weight": 0.8
+    },
+    {
+      "key": "pussy",
+      "weight": 1.4
+    },
+    {
+      "key": "puzzle",
+      "weight": 0.8
+    },
+    {
+      "key": "pyramid",
+      "weight": 0.8
+    },
+    {
+      "key": "qualifications",
+      "weight": 1.2
+    },
+    {
+      "key": "quarterback",
+      "weight": 1.8
+    },
+    {
+      "key": "queer",
+      "weight": 0.6
+    },
+    {
+      "key": "race",
+      "weight": 0.6
+    },
+    {
+      "key": "racist",
+      "weight": 0.4
+    },
+    {
+      "key": "racket",
+      "weight": 1.2
+    },
+    {
+      "key": "radiation",
+      "weight": 1.6
+    },
+    {
+      "key": "radiculogram",
+      "weight": 1.2
+    },
+    {
+      "key": "radio",
+      "weight": 1.6
+    },
+    {
+      "key": "raft",
+      "weight": 1.2
+    },
+    {
+      "key": "raghead",
+      "weight": 1.8
+    },
+    {
+      "key": "rahowa",
+      "weight": 1.8
+    },
+    {
+      "key": "rail",
+      "weight": 0.4
+    },
+    {
+      "key": "rally",
+      "weight": 0.6
+    },
+    {
+      "key": "rammed",
+      "weight": 0.8
+    },
+    {
+      "key": "ransom",
+      "weight": 1.6
+    },
+    {
+      "key": "rap",
+      "weight": 0.6
+    },
+    {
+      "key": "rape",
+      "weight": 1.8
+    },
+    {
+      "key": "rapids",
+      "weight": 1.8
+    },
+    {
+      "key": "realaudio",
+      "weight": 1.8
+    },
+    {
+      "key": "realjukebox",
+      "weight": 1.8
+    },
+    {
+      "key": "realplayer",
+      "weight": 1.8
+    },
+    {
+      "key": "record",
+      "weight": 0.6
+    },
+    {
+      "key": "recreation",
+      "weight": 1.2
+    },
+    {
+      "key": "reefer",
+      "weight": 1.4
+    },
+    {
+      "key": "refi",
+      "weight": 1
+    },
+    {
+      "key": "refinance",
+      "weight": 0.8
+    },
+    {
+      "key": "reggae",
+      "weight": 1.8
+    },
+    {
+      "key": "reload",
+      "weight": 0.4
+    },
+    {
+      "key": "remote",
+      "weight": 0.4
+    },
+    {
+      "key": "reservation",
+      "weight": 0.4
+    },
+    {
+      "key": "reserve",
+      "weight": 0.6
+    },
+    {
+      "key": "resin",
+      "weight": 1
+    },
+    {
+      "key": "resort",
+      "weight": 0.4
+    },
+    {
+      "key": "respiratory",
+      "weight": 1.2
+    },
+    {
+      "key": "restaurant",
+      "weight": 1
+    },
+    {
+      "key": "restricted",
+      "weight": 0.6
+    },
+    {
+      "key": "result",
+      "weight": 0.4
+    },
+    {
+      "key": "result",
+      "weight": 0.4
+    },
+    {
+      "key": "resume",
+      "weight": 1.2
+    },
+    {
+      "key": "revolver",
+      "weight": 1.6
+    },
+    {
+      "key": "rhyme",
+      "weight": 1.2
+    },
+    {
+      "key": "riddle",
+      "weight": 1.2
+    },
+    {
+      "key": "rifle",
+      "weight": 1.2
+    },
+    {
+      "key": "riot",
+      "weight": 1.2
+    },
+    {
+      "key": "rislas",
+      "weight": 1.2
+    },
+    {
+      "key": "roach",
+      "weight": 1
+    },
+    {
+      "key": "rock",
+      "weight": 0.4
+    },
+    {
+      "key": "rohypnol",
+      "weight": 1.8
+    },
+    {
+      "key": "roleplay",
+      "weight": 1.8
+    },
+    {
+      "key": "romantic",
+      "weight": 1.8
+    },
+    {
+      "key": "room",
+      "weight": 0.4
+    },
+    {
+      "key": "roulette",
+      "weight": 1.8
+    },
+    {
+      "key": "roundtrip",
+      "weight": 0.6
+    },
+    {
+      "key": "rowing",
+      "weight": 1.8
+    },
+    {
+      "key": "rugby",
+      "weight": 1.8
+    },
+    {
+      "key": "rum",
+      "weight": 1
+    },
+    {
+      "key": "rumble",
+      "weight": 0.4
+    },
+    {
+      "key": "runner",
+      "weight": 0.6
+    },
+    {
+      "key": "runway",
+      "weight": 1.8
+    },
+    {
+      "key": "safeguard",
+      "weight": 0.4
+    },
+    {
+      "key": "sagittarius",
+      "weight": 1.8
+    },
+    {
+      "key": "sail",
+      "weight": 1.8
+    },
+    {
+      "key": "sailing",
+      "weight": 1.8
+    },
+    {
+      "key": "sake",
+      "weight": 1.2
+    },
+    {
+      "key": "samurai",
+      "weight": 1.2
+    },
+    {
+      "key": "sangria",
+      "weight": 0.8
+    },
+    {
+      "key": "satan",
+      "weight": 1.8
+    },
+    {
+      "key": "save",
+      "weight": 0.8
+    },
+    {
+      "key": "scabbarscope",
+      "weight": 1.8
+    },
+    {
+      "key": "schmack",
+      "weight": 1.8
+    },
+    {
+      "key": "sciatica",
+      "weight": 1.2
+    },
+    {
+      "key": "score",
+      "weight": 0.8
+    },
+    {
+      "key": "scored",
+      "weight": 1.8
+    },
+    {
+      "key": "scorpio",
+      "weight": 1.8
+    },
+    {
+      "key": "scramble",
+      "weight": 1.2
+    },
+    {
+      "key": "scratch",
+      "weight": 0.4
+    },
+    {
+      "key": "screw",
+      "weight": 0.8
+    },
+    {
+      "key": "scrotum",
+      "weight": 1.8
+    },
+    {
+      "key": "scuba",
+      "weight": 1.8
+    },
+    {
+      "key": "scum",
+      "weight": 0.8
+    },
+    {
+      "key": "seaside",
+      "weight": 1.8
+    },
+    {
+      "key": "season",
+      "weight": 1.2
+    },
+    {
+      "key": "secret",
+      "weight": 0.4
+    },
+    {
+      "key": "secret",
+      "weight": 0.4
+    },
+    {
+      "key": "security",
+      "weight": 0.6
+    },
+    {
+      "key": "seduction",
+      "weight": 1.2
+    },
+    {
+      "key": "sega",
+      "weight": 1.8
+    },
+    {
+      "key": "seks",
+      "weight": 4
+    },
+    {
+      "key": "sekx",
+      "weight": 1.2
+    },
+    {
+      "key": "semen",
+      "weight": 0.8
+    },
+    {
+      "key": "semiautomatic",
+      "weight": 1.8
+    },
+    {
+      "key": "septic",
+      "weight": 1.6
+    },
+    {
+      "key": "serialz",
+      "weight": 1.8
+    },
+    {
+      "key": "sex",
+      "weight": 1.8
+    },
+    {
+      "key": "shag",
+      "weight": 1.2
+    },
+    {
+      "key": "shank",
+      "weight": 1.2
+    },
+    {
+      "key": "sheath",
+      "weight": 0.4
+    },
+    {
+      "key": "shit",
+      "weight": 1.4
+    },
+    {
+      "key": "shite",
+      "weight": 1.6
+    },
+    {
+      "key": "shithead",
+      "weight": 1.8
+    },
+    {
+      "key": "shitter",
+      "weight": 1.2
+    },
+    {
+      "key": "shoot",
+      "weight": 0.4
+    },
+    {
+      "key": "shop",
+      "weight": 1.8
+    },
+    {
+      "key": "shopping",
+      "weight": 1.6
+    },
+    {
+      "key": "shot",
+      "weight": 0.4
+    },
+    {
+      "key": "shotgun",
+      "weight": 1.2
+    },
+    {
+      "key": "shrooms",
+      "weight": 1.8
+    },
+    {
+      "key": "sightseeing",
+      "weight": 1.8
+    },
+    {
+      "key": "silencer",
+      "weight": 1.6
+    },
+    {
+      "key": "singer",
+      "weight": 1.2
+    },
+    {
+      "key": "sinus",
+      "weight": 0.8
+    },
+    {
+      "key": "sixer",
+      "weight": 0.6
+    },
+    {
+      "key": "skating",
+      "weight": 1.8
+    },
+    {
+      "key": "skiing",
+      "weight": 1.6
+    },
+    {
+      "key": "skinhead",
+      "weight": 1.8
+    },
+    {
+      "key": "slang",
+      "weight": 0.8
+    },
+    {
+      "key": "slaughter",
+      "weight": 0.8
+    },
+    {
+      "key": "sleaze",
+      "weight": 0.8
+    },
+    {
+      "key": "slit",
+      "weight": 0.6
+    },
+    {
+      "key": "slots",
+      "weight": 0.4
+    },
+    {
+      "key": "slut",
+      "weight": 1.2
+    },
+    {
+      "key": "smartass",
+      "weight": 0.6
+    },
+    {
+      "key": "smashed",
+      "weight": 0.6
+    },
+    {
+      "key": "smoke",
+      "weight": 0.4
+    },
+    {
+      "key": "smoking",
+      "weight": 0.4
+    },
+    {
+      "key": "snatch",
+      "weight": 0.8
+    },
+    {
+      "key": "sniper",
+      "weight": 1.6
+    },
+    {
+      "key": "snorkel",
+      "weight": 1.8
+    },
+    {
+      "key": "snort",
+      "weight": 1
+    },
+    {
+      "key": "snowboarding",
+      "weight": 1.8
+    },
+    {
+      "key": "soccer",
+      "weight": 1.8
+    },
+    {
+      "key": "social",
+      "weight": 0.8
+    },
+    {
+      "key": "society",
+      "weight": 1.2
+    },
+    {
+      "key": "sodomy",
+      "weight": 2
+    },
+    {
+      "key": "softball",
+      "weight": 1.8
+    },
+    {
+      "key": "sp89",
+      "weight": 1.2
+    },
+    {
+      "key": "spank",
+      "weight": 0.8
+    },
+    {
+      "key": "special",
+      "weight": 0.8
+    },
+    {
+      "key": "speedball",
+      "weight": 1.2
+    },
+    {
+      "key": "speedway",
+      "weight": 1.8
+    },
+    {
+      "key": "spend",
+      "weight": 1.2
+    },
+    {
+      "key": "sperm",
+      "weight": 1.8
+    },
+    {
+      "key": "spic",
+      "weight": 1.8
+    },
+    {
+      "key": "spick",
+      "weight": 0.8
+    },
+    {
+      "key": "spinal",
+      "weight": 0.8
+    },
+    {
+      "key": "spine",
+      "weight": 0.8
+    },
+    {
+      "key": "sportsbook",
+      "weight": 1.8
+    },
+    {
+      "key": "spunk",
+      "weight": 0.8
+    },
+    {
+      "key": "ssn",
+      "weight": 2
+    },
+    {
+      "key": "stab",
+      "weight": 1.2
+    },
+    {
+      "key": "stadium",
+      "weight": 1.8
+    },
+    {
+      "key": "stake",
+      "weight": 0.4
+    },
+    {
+      "key": "stamina",
+      "weight": 0.6
+    },
+    {
+      "key": "std",
+      "weight": 2
+    },
+    {
+      "key": "steroid",
+      "weight": 0.4
+    },
+    {
+      "key": "stimulant",
+      "weight": 0.4
+    },
+    {
+      "key": "stimulant",
+      "weight": 1.2
+    },
+    {
+      "key": "stoned",
+      "weight": 1.2
+    },
+    {
+      "key": "stoner",
+      "weight": 1.2
+    },
+    {
+      "key": "strangle",
+      "weight": 1.8
+    },
+    {
+      "key": "stress",
+      "weight": 0.4
+    },
+    {
+      "key": "striptease",
+      "weight": 1.8
+    },
+    {
+      "key": "stud",
+      "weight": 0.8
+    },
+    {
+      "key": "stungun",
+      "weight": 1.8
+    },
+    {
+      "key": "stupid",
+      "weight": 1
+    },
+    {
+      "key": "submissive",
+      "weight": 0.8
+    },
+    {
+      "key": "suck",
+      "weight": 1.2
+    },
+    {
+      "key": "suicide",
+      "weight": 1.4
+    },
+    {
+      "key": "supremacy",
+      "weight": 1.2
+    },
+    {
+      "key": "surfing",
+      "weight": 1.2
+    },
+    {
+      "key": "surgery",
+      "weight": 1.2
+    },
+    {
+      "key": "swastika",
+      "weight": 1.8
+    },
+    {
+      "key": "swim",
+      "weight": 1.8
+    },
+    {
+      "key": "switchblade",
+      "weight": 1.4
+    },
+    {
+      "key": "sword",
+      "weight": 1.6
+    },
+    {
+      "key": "sympathectomy",
+      "weight": 1.2
+    },
+    {
+      "key": "syringe",
+      "weight": 0.4
+    },
+    {
+      "key": "tackle",
+      "weight": 0.6
+    },
+    {
+      "key": "taurus",
+      "weight": 1.8
+    },
+    {
+      "key": "taxi",
+      "weight": 0.4
+    },
+    {
+      "key": "team",
+      "weight": 0.6
+    },
+    {
+      "key": "television",
+      "weight": 1.2
+    },
+    {
+      "key": "tendinitis",
+      "weight": 1.6
+    },
+    {
+      "key": "tennis",
+      "weight": 1.8
+    },
+    {
+      "key": "tent",
+      "weight": 1.2
+    },
+    {
+      "key": "tequila",
+      "weight": 1.8
+    },
+    {
+      "key": "terror",
+      "weight": 0.8
+    },
+    {
+      "key": "terror",
+      "weight": 0.8
+    },
+    {
+      "key": "terrorist",
+      "weight": 0.6
+    },
+    {
+      "key": "thc",
+      "weight": 1.6
+    },
+    {
+      "key": "theatre",
+      "weight": 1.8
+    },
+    {
+      "key": "thumbnailgalleries",
+      "weight": 1
+    },
+    {
+      "key": "thumbnailgallery",
+      "weight": 1
+    },
+    {
+      "key": "tightarse",
+      "weight": 0.6
+    },
+    {
+      "key": "tin",
+      "weight": 0.8
+    },
+    {
+      "key": "tip",
+      "weight": 0.4
+    },
+    {
+      "key": "tipster",
+      "weight": 1.8
+    },
+    {
+      "key": "tit",
+      "weight": 1.2
+    },
+    {
+      "key": "tits",
+      "weight": 1.8
+    },
+    {
+      "key": "tobacco",
+      "weight": 1.8
+    },
+    {
+      "key": "toke",
+      "weight": 0.8
+    },
+    {
+      "key": "tongue",
+      "weight": 0.4
+    },
+    {
+      "key": "topless",
+      "weight": 1.2
+    },
+    {
+      "key": "torture",
+      "weight": 1
+    },
+    {
+      "key": "torture",
+      "weight": 1
+    },
+    {
+      "key": "tortured",
+      "weight": 1.6
+    },
+    {
+      "key": "tosser",
+      "weight": 1.8
+    },
+    {
+      "key": "tosspot",
+      "weight": 1
+    },
+    {
+      "key": "touchdown",
+      "weight": 1.8
+    },
+    {
+      "key": "tourist",
+      "weight": 1.2
+    },
+    {
+      "key": "tournament",
+      "weight": 1.8
+    },
+    {
+      "key": "train",
+      "weight": 0.4
+    },
+    {
+      "key": "trainer",
+      "weight": 1.2
+    },
+    {
+      "key": "trannies",
+      "weight": 1.6
+    },
+    {
+      "key": "tranny",
+      "weight": 1.6
+    },
+    {
+      "key": "transexual",
+      "weight": 1.8
+    },
+    {
+      "key": "transgender",
+      "weight": 1.4
+    },
+    {
+      "key": "transvestite",
+      "weight": 1.4
+    },
+    {
+      "key": "travel",
+      "weight": 1.2
+    },
+    {
+      "key": "trigger",
+      "weight": 0.8
+    },
+    {
+      "key": "trip",
+      "weight": 0.4
+    },
+    {
+      "key": "tripping",
+      "weight": 1.2
+    },
+    {
+      "key": "trojan",
+      "weight": 0.4
+    },
+    {
+      "key": "trophy",
+      "weight": 1.2
+    },
+    {
+      "key": "turnkey",
+      "weight": 0.8
+    },
+    {
+      "key": "tv",
+      "weight": 0.8
+    },
+    {
+      "key": "twamp",
+      "weight": 1.2
+    },
+    {
+      "key": "twat",
+      "weight": 1.8
+    },
+    {
+      "key": "tweeker",
+      "weight": 0.8
+    },
+    {
+      "key": "twelver",
+      "weight": 0.8
+    },
+    {
+      "key": "twink",
+      "weight": 1.8
+    },
+    {
+      "key": "ulcer",
+      "weight": 1.6
+    },
+    {
+      "key": "ulna",
+      "weight": 1.2
+    },
+    {
+      "key": "ulnar",
+      "weight": 1.2
+    },
+    {
+      "key": "ultimate",
+      "weight": 0.8
+    },
+    {
+      "key": "umpire",
+      "weight": 1.8
+    },
+    {
+      "key": "uncensored",
+      "weight": 1.2
+    },
+    {
+      "key": "uncensored",
+      "weight": 1.2
+    },
+    {
+      "key": "underground",
+      "weight": 0.6
+    },
+    {
+      "key": "undress",
+      "weight": 1
+    },
+    {
+      "key": "unemployed",
+      "weight": 1.2
+    },
+    {
+      "key": "unhackable",
+      "weight": 1
+    },
+    {
+      "key": "uppers",
+      "weight": 1.2
+    },
+    {
+      "key": "username",
+      "weight": 0.4
+    },
+    {
+      "key": "vacancy",
+      "weight": 1.2
+    },
+    {
+      "key": "vacancy",
+      "weight": 1.8
+    },
+    {
+      "key": "vaccination",
+      "weight": 1.2
+    },
+    {
+      "key": "vegas",
+      "weight": 1.2
+    },
+    {
+      "key": "venue",
+      "weight": 0.8
+    },
+    {
+      "key": "vertebrae",
+      "weight": 1.6
+    },
+    {
+      "key": "viagra",
+      "weight": 1.6
+    },
+    {
+      "key": "vidz",
+      "weight": 0.8
+    },
+    {
+      "key": "violence",
+      "weight": 1.2
+    },
+    {
+      "key": "violent",
+      "weight": 1.2
+    },
+    {
+      "key": "virginity",
+      "weight": 1.8
+    },
+    {
+      "key": "virgins",
+      "weight": 1.8
+    },
+    {
+      "key": "virgo",
+      "weight": 1.8
+    },
+    {
+      "key": "virus",
+      "weight": 0.6
+    },
+    {
+      "key": "visa",
+      "weight": 1.8
+    },
+    {
+      "key": "visa",
+      "weight": 0.4
+    },
+    {
+      "key": "vision",
+      "weight": 0.4
+    },
+    {
+      "key": "visit",
+      "weight": 0.6
+    },
+    {
+      "key": "vodka",
+      "weight": 1.8
+    },
+    {
+      "key": "volleyball",
+      "weight": 1.8
+    },
+    {
+      "key": "vomit",
+      "weight": 1.2
+    },
+    {
+      "key": "vulnerability",
+      "weight": 0.4
+    },
+    {
+      "key": "vulnerable",
+      "weight": 0.4
+    },
+    {
+      "key": "wager",
+      "weight": 1.8
+    },
+    {
+      "key": "wank",
+      "weight": 1.4
+    },
+    {
+      "key": "wank",
+      "weight": 1.8
+    },
+    {
+      "key": "wanker",
+      "weight": 1.4
+    },
+    {
+      "key": "wanky",
+      "weight": 1.8
+    },
+    {
+      "key": "war",
+      "weight": 0.8
+    },
+    {
+      "key": "war",
+      "weight": 1.2
+    },
+    {
+      "key": "warez",
+      "weight": 1.8
+    },
+    {
+      "key": "wasted",
+      "weight": 0.6
+    },
+    {
+      "key": "weapon",
+      "weight": 1.6
+    },
+    {
+      "key": "webcam",
+      "weight": 1.8
+    },
+    {
+      "key": "weed",
+      "weight": 1.4
+    },
+    {
+      "key": "welcum",
+      "weight": 1.8
+    },
+    {
+      "key": "whank",
+      "weight": 1.6
+    },
+    {
+      "key": "whiskey",
+      "weight": 1.8
+    },
+    {
+      "key": "whisky",
+      "weight": 1.8
+    },
+    {
+      "key": "whitepower",
+      "weight": 1.8
+    },
+    {
+      "key": "whitey",
+      "weight": 0.4
+    },
+    {
+      "key": "whities",
+      "weight": 0.6
+    },
+    {
+      "key": "whore",
+      "weight": 1.8
+    },
+    {
+      "key": "winamp",
+      "weight": 1.8
+    },
+    {
+      "key": "wine",
+      "weight": 0.8
+    },
+    {
+      "key": "winspin",
+      "weight": 1.8
+    },
+    {
+      "key": "wog",
+      "weight": 0.6
+    },
+    {
+      "key": "wop",
+      "weight": 1.6
+    },
+    {
+      "key": "worm",
+      "weight": 0.4
+    },
+    {
+      "key": "wound",
+      "weight": 0.4
+    },
+    {
+      "key": "wpww",
+      "weight": 1.2
+    },
+    {
+      "key": "wrath",
+      "weight": 0.8
+    },
+    {
+      "key": "wrestling",
+      "weight": 1.2
+    },
+    {
+      "key": "xbox",
+      "weight": 1.8
+    },
+    {
+      "key": "xtc",
+      "weight": 0.8
+    },
+    {
+      "key": "xxx",
+      "weight": 0.8
+    },
+    {
+      "key": "yacht",
+      "weight": 1.8
+    },
+    {
+      "key": "yid",
+      "weight": 1.8
+    },
+    {
+      "key": "yourmp3",
+      "weight": 1.8
+    },
+    {
+      "key": "youthful",
+      "weight": 1
+    },
+    {
+      "key": "zog",
+      "weight": 1.2
+    },
+    {
+      "key": "zoofilia",
+      "weight": 2
+    },
+    {
+      "key": "zoophilia",
+      "weight": 2
+    },
+    {
+      "key": "zundel",
+      "weight": 1.2
+    }
+  ]
+}

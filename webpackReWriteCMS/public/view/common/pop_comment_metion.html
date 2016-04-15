@@ -1,0 +1,24 @@
+<div class="popbox-header" ng-mousedown="js_mousedown($event)">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>发送通知</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll ng-mousedown="js_mousedown($event)">
+    <div class="popbox-body">
+        <input type="text" autofocus="" wt-focus="" ng-model="search_user_input" placeholder="搜索成员"
+               class="form-control help-block"/>
+        <br>
+        <ul class="popbox-menu">
+            <li class="member-item" ng-repeat="member in metion_members | filterMembers:search_user_input">
+                <wt-avatar member="member" size="30" name="true" atname="true" faceclass="plr_5"
+                           wt-tracker="Comment Panel|Pop AtPeople|Add People"
+                           click="js_metion_member($event,member)"></wt-avatar>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="popbox-footer top-divider">
+    <a class="action-item" href="javascript:;" ng-click="js_metion_all($event)"
+       wt-tracker="Comment Panel|Pop AtPeople|All People">
+        <span class="fs_15">@</span> 全部成员({{metion_members.length}})
+    </a>
+</div>

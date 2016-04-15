@@ -1,0 +1,152 @@
+<nav id="header_outer"
+     class="navbar navbar-inverse navbar-default navbar-fixed-top"
+     role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target=".navbar-header-collapse"
+                wt-tracker="Header|Collapse|Toggle Navbar">
+            <span class="icon-bar"></span> <span class="icon-bar"></span> <span
+                class="icon-bar"></span>
+        </button>
+        <a id="header_logo" class="navbar-brand"
+           wt-tracker="Header|Logo|Goto Index" target="_self" href="/"
+           title="棒呆">棒呆</a>
+    </div>
+    <div id="header_menu"
+         class="collapse navbar-collapse navbar-header-collapse">
+        <ul class="nav navbar-nav distinguish" ng-controller="user_public_ctrl">
+            <li ng-class="{true: 'active'}[global.header_menu == 'home']">
+                <a wt-tracker="Header|Menu|Goto Index"
+                   target="_self" href="/">首页
+                </a>
+            </li>
+            <!--
+            <li wt-tracker="Header|Menu|Goto Tour"
+                ng-class="{true: 'active'}[global.header_menu == 'customer']">
+                <a href="/customer">找活动 </a>
+            </li> -->
+            <!--<li class="dropdown" style="padding-bottom: 15px;margin-bottom: -15px"
+                ng-class="{true:'hover'}[search.show==true]"
+                ng-class="{true: 'active'}[global.header_menu == 'customer']"
+                ng-mouseenter="search.show=true" ng-mouseleave="search.show=false">
+                <a href="/customer" ng-click="search.show=false">找活动
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu1 pull-right" ng-if="search.show">
+                    <li style="margin-right: 0px;padding-left: 2px"><a href="/customer">搜本站</a></li>
+                    <li style="margin-right: 0px;padding-left: 2px"><a href="/tools/search" target="_blank">搜谷歌</a></li>
+                </ul>
+            </li>-->
+          <!--  <li wt-tracker="Header|Menu|Goto Plan"
+                ng-class="{true: 'active'}[global.header_menu == 'template_excellent' || global.header_menu == 'template']">
+                <a href="/template/excellent?page=1&type=">开发信 </a>-->
+            </li>
+            <!--               <li ng-class="{true: 'active'}[global.header_menu == 'reward' || global.header_menu == 'reward_reviwing' || global.header_menu == 'reward_opening' || global.header_menu == 'reward_completed' || global.header_menu == 'reward_all' || global.header_menu == 'reward_all']">
+                <a wt-tracker="Header|Menu|Goto Plan"
+                   href="/reward">悬赏
+                </a>
+            </li>
+ --><!--
+            <li wt-tracker="Header|Menu|Goto Plan"
+                ng-class="{true: 'active'}[global.header_menu == 'club' || global.header_menu == 'post']">
+                <a href="/club?page=1&type=">留学问答</a>
+            </li>-->
+            <!--<li wt-tracker="Header|Menu|Goto Plan"
+                ng-class="{true: 'active'}[global.header_menu == 'google_search']">
+                <a href="/tools/search">搜Google</a>
+            </li>-->
+            <!-- 			<li ng-class="{true: 'active'}[global.header_menu == 'dashboard']"
+                            ng-show="global.is_login"><a href="/dashboard" target="_self">我的棒呆1</span>
+                        </a></li>
+            -->
+            <li class="dropdown" ng-show="global.is_login" style="padding-bottom: 15px;margin-bottom: -15px"
+                ng-class="{true:'hover'}[vm.show==true]"
+                ng-mouseenter="vm.show=true" ng-mouseleave="vm.show=false">
+                <a href="/dashboard" target="_self" ng-click="vm.show=false"> 我的棒呆
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu1 pull-right" ng-if="vm.show">
+                    <li style="margin-right: 0px;padding-left: 2px"><a style="margin-top: 8px" href="/tasks"
+                                                                       target="_self">我的活动</a></li>
+                    <li style="margin-right: 0px;padding-left: 2px"><a style="margin-top: 8px" href="/templates"
+                                                                       target="_self">我的模板</a></li>
+                    <li style="margin-right: 0px;padding-left: 2px"><a href="/posts" target="_self"
+                                                                       style="margin-top: 8px">我的问答</a></li>
+                </ul>
+            </li>
+            <!--	<li ng-show="global.is_login" ng-mouseenter="showMenu=true" ng-mouseleave="showMenu=false">
+            <a
+                    href="#" class="dropdown-toggle"> 我的棒呆
+            </a>
+            </li>
+            <div ng-mouseenter="showMenu=true" ng-mouseleave="showMenu=false">
+                <ul class="pull-right" style="background-color: #393939;padding:10px 20px 10px 35px" ng-show="showMenu">
+                    <li style="margin-left: -15px"><a href="/tasks" target="_self">我的活动</a></li>
+                    <li style="margin-left: -15px"><a href="/templates" target="_self">我的模板</a></li>
+                    <li style="margin-left: -15px"><a href="/posts" target="_self">我的问答</a></li>
+                </ul>
+            </div>-->
+
+            <!--    <li ng-class="{true: 'active'}[global.header_menu == 'club']">
+                    <a wt-tracker="Header|Menu|Goto Plan"
+                       href="/club">社区
+                    </a>
+                </li>
+                 <li class="divider-vertical hidden-xs"></li>
+                <li ng-show="global.is_login">
+                    <a target="_self" ng-class="{true: 'active'}[global.header_menu == 'dashboard']" href="/dashboard"> 我的棒呆
+                    </a>
+                </li>
+                </li>-->
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" style="margin-left: 0px" ng-controller="user_ctrl"
+            id="header_me">
+            <li ng-class="{'active':$root.global.show_mailbox}"
+                ng-show="false"><a href="javascript:;" class="notice-menu"
+                                   wt-mailbox-trigger> <i class="icon-envelope mr_5"></i> <span
+                    class="label label-default"
+                    ng-class="{'label-warning':10>0}">
+						邮件(测试)</span>
+            </a></li>
+            
+            <li>
+               	<a  class="mr_15" target="_self"  href="/page/help01.html" ><span class="icon-question-sign"></span>&nbsp;帮助中心&nbsp;
+            	</a>
+	        </li>
+            
+            <li ng-class="{'active':$root.global.show_scorebox}" title="积分"
+                ng-show="global.is_login&&!is_index"><a href="javascript:;"
+                                                        class="notice-menu" wt-scorebox-trigger> <i
+                    class="icon-database mr_5"></i> <span class="label label-default"
+                                                          ng-class="{'label-success':1*global.me.score>=0}">{{
+						global.me.score!=null && !isNaN(global.me.score)?global.me.score:0
+						}}</span>
+            </a></li>
+            <li class="divider-vertical hidden-xs"></li>
+            <li ng-if="!global.is_login"
+                ng-class="{true: 'active'}[global.header_menu == 'signin']"><a
+                    class="mr_15" wt-tracker="Header|Menu|Goto Signin" href="/signin">登录
+            </a></li>
+            <li ng-if="!global.is_login"
+                ng-class="{true: 'active'}[global.header_menu == 'signup']"><a
+                    href="/signup" wt-tracker="Header|Menu|Goto Apply">注册
+            </a></li>
+            <!--          <li ng-if="global.is_login">111111111111111111111
+                <wt-avatar member="global.me" size="30"
+                           class="js-popbox pr_0" name="true"
+                           append='<span class="avatar-caret icon-caret-down ml_5"></span>'
+                           wt-tracker="Header|Avatar|Open Pop User Setting"
+                           click="js_pop_user_setting($event)" data-placement="bottom"
+                           data-align="right"></wt-avatar>-->
+            <li ng-if="global.is_login">
+                <wt-avatar member="global.me"
+                           size="30" class="js-popbox pr_0" name="true"
+                           append='<span class="avatar-caret icon-caret-down ml_5"></span>'
+                           wt-tracker="Header|Avatar|Open Pop User Setting"
+                           click="js_pop_user_setting($event)" data-placement="bottom"
+                           data-align="right"></wt-avatar>
+            </li>
+        </ul>
+    </div>
+</nav>

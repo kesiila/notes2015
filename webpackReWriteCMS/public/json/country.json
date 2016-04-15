@@ -1,0 +1,1609 @@
+{
+  "data" : [ {
+    "code" : "100",
+    "cnName": "亚太",
+    "enName": "Asia-Pacific",
+    "children" : [ {
+      "code" : "105",
+      "enName" : "Malaysia",
+      "cnName" : "马来西亚",
+      "children" : [ ],
+      "briefCode" : "MY",
+      "areaCode" : "60"
+    }, {
+      "code" : "108",
+      "enName" : "Indonesia",
+      "cnName" : "印度尼西亚",
+      "children" : [ ],
+      "briefCode" : "ID",
+      "areaCode" : "62"
+    }, {
+      "code" : "112",
+      "enName" : "Philippines",
+      "cnName" : "菲律宾",
+      "children" : [ ],
+      "briefCode" : "PH",
+      "areaCode" : "63"
+    }, {
+      "code" : "106",
+      "enName" : "Singapore",
+      "cnName" : "新加坡",
+      "children" : [ ],
+      "briefCode" : "SG",
+      "areaCode" : "65"
+    }, {
+      "code" : "110",
+      "enName" : "Thailand",
+      "cnName" : "泰国",
+      "children" : [ ],
+      "briefCode" : "TH",
+      "areaCode" : "66"
+    }, {
+      "code" : "135",
+      "enName" : "East Timor",
+      "cnName" : "东帝汶",
+      "children" : [ ],
+      "briefCode" : "TP",
+      "areaCode" : "670"
+    }, {
+      "code" : "119",
+      "enName" : "Brunei",
+      "cnName" : "文莱",
+      "children" : [ ],
+      "briefCode" : "BN",
+      "areaCode" : "673"
+    }, {
+      "code" : "114",
+      "enName" : "Vietnam",
+      "cnName" : "越南",
+      "children" : [ ],
+      "briefCode" : "VN",
+      "areaCode" : "84"
+    }, {
+      "code" : "121",
+      "enName" : "Cambodia",
+      "cnName" : "柬埔寨",
+      "children" : [ ],
+      "briefCode" : "KH",
+      "areaCode" : "855"
+    }, {
+      "code" : "131",
+      "enName" : "Laos",
+      "cnName" : "老挝",
+      "children" : [ ],
+      "briefCode" : "LA",
+      "areaCode" : "856"
+    }, {
+      "code" : "118",
+      "enName" : "Burma",
+      "cnName" : "缅甸",
+      "children" : [ ],
+      "briefCode" : "MM",
+      "areaCode" : "95"
+    }, {
+      "code" : "104",
+      "enName" : "Japan",
+      "cnName" : "日本",
+      "children" : [ ],
+      "briefCode" : "JP",
+      "areaCode" : "81"
+    }, {
+      "code" : "107",
+      "enName" : "R.O.Korea",
+      "cnName" : "韩国",
+      "children" : [ ],
+      "briefCode" : "KR",
+      "areaCode" : "82"
+    }, {
+      "code" : "130",
+      "enName" : "North Korea",
+      "cnName" : "朝鲜",
+      "children" : [ ],
+      "briefCode" : "KP",
+      "areaCode" : "850"
+    }, {
+      "code" : "101",
+      "enName" : "Hong kong",
+      "cnName" : "中国香港",
+      "children" : [ ],
+      "briefCode" : "HK",
+      "areaCode" : "852"
+    }, {
+      "code" : "116",
+      "enName" : "Macao",
+      "cnName" : "中国澳门",
+      "children" : [ ],
+      "briefCode" : "MO",
+      "areaCode" : "853"
+    }, {
+      "code" : "111",
+      "enName" : "China",
+      "cnName" : "中国",
+      "children" : [ ],
+      "briefCode" : "CN",
+      "areaCode" : "86"
+    }, {
+      "code" : "103",
+      "enName" : "Taiwan",
+      "cnName" : "中国台湾",
+      "children" : [ ],
+      "briefCode" : "TW",
+      "areaCode" : "886"
+    }, {
+      "code" : "123",
+      "enName" : "Mongolia",
+      "cnName" : "蒙古",
+      "children" : [ ],
+      "briefCode" : "MN",
+      "areaCode" : "976"
+    }, {
+      "code" : "125",
+      "enName" : "Armenia",
+      "cnName" : "亚美尼亚",
+      "children" : [ ],
+      "briefCode" : "AM",
+      "areaCode" : "374"
+    }, {
+      "code" : "120",
+      "enName" : "Kazakhstan",
+      "cnName" : "哈萨克斯坦",
+      "children" : [ ],
+      "briefCode" : "KZ",
+      "areaCode" : "7"
+    }, {
+      "code" : "129",
+      "enName" : "Tadzhikistan",
+      "cnName" : "塔吉克斯坦",
+      "children" : [ ],
+      "briefCode" : "TJ",
+      "areaCode" : "7"
+    }, {
+      "code" : "113",
+      "enName" : "Bangladesh",
+      "cnName" : "孟加拉国",
+      "children" : [ ],
+      "briefCode" : "BD",
+      "areaCode" : "880"
+    }, {
+      "code" : "102",
+      "enName" : "India",
+      "cnName" : "印度",
+      "children" : [ ],
+      "briefCode" : "IN",
+      "areaCode" : "91"
+    }, {
+      "code" : "109",
+      "enName" : "Pakistan",
+      "cnName" : "巴基斯坦",
+      "children" : [ ],
+      "briefCode" : "PK",
+      "areaCode" : "92"
+    }, {
+      "code" : "115",
+      "enName" : "Sri Lanka",
+      "cnName" : "斯里兰卡",
+      "children" : [ ],
+      "briefCode" : "LK",
+      "areaCode" : "94"
+    }, {
+      "code" : "124",
+      "enName" : "Maldives",
+      "cnName" : "马尔代夫",
+      "children" : [ ],
+      "briefCode" : "MV",
+      "areaCode" : "960"
+    }, {
+      "code" : "134",
+      "enName" : "Bhutan",
+      "cnName" : "不丹",
+      "children" : [ ],
+      "briefCode" : "BT",
+      "areaCode" : "975"
+    }, {
+      "code" : "117",
+      "enName" : "Nepal",
+      "cnName" : "尼泊尔",
+      "children" : [ ],
+      "briefCode" : "NP",
+      "areaCode" : "977"
+    }, {
+      "code" : "132",
+      "enName" : "Turkmenistan",
+      "cnName" : "土库曼斯坦",
+      "children" : [ ],
+      "briefCode" : "TM",
+      "areaCode" : "993"
+    }, {
+      "code" : "128",
+      "enName" : "Azerbaijan",
+      "cnName" : "阿塞拜疆",
+      "children" : [ ],
+      "briefCode" : "AZ",
+      "areaCode" : "994"
+    }, {
+      "code" : "127",
+      "enName" : "Georgia",
+      "cnName" : "格鲁吉亚",
+      "children" : [ ],
+      "briefCode" : "GE",
+      "areaCode" : "995"
+    }, {
+      "code" : "133",
+      "enName" : "Kirghizia",
+      "cnName" : "吉尔吉斯斯坦",
+      "children" : [ ],
+      "briefCode" : "KG",
+      "areaCode" : "996"
+    }, {
+      "code" : "122",
+      "enName" : "Uzbekistan",
+      "cnName" : "乌兹别克斯坦",
+      "children" : [ ],
+      "briefCode" : "UZ",
+      "areaCode" : "998"
+    }, {
+      "code" : "136",
+      "enName" : "Palau",
+      "cnName" : "帕劳",
+      "children" : [ ],
+      "briefCode" : "PW",
+      "areaCode" : "680"
+    }, {
+      "code" : "126",
+      "enName" : "Polynesia",
+      "cnName" : "波利尼西亚",
+      "children" : [ ],
+      "briefCode" : "BL",
+      "areaCode" : "680"
+    } ]
+  }, {
+    "code" : "200",
+    "cnName": "中东",
+    "enName": "Middle East",
+    "children" : [ {
+      "code" : "205",
+      "enName" : "Egypt",
+      "cnName" : "埃及",
+      "children" : [ ],
+      "briefCode" : "EG",
+      "areaCode" : "20"
+    }, {
+      "code" : "209",
+      "enName" : "Morocco",
+      "cnName" : "摩洛哥",
+      "children" : [ ],
+      "briefCode" : "MA",
+      "areaCode" : "212"
+    }, {
+      "code" : "213",
+      "enName" : "Algeria",
+      "cnName" : "阿尔及利亚",
+      "children" : [ ],
+      "briefCode" : "DZ",
+      "areaCode" : "213"
+    }, {
+      "code" : "214",
+      "enName" : "Tunisia",
+      "cnName" : "突尼斯",
+      "children" : [ ],
+      "briefCode" : "TN",
+      "areaCode" : "216"
+    }, {
+      "code" : "221",
+      "enName" : "Libya",
+      "cnName" : "利比亚",
+      "children" : [ ],
+      "briefCode" : "LY",
+      "areaCode" : "218"
+    }, {
+      "code" : "224",
+      "enName" : "Mauritania",
+      "cnName" : "毛里塔尼亚",
+      "children" : [ ],
+      "briefCode" : "MR",
+      "areaCode" : "222"
+    }, {
+      "code" : "216",
+      "enName" : "Sudan",
+      "cnName" : "苏丹",
+      "children" : [ ],
+      "briefCode" : "SD",
+      "areaCode" : "249"
+    }, {
+      "code" : "226",
+      "enName" : "Somalia",
+      "cnName" : "索马里",
+      "children" : [ ],
+      "briefCode" : "SO",
+      "areaCode" : "252"
+    }, {
+      "code" : "225",
+      "enName" : "Djibouti",
+      "cnName" : "吉布提",
+      "children" : [ ],
+      "briefCode" : "DJ",
+      "areaCode" : "253"
+    }, {
+      "code" : "227",
+      "enName" : "Comoros",
+      "cnName" : "科摩罗",
+      "children" : [ ],
+      "briefCode" : "KM",
+      "areaCode" : "269"
+    }, {
+      "code" : "215",
+      "enName" : "Cyprus",
+      "cnName" : "塞浦路斯",
+      "children" : [ ],
+      "briefCode" : "CY",
+      "areaCode" : "357"
+    }, {
+      "code" : "204",
+      "enName" : "Turkey",
+      "cnName" : "土耳其",
+      "children" : [ ],
+      "briefCode" : "TR",
+      "areaCode" : "90"
+    }, {
+      "code" : "223",
+      "enName" : "Afghanistan",
+      "cnName" : "阿富汗",
+      "children" : [ ],
+      "briefCode" : "AF",
+      "areaCode" : "93"
+    }, {
+      "code" : "207",
+      "enName" : "Lebanon",
+      "cnName" : "黎巴嫩",
+      "children" : [ ],
+      "briefCode" : "LB",
+      "areaCode" : "961"
+    }, {
+      "code" : "211",
+      "enName" : "Jordan",
+      "cnName" : "约旦",
+      "children" : [ ],
+      "briefCode" : "JO",
+      "areaCode" : "962"
+    }, {
+      "code" : "208",
+      "enName" : "Syria",
+      "cnName" : "叙利亚",
+      "children" : [ ],
+      "briefCode" : "SY",
+      "areaCode" : "963"
+    }, {
+      "code" : "222",
+      "enName" : "Iraq",
+      "cnName" : "伊拉克",
+      "children" : [ ],
+      "briefCode" : "IQ",
+      "areaCode" : "964"
+    }, {
+      "code" : "210",
+      "enName" : "Kuwait",
+      "cnName" : "科威特",
+      "children" : [ ],
+      "briefCode" : "KW",
+      "areaCode" : "965"
+    }, {
+      "code" : "202",
+      "enName" : "Saudi Arabia",
+      "cnName" : "沙特阿拉伯",
+      "children" : [ ],
+      "briefCode" : "SA",
+      "areaCode" : "966"
+    }, {
+      "code" : "212",
+      "enName" : "Yemen",
+      "cnName" : "也门",
+      "children" : [ ],
+      "briefCode" : "YE",
+      "areaCode" : "967"
+    }, {
+      "code" : "219",
+      "enName" : "Oman",
+      "cnName" : "阿曼",
+      "children" : [ ],
+      "briefCode" : "OM",
+      "areaCode" : "968"
+    }, {
+      "code" : "220",
+      "enName" : "Palestine",
+      "cnName" : "巴勒斯坦",
+      "children" : [ ],
+      "briefCode" : "PS",
+      "areaCode" : "970"
+    }, {
+      "code" : "201",
+      "enName" : "United Arab Emirates",
+      "cnName" : "阿联酋",
+      "children" : [ ],
+      "briefCode" : "AE",
+      "areaCode" : "971"
+    }, {
+      "code" : "206",
+      "enName" : "Israel",
+      "cnName" : "以色列",
+      "children" : [ ],
+      "briefCode" : "IL",
+      "areaCode" : "972"
+    }, {
+      "code" : "217",
+      "enName" : "Bahrain",
+      "cnName" : "巴林",
+      "children" : [ ],
+      "briefCode" : "BH",
+      "areaCode" : "973"
+    }, {
+      "code" : "218",
+      "enName" : "Qatar",
+      "cnName" : "卡塔尔",
+      "children" : [ ],
+      "briefCode" : "QA",
+      "areaCode" : "974"
+    }, {
+      "code" : "203",
+      "enName" : "Iran",
+      "cnName" : "伊朗",
+      "children" : [ ],
+      "briefCode" : "IR",
+      "areaCode" : "98"
+    } ]
+  }, {
+    "code" : "300",
+    "cnName": "北美洲",
+    "enName": "North America",
+    "children" : [ {
+      "code" : "305",
+      "enName" : "Bermuda",
+      "cnName" : "百慕大",
+      "children" : [ ],
+      "briefCode" : "BM",
+      "areaCode" : "1441"
+    }, {
+      "code" : "308",
+      "enName" : "Greenland",
+      "cnName" : "格陵兰",
+      "children" : [ ],
+      "briefCode" : "GL",
+      "areaCode" : "299"
+    }, {
+      "code" : "302",
+      "enName" : "Canada",
+      "cnName" : "加拿大",
+      "children" : [ ],
+      "briefCode" : "CA",
+      "areaCode" : "1"
+    }, {
+      "code" : "301",
+      "enName" : "United States",
+      "cnName" : "美国",
+      "children" : [ ],
+      "briefCode" : "US",
+      "areaCode" : "1"
+    }, {
+      "code" : "311",
+      "enName" : "Midway Islands",
+      "cnName" : "中途岛",
+      "children" : [ ],
+      "briefCode" : "UM",
+      "areaCode" : "1808"
+    }, {
+      "code" : "307",
+      "enName" : "Anguilla Island",
+      "cnName" : "安圭拉岛",
+      "children" : [ ],
+      "briefCode" : "AI",
+      "areaCode" : "1809"
+    }, {
+      "code" : "304",
+      "enName" : "Saint Lucia",
+      "cnName" : "圣卢西亚",
+      "children" : [ ],
+      "briefCode" : "LC",
+      "areaCode" : "1809"
+    }, {
+      "code" : "306",
+      "enName" : "Alaska",
+      "cnName" : "阿拉斯加",
+      "children" : [ ],
+      "briefCode" : "AK",
+      "areaCode" : "1907"
+    }, {
+      "code" : "310",
+      "enName" : "Hawaii",
+      "cnName" : "夏威夷",
+      "children" : [ ],
+      "briefCode" : "HL",
+      "areaCode" : "1808"
+    }, {
+      "code" : "309",
+      "enName" : "Wake Island",
+      "cnName" : "威克岛",
+      "children" : [ ],
+      "briefCode" : "UM",
+      "areaCode" : "1808"
+    }, {
+      "code" : "303",
+      "enName" : "Virgin Islands",
+      "cnName" : "维尔京群岛",
+      "children" : [ ],
+      "briefCode" : "VI",
+      "areaCode" : "1809"
+    } ]
+  }, {
+    "code" : "400",
+    "cnName": "南美洲",
+    "enName": "South America",
+    "children" : [ {
+      "code" : "419",
+      "enName" : "Jamaica",
+      "cnName" : "牙买加",
+      "children" : [ ],
+      "briefCode" : "JM",
+      "areaCode" : "1876"
+    }, {
+      "code" : "420",
+      "enName" : "Bahamas",
+      "cnName" : "巴哈马",
+      "children" : [ ],
+      "briefCode" : "BS",
+      "areaCode" : "1243"
+    }, {
+      "code" : "428",
+      "enName" : "Barbados",
+      "cnName" : "巴巴多斯",
+      "children" : [ ],
+      "briefCode" : "BB",
+      "areaCode" : "1246"
+    }, {
+      "code" : "431",
+      "enName" : "Ntigua and Barbuda",
+      "cnName" : "安提瓜和巴布达",
+      "children" : [ ],
+      "briefCode" : "AG",
+      "areaCode" : "1268"
+    }, {
+      "code" : "432",
+      "enName" : "Cayman Islands",
+      "cnName" : "开曼群岛",
+      "children" : [ ],
+      "briefCode" : "KY",
+      "areaCode" : "1345"
+    }, {
+      "code" : "418",
+      "enName" : "Puerto Rico",
+      "cnName" : "波多黎各",
+      "children" : [ ],
+      "briefCode" : "PR",
+      "areaCode" : "1787"
+    }, {
+      "code" : "415",
+      "enName" : "Dominica Republic",
+      "cnName" : "多米尼加",
+      "children" : [ ],
+      "briefCode" : "DO",
+      "areaCode" : "1809"
+    }, {
+      "code" : "413",
+      "enName" : "Trinidad and Tobago",
+      "cnName" : "特立尼达和多巴哥",
+      "children" : [ ],
+      "briefCode" : "TT",
+      "areaCode" : "1809"
+    }, {
+      "code" : "433",
+      "enName" : "Falkland Islands",
+      "cnName" : "福克兰群岛",
+      "children" : [ ],
+      "briefCode" : "FK",
+      "areaCode" : "500"
+    }, {
+      "code" : "427",
+      "enName" : "Belize",
+      "cnName" : "伯利兹",
+      "children" : [ ],
+      "briefCode" : "BZ",
+      "areaCode" : "501"
+    }, {
+      "code" : "417",
+      "enName" : "Guatemala",
+      "cnName" : "危地马拉",
+      "children" : [ ],
+      "briefCode" : "GT",
+      "areaCode" : "502"
+    }, {
+      "code" : "422",
+      "enName" : "El Salvador",
+      "cnName" : "萨尔瓦多",
+      "children" : [ ],
+      "briefCode" : "SV",
+      "areaCode" : "503"
+    }, {
+      "code" : "421",
+      "enName" : "Honduras",
+      "cnName" : "洪都拉斯",
+      "children" : [ ],
+      "briefCode" : "HN",
+      "areaCode" : "504"
+    }, {
+      "code" : "430",
+      "enName" : "Nicaragua",
+      "cnName" : "尼加拉瓜",
+      "children" : [ ],
+      "briefCode" : "NI",
+      "areaCode" : "505"
+    }, {
+      "code" : "412",
+      "enName" : "Costa Rica",
+      "cnName" : "哥斯达黎加",
+      "children" : [ ],
+      "briefCode" : "CR",
+      "areaCode" : "506"
+    }, {
+      "code" : "408",
+      "enName" : "Panama",
+      "cnName" : "巴拿马",
+      "children" : [ ],
+      "briefCode" : "PA",
+      "areaCode" : "507"
+    }, {
+      "code" : "435",
+      "enName" : "Saint Pierre",
+      "cnName" : "圣彼埃尔",
+      "children" : [ ],
+      "briefCode" : "PM",
+      "areaCode" : "508"
+    }, {
+      "code" : "426",
+      "enName" : "Haiti",
+      "cnName" : "海地",
+      "children" : [ ],
+      "briefCode" : "HT",
+      "areaCode" : "509"
+    }, {
+      "code" : "407",
+      "enName" : "Peru",
+      "cnName" : "秘鲁",
+      "children" : [ ],
+      "briefCode" : "PE",
+      "areaCode" : "51"
+    }, {
+      "code" : "402",
+      "enName" : "Mexico",
+      "cnName" : "墨西哥",
+      "children" : [ ],
+      "briefCode" : "MX",
+      "areaCode" : "52"
+    }, {
+      "code" : "425",
+      "enName" : "Cuba",
+      "cnName" : "古巴",
+      "children" : [ ],
+      "briefCode" : "CU",
+      "areaCode" : "53"
+    }, {
+      "code" : "406",
+      "enName" : "Argentina",
+      "cnName" : "阿根廷",
+      "children" : [ ],
+      "briefCode" : "AR",
+      "areaCode" : "54"
+    }, {
+      "code" : "401",
+      "enName" : "Brazil",
+      "cnName" : "巴西",
+      "children" : [ ],
+      "briefCode" : "BR",
+      "areaCode" : "55"
+    }, {
+      "code" : "404",
+      "enName" : "Chile",
+      "cnName" : "智利",
+      "children" : [ ],
+      "briefCode" : "CL",
+      "areaCode" : "56"
+    }, {
+      "code" : "403",
+      "enName" : "Colombia",
+      "cnName" : "哥伦比亚",
+      "children" : [ ],
+      "briefCode" : "CO",
+      "areaCode" : "57"
+    }, {
+      "code" : "405",
+      "enName" : "Venezuela",
+      "cnName" : "委内瑞拉",
+      "children" : [ ],
+      "briefCode" : "VE",
+      "areaCode" : "58"
+    }, {
+      "code" : "429",
+      "enName" : "Guadeloupe",
+      "cnName" : "瓜德罗普",
+      "children" : [ ],
+      "briefCode" : "GP",
+      "areaCode" : "590"
+    }, {
+      "code" : "410",
+      "enName" : "Bolivia",
+      "cnName" : "玻利维亚",
+      "children" : [ ],
+      "briefCode" : "BO",
+      "areaCode" : "591"
+    }, {
+      "code" : "409",
+      "enName" : "Ecuador",
+      "cnName" : "厄瓜多尔",
+      "children" : [ ],
+      "briefCode" : "EC",
+      "areaCode" : "593"
+    }, {
+      "code" : "424",
+      "enName" : "Guyana",
+      "cnName" : "法属圭亚那",
+      "children" : [ ],
+      "briefCode" : "GF",
+      "areaCode" : "594"
+    }, {
+      "code" : "414",
+      "enName" : "Paraguay",
+      "cnName" : "巴拉圭",
+      "children" : [ ],
+      "briefCode" : "PY",
+      "areaCode" : "595"
+    }, {
+      "code" : "434",
+      "enName" : "Martinique",
+      "cnName" : "马提尼克",
+      "children" : [ ],
+      "briefCode" : "MQ",
+      "areaCode" : "596"
+    }, {
+      "code" : "423",
+      "enName" : "Surinam",
+      "cnName" : "苏里南",
+      "children" : [ ],
+      "briefCode" : "SR",
+      "areaCode" : "597"
+    }, {
+      "code" : "411",
+      "enName" : "Uruguay",
+      "cnName" : "乌拉圭",
+      "children" : [ ],
+      "briefCode" : "UY",
+      "areaCode" : "598"
+    }, {
+      "code" : "416",
+      "enName" : "Netherlands Antilles",
+      "cnName" : "荷属安第列斯",
+      "children" : [ ],
+      "briefCode" : "AN",
+      "areaCode" : "599"
+    } ]
+  }, {
+    "code" : "500",
+    "cnName": "欧洲",
+    "enName": "Europe",
+    "children" : [ {
+      "code" : "531",
+      "enName" : "Albania",
+      "cnName" : "阿尔巴尼亚",
+      "children" : [ ],
+      "briefCode" : "AL",
+      "areaCode" : "355"
+    }, {
+      "code" : "524",
+      "enName" : "Bulgaria",
+      "cnName" : "保加利亚",
+      "children" : [ ],
+      "briefCode" : "BG",
+      "areaCode" : "359"
+    }, {
+      "code" : "522",
+      "enName" : "Hungary",
+      "cnName" : "匈牙利",
+      "children" : [ ],
+      "briefCode" : "HU",
+      "areaCode" : "36"
+    }, {
+      "code" : "538",
+      "enName" : "Moldova",
+      "cnName" : "摩尔多瓦",
+      "children" : [ ],
+      "briefCode" : "MD",
+      "areaCode" : "373"
+    }, {
+      "code" : "523",
+      "enName" : "White Russia",
+      "cnName" : "白俄罗斯",
+      "children" : [ ],
+      "briefCode" : "BY",
+      "areaCode" : "375"
+    }, {
+      "code" : "516",
+      "enName" : "Ukraine",
+      "cnName" : "乌克兰",
+      "children" : [ ],
+      "briefCode" : "UA",
+      "areaCode" : "380"
+    }, {
+      "code" : "546",
+      "enName" : "Kosovo",
+      "cnName" : "科索沃",
+      "children" : [ ],
+      "briefCode" : "YK",
+      "areaCode" : "381"
+    }, {
+      "code" : "545",
+      "enName" : "Montenegro",
+      "cnName" : "黑山",
+      "children" : [ ],
+      "briefCode" : "MNE",
+      "areaCode" : "381"
+    }, {
+      "code" : "525",
+      "enName" : "Serbia",
+      "cnName" : "塞尔维亚",
+      "children" : [ ],
+      "briefCode" : "SR",
+      "areaCode" : "381"
+    }, {
+      "code" : "536",
+      "enName" : "Yugoslavia",
+      "cnName" : "南斯拉夫",
+      "children" : [ ],
+      "briefCode" : "YU",
+      "areaCode" : "381"
+    }, {
+      "code" : "526",
+      "enName" : "Croatia",
+      "cnName" : "克罗地亚",
+      "children" : [ ],
+      "briefCode" : "HR",
+      "areaCode" : "385"
+    }, {
+      "code" : "527",
+      "enName" : "Slovene",
+      "cnName" : "斯洛文尼亚",
+      "children" : [ ],
+      "briefCode" : "SI",
+      "areaCode" : "386"
+    }, {
+      "code" : "535",
+      "enName" : "Bosnia Hercegovina",
+      "cnName" : "波黑",
+      "children" : [ ],
+      "briefCode" : "BA",
+      "areaCode" : "387"
+    }, {
+      "code" : "540",
+      "enName" : "Macedonia",
+      "cnName" : "马其顿",
+      "children" : [ ],
+      "briefCode" : "MKD",
+      "areaCode" : "389"
+    }, {
+      "code" : "521",
+      "enName" : "Romania",
+      "cnName" : "罗马尼亚",
+      "children" : [ ],
+      "briefCode" : "RO",
+      "areaCode" : "40"
+    }, {
+      "code" : "518",
+      "enName" : "Czech Republic",
+      "cnName" : "捷克",
+      "children" : [ ],
+      "briefCode" : "CZ",
+      "areaCode" : "420"
+    }, {
+      "code" : "532",
+      "enName" : "Slovakia",
+      "cnName" : "斯洛伐克",
+      "children" : [ ],
+      "briefCode" : "SK",
+      "areaCode" : "421"
+    }, {
+      "code" : "512",
+      "enName" : "Poland",
+      "cnName" : "波兰",
+      "children" : [ ],
+      "briefCode" : "PL",
+      "areaCode" : "48"
+    }, {
+      "code" : "507",
+      "enName" : "Russia",
+      "cnName" : "俄罗斯",
+      "children" : [ ],
+      "briefCode" : "RU",
+      "areaCode" : "7"
+    }, {
+      "code" : "513",
+      "enName" : "Greece",
+      "cnName" : "希腊",
+      "children" : [ ],
+      "briefCode" : "GE",
+      "areaCode" : "30"
+    }, {
+      "code" : "505",
+      "enName" : "Spain",
+      "cnName" : "西班牙",
+      "children" : [ ],
+      "briefCode" : "ES",
+      "areaCode" : "34"
+    }, {
+      "code" : "543",
+      "enName" : "Gibraltar",
+      "cnName" : "直布罗陀",
+      "children" : [ ],
+      "briefCode" : "GI",
+      "areaCode" : "350"
+    }, {
+      "code" : "519",
+      "enName" : "Portugal",
+      "cnName" : "葡萄牙",
+      "children" : [ ],
+      "briefCode" : "PT",
+      "areaCode" : "351"
+    }, {
+      "code" : "534",
+      "enName" : "Iceland",
+      "cnName" : "冰岛",
+      "children" : [ ],
+      "briefCode" : "IS",
+      "areaCode" : "354"
+    }, {
+      "code" : "533",
+      "enName" : "Malta",
+      "cnName" : "马耳他",
+      "children" : [ ],
+      "briefCode" : "MT",
+      "areaCode" : "356"
+    }, {
+      "code" : "514",
+      "enName" : "Finland",
+      "cnName" : "芬兰",
+      "children" : [ ],
+      "briefCode" : "FI",
+      "areaCode" : "358"
+    }, {
+      "code" : "528",
+      "enName" : "Lithuania",
+      "cnName" : "立陶宛",
+      "children" : [ ],
+      "briefCode" : "LT",
+      "areaCode" : "370"
+    }, {
+      "code" : "530",
+      "enName" : "Latvia",
+      "cnName" : "拉脱维亚",
+      "children" : [ ],
+      "briefCode" : "LV",
+      "areaCode" : "371"
+    }, {
+      "code" : "529",
+      "enName" : "Estonia",
+      "cnName" : "爱沙尼亚",
+      "children" : [ ],
+      "briefCode" : "EE",
+      "areaCode" : "372"
+    }, {
+      "code" : "541",
+      "enName" : "Andorra",
+      "cnName" : "安道尔共和国",
+      "children" : [ ],
+      "briefCode" : "AD",
+      "areaCode" : "376"
+    }, {
+      "code" : "503",
+      "enName" : "Italy",
+      "cnName" : "意大利",
+      "children" : [ ],
+      "briefCode" : "IT",
+      "areaCode" : "39"
+    }, {
+      "code" : "544",
+      "enName" : "Vatican",
+      "cnName" : "梵蒂冈",
+      "children" : [ ],
+      "briefCode" : "VA",
+      "areaCode" : "396"
+    }, {
+      "code" : "542",
+      "enName" : "Liechtenstein",
+      "cnName" : "列支敦士登",
+      "children" : [ ],
+      "briefCode" : "LI",
+      "areaCode" : "423"
+    }, {
+      "code" : "510",
+      "enName" : "Denmark",
+      "cnName" : "丹麦",
+      "children" : [ ],
+      "briefCode" : "DK",
+      "areaCode" : "45"
+    }, {
+      "code" : "509",
+      "enName" : "Sweden",
+      "cnName" : "瑞典",
+      "children" : [ ],
+      "briefCode" : "SE",
+      "areaCode" : "46"
+    }, {
+      "code" : "511",
+      "enName" : "Norway",
+      "cnName" : "挪威",
+      "children" : [ ],
+      "briefCode" : "NO",
+      "areaCode" : "47"
+    }, {
+      "code" : "506",
+      "enName" : "Netherlands",
+      "cnName" : "荷兰",
+      "children" : [ ],
+      "briefCode" : "NL",
+      "areaCode" : "31"
+    }, {
+      "code" : "508",
+      "enName" : "Belgium",
+      "cnName" : "比利时",
+      "children" : [ ],
+      "briefCode" : "BE",
+      "areaCode" : "32"
+    }, {
+      "code" : "502",
+      "enName" : "France",
+      "cnName" : "法国",
+      "children" : [ ],
+      "briefCode" : "FR",
+      "areaCode" : "33"
+    }, {
+      "code" : "537",
+      "enName" : "Luxembourg",
+      "cnName" : "卢森堡",
+      "children" : [ ],
+      "briefCode" : "LU",
+      "areaCode" : "352"
+    }, {
+      "code" : "515",
+      "enName" : "Ireland",
+      "cnName" : "爱尔兰",
+      "children" : [ ],
+      "briefCode" : "IE",
+      "areaCode" : "353"
+    }, {
+      "code" : "520",
+      "enName" : "Switzerland",
+      "cnName" : "瑞士",
+      "children" : [ ],
+      "briefCode" : "CH",
+      "areaCode" : "41"
+    }, {
+      "code" : "517",
+      "enName" : "Austria",
+      "cnName" : "奥地利",
+      "children" : [ ],
+      "briefCode" : "AT",
+      "areaCode" : "43"
+    }, {
+      "code" : "501",
+      "enName" : "United Kingdom",
+      "cnName" : "英国",
+      "children" : [ ],
+      "briefCode" : "GB",
+      "areaCode" : "44"
+    }, {
+      "code" : "504",
+      "enName" : "Germany",
+      "cnName" : "德国",
+      "children" : [ ],
+      "briefCode" : "DE",
+      "areaCode" : "49"
+    }, {
+      "code" : "539",
+      "enName" : "Monaco",
+      "cnName" : "摩纳哥",
+      "children" : [ ],
+      "briefCode" : "MC",
+      "areaCode" : "377"
+    } ]
+  }, {
+    "code" : "600",
+    "cnName": "大洋洲",
+    "enName": "Oceania",
+    "children" : [ {
+      "code" : "601",
+      "enName" : "Australia",
+      "cnName" : "澳大利亚",
+      "children" : [ ],
+      "briefCode" : "AU",
+      "areaCode" : "61"
+    }, {
+      "code" : "602",
+      "enName" : "New Zealand",
+      "cnName" : "新西兰",
+      "children" : [ ],
+      "briefCode" : "NZ",
+      "areaCode" : "64"
+    }, {
+      "code" : "618",
+      "enName" : "Guam",
+      "cnName" : "关岛",
+      "children" : [ ],
+      "briefCode" : "GU",
+      "areaCode" : "671"
+    }, {
+      "code" : "615",
+      "enName" : "Norfolk Island",
+      "cnName" : "诺福克岛",
+      "children" : [ ],
+      "briefCode" : "NF",
+      "areaCode" : "6723"
+    }, {
+      "code" : "613",
+      "enName" : "Naura",
+      "cnName" : "瑙鲁",
+      "children" : [ ],
+      "briefCode" : "NR",
+      "areaCode" : "674"
+    }, {
+      "code" : "603",
+      "enName" : "Papua New Guinea",
+      "cnName" : "巴布亚新几内亚",
+      "children" : [ ],
+      "briefCode" : "PG",
+      "areaCode" : "675"
+    }, {
+      "code" : "609",
+      "enName" : "Tonga",
+      "cnName" : "汤加",
+      "children" : [ ],
+      "briefCode" : "TO",
+      "areaCode" : "676"
+    }, {
+      "code" : "610",
+      "enName" : "Solomon Islands",
+      "cnName" : "所罗门群岛",
+      "children" : [ ],
+      "briefCode" : "SB",
+      "areaCode" : "677"
+    }, {
+      "code" : "607",
+      "enName" : "Vanuatu",
+      "cnName" : "瓦努阿图",
+      "children" : [ ],
+      "briefCode" : "VU",
+      "areaCode" : "678"
+    }, {
+      "code" : "604",
+      "enName" : "Fiji",
+      "cnName" : "斐济",
+      "children" : [ ],
+      "briefCode" : "FJ",
+      "areaCode" : "679"
+    }, {
+      "code" : "617",
+      "enName" : "Cook Island",
+      "cnName" : "库克群岛",
+      "children" : [ ],
+      "briefCode" : "CK",
+      "areaCode" : "682"
+    }, {
+      "code" : "619",
+      "enName" : "Island of Nine",
+      "cnName" : "纽埃岛",
+      "children" : [ ],
+      "briefCode" : "NU",
+      "areaCode" : "683"
+    }, {
+      "code" : "611",
+      "enName" : "Eastern Samoa",
+      "cnName" : "东萨摩亚",
+      "children" : [ ],
+      "briefCode" : "AS",
+      "areaCode" : "684"
+    }, {
+      "code" : "616",
+      "enName" : "Western Samoa",
+      "cnName" : "西萨摩亚",
+      "children" : [ ],
+      "briefCode" : "WS",
+      "areaCode" : "685"
+    }, {
+      "code" : "612",
+      "enName" : "Kiribati",
+      "cnName" : "基里巴斯",
+      "children" : [ ],
+      "briefCode" : "KI",
+      "areaCode" : "686"
+    }, {
+      "code" : "605",
+      "enName" : "New Caledonia",
+      "cnName" : "新喀里多尼亚",
+      "children" : [ ],
+      "briefCode" : "NC",
+      "areaCode" : "687"
+    }, {
+      "code" : "614",
+      "enName" : "Tuvalu",
+      "cnName" : "图瓦卢",
+      "children" : [ ],
+      "briefCode" : "TV",
+      "areaCode" : "688"
+    }, {
+      "code" : "620",
+      "enName" : "Tokela",
+      "cnName" : "托克劳",
+      "children" : [ ],
+      "briefCode" : "TK",
+      "areaCode" : "690"
+    }, {
+      "code" : "608",
+      "enName" : "Micronesia",
+      "cnName" : "密克罗尼西亚",
+      "children" : [ ],
+      "briefCode" : "FM",
+      "areaCode" : "691"
+    }, {
+      "code" : "606",
+      "enName" : "Marshall Islands",
+      "cnName" : "马绍尔",
+      "children" : [ ],
+      "briefCode" : "MH",
+      "areaCode" : "692"
+    } ]
+  }, {
+    "code" : "700",
+    "cnName": "非洲",
+    "enName": "Africa",
+    "children" : [ {
+      "code" : "731",
+      "enName" : "Gambia",
+      "cnName" : "冈比亚",
+      "children" : [ ],
+      "briefCode" : "GM",
+      "areaCode" : "220"
+    }, {
+      "code" : "713",
+      "enName" : "Senegal",
+      "cnName" : "塞内加尔",
+      "children" : [ ],
+      "briefCode" : "SN",
+      "areaCode" : "221"
+    }, {
+      "code" : "723",
+      "enName" : "Mali",
+      "cnName" : "马里",
+      "children" : [ ],
+      "briefCode" : "ML",
+      "areaCode" : "223"
+    }, {
+      "code" : "722",
+      "enName" : "Guinea",
+      "cnName" : "几内亚",
+      "children" : [ ],
+      "briefCode" : "GN",
+      "areaCode" : "224"
+    }, {
+      "code" : "716",
+      "enName" : "Cote d'Ivoire",
+      "cnName" : "科特迪瓦",
+      "children" : [ ],
+      "briefCode" : "CI",
+      "areaCode" : "225"
+    }, {
+      "code" : "726",
+      "enName" : "Burkina Faso",
+      "cnName" : "布基纳法索",
+      "children" : [ ],
+      "briefCode" : "BF",
+      "areaCode" : "226"
+    }, {
+      "code" : "727",
+      "enName" : "Niger",
+      "cnName" : "尼日尔",
+      "children" : [ ],
+      "briefCode" : "NE",
+      "areaCode" : "227"
+    }, {
+      "code" : "721",
+      "enName" : "Togo",
+      "cnName" : "多哥",
+      "children" : [ ],
+      "briefCode" : "TG",
+      "areaCode" : "228"
+    }, {
+      "code" : "715",
+      "enName" : "Benin",
+      "cnName" : "贝宁",
+      "children" : [ ],
+      "briefCode" : "BJ",
+      "areaCode" : "229"
+    }, {
+      "code" : "707",
+      "enName" : "Mauritius",
+      "cnName" : "毛里求斯",
+      "children" : [ ],
+      "briefCode" : "MU",
+      "areaCode" : "230"
+    }, {
+      "code" : "729",
+      "enName" : "Liberia",
+      "cnName" : "利比里亚",
+      "children" : [ ],
+      "briefCode" : "LR",
+      "areaCode" : "231"
+    }, {
+      "code" : "724",
+      "enName" : "Sierraleone",
+      "cnName" : "塞拉利昂",
+      "children" : [ ],
+      "briefCode" : "SL",
+      "areaCode" : "232"
+    }, {
+      "code" : "703",
+      "enName" : "Ghana",
+      "cnName" : "加纳",
+      "children" : [ ],
+      "briefCode" : "GH",
+      "areaCode" : "233"
+    }, {
+      "code" : "701",
+      "enName" : "Nigeria",
+      "cnName" : "尼日利亚",
+      "children" : [ ],
+      "briefCode" : "NG",
+      "areaCode" : "234"
+    }, {
+      "code" : "734",
+      "enName" : "Chad",
+      "cnName" : "乍得",
+      "children" : [ ],
+      "briefCode" : "TD",
+      "areaCode" : "235"
+    }, {
+      "code" : "740",
+      "enName" : "Central African",
+      "cnName" : "中非",
+      "children" : [ ],
+      "briefCode" : "CF",
+      "areaCode" : "236"
+    }, {
+      "code" : "708",
+      "enName" : "Cameroon",
+      "cnName" : "喀麦隆",
+      "children" : [ ],
+      "briefCode" : "CM",
+      "areaCode" : "237"
+    }, {
+      "code" : "744",
+      "enName" : "Cape Verde",
+      "cnName" : "佛得角",
+      "children" : [ ],
+      "briefCode" : "CV",
+      "areaCode" : "238"
+    }, {
+      "code" : "741",
+      "enName" : "Sao Tome and Principe",
+      "cnName" : "圣多美和普林西比",
+      "children" : [ ],
+      "briefCode" : "ST",
+      "areaCode" : "239"
+    }, {
+      "code" : "743",
+      "enName" : "Equatorial Guinea",
+      "cnName" : "赤道几内亚",
+      "children" : [ ],
+      "briefCode" : "GQ",
+      "areaCode" : "240"
+    }, {
+      "code" : "732",
+      "enName" : "Gabon",
+      "cnName" : "加蓬",
+      "children" : [ ],
+      "briefCode" : "GA",
+      "areaCode" : "241"
+    }, {
+      "code" : "728",
+      "enName" : "Congo",
+      "cnName" : "刚果",
+      "children" : [ ],
+      "briefCode" : "CG",
+      "areaCode" : "242"
+    }, {
+      "code" : "739",
+      "enName" : "Zaire",
+      "cnName" : "扎伊尔",
+      "children" : [ ],
+      "briefCode" : "ZR",
+      "areaCode" : "243"
+    }, {
+      "code" : "712",
+      "enName" : "Angola",
+      "cnName" : "安哥拉",
+      "children" : [ ],
+      "briefCode" : "AO",
+      "areaCode" : "244"
+    }, {
+      "code" : "742",
+      "enName" : "Guinea-Bissau",
+      "cnName" : "几内亚比绍",
+      "children" : [ ],
+      "briefCode" : "GW",
+      "areaCode" : "245"
+    }, {
+      "code" : "745",
+      "enName" : "Ascension",
+      "cnName" : "阿森松",
+      "children" : [ ],
+      "briefCode" : "AC",
+      "areaCode" : "247"
+    }, {
+      "code" : "730",
+      "enName" : "Seychelles",
+      "cnName" : "塞舌尔",
+      "children" : [ ],
+      "briefCode" : "SC",
+      "areaCode" : "248"
+    }, {
+      "code" : "733",
+      "enName" : "Rwanda",
+      "cnName" : "卢旺达",
+      "children" : [ ],
+      "briefCode" : "RW",
+      "areaCode" : "250"
+    }, {
+      "code" : "705",
+      "enName" : "Ethiopia",
+      "cnName" : "埃塞俄比亚",
+      "children" : [ ],
+      "briefCode" : "ET",
+      "areaCode" : "251"
+    }, {
+      "code" : "704",
+      "enName" : "Kenya",
+      "cnName" : "肯尼亚",
+      "children" : [ ],
+      "briefCode" : "KE",
+      "areaCode" : "254"
+    }, {
+      "code" : "706",
+      "enName" : "Tanzania",
+      "cnName" : "坦桑尼亚",
+      "children" : [ ],
+      "briefCode" : "TZ",
+      "areaCode" : "255"
+    }, {
+      "code" : "709",
+      "enName" : "Uganda",
+      "cnName" : "乌干达",
+      "children" : [ ],
+      "briefCode" : "UG",
+      "areaCode" : "256"
+    }, {
+      "code" : "735",
+      "enName" : "Burundi",
+      "cnName" : "布隆迪",
+      "children" : [ ],
+      "briefCode" : "BI",
+      "areaCode" : "257"
+    }, {
+      "code" : "714",
+      "enName" : "Mozambique",
+      "cnName" : "莫桑比克",
+      "children" : [ ],
+      "briefCode" : "MZ",
+      "areaCode" : "258"
+    }, {
+      "code" : "710",
+      "enName" : "Zambia",
+      "cnName" : "赞比亚",
+      "children" : [ ],
+      "briefCode" : "ZM",
+      "areaCode" : "260"
+    }, {
+      "code" : "711",
+      "enName" : "Madagascar",
+      "cnName" : "马达加斯加",
+      "children" : [ ],
+      "briefCode" : "MG",
+      "areaCode" : "261"
+    }, {
+      "code" : "747",
+      "enName" : "Mayotte",
+      "cnName" : "马约特",
+      "children" : [ ],
+      "briefCode" : "MYT",
+      "areaCode" : "262"
+    }, {
+      "code" : "719",
+      "enName" : "Reunion",
+      "cnName" : "留尼旺岛",
+      "children" : [ ],
+      "briefCode" : "RE",
+      "areaCode" : "262"
+    }, {
+      "code" : "720",
+      "enName" : "Zimbabwe",
+      "cnName" : "津巴布韦",
+      "children" : [ ],
+      "briefCode" : "ZW",
+      "areaCode" : "263"
+    }, {
+      "code" : "738",
+      "enName" : "Namibia",
+      "cnName" : "纳米比亚",
+      "children" : [ ],
+      "briefCode" : "NA",
+      "areaCode" : "264"
+    }, {
+      "code" : "725",
+      "enName" : "Malawi",
+      "cnName" : "马拉维",
+      "children" : [ ],
+      "briefCode" : "MW",
+      "areaCode" : "265"
+    }, {
+      "code" : "737",
+      "enName" : "Lesotho",
+      "cnName" : "莱索托",
+      "children" : [ ],
+      "briefCode" : "LS",
+      "areaCode" : "266"
+    }, {
+      "code" : "718",
+      "enName" : "Botswana",
+      "cnName" : "博茨瓦纳",
+      "children" : [ ],
+      "briefCode" : "BW",
+      "areaCode" : "267"
+    }, {
+      "code" : "749",
+      "enName" : "Swaziland",
+      "cnName" : "斯威士兰",
+      "children" : [ ],
+      "briefCode" : "SZ",
+      "areaCode" : "268"
+    }, {
+      "code" : "702",
+      "enName" : "South Africa",
+      "cnName" : "南非",
+      "children" : [ ],
+      "briefCode" : "ZA",
+      "areaCode" : "27"
+    }, {
+      "code" : "748",
+      "enName" : "St . Helena",
+      "cnName" : "圣赫勒拿",
+      "children" : [ ],
+      "briefCode" : "SH",
+      "areaCode" : "290"
+    }, {
+      "code" : "736",
+      "enName" : "Eritrea",
+      "cnName" : "厄立特里亚",
+      "children" : [ ],
+      "briefCode" : "ER",
+      "areaCode" : "291"
+    }, {
+      "code" : "717",
+      "enName" : "Aruba",
+      "cnName" : "阿鲁巴岛",
+      "children" : [ ],
+      "briefCode" : "AW",
+      "areaCode" : "297"
+    }, {
+      "code" : "746",
+      "enName" : "Faroe Islands",
+      "cnName" : "法罗群岛",
+      "children" : [ ],
+      "briefCode" : "FO",
+      "areaCode" : "298"
+    } ]
+  } ],
+  "label" : "国家",
+  "version" : "1.0",
+  "copyright" : "@2014 上海思蓄力教育科技有限公司"
+}

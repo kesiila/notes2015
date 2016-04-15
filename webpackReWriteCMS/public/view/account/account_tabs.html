@@ -1,0 +1,42 @@
+<ul class="tabs">
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'settings']" href="/account_settings">
+            基本设置
+        </a>
+    </li>
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'company_info']" href="/account/company_info">
+            公司信息
+        </a>
+    </li>
+    <li>
+        <a ng-class="{true: 'active'}[current_menu == 'security']" href="/account/security">
+            安全日志
+        </a>
+    </li>
+    <li ng-if="global.me.role==0 && global.me.name=='sys_manager'">
+        <a ng-class="{true: 'active'}[current_menu == 'report']" href="/reports">
+            举报信息
+        </a>
+    </li>
+    <li ng-if="global.me.role==0 && global.me.name=='sys_manager'">
+        <a ng-class="{true: 'active'}[current_menu == 'invalid_mails']" href="/set_invalid_mails">
+            失效邮箱
+        </a>
+    </li>
+    <li ng-if="global.me.role==0 && global.me.name=='sys_manager'">
+        <a ng-class="{true: 'active'}[current_menu == 'google_ips']" href="/set_google_ips">
+            谷歌ip设置
+        </a>
+    </li>
+    <li ng-if="global.me.role==0 && global.me.name=='sys_manager'">
+        <a ng-class="{true: 'active'}[current_menu == 'user_manager']" href="/user_manager">
+            用户管理
+        </a>
+    </li>
+    <li ng-if="global.me.role==0 && global.me.name=='sys_manager'">
+        <a ng-class="{true: 'active'}[current_menu == 'batch_email_send']" href="/batch_email_send">
+            邮件群发
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,76 @@
+/**
+    created on May 21th by wuyunge
+*/
+.tool_set {
+    position: fixed;
+    top: 58px;
+    right: -264px;
+    height: 100%;
+    width: 300px;
+    font-size: 0px;
+    transition: .25s;
+}
+.tool_set__panel {
+    background-color: #000000;
+    width: 36px;
+    height: 100%;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.tool_set__panel_btn__active,.tool_set__panel_btn__hover  a {
+    color: #fff;
+}
+
+.tool_set__panel_btn__active,.tool_set__panel_btn__hover:hover {
+   background-color: #c40000;
+}
+
+.tool_set__panel_btn__active,.tool_set__panel_btn__hover  a:hover {
+    background-color: #c40000;
+    color: #fff;
+}
+
+/** 用来制造三角的类 ----暂时没有用上，commented on March 26th --------------------------------------------------------*/
+.tool_set__panel_btn__tooltip{
+    left: -100%;
+    top:0px;
+    display: none;
+}
+.tool_set__panel_btn__tooltip:before {
+
+    top: -7px;
+
+    left: 9px;
+
+    display:
+    inline-block;
+
+    border-right:7px solid transparent;
+
+    border-bottom:7px solid #ccc;
+
+    border-left:7px solid transparent;
+
+    border-bottom-color:rgba(0,0,0,0.2);
+
+    content:''
+
+}
+
+.tool_set__panel_btn__tooltip:after {
+    top: -6px;
+
+    left: 10px;
+
+    display:inline-block;
+
+    border-right:6px solid transparent;
+
+    border-bottom:6px solid #ffffff;
+
+    border-left: 6px solid transparent;
+
+    content: '';
+}
+/* -----------------------------------------------------------------------------------------------------------------*/

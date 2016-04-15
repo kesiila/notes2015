@@ -1,0 +1,26 @@
+<div class="prj_sidebar_step_body ">
+    <div class="p_10">
+        <span class="tips">移动当前项目到另外一个团队</span>
+    </div>
+	<dl class="prj_sidebar_dl">
+		<dd>
+			<ul class="task-filter-checkable " ng-init="data.transfer_to_tid = project.info.team_id">
+				<li ng-repeat="team in transfer_to_teams" ng-click="set_transfer_to(team.team_id)" class="ptb_2">
+	                <a href="javascript:;">
+	                	<div class="help-inlineblock m_5"><i ng-class="{true:'icon-user', false: 'icon-sitemap'}[team.team_id == -1]"></i></div>
+	                    <span class="ml_10">{{team.name}}</span>
+	                    <i class="icon-ok p_5 pull-right" ng-if="data.transfer_to_tid==team.team_id"></i>
+	                </a>
+            	</li>
+			</ul>
+		</dd>
+	</dl>
+	<button ng-click="transfer()" 
+		data-loading-text="移动中..." 
+		loading-status="is_transfering" 
+		class="btn btn-success ml_10 "
+		ng-class="{true:'disabled'}[data.transfer_to_tid == project.info.team_id]"
+		ng-hide="flashing_success"
+		>确定移动
+    </button>
+</div>

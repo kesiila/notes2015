@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<!-- Configuration file for UrlRewriteFilter http://www.tuckey.org/urlrewrite/ -->
+<urlrewrite>
+    <rule>
+        <from>^/$</from>
+        <to type="forward">/index.html</to>
+    </rule>
+
+    <rule>
+        <from>^/signin$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/pay_return$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+    
+    <rule>
+        <from>^/tools/search$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/tools/testmail</from>
+        <to type="forward">/public.html</to>
+    </rule>
+    
+    <rule>
+        <from>^/email-verify</from>
+        <to type="forward">/public.html</to>
+    </rule>
+		
+    <rule>
+        <from>^/spam_check$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+		
+    <rule>
+        <from>^/reward$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/reward/opening$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/reward/reviewing$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/reward/completed$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/reward/failed$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/reward/all$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/signup$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/activate$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/forgot$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/customer$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/template$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/template/(\w*)$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/template/excellent$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/template/excellent/(\w*)$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/club$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+    <rule>
+        <from>^/club/(\w*)$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/post$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+    <rule>
+        <from>^/post/(\w*)$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/posts$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+
+    <rule>
+        <from>^/organizers$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+
+    <rule>
+        <from>^/orders$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+
+    <rule>
+        <from>^/coupons$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+
+    <rule>
+        <from>^/tags$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+	
+    <rule>
+        <from>^/active_success$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+	<rule>
+        <from>^/active_err$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/active_finished$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/guide$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/account_settings$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+    <rule>
+        <from>^/share</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+    <rule>
+        <from>^/charge</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+        
+    <rule>
+        <from>^/mail$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+    
+    <rule>
+        <from>^/files/worktime$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/search$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^/search_result$</from>
+        <to type="forward">/public.html</to>
+    </rule>
+
+    <rule>
+        <from>^(?!/api)(/(\w|-)*)+$</from>
+        <to type="forward">/dashboard.html</to>
+    </rule>
+
+    <!-- INSTALLATION in your web.xml add... <filter> <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+        <init-param> <param-name>logLevel</param-name> <param-value>WARN</param-value>
+        </init-param> </filter> <filter-mapping> <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern> </filter-mapping> EXAMPLES Redirect one url
+        <rule> <from>/some/old/page.html</from> <to type="redirect">/very/new/page.html</to>
+        </rule> Redirect a directory <rule> <from>/some/olddir/(.*)</from> <to type="redirect">/very/newdir/$1</to>
+        </rule> Clean a url <rule> <from>/products/([0-9]+)</from> <to>/products/index.jsp?product_id=$1</to>
+        </rule> eg, /products/1234 will be passed on to /products/index.jsp?product_id=1234
+        without the user noticing. Browser detection <rule> <condition name="user-agent">Mozilla/[1-4]</condition>
+        <from>/some/page.html</from> <to>/some/page-for-old-browsers.html</to> </rule>
+        eg, will pass the request for /some/page.html on to /some/page-for-old-browsers.html
+        only for older browsers whose user agent srtings match Mozilla/1, Mozilla/2,
+        Mozilla/3 or Mozilla/4. Centralised browser detection <rule> <condition name="user-agent">Mozilla/[1-4]</condition>
+        <set type="request" name="browser">moz</set> </rule> eg, all requests will
+        be checked against the condition and if matched request.setAttribute("browser",
+        "moz") will be called. -->
+
+</urlrewrite>
+

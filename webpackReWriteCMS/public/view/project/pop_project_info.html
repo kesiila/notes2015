@@ -1,0 +1,43 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>项目信息</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+<div class="popbox-body fixed-width">
+    <ul class="popbox-menu">
+        <li>
+            <a href="javascript:;" ng-click="js_show_project_setting()">
+                <i class="icon-cog"></i> 项目设置
+            </a>
+        </li>
+        <li class="divider"></li>
+        <!--<li>-->
+            <!--<a href="/teams/{{project.info.team_id}}">-->
+                <!--<i class="icon-sitemap"></i> 所属团队 <br/>-->
+                <!--<span class="color_gray pl_20">{{project.info.team.name}}</span>-->
+                <!--<span class="edition in-list"-->
+                      <!--ng-class="{1:'edition-free', 2:'edition-business', 3:'edition-nonprofit'}[project.info.team.edition]">-->
+                        <!--{{project.info.team.edition | teamEdition }}-->
+                    <!--</span>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li class="divider"></li>-->
+        <!--<li>-->
+            <!--<a href="javascript:;">-->
+                <!--<i class="icon-user"></i> 项目角色 <br/>-->
+                <!--<span class="color_gray pl_20">-->
+                    <!--{{ {1:'负责人', 2:'成员', 3:'访客' }[project.info.curr_role] }}-->
+                <!--</span>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li class="divider"></li>-->
+
+        <li>
+            <a href="javascript:;">
+                <i class="icon-info-sign"></i> 项目描述 <br/>
+                <span class="color_gray pl_20">{{ {true:'项目没有描述', false: project.info.desc }[project.info.desc=="" || project.info.desc==null] }}</span>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>

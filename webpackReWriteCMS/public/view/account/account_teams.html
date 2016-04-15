@@ -1,0 +1,79 @@
+
+
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-sitemap mr_10"></i>团队管理</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+                    <a href="/teams/add" class="btn btn-danger">新建团队</a>
+                </div>
+            </div>
+        </div>
+        <div class="center-panel-container height-nonav" wt-scroll>
+            <dl class="frame" data-minheight="160">
+                <dt>
+                    <span class="title">我的团队</span>
+                <ul class="tabs">
+
+                </ul>
+
+                </dt>
+                <dd>
+                    <div data-ng-hide="part_loading_done" class="part-loading mt_20"></div>
+                    <div data-ng-show="part_loading_done" class="table-list">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th>团队名</th>
+                                <th>所有者</th>
+                                <th>版本</th>
+                                <th>权限</th>
+                                <th>管理</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr data-ng-repeat="team in account_teams">
+                                <td><a href="/teams/{{team.team_id}}">{{team.name}}</a></td>
+                                <td>
+                                    <wt-avatar member="team.owner" name="true"size="30"></wt-avatar>
+                                </td>
+                                <td><span class="edition"
+                                          ng-class="{1:'edition-free', 2:'edition-business', 3:'edition-nonprofit'}[team.edition]">
+                                {{team.edition | teamEdition }}
+                            </span>
+                                </td>
+                                <td>
+                                    <span ng-show="team.is_owner==1">所有者</span>
+                                    <span ng-show="team.is_owner==0">{{ team.curr_role | role }}</span>
+                                </td>
+                                <td>
+                                    <a href="/teams/{{team.team_id}}/setting"
+                                       ng-show="team.is_owner!=1"
+                                       class="btn mr_15">
+                                        <i class="icon-signout mr_5"></i>退出
+                                    </a>
+                                    <a href="/teams/{{team.team_id}}/admin"
+                                       ng-show="team.is_owner==1"
+                                       class="btn mr_15">
+                                        <i class="icon-cog mr_5"></i>设置
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" data-ng-show="account_teams.length == 0">
+                                    还没有加入任何团队
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </dd>
+            </dl>
+
+        </div>
+    </div>
+</div>

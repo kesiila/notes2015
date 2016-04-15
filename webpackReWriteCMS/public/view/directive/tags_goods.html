@@ -1,0 +1,7 @@
+<div class="task-badges"> 
+	<span class="ai-yellow task-badge" ng-repeat="tag in goods.tags" ng-if="(tagtype =='all' || tagtype == tag.type)">
+		{{tag.cnName}} <a ng-show="!global.is_outter" wt-permission="[permission,project.info.curr_role,1,2]" class="icon-action icon-remove" href="javascript:;"
+		data-ng-click="js_del_tag(goods, tag)" title="移除该标签"></a>
+	</span>
+</div>
+

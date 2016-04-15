@@ -1,0 +1,108 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <ng-include src="'/view/team/team_title.html'"></ng-include>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+
+                </div>
+            </div>
+        </div>
+        <div class="height-nonav" wt-scroll>
+            <div class="layout_split_panel">
+                <div class="layout_split_left">
+                    <ng-include src="'/view/team/team_admin_left_nav.html'"></ng-include>
+                </div>
+                <div class="layout_split_right">
+                    <div class="center-panel">
+                        <dl class="frame" data-minheight="160">
+                            <dt>
+                                <span class="title">设置</span>
+                                <ng-include src="'/view/team/team_admin_tabs.html'"></ng-include>
+                            </dt>
+                            <dd>
+                                <div class="part-loading mt_20" data-ng-hide="part_loading_done"></div>
+                                <div data-ng-show="part_loading_done">
+                                    <div class="panel-section">
+                                        <h4>团队信息</h4>
+                                    </div>
+                                    <div class="panel-section">
+                                        <table summary class="table table-striped table-bordered">
+                                            <tbody>
+                                            <tr>
+                                                <td>团队名称</td>
+                                                <td>{{team.name}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>创建时间</td>
+                                                <td>{{team.create_date | dateFormatZHCN}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>团队描述</td>
+                                                <td>{{team.desc}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="panel-section">
+                                        <h4>项目与成员</h4>
+                                    </div>
+                                    <div class="panel-section">
+                                        <table summary class="table table-bordered">
+                                            <tbody>
+                                            <tr>
+                                                <td>团队成员</td>
+                                                <td>
+                                                    <div class="progress-warp">
+                                                        <progress percent="member_stacked"></progress>
+                                                    </div>
+
+                                                    <ul class="inline-items clearfix">
+                                                        <li>
+                                                            <span class="number member-count"></span>
+                                                            <span class="text">{{team.member_count}} 位活动成员</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="number invite-count"></span>
+                                                            <span class="text">发送 {{team.invite_count}} 个邀请</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>团队可见</td>
+                                                <td>
+                                                    <div class="progress-warp">
+                                                        <progress percent="project_stacked"></progress>
+                                                    </div>
+
+                                                    <ul class="inline-items clearfix">
+                                                        <li>
+                                                            <span class="number active-count"></span>
+                                                            <span class="text">{{team.active_count}} 个活动项目</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="number archived-count"></span>
+                                                            <span class="text">{{team.archived_count}} 个归档项目</span>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="rightpanel-wrapper height-nonav" wt-scroll>
+        </div>
+    </div>
+</div>

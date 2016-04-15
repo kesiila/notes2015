@@ -1,0 +1,11 @@
+<h2  ng-click="js_show_editor(goods)"
+	wt-tracker="Task Panel|Main|Edit Task">
+    <span title="标题:{{goods.title}}">{{goods.title|abbrevition:30}}</span>
+	<span title="标题:{{goods.name}}" ng-show="goods.name">{{goods.name|abbrevition:30}}</span>
+    <em class="pull-right" title="结束时间" ng-if="goods.endDate"><i class="icon-flag"
+		ng-show="goods.is_edit || goods.countryCnName.length>0 || permission==4"></i>
+		结束时间:{{goods.endDate | dateFormat}} </em>
+    <em class="pull-right" title="结束时间" ng-if="goods.startDate"><i class="icon-flag"
+		ng-show="goods.is_edit || goods.countryCnName.length>0 || permission==4"></i>
+		起始时间:{{goods.startDate | dateFormat}} </em>
+</h2>

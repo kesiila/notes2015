@@ -1,0 +1,8 @@
+<div class="task-badges badges">
+    <i class="icon-paper-plane-o mr_15 color_gray" title="已对活动发送了{{ task.badges.user_mail_count }}封邮件"
+       ng-show="!$root.global.is_outter&&task.badges.user_mail_count">&nbsp;&nbsp;{{task.badges.user_mail_count}}</i>
+    <i class="icon-paper-plane-o mr_15 color_gray" title="该活动总共收到了{{ task.badges.user_mail_count }}封邮件"
+       ng-show="$root.global.is_outter&&task.badges.user_mail_count>0"> &nbsp;&nbsp;{{task.badges.user_mail_count}}</i>
+    <i class="icon-eye color_gray mr_15" title="已打开{{ task.badges.mail_open_count }}" ng-show="!$root.global.is_outter">
+        &nbsp;&nbsp;{{ task.badges.collect_count }}</i>
+</div>

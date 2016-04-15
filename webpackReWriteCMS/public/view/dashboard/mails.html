@@ -1,0 +1,109 @@
+<div class="layout_content">
+	<div class="layout_content_main height-noheader"
+		ng-class="{true:'nosidebar_in',false:'nosidebar_out'}[global.right_sidebar_is_fold]">
+		<div class="mod_navbar">
+			<div class="title">
+				<h3>
+					<i class="icon-envelope mr_10"></i>我的邮件
+				</h3>
+			</div>
+			<div class="main">
+				<div class="toolbar_panel pull-right">
+                    <button class="btn btn-danger mr_15" ng-show="" ng-click="js_show_add_mail()"
+                            wt-permission="[permission,project.info.curr_role,1,2]">新建邮件
+					</button>
+                    <div class="btn-group">
+                        <button class="btn " ng-click="sortMailDates('')" tooltip="{{ {true:'降序',false:'升序'}[isDESC==true] }}">
+                            <span><i ng-class="{true:'icon-sort-alpha-desc',false:'icon-sort-alpha-asc'}[isDESC==true]"></i></span>
+                        </button>
+                        <a class="btn dropdown-toggle mr_15" data-toggle="dropdown" href="javascript:;" tooltip="选择排序条件">
+                            <!--<span>{{n.name}}&nbsp;&nbsp;<i class="icon-caret-down"/></span>-->
+                            <i class="icon-caret-down"></i>
+                        </a>
+                        <!-- 显示排序条件 -->
+                        <ul class="dropdown-menu pull-right">
+                            <li ng-repeat="item in mails_filter_items">
+                                <a href="" ng-click="sortMailDates(item)">
+                                    <i ng-class="{false:'icon-xx'}[item.value==currentSortItem.value]" wt-show="item.value!=currentSortItem.value"></i>
+                                    <i ng-class="{true:'icon-long-arrow-down',false:'icon-long-arrow-up'}[isDESC==true]" ng-show="item.value==currentSortItem.value"></i>
+                                    {{item.name }}
+                                </a>
+                            </li>
+                        </ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="rightpanel-wrapper">
+			<div class="height-nonav" wt-scroll>
+                <div wt-slide-show="show_add_mail"
+                     slide-change="js_slide_change(value)">
+                    <ng-include src="'/view/common/mail/add_or_edit_mail.html'"></ng-include>
+                </div>
+
+				<dl class="frame" data-minheight="160">
+					<dt>
+						<span class="title" ng-if="mails.length > 0">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input ng-model="selectAll" ng-click="toggleAll(mails)" type="checkbox"  >
+						</span>
+						<ul class="tabs">
+							<li><a href="javascript:;" ng-click="js_change_tab(0)"
+								ng-class="{true: 'active'}[current_type == 'all']">已发邮件</a></li>
+							<!--<li><a href="javascript:;" ng-click="js_change_tab(1)"-->
+								<!--ng-class="{true: 'active'}[current_type == 'opened']">已打开邮件</a>-->
+							<!--</li>-->
+							<!--<li><a href="javascript:;" ng-click="js_change_tab(2)"-->
+								<!--ng-class="{true: 'active'}[current_type == 'replied']">已回复邮件</a>-->
+							<!--</li>-->
+
+						</ul>
+					</dt>
+					<dd class="mail-list-panel pt_0">
+						<div class="empty-panel noborder"
+							ng-if="part_loading_done && mails.length == 0">
+							<i class="icon-envelope-alt"></i><br> <span>邮件箱为空</span>
+						</div>
+						<div class="mail-list">
+							<div class="mail-item wt-row"
+                                 ng-class="{'active':mail.mail_id == locator.show_detail_mail_id}"
+                                 ng-repeat="mail in mails">
+								<div class="mail-item-inner slide-trigger">
+									<div class="column column-read">
+										<div>
+											<a href="javascript:;" class="checkbox"><label> <input
+													ng-click="toggle(mail)" ng-model="mail.checked"
+													type="checkbox"/>
+											</label> </a>
+										</div>
+									</div>
+									<div class="column column-action"
+										data-ng-click="js_open_mail_detail(mail)">
+										<h4>{{mail.name ||'无主题'}}</h4>
+										<span class="entity"> <span
+											ng-bind-html-unsafe="mail.from"></span>
+										</span>
+									</div>
+									<div class="column column-datetime" style="line-height: 1em">
+                                       <h4>&nbsp;</h4>
+										<span class="entity text-ellipsi">{{mail.create_date | fromNow}}</span>
+									</div>
+								</div>
+							</div>
+							<div class="load-more part-loading" ng-show="!part_loading_done"></div>
+							<div class="loading-more-panel"
+								ng-show="false">
+								<button class="btn" ng-click="js_load_more_mails()">加载更多...
+								</button>
+							</div>
+						</div>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+    <ng-include src="'/view/common/sidebar/sidebar.html'"></ng-include>
+<!--    &lt;!&ndash;发送邮件成功后的提示&ndash;&gt;
+    <ng-include ng-show ="$root.show_mail_prompt" src="'/view/common/mail_prompt.html'"></ng-include>-->
+</div>

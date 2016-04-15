@@ -1,0 +1,23 @@
+<div class="gollum-editor-wrap">
+    <div class="gollum-editor">
+        <div class="gollum-editor-function-bar active">
+            <div class="gollum-editor-function-buttons">
+                <div class="btn-group mr_10"><a class="btn btn-min function-button function-bold"
+                                                title="粗体"><span>粗体</span></a> <a
+                        class="btn btn-min function-button function-italic" title="斜体"><span>斜体</span></a></div>
+                <div class="btn-group mr_10"><a class="btn btn-min function-button js-popbox function-link"
+                                                data-placement="bottom" title="链接"
+                                                ng-click="$popInsertLink($event)"><span>插入链接</span></a> <a
+                        class="btn btn-min function-button js-popbox function-image" data-placement="bottom" title="图片"
+                        ng-click="$popInsertImage($event)"><span>插入图片</span></a></div>
+                <div class="btn-group"><a class="btn btn-min function-button function-ul" title="无序列表"><span>无序列表</span></a>
+                    <a class="btn btn-min function-button function-ol" title="有序列表"><span>有序列表</span></a> <a
+                            class="btn btn-min function-button function-blockquote" title="引用"><span>引用</span></a> <a
+                            class="btn btn-min function-button function-hr" title="水平分割线"><span>水平分割线</span></a>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="ng-transclude" ng-transclude></div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-database mr_10"></i>积分充值&nbsp;&nbsp;&nbsp;<span ng-bind="global.me.score"></span>
+                </h3>
+            </div>
+        </div>
+        <dl class="frame" data-minheight="160">
+            <dt>
+            <ul class="tabs">
+                <li>
+                    <a class="active" href="/account_charge">积分充值</a>
+                </li>
+                <li>
+                    <a href="/account/myscore" >
+                        我的积分
+                    </a>
+                </li>
+            </ul>
+            </dt>
+            <dd ng-show="current_menu !== 'get_score'">
+                <div class="charge__header">
+                    <ul>
+                        <li class="charge__header__item">
+                            <div class="item__left">充值帐号：</div>
+                            <div class="item__right">{{vm.staticInfo.user_email}}</div>
+                        </li>
+                        <li class="charge__header__item">
+                            <div class="item__left">可用积分：</div>
+                            <div class="item__right"><span style="color:red">{{vm.staticInfo.user_score}}</span>积分</div>
+                        </li>
+                    </ul>
+                </div>
+                <div   style="padding-left: 30px">
+                    <span>第三方支付：</span>
+                    <div style="padding:5px 0;">
+                        <input type="radio" ng-checked="true" class="cursor"/>
+                        <img style="width: 110px;margin-left: 10px;border: 1px solid #ddd;" src="/img/alipay.png">
+                    </div>
+                </div>
+                <div class="charge__content" ng-if="vm.state.step == 1">
+                    <div class="content__title"><a href="/account_charge">充值金额</a></div>
+                    <div class="content__body">
+                        <div class="charge__amount">
+                            <div class="amount__title">请选择充值金额：</div>
+                            <ul class="clearfix">
+                                <li class="amount_item clearfix cursor"
+                                    ng-click = "vm.actions.selectAmount($index)"
+                                    ng-repeat="amount in vm.staticInfo.amountList"><input type="radio" ng-checked="vm.state.crt_amount_index == $index"/>
+                                    <div class="earn_score">{{amount.earn}}积分</div>
+                                    <div class="pay_money">({{amount.pay}}元)</div>
+                                </li>
+                            </ul>
+                            <div class="amount__footer">
+                                <div class="left">充值：<span class="left_earn_score">{{vm.staticInfo.amountList[vm.state.crt_amount_index]["earn"]}}</span>积分<span
+                                        class="left_pay_money">({{vm.staticInfo.amountList[vm.state.crt_amount_index]["pay"]}}元)</span></div>
+                                <div class="right">
+                                    <button class="btn btn-cherrying" ng-click="add_new_order()" loading-status="vm.state.is_saving_order" data-loading-text="生成订单...">
+                                        <div class="inner_content">立即充值</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="charge__order__deitail" ng-if="vm.state.step == 2">
+                    <div style="padding-left: 30px;padding-top: 10px">
+                  		     订单详情：
+                    </div>
+                    <div class="charge__header">
+                        <ul>
+                            <li class="charge__header__item">
+                                <div class="item__left"><span>订单号</span>：</div>
+                                <div class="item__right">{{vm.order.out_trade_no}}</div>
+                            </li>
+                            <li class="charge__header__item">
+                                <div class="item__left"><span style="letter-spacing: 1em">金</span>额：</div>
+                                <div class="item__right">{{vm.order.total_fee}}&nbsp;元</div>
+                            </li>
+                            <li class="charge__header__item">
+                                <div class="item__left"><span style="letter-spacing: 1em">积</span>分：</div>
+                                <div class="item__right">{{vm.order.earn}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <form name=alipayment action=/pay/alipayapi.jsp method=post target="_blank" style="padding-left: 30px">
+                        <div style="display: none">
+                            <dl class="content">
+                                <dt>商户订单号：</dt>
+                                <dd>
+                                    <span class="null-star">*</span>
+                                    <input size="30" name="WIDout_trade_no"  ng-model="vm.order.out_trade_no" readonly="true"/>
+                                <span>商户网站订单系统中唯一订单号，必填
+                                </span>
+                                </dd>
+                                <dt>订单名称：</dt>
+                                <dd>
+                                    <span class="null-star">*</span>
+                                    <input size="30" name="WIDsubject" ng-model="vm.order.subject" readonly="true"/>
+                                    <span>必填
+                                    </span>
+                                </dd>
+                                <dt>付款金额：</dt>
+                                <dd>
+                                    <span class="null-star">*</span>
+                                    <input size="30" name="WIDtotal_fee" ng-model="vm.order.total_fee" readonly="true"/>
+                                <span>必填
+                                </span>
+                                </dd>
+                                <dd>
+                                    <span class="new-btn-login-sp">
+                                        <button class="new-btn-login" type="submit" style="text-align:center;">确 认
+                                        </button>
+                                    </span>
+                                </dd>
+                            </dl>
+                        </div>
+                        <span class="new-btn-login-sp">
+                        	<button class="btn btn-cherrying" type="submit">
+                                        <div class="inner_content">确认支付</div>
+                             </button>
+                        </span>
+                    </form>
+                </div>
+            </dd>
+        </dl>
+    </div>
+</div>

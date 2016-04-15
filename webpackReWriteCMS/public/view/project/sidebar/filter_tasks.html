@@ -1,0 +1,166 @@
+<div class="prj_sidebar_step_body">
+    <!--<div class="p_10">-->
+        <!--<input type="text" class="form-control" ng-model="task_filter_text" ng-change="js_filter_text()" placeholder="输入查询条件"-->
+               <!--/>-->
+        <!--<input delayed-model="prj_task_filters.texts"  class="form-control"  data-delay="500" id="searchText" type="text" placeholder="输入查询条件" />-->
+    <!--</div>-->
+    <!--<div class="hr"></div>-->
+    <dl class="prj_sidebar_dl">
+        <dt>按名称筛选</dt>
+        <li style="padding-left: 10px;padding-right: 10px">
+            <input type="text" class="form-control" ng-model="keywords" wt-enter="js_filter_keywords(keywords)"/>
+        </li>
+    </dl>
+    <dl class="prj_sidebar_dl" ng-if="labels_is_set">
+        <dt>按组内标签筛选</dt>
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="label-item" ng-repeat="label in labels_is_set">
+                    <a href="javascript:;" class="js-toggle-label-filter" ng-hide="label.desc==''|| label.desc==null "  ng-click="js_filter_label(label)">
+                        <span class="task-label {{label.name}}-label ml_5"></span>
+                        <span class="label-name help-inline ml_15">{{label.desc}}</span>
+                    </a>
+                    <i class="icon-ok" ng-if="js_label_is_filter(label.name)"></i>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="prj_sidebar_dl">
+        <dt>按过期状态筛选</dt>
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="pl_10">
+                    <a ng-click="js_filter_expired_status('all')" ng-class="{'filter_active' : prj_task_filters.expired_status == 'all' }">
+                        <span class="ml_50 ">全部</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.expired_status == 'all'"></i>
+                </li>
+                <li class="pl_10">
+                    <a ng-click="js_filter_expired_status('expired')" ng-class="{'filter_active' : prj_task_filters.expired_status == 'expired'}">
+                        <span class="ml_50">已过期</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.expired_status == 'expired'"></i>
+                </li>
+                <li class="pl_10">
+                    <a ng-click="js_filter_expired_status('unexpired')" ng-class="{'filter_active' : prj_task_filters.expired_status == 'unexpired'}">
+                        <span class="ml_50">未过期</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.expired_status == 'unexpired'"></i>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="prj_sidebar_dl">
+        <dt>按预约状态筛选</dt>
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="pl_10">
+                    <a ng-click="js_filter_order_status('all')" ng-class="{'filter_active' : prj_task_filters.order_status == 'all' }">
+                        <span class="ml_50 ">全部</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.order_status == 'all'"></i>
+                </li>
+                <li class="pl_10">
+                    <a ng-click="js_filter_order_status('ordered')" ng-class="{'filter_active' : prj_task_filters.order_status == 'ordered'}">
+                        <span class="ml_50">有人预约</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.order_status == 'ordered'"></i>
+                </li>
+                <li class="pl_10">
+                    <a ng-click="js_filter_order_status('unordered')" ng-class="{'filter_active' : prj_task_filters.order_status == 'unordered'}">
+                        <span class="ml_50">无人预约</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.order_status == 'unordered'"></i>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="prj_sidebar_dl">
+        <dt>按发布状态筛选</dt>
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="pl_10 pos_relative">
+                    <a ng-click="js_filter_status('all')" ng-class="{'filter_active' : prj_task_filters.status == 'all'}">
+                        <span class="ml_50">全部</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.status == 'all'"></i>
+                </li>
+                <li class="pl_10 pos_relative">
+                    <a ng-click="js_filter_status('-1')" ng-class="{'filter_active' : prj_task_filters.status == '-1'}">
+                        <span class="ml_50">回收站</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.status == '-1'"></i>
+                </li>
+                <li class="pl_10 pos_relative">
+                    <a ng-click="js_filter_status('0')" ng-class="{'filter_active' : prj_task_filters.status == '0'}">
+                        <span class="ml_50">待审核</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.status == '0'"></i>
+                </li>
+                <li class="pl_10 pos_relative">
+                    <a ng-click="js_filter_status('1')" ng-class="{'filter_active' : prj_task_filters.status == '1'}">
+                        <span class="ml_50">已公开</span>
+                    </a>
+                    <i class="icon-ok" ng-if="prj_task_filters.status == '1'"></i>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="prj_sidebar_dl">
+        <dd>
+            <ul class="task-filter-checkable">
+                <li class="ptb_2">
+                    <a ng-click="clear_task_filters()">
+                        <span class="ml_50 ai-blue pl_10">清除筛选</span>
+                    </a>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+ <div class="hr"></div>
+
+    <!--<dl class="prj_sidebar_dl">-->
+        <!--<dt>按截止日期筛选</dt>-->
+        <!--<dd>-->
+            <!--<ul class="task-filter-checkable">-->
+                <!--<li class="ptb_2">-->
+                    <!--<a ng-click="js_filter_date('today')">-->
+                        <!--<span class="ml_50">今天</span>-->
+                    <!--</a>-->
+                    <!--<i class="icon-ok" ng-if="task_filters.date == 'today'"></i>-->
+                <!--</li>-->
+                <!--<li class="ptb_2">-->
+                    <!--<a ng-click="js_filter_date('tomorrow')">-->
+                        <!--<span class="ml_50">明天</span>-->
+                    <!--</a>-->
+                    <!--<i class="icon-ok" ng-if="task_filters.date == 'tomorrow'"></i>-->
+                <!--</li>-->
+                <!--<li class="ptb_2">-->
+                    <!--<a ng-click="js_filter_date('week')">-->
+                        <!--<span class="ml_50">本周</span>-->
+                    <!--</a>-->
+                    <!--<i class="icon-ok" ng-if="task_filters.date == 'week'"></i>-->
+                <!--</li>-->
+                <!--<li class="ptb_2">-->
+                    <!--<a ng-click="js_filter_date('nextweek')">-->
+                        <!--<span class="ml_50">下周</span>-->
+                    <!--</a>-->
+                    <!--<i class="icon-ok" ng-if="task_filters.date == 'nextweek'"></i>-->
+                <!--</li>-->
+                <!--<li class="ptb_2">-->
+                    <!--<a ng-click="js_filter_date('month')">-->
+                        <!--<span class="ml_50">本月</span>-->
+                    <!--</a>-->
+                    <!--<i class="icon-ok" ng-if="task_filters.date == 'month'"></i>-->
+                <!--</li>-->
+                <!--<li class="ptb_2">-->
+                    <!--<a ng-click="js_filter_date('due')">-->
+                        <!--<span class="ml_50">已过期</span>-->
+                    <!--</a>-->
+                    <!--<i class="icon-ok" ng-if="task_filters.date == 'due'"></i>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</dd>-->
+    <!--</dl>-->
+    <!--<div class="hr"></div>-->
+</div>

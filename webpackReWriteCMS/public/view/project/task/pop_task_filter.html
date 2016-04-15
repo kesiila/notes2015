@@ -1,0 +1,77 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>活动筛选</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+    <div class="popbox-body task-filter">
+        <div class="row">
+            <div class="col-xs-8 pr_0">
+                <input type="text" class="form-control" ng-model="task_filter_text" placeholder="输入查询条件"
+                           autofocus/>
+                </div>
+            <div class="col-xs-4">
+            <button ng-click="js_clear(result)" class="btn btn-success">清除</button>
+            </div>
+        </div>
+        <dl class="js-task-labelfilter">
+            <dt>按标签筛选</dt>
+            <dd>
+                <ul class="label-list task-filter-checkable list-col-2">
+                    <li class="label-item" ng-repeat="label in labels"
+                            >
+                        <a href="javascript:;" class="js-toggle-label-filter" ng-click="js_filter_label(label)">
+                                <span class="task-label {{label.name}}-label">
+                                    <i class="icon-ok icon-white" ng-show="[task_filters.labels,label] | indexOf"></i>
+                                </span>
+                            <span class="label-name help-inline">{{label.desc}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
+        <dl class="js-task-memberfilter">
+            <dt>按成员筛选</dt>
+            <dd>
+                <ul class="member-list task-filter-checkable list-col-2">
+                    <li class="member-item" ng-repeat="member in members"
+                        ng-class="{'selected':([task_filters.members,member] | indexOf)}">
+                        <wt-avatar member="member" name="true" size="30" click="js_filter_member(member)"></wt-avatar>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
+        <dl class="js-task-datefilter">
+            <dt>按截止日期筛选</dt>
+            <dd>
+                <ul class="datefilter-list task-filter-checkable list-col-3">
+                    <li>
+                        <a ng-class="{true:'selected'}[task_filters.date == 'today']"
+                           ng-click="js_filter_date('today')">今天</a>
+                    </li>
+                    <li>
+                        <a ng-class="{true:'selected'}[task_filters.date == 'tomorrow']"
+                           ng-click="js_filter_date('tomorrow')">明天</a>
+                    </li>
+                    <li>
+                        <a ng-class="{true:'selected'}[task_filters.date == 'week']"
+                           ng-click="js_filter_date('week')">本周</a>
+                    </li>
+                    <li>
+                        <a ng-class="{true:'selected'}[task_filters.date == 'nextweek']"
+                           ng-click="js_filter_date('nextweek')">下周</a>
+                    </li>
+                    <li>
+                        <a ng-class="{true:'selected'}[task_filters.date == 'month']"
+                           ng-click="js_filter_date('month')">本月</a>
+                    </li>
+                    <li>
+                        <a ng-class="{true:'selected'}[task_filters.date == 'due']"
+                           ng-click="js_filter_date('due')">已过期</a>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</div>

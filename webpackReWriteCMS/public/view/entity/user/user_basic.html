@@ -1,0 +1,179 @@
+<div ng-hide="user.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/user/user_title.html'">
+    </div>
+    <!--<wt-badges user="user"></wt-badges>-->
+    <wt-user-tags user="user" tagtype="normal"></wt-user-tags>
+    <div class="new-tag"
+         ng-show="global.is_outter==false"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(user)"
+           wt-tracker="Task Panel|Main|Add Attachments"
+           ng-hide="user.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="user.is_add_tag_edit"
+             wt-show-edit="user.is_add_tag_edit">
+            <div>
+
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, user, tag)' }"
+                       wt-enter="js_add_tag(user, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="Task Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(user, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="Task Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(user)">取消
+            </button>
+        </div>
+    </div>
+
+    <!--    <wt-add-tag tag="user"></wt-add-tag>-->
+    <!--<div class="task-desc wt-row" ng-if="customer.isPaid<5">
+        <label class="col-xs-4 control-label p_0">剩余发件额度：</label>
+        {{user.mailSendLimit}}
+    </div>-->
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.display_name.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>用户昵称</label>
+        {{user.display_name}}
+    </div>
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>中文标题</label>
+        {{user.title}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.enName.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>英文标题</label>
+        {{user.enName}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.mobile.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>手机号码</label>
+        {{user.mobile}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.email.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>邮件地址</label>
+        {{user.email}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.avatar.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>用户头像</label> <img style="width: 120px"
+								src="{{user.avatar|imageFullPath}}" alt="{{ user.avatar }}" />
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.imageUrl.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>图像URL</label> <img style="width: 120px"
+								src="{{user.imageUrl}}" alt="{{ user.imageUrl }}" />
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.url.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>机构URL</label> {{user.url}}
+    </div>
+
+
+    <div class="task-desc wt-row"
+         ng-show="user.is_edit || user.desc.length>0 || permission==4">
+        <label class="col-xs-2 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>描述</label>
+        <div class="task-desc-text markdown" wt-markdown="user.desc"></div>
+    </div>
+</div>
+<div class="edit-section"
+     ng-show="user.is_edit && (!user.show_part || user.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">用户昵称</span> <input autofocus=""
+                                                              ng-model="user.temp_display_name"
+                                                              wt-enter="js_set_update($event, user)"
+                                                              class="form-control" placeholder="用户昵称" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">中文标题</span> <input autofocus=""
+                                                              ng-model="user.temp_title"
+                                                              wt-enter="js_set_update($event, user)"
+                                                              class="form-control" placeholder="中文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">英文标题</span> <input autofocus=""
+                                                              ng-model="user.temp_enName"
+                                                              wt-enter="js_set_update($event, user)"
+                                                              class="form-control" placeholder="英文标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">手机号码</span> <input autofocus=""
+                                                              ng-model="user.temp_mobile"
+                                                              wt-enter="js_set_update($event, user)"
+                                                              class="form-control" placeholder="手机号码" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">邮件地址</span> <input autofocus=""
+                                                              ng-model="user.temp_email"
+                                                              wt-enter="js_set_update($event, user)"
+                                                              class="form-control" placeholder="EMail邮件" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">用户头像</span> <input autofocus=""
+                                                               ng-model="user.temp_avatar"
+                                                               class="form-control" placeholder="Avatar头像" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">图片URL</span> <input autofocus=""
+                                                               ng-model="user.temp_imageUrl"
+                                                               class="form-control" placeholder="图片URL" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+			<span class="input-group-addon fs_15">活动URL</span> <input autofocus=""
+                                                               ng-model="user.temp_url"
+                                                               class="form-control" placeholder="活动URL" type="text">
+        </div>
+    </div>
+    <div>
+        <textarea ng-model="user.temp_desc" type="text" class="w_100p" style="min-height: 100px"
+                  wt-ctrl-enter="js_set_update($event, user)" wt-full-editor=""
+                  placeholder="添加活动描述(按Ctrl + 回车键提交)"></textarea>
+    </div>
+    <div class="form-group">
+        <button ng-click="js_set_update($event, user)"
+                data-loading-text="保存中..." loading-status="user.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="Task Panel|Main|Edit Task-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(user)" class="btn"
+                wt-tracker="Task Panel|Main|Edit Task-Cancel">取消
+        </button>
+    </div>
+</div>

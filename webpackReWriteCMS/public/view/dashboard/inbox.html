@@ -1,0 +1,75 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <h3><i class="icon-bell-alt mr_10"></i>消息中心</h3>
+            </div>
+            <div class="main">
+                <div class="pull-right">
+                    <button ng-click="js_set_all_notice_read()" class="btn mr_15"
+                            tooltip-placement="bottom" tooltip="全部标为已读">
+                        全部标为已读
+                    </button>
+                    <a href="/account/message" tooltip-placement="bottom" tooltip="消息设置"
+                       class="btn">
+                        <i class="icon-cog"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="rightpanel-wrapper" ng-show="global.loading_done">
+            <div class="height-nonav notice-list-panel" wt-scroll>
+
+                <dl class="frame" data-minheight="148">
+                    <dt>
+                        <ul class="tabs">
+                            <li>
+                                <a ng-class="{'active':is_show_read != true}" href="javascript:;" ng-click="js_show_unread_notices()">未读</a>
+                            </li>
+                            <li>
+                                <a ng-class="{'active':is_show_read == true}" href="javascript:;" ng-click="js_show_read_notices()">已读</a>
+                            </li>
+                        </ul>
+
+                    </dt>
+                    <dd class="notice-list">
+
+                        <div ng-show="is_show_read">
+                            <div class="notice-item wt-row " ng-repeat="notice in read_notices">
+                                <wt-notice notice-click="js_show_slide_detail($eType,notice,$entity)"></wt-notice>
+                                <!--<wt-include src="notice.template"></wt-include>-->
+                            </div>
+                            <div class="notice-empty text-center"
+                                 ng-show="is_show_read && read_notices.length == 0 && !loading_read_notice">
+                                <i class="icon-bell-alt"></i><br/><br/>
+                                <span>没有已读消息</span>
+                            </div>
+
+                            <div class="loading-more-panel" ng-show="!has_no_more && !loading_read_notice">
+                                <button class="btn" ng-click="js_load_more_notice()">加载更多...
+                                </button>
+                            </div>
+                            <div class="load-more part-loading"
+                                 ng-show="is_show_read && !has_no_more && loading_read_notice"></div>
+                        </div>
+
+                        <div ng-hide="is_show_read">
+                            <div class="notice-item wt-row" ng-repeat="notice in show_unread_notices">
+                                <wt-notice notice-click="js_show_slide_detail($eType,notice,$entity)"></wt-notice>
+                                <!--<wt-include src="notice.template"></wt-include>-->
+                            </div>
+                            <div class="notice-empty text-center"
+                                 ng-show="show_unread_notices.length == 0 && loading_unread_notice == false">
+                                <i class="icon-bell-alt"></i><br/><br/>
+                                <span>没有未读消息</span>
+                            </div>
+                        </div>
+
+                        <div class="load-more part-loading" ng-show="!is_show_all && loading_unread_notice"></div>
+
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

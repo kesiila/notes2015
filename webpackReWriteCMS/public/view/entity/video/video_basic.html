@@ -1,0 +1,160 @@
+<div ng-hide="video.is_edit">
+    <div class="entity-title" ng-include="'/view/entity/video/video_title.html'">
+    </div>
+    <!--<wt-badges video="video"></wt-badges>-->
+    <wt-tags video="video" tagtype="normal"></wt-tags>
+    <div class="new-tag"
+         ng-show="global.is_outter==false"
+         wt-permission="[permission,project.info.curr_role,1,2]">
+        <a href="javascript:;" ng-click="js_show_add_tag_editor(video)"
+           wt-tracker="video Panel|Main|Add Attachments"
+           ng-hide="video.is_add_tag_edit"> 添加标签 </a>
+
+        <div class="new-tag-control" ng-show="video.is_add_tag_edit"
+             wt-show-edit="video.is_add_tag_edit">
+            <div>
+                <input class="new-tag-text form-control" ng-model="tag.temp_name"
+                       ui-keyup="{'esc':'js_keyup_add_tag($event, video, tag)' }"
+                       wt-enter="js_add_tag(video, tag)" placeholder="输入标签" type="text">
+            </div>
+            <button class="btn btn-success" data-loading-text="添加"
+                    loading-status="tag.is_saving"
+                    wt-tracker="video Panel|Main|Add Attachments-Add"
+                    ng-click="js_add_tag(video, tag)">添加
+            </button>
+            <button class="btn btn-link tag-del"
+                    wt-tracker="video Panel|Main|Add Attachments-Cancel"
+                    ng-click="js_cancel_add_tag_editor(video)">取消
+            </button>
+        </div>
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="video.is_edit || video.title.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>标题</label>
+        {{video.title}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="video.is_edit || video.author.name.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>作者</label>
+        {{video.author.name}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="video.is_edit || video.profile.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>作者简介</label>
+        {{video.profile}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="video.is_edit || video.images.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>封面链接</label>
+        {{video.images[0]}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="video.is_edit || video.link.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>文件链接</label>
+        {{video.link}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="video.is_edit || video.images.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="mr_5 ai-gray"></i>文件格式</label>
+        {{video.format}}
+    </div>
+
+    <div class="task-desc wt-row"
+         ng-show="video.is_edit || video.content.length>0 || permission==4">
+        <label class="col-xs-3 control-label p_0"><i
+                class="icon-bookmark-o mr_5 ai-gray"></i>内容</label>
+
+        <div class="task-desc-text markdown" wt-markdown="video.content"></div>
+    </div>
+</div>
+
+<div class="edit-section" ng-show="video.is_edit && (!video.show_part || video.show_part==1)">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">标题</span>
+            <input autofocus="" ng-model="video.temp_title" wt-enter="js_set_update($event, video)" class="form-control"
+                   placeholder="标题" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">作者</span>
+            <input autofocus="" ng-model="video.temp_author.name" wt-enter="js_set_update($event, video)"
+                   class="form-control"
+                   placeholder="作者（用户名）" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">作者简介</span>
+            <input autofocus="" ng-model="video.temp_profile" wt-enter="js_set_update($event, video)" class="form-control"
+                   placeholder="作者简介" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">封面链接</span>
+            <input autofocus="" ng-model="video.temp_images[0]" wt-enter="js_set_update($event, video)" class="form-control"
+                   placeholder="封面链接" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <wt-brief-images images="video.temp_images"></wt-brief-images>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">文件链接</span>
+            <input autofocus="" ng-model="video.temp_link" wt-enter="js_set_update($event, video)" class="form-control"
+                   placeholder="文件链接" type="text">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon fs_15">文件格式</span>
+            <select class="form-control"
+                    ng-model="video.temp_format"
+                    ng-options="format.value as format.name for format in static_formats">
+            </select>
+        </div>
+    </div>
+
+
+    <div class="pos_relative editor-container mt_10"
+         ng-class="{true: 'height-main-min-j4-new-template-by-auto-mailbox-outter-with-one-input-above',
+                                            false: 'height-main-min-j4-new-template-by-auto-mailbox-outter'}[$root.global.is_outter]">
+        <wt-new-editor class="" edit-content="video.temp_content"
+                       wt-ctrl-enter="js_set_update($event, video)"
+                       placeholder="添加视频描述(按Ctrl + 回车键提交)">
+        </wt-new-editor>
+    </div>
+
+    <div class="form-group">
+        <button ng-click="js_set_update($event, video)"
+                data-loading-text="保存中..." loading-status="video.is_saving"
+                class="btn btn-success mr_15"
+                wt-tracker="video Panel|Main|Edit video-Save">保存
+        </button>
+        <button ng-click="js_cancel_editor(video)" class="btn"
+                wt-tracker="video Panel|Main|Edit video-Cancel">取消
+        </button>
+    </div>
+</div>

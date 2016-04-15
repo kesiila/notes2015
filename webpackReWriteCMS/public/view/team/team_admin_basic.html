@@ -1,0 +1,219 @@
+<div class="layout_content">
+    <div class="layout_content_main no_sidebar height-noheader">
+        <div class="mod_navbar">
+            <div class="title">
+                <ng-include src="'/view/team/team_title.html'"></ng-include>
+            </div>
+        </div>
+        <div class="rightpanel-wrapper height-nonav" wt-scroll>
+            <div class="center-panel-container">
+                <div class="layout_split_panel">
+                    <div class="layout_split_left">
+                        <ng-include src="'/view/team/team_admin_left_nav.html'"></ng-include>
+                    </div>
+                    <div class="layout_split_right">
+                        <dl class="frame" data-minheight="160">
+                            <dt>
+                                <span class="title">设置</span>
+                                <ng-include src="'/view/team/team_admin_tabs.html'"></ng-include>
+                            </dt>
+                            <dd>
+                                <div class="part-loading mt_20" data-ng-hide="part_loading_done"></div>
+                                <div data-ng-show="part_loading_done">
+                                    <div class="basic_setting">
+                                        <div class="panel-section">
+                                            <h4>修改基本信息</h4>
+                                        </div>
+                                        <div class="panel-section">
+                                            <form name="team_set_form" wt-form-validate="{blurTrig:false,showMsg:false}"
+                                                  class="wt-form form-horizontal w_660" novalidate>
+                                                <div class="form-group">
+                                                    <label class="col-xs-2 control-label">团队名称：</label>
+
+                                                    <div class="col-xs-10">
+                                                        <input name="team_name" type="text" ng-model="name"
+                                                               placeholder="团队名称" class="form-control" required
+                                                               autofocus/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-2 control-label">团队描述：</label>
+
+                                                    <div class="col-xs-10">
+                                                        <textarea rows="4" ng-model="desc" class="form-control"
+                                                                  placeholder="为团队添加简短描述（可选）"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-xs-2 control-label"></label>
+
+                                                    <div class="col-xs-10">
+                                                        <button data-loading-text="保存中..."
+                                                                wt-form-submit="js_set_team(team_set_form, name, desc, url)"
+                                                                class="btn btn-success"
+                                                                loading-status="is_team_saveing">确定
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <hr/>
+                                        </div>
+                                    </div>
+                                    <div class="team-visibility">
+                                        <div ng-switch="visibility_step">
+                                            <div ng-switch-when="1">
+                                                <div class="panel-section">
+                                                    <h4>团队公开性</h4>
+                                                </div>
+                                                <div class="panel-section">
+                                                    <div class="form-group">
+                                                        <select class="form-control ng-valid-required w_360"
+                                                                ng-model="data.visibilityValue"
+                                                                ng-options="p.description for p in teamVisibilityArray">
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <!-- js-popbox  -->
+                                                        <button class="btn btn-danger float_left mr_15"
+                                                                ng-click="js_visibility_step(2)"
+                                                                ng-show="data.visibilityValue != originalValue">
+                                                            更改
+                                                        </button>
+                                                        <button class="btn btn-default float_left "
+                                                                ng-click="js_visibility_cancel()"
+                                                                ng-show="data.visibilityValue != originalValue">
+                                                            取消
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div ng-switch-when="2">
+                                                <div class="title">
+                                                    <h4>输入帐户密码</h4>
+                                                </div>
+                                                <wt-confirm-password class="w_360"
+                                                                     confirm-cancel="js_visibility_step(1)"
+                                                                     confirm-success="js_visibility_step(3)"></wt-confirm-password>
+                                            </div>
+                                            <div ng-switch-when="3">
+                                                <div class="title">
+                                                    <h4>确认更改团队公开性</h4>
+                                                </div>
+                                                <div class="alert alert-info w_660">
+                                                <span><i class="icon icon-info-sign mr_5"></i> 
+                                                    <span>确认要把当前团队改成</span>
+                                                    <strong>{{ data.visibilityValue.description }}</strong>么？</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-danger float_left mr_15"
+                                                            data-loading-text="正在变更中..."
+                                                            loading-status="is_visibility_saving"
+                                                            ng-click="js_update_visibility()">确认
+                                                    </button>
+                                                    <button class="btn float_left" ng-click="js_visibility_step(1)">取消
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                    </div>
+                                    <div class="transfer">
+                                        <div data-ng-switch="transfer_step">
+                                            <div class="panel-section" data-ng-switch-when="1">
+                                                <div class="title">
+                                                    <h4>转让团队</h4>
+                                                </div>
+                                                <div class="form-group">
+                                                    <span>当前团队所有者：</span>
+                                                    <wt-avatar member="team.owner" name="true" atname="true" size="30"
+                                                               faceclass="plr_5"></wt-avatar>
+                                                </div>
+                                                <div class="alert alert-warning w_660">
+                                                    <span><i class="icon icon-info-sign mr_5"></i> 转让后你将没有权限管理该团队，团队帐户中的余额将会一起转让。</span>
+                                                    <br/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-danger float_left js-popbox"
+                                                            data-placement="right" data-align="top"
+                                                            ng-click="js_transfer_pop($event)">转让当前团队
+                                                    </button>
+                                                </div>
+                                                <hr/>
+                                            </div>
+                                            <div class="panel-section" data-ng-switch-when="2">
+                                                <div class="title">
+                                                    <h4>输入帐户密码</h4>
+                                                </div>
+                                                <wt-confirm-password class="w_360" confirm-cancel="js_transfer_step(1)"
+                                                                     confirm-success="js_transfer_step(3)"></wt-confirm-password>
+                                            </div>
+                                            <div class="panel-section" data-ng-switch-when="3">
+                                                <div class="title">
+                                                    <h4>确认转让当前团队</h4>
+                                                </div>
+                                                <div class="alert alert-info w_660">
+                                                    <span><i class="icon icon-info-sign mr_5"></i> 确认要把当前团队转让给 {{ selected_member.display_name }} 么？</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-danger float_left mr_15"
+                                                            data-loading-text="正在转让中..."
+                                                            loading-status="is_transferring" ng-click="js_transfer()">
+                                                        确认转让
+                                                    </button>
+                                                    <button class="btn float_left" ng-click="js_transfer_step(1)">取消
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dismiss">
+                                        <div data-ng-switch="dismiss_step">
+                                            <div class="panel-section" data-ng-switch-when="1">
+                                                <div class="title">
+                                                    <h4>解散团队</h4>
+                                                </div>
+                                                <div class="alert alert-warning w_660">
+                                                    <span><i class="icon icon-info-sign mr_5"></i> 该操作不可撤销，解散团队后，团队成员将不能访问该团队的一切数据，请谨慎操作。</span>
+                                                    <br/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-danger float_left" data-placement="right"
+                                                            data-align="top" ng-click="js_dismiss_step(2)">解散当前团队
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="panel-section" data-ng-switch-when="2">
+                                                <div class="title">
+                                                    <h4>输入帐户密码</h4>
+                                                </div>
+                                                <wt-confirm-password class="w_360" confirm-cancel="js_dismiss_step(1)"
+                                                                     confirm-success="js_dismiss_step(3)"></wt-confirm-password>
+                                            </div>
+                                            <div class="panel-section" data-ng-switch-when="3">
+                                                <div class="title">
+                                                    <h4>确认解散当前团队</h4>
+                                                </div>
+                                                <div class="alert alert-info w_660">
+                                                    <span><i class="icon icon-info-sign mr_5"></i>解散团队后，团队成员将不能访问该团队的一切数据。确认解散当前团队吗？</span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn btn-danger float_left mr_15"
+                                                            data-loading-text="正在解散中..." loading-status="is_dismissing"
+                                                            ng-click="js_dismiss()">确认解散
+                                                    </button>
+                                                    <button class="btn float_left" ng-click="js_dismiss_step(1)">取消
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

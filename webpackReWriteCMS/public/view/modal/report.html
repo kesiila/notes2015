@@ -1,0 +1,50 @@
+<div class="modal-header">
+    <h4 class="modal-title font-20" style="padding-left: 10px;padding-top: 10px;">{{title}}信息举报
+        <i class="pull-right icon-close cursor" style="margin-top: 2px;margin-right: 5px;color: #555;"
+           ng-click="close()"></i>
+    </h4>
+</div>
+<div class="modal-body" style="padding-top: 0px;position: static;">
+    <form style="height: 350px;" wt-form-validate="{blurTrig:true,showMsg:false}" name="feedback_form" novalidate class="form-horizontal wt-form">
+
+        <div class="m_20 pt_15 mt_0" style="border-bottom: 1px solid #e5e5e5;">
+            <label class="control-label font-20">举报原因：</label><br>
+            <label class="small cursor mr_15" style="color:#666666;">
+                <input type="checkbox" class="input-item cursor" ng-model="$parent.type1"
+                       style="position: relative;top:3.5px;">
+                {{categoryList[0].value}}
+            </label>
+            <label class="small cursor mr_15" style="color:#666666;">
+                <input type="checkbox" class="input-item cursor" ng-model="$parent.type2"
+                       style="position: relative;top:3.5px;">
+                {{categoryList[1].value}}
+            </label>
+            <label class="small cursor mr_15" style="color:#666666;">
+                <input type="checkbox" class="input-item cursor" ng-model="$parent.type3"
+                       style="position: relative;top:3.5px;">
+                {{categoryList[2].value}}
+            </label>
+            <label class="small cursor mr_15" style="color:#666666;">
+                <input type="checkbox" class="input-item cursor" ng-model="$parent.type4"
+                       style="position: relative;top:3.5px;">
+                {{categoryList[3].value}}
+            </label>
+        </div>
+
+        <div class="m_20">
+            <label class="control-label font-20">详情描述：</label><br>
+            <textarea class="form-control"  placeholder="" ng-click="$parent.content=''"
+                      name="feedback_content" ng-model="$parent.content"
+                      rows="5">
+            </textarea>
+            <div class="mt_15 pull-left color-active" ng-show="!($parent.type1 || $parent.type2 || $parent.type3 || $parent.type4 || $parent.content!='')">
+                {{$parent.error_msg}}
+            </div>
+            <div class="pull-right mt_15">
+                <button wt-form-submit="js_submit(feedback_form)" ng-disabled="!($parent.type1 || $parent.type2 || $parent.type3 || $parent.type4 || $parent.content!='')" type="button" class="btn btn-success"
+                        data-loading-text="提交中..." loading-status="is_registering">提交
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

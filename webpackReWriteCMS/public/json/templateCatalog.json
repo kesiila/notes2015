@@ -1,0 +1,238 @@
+{
+	"data":[
+        {
+            "code" : "0100",
+            "cnName" : "开发",
+            "children" :
+                [
+                    { "children" : [], "code" : "0101", "cnName" : "问采购联系人" },
+                    { "children" : [], "code" : "0102", "cnName" : "问采购联系人" },
+                    { "children" : [], "code" : "0103", "cnName" : "首次联系" },
+                    { "children" : [], "code" : "0104", "cnName" : "首次联系" },
+                    { "children" : [], "code" : "0105", "cnName" : "电话后邮件跟进" },
+                    { "children" : [], "code" : "0106", "cnName" : "老活动激活" },
+                    { "children" : [], "code" : "0107", "cnName" : "接手同事活动" }
+                ]
+
+	    },
+        {
+            "code" : "0200",
+            "cnName" : "报价",
+		    "children" : [ { "children" : [], "code" : "0201", "cnName" : "报价邮件" } ]
+
+	    },
+        {
+            "code" : "0300",
+            "cnName" : "展会",
+            "children" :
+            [
+                { "children" : [] ,"code" : "0301", "cnName" : "展会前邀请" },
+                { "children" : [] ,"code" : "0302", "cnName" : "展会后追踪" },
+                { "children" : [], "code" : "0303", "cnName" : "展会后追踪" }
+            ]
+	    },
+        {
+            "children" :
+                [
+                    { "children" : [], "code" : "0401", "cnName" : "价格及折扣" },
+                    { "children" : [], "code" : "0402", "cnName" : "价格及折扣" },
+                    { "children" : [], "code" : "0403", "cnName" : "品牌" },
+                    { "children" : [], "code" : "0404", "cnName" : "付款条件" },
+                    { "children" : [], "code" : "0405", "cnName" : "交货时间" },
+                    { "children" : [], "code" : "0406", "cnName" : "打样费用" },
+                    { "children" : [], "code" : "0407", "cnName" : "MOQ" }
+                ],
+            "code" : "0400",
+            "cnName" : "谈判"
+        },
+        {
+		    "children" :
+                [
+                    { "children" : [], "code" : "0501", "cnName" : "发送样品后通知" },
+                    { "children" : [], "code" : "0502", "cnName" : "发送样品后追踪" },
+                    { "children" : [], "code" : "0503", "cnName" : "打样费用谈判" }
+                ],
+            "code" : "0500",
+            "cnName" : "打样"
+        },
+        {
+		"children" : [ {
+			"children" : [],
+			"code" : "0601",
+			"cnName" : "晚交货"
+		}, {
+			"children" : [],
+			"code" : "0602",
+			"cnName" : "质量索赔"
+		}, {
+			"children" : [],
+			"code" : "0603",
+			"cnName" : "包装破损"
+		}, {
+			"children" : [],
+			"code" : "0604",
+			"cnName" : "规格错误"
+		}, {
+			"children" : [],
+			"code" : "0605",
+			"cnName" : "货物短缺"
+		}, {
+			"children" : [],
+			"code" : "0606",
+			"cnName" : "材料问题"
+		} ],
+		"code" : "0600",
+		"cnName" : "索赔"
+	}, {
+		"children" : [ {
+			"children" : [],
+			"code" : "0701",
+			"cnName" : "价格调整通知"
+		}, {
+			"children" : [],
+			"code" : "0702",
+			"cnName" : "生产进度通知"
+		}, {
+			"children" : [],
+			"code" : "0703",
+			"cnName" : "老产品停产通知"
+		}, {
+			"children" : [],
+			"code" : "0704",
+			"cnName" : "材料调整通知"
+		}, {
+			"children" : [],
+			"code" : "0705",
+			"cnName" : "新品通知"
+		}, {
+			"children" : [],
+			"code" : "0706",
+			"cnName" : "放假通知"
+		}, {
+			"children" : [],
+			"code" : "0707",
+			"cnName" : "库存处理"
+		}, {
+			"children" : [],
+			"code" : "0708",
+			"cnName" : "促销信息"
+		} ],
+		"code" : "0700",
+		"cnName" : "通知"
+	}, {
+		"children" : [ {
+			"children" : [],
+			"code" : "0801",
+			"cnName" : "确认合同"
+		}, {
+			"children" : [],
+			"code" : "0802",
+			"cnName" : "催款"
+		} ],
+		"code" : "0800",
+		"cnName" : "收款"
+	}, {
+		"children" : [ {
+			"children" : [],
+			"code" : "0901",
+			"cnName" : "装运信息"
+		} ],
+		"code" : "0900",
+		"cnName" : "追踪"
+	}, {
+		"children" : [ {
+			"children" : [],
+			"code" : "1001",
+			"cnName" : "交货问题"
+		}, {
+			"children" : [],
+			"code" : "1002",
+			"cnName" : "订舱问题"
+		}, {
+			"children" : [],
+			"code" : "1003",
+			"cnName" : "订舱问题"
+		}, {
+			"children" : [],
+			"code" : "1004",
+			"cnName" : "订舱问题"
+		}, {
+			"children" : [],
+			"code" : "1005",
+			"cnName" : "产品问题"
+		}, {
+			"children" : [],
+			"code" : "1006",
+			"cnName" : "价格条款"
+		}, {
+			"children" : [],
+			"code" : "1007",
+			"cnName" : "保险问题"
+		}, {
+			"children" : [],
+			"code" : "1008",
+			"cnName" : "取消货物"
+		}, {
+			"children" : [],
+			"code" : "1009",
+			"cnName" : "LC问题"
+		}, {
+			"children" : [],
+			"code" : "1010",
+			"cnName" : "报价时间"
+		}, {
+			"children" : [],
+			"code" : "1011",
+			"cnName" : "费用问题"
+		}, {
+			"children" : [],
+			"code" : "1012",
+			"cnName" : "空白发票"
+		}, {
+			"children" : [],
+			"code" : "1013",
+			"cnName" : "交货问题"
+		}, {
+			"children" : [],
+			"code" : "1014",
+			"cnName" : "费用问题"
+		} ],
+		"code" : "1000",
+		"cnName" : "激活"
+	}, {
+		"children" : [ {
+			"children" : [],
+			"code" : "1101",
+			"cnName" : "节日问候"
+		}, {
+			"children" : [],
+			"code" : "1102",
+			"cnName" : "自然灾害问候"
+		}, {
+			"children" : [],
+			"code" : "1103",
+			"cnName" : "生日问候"
+		} ],
+		"code" : "1100",
+		"cnName" : "问候"
+	}, {
+		"children" : [ {
+			"children" : [],
+			"code" : "1201",
+			"cnName" : "邀请参观工厂"
+		}, {
+			"children" : [],
+			"code" : "1202",
+			"cnName" : "邀请函"
+		}, {
+			"children" : [],
+			"code" : "1203",
+			"cnName" : "展会邀请"
+		} ],
+		"code" : "1200",
+		"cnName" : "邀请"
+	} ],
+	"label": "类别",
+	"version":"1.0",
+	"copyright":"@2014 上海思蓄力教育科技有限公司"
+}

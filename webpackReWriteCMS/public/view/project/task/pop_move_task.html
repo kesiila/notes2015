@@ -1,0 +1,16 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3 ng-if="task.xtype=='tasks'">移动活动到</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+<div class="popbox-body fixed-width-260">
+    <ul class="popbox-menu">
+        <li ng-repeat="entry in entries">
+            <a href="javascript:;" ng-click="js_move_to(entry)">
+                <i ng-class="{true:'icon-ok',false:'icon-xx'}[entry.move_selected == 1]" class="color_gray"></i>
+                <span>{{entry.desc}}</span>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>

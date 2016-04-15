@@ -1,0 +1,83 @@
+<div class="layout_content prj_panel">
+    <div class="layout_content_main height-noheader">
+        <div class="mod_navbar">
+            <ng-include src="'/view/project/prj_title_panel.html'"></ng-include>
+            <div class="main">
+                <div class="toolbar_panel  pull-right" ng-show="global.loading_done">
+
+                </div>
+            </div>
+        </div>
+        <div class="height-nonav" wt-scroll ng-show="global.loading_done">
+            <dl class="frame" data-minheight="160">
+                <dt>
+                    <span class="title">聊天记录</span>
+
+                </dt>
+                <dd>
+                    <div class="empty-panel"
+                         ng-show="chat != null && chat.messages.length == 0">
+                        <i class="icon-comment"></i><br/>
+                        <span>还没有任何聊天记录</span>
+                    </div>
+                    <div class="stamp-project" ng-cloak ng-show="permission==4"></div>
+
+                    <div class="post-panel">
+
+                        <div class="chat-list" ng-if="global.loading_done">
+                            <div class="part-loading" data-ng-show="!loading_chat_done"></div>
+                            <table class="table table-bordered" data-ng-show="loading_chat_done">
+                                <thead>
+
+                                </thead>
+                                <tbody>
+                                <tr ng-class="{true:'me'}[message.from.uid == global.me.uid]"
+                                    data-ng-repeat="message in chat.messages">
+                                    <td class="date"
+                                        ng-class="{false:'hide-both', true:'hide-bottom'}[message.is_show_date]">
+                                        <span data-ng-show="message.is_show_date">{{message.create_date | dateFormatZHCN}}</span>
+                                    </td>
+                                    <td class="member">
+                                        <wt-avatar name="true" member="message.from" size="30"
+                                                   wt-disable-drag></wt-avatar>
+                                    </td>
+                                    <td class="content">
+                                        <div class="markdown-chat" ng-if="message.body.type == 1"
+                                             wt-markdown="message.body.content"></div>
+                                        <div class="chat-message-upload" ng-if="message.body.type == 3">
+                                            <div class="preview-icon"
+                                                 ng-class="{true:'fancybox-file'}[message.body.content.isImg]"
+                                                 data-fancybox-group="chathistory"
+                                                 data-fancybox-href="{{message.body.content | wtBoxView}}"
+                                                 data-fancybox-type="image">
+                                                <img ng-src="{{message.body.content.icon | wtBox}}"
+                                                     alt="{{ message.body.content.name }}"/>
+                                            </div>
+                                            <div class="file-name" title="{{message.body.content.name}}">
+                                                <a href="javascript:;"
+                                                   ng-click="locator.to_file(message.body.content.pid, message.body.content.fid, false);">{{message.body.content.name}}</a>
+                                            </div>
+                                            <div class="file-size">{{message.body.content.size | fileSize}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="time">
+                                        {{message.create_date | timeFormat}}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <br>
+                            <div class="pull-right" data-ng-show="loading_chat_done"
+                                 wt-pagination="chats_pagination_opts"></div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="layout_right_sidebar height-noheader">
+        <ng-include src="'/view/project/prj_right_sidebar.html'"></ng-include>
+    </div>
+</div>
+
+<div class="stamp-project" ng-cloak ng-show="permission==4"></div>

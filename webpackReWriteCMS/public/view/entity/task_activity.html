@@ -1,0 +1,13 @@
+<div>
+    <div class="entity-title" ng-include="'/view/entity/program/program_title.html'">
+    </div>
+	<wt-tadges task="task"></wt-tadges>
+    
+    <div class="wt-row ">
+    <h4 class="pull-right">最新活动</h4>
+    </div>
+<section ng-controller="item_activity_ctrl">
+            <ng-include src="'/view/activity/activity_list.html'"></ng-include>
+        </section>
+</div>
+

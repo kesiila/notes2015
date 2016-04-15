@@ -1,0 +1,72 @@
+<div ng-controller="in_mail_ctrl">
+	<div class="entity-title" ng-include="'/view/entity/task_title.html'">
+	</div>
+	<wt-tadges task="task"></wt-tadges>
+	<div class="edit-section"
+		ng-show="$parent.$parent.is_new_mail && (templates!=null && templates.length>0)">
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"></span> <select class="form-control"
+					ng-model="selectedTemplate" required="" placeholder="请选择邮件模板"
+					ng-change="js_select_template()"
+					ng-options="template as template.name for template in templates">
+					<option value="">请选择邮件模板</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="mail-list" ng-show="$parent.$parent.is_new_mail">
+		<div id="new_mail_{{xtype}}" class="new-mail"
+			wt-permission="[permission,project.info.curr_role,1,3]">
+			<wt-mail save-mail="js_save_mail(mail)"
+				pastefile-mail="js_pastefile_mail(mail)"></wt-mail>
+		</div>
+	</div>
+	<div class="wt-row " ng-show="mails!=null && mails.length>0">
+		<h4 class="pull-right">来往邮件 ({{mails.length}})</h4>
+	</div>
+	<div class="mail-list">
+		<div class="part-loading mt_20" wt-loading-done="mails_loading_done"></div>
+		<div class="empty-panel noborder"
+			ng-if="mails_loading_done && mails.length == 0">
+			<i class="icon-envelope-alt"></i><br> <span>暂无来往邮件</span>
+		</div>
+
+		<ul class="mails">
+			<li class="mail-item" id="mail_item_{{mail.mail_id}}"
+				ng-repeat="mail in mails" repeat-done="js_repeat_done()"><wt-avatar
+					member="mail.owner" size="40" class="mail-avatar"></wt-avatar>
+
+				<div class="mail">
+					<a href="javascript:;" class="mail-name"> {{mail.name}} </a> <span
+						class="mail-meta"> <span
+						data-ng-class="{true:'',false:''}[mail.type==1]">{{mail.create_date
+							| fromNow }}</span> <!-- <a
+						wt-permission="[permission,project.info.curr_role,1,3]"
+						href="javascript:;"
+						wt-tracker="mail Panel|List|Edit mail-Reply Menu"
+						data-ng-click="js_reply_mail(mail)" class="mail-action"
+						ng-if="mail.type==1">回复</a> --><!--  <a
+						wt-permission="[permission,project.info.curr_role,1,3]"
+						href="javascript:;"
+						wt-tracker="mail Panel|List|Edit mail-Delete Menu"
+						data-ng-click="js_pop_delete_mail($event,mail)"
+						class="mail-action js-popbox"
+						ng-if="mail.owner.uid == global.me.uid && mail.type==1">删除</a> -->
+
+					</span>
+
+					<div class="current-mail" wt-markdown='mail.content'></div>
+					<ul class="mail-attachments">
+						<wt-attachment ng-repeat="file in mail.files"></wt-attachment>
+					</ul>
+
+					<div class="edit-controls clearfix"
+						id="div_mail_{{ mail.mail_id }}" ng-show="mail.is_edit"
+						wt-show-edit="mail.is_edit"></div>
+				</div></li>
+		</ul>
+	</div>
+</div>
+

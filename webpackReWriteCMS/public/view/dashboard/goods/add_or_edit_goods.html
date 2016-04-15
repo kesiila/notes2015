@@ -1,0 +1,37 @@
+<dl class="frame add_edit_panel">
+<div class="goods-edit-container">
+    <form name="goods_form" class="wt-form" wt-form-validate="{blurTrig:false,showMsg:false}" novalidate="">
+
+        <input type="text" id="new_goods_name" maxlength="100" name="goods_title" autofocus ng-model="new_element.title" class="form-control help-block" placeholder="标题" required>
+        <input type="text" id="new_goods_ename" maxlength="100" name="goods_ename" autofocus ng-model="new_element.ename" class="form-control help-block" placeholder="英文">
+        <input type="number" id="new_goods_price" maxlength="100" name="goods_price" autofocus ng-model="new_element.price" class="form-control help-block" placeholder="价格">
+        <input type="number" id="new_goods_count" maxlength="100" name="goods_count" autofocus ng-model="new_element.count" class="form-control help-block" placeholder="数量">
+        <input type="number" id="new_goods_aging" maxlength="100" name="goods_aging" autofocus ng-model="new_element.aging" class="form-control help-block" placeholder="时效(天)">
+
+
+        <div class="cascading-wapper mb_10">
+            <wt-cascading flag="flag" first="new_element.code_name"
+                          firstkey="new_element.code"
+                          cascad="1"
+                          source="api/codes/goods/all">
+            </wt-cascading>
+        </div>
+
+        <div class="cascading-wapper mb_10">
+            	    <wt-cascading flag="flag" first="new_element.code_ad_name"
+                          	firstkey="new_element.code_ad"
+                          	cascad="1"
+                          	source="api/codes/ad/all">
+            		</wt-cascading>
+        </div>
+
+
+
+        <textarea ng-model="new_element.desc" type="text" wt-full-editor=""
+                  placeholder="内容"></textarea>
+        <br/>
+
+    </form>
+</div>
+</dl>
+

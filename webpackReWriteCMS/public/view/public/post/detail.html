@@ -1,0 +1,26 @@
+<div class="template">
+    <div class="detail">
+        <i class="icon-remove icon-2x"  ng-click="close()"></i>
+        <h4>{{templateDetailObj.name}}</h4>
+        <section class="summary" fa-scroll="400px">
+            <aside ng-class="{1:'summary-show',0:'summary-hide'}[detailSummary.show]" ng-bind-html="templateDetailObj.summary"></aside>
+            <div class="show-btn">
+                <a href="javascript:;" ng-click="detailSummary.click()">
+                    <i ng-class="{1:'icon-double-angle-up icon-1.5x',0:'icon-double-angle-down icon-1.5x'}[detailSummary.show]"></i>
+                </a>
+            </div>
+            <section class="center">
+                <header class="inline-block">
+                    <i class="color-block"></i>
+                    <div class="title">Re:Hi Mary, can you tell me the email of Mr.</div>
+                </header>
+                <div class="content" ng-bind-html="templateDetailObj.content"></div>
+            </section>
+        </section>
+        <div class="footer">
+            <a href="javascript:;" class="btn btn-default">
+                 <span>收藏模板</span>
+            </a>
+        </div>
+    </div>
+</div>

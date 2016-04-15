@@ -1,0 +1,127 @@
+<div class="left_menu height-noheader">
+    <div data-height="{{{true:'100',false:'142'}[upload_queue.get_queue()==0]}}" wt-scroll>
+        <ul class="left_menu_module">
+            <li>
+                <a title="工作台" class="left_menu_item" ng-class="{'active':global.header_menu == 'dashboard'}"
+                   wt-tracker="LeftMenu|Module|Goto Dashboard" ng-href="/dashboard">
+                    <i class="icon-dashboard mr_10"></i> <span class="collapse_hide">工作台</span>
+                </a>
+            </li>
+            <li>
+                <a title="日历" class="left_menu_item" ng-class="{'active':global.header_menu == 'calendar'}"
+                   wt-tracker="LeftMenu|Module|Goto Calendar" ng-href="/calendar">
+                    <i class="icon-calendar mr_10"></i> <span class="collapse_hide">日历</span>
+                </a>
+            </li>
+            <li>
+                <a title="发现" class="left_menu_item" ng-class="{'active':global.header_menu == 'browse'}"
+                   wt-tracker="LeftMenu|Module|Goto Browse" ng-href="/browse">
+                    <i class="icon-compass mr_10"></i> <span class="collapse_hide">发现</span>
+                </a>
+            </li>
+            <li>
+                <a title="项目" class="left_menu_item" ng-class="{'active':global.header_menu == 'projects'}"
+                   wt-tracker="LeftMenu|Module|Goto Projects" href="/projects">
+                    <i class="icon-inbox mr_10"></i> <span class="collapse_hide">项目</span>
+                </a>
+            </li>
+        </ul>
+        <div class="hr_black" ng-hide="(projects | filter:{is_star:1}).length==0"></div>
+        <ul class="left_menu_module">
+            <li data-ng-repeat="project in projects | filter:{is_star:1}"
+                data-ng-click="js_set_current_prj(project)">
+                <a data-ng-class="{'active':current_pid == project.pid}" class="left_menu_item"
+                   href="/project/{{project.pid}}" title="{{project.name}}">
+                    <i class="mr_10" ng-class="project.pic" ng-style="{color: project.bg}"></i> <span
+                        class="collapse_hide">{{project.name}}</span>
+                </a>
+            </li>
+        </ul>
+        <div class="hr_black" data-ng-show="!left_panel_is_fold"></div>
+
+        <div class="left_menu_scroll">
+            <!--<ul class="left_menu_section" ng-class="{true:'left_menu_section_expand'}[star_team.expand]">-->
+            <!--<li>-->
+            <!--<a class="left_menu_item js-popbox" data-placement="right" href="javascript:;"-->
+            <!--ng-click="js_section_expand_toggle(star_team,$event)">-->
+            <!--<i class="icon-star mr_10 collapse_hide"></i> 常用项目-->
+            <!--<i class="collapse_hide"-->
+            <!--ng-class="{true:'icon-angle-down',false:'icon-angle-right'}[star_team.expand == true]"></i>-->
+            <!--</a>-->
+            <!--<ul class="left_menu_body collapse_hide" wt-slide-show="star_team.expand">-->
+            <!--<li data-ng-repeat="project in projects | filter:{is_star:1}"-->
+            <!--data-ng-click="js_set_current_prj(project)">-->
+            <!--<a data-ng-class="{'active':current_pid == project.pid}" href="/project/{{project.pid}}">-->
+            <!--<i ng-class="project.pic" ng-style="{color: project.bg}"></i> {{project.name}}-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a class="empty" ng-show="(projects | filter:{is_star:1}).length==0" href="javascript:;">-->
+            <!--<i class="icon-inbox"></i>没有项目-->
+            <!--</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <ul class="left_menu_section collapse_hide" ng-class="{true:'left_menu_section_expand'}[team.expand]"
+                data-ng-repeat="team in teams">
+                <li>
+                    <a class="left_menu_item" href="javascript:;" ng-click="js_section_expand_toggle(team,$event)">
+                        <i class="icon-sitemap mr_10"></i> <span class="team_name">{{team.name}}</span>
+                        <i class="icon-angle"
+                           ng-class="{true:'icon-angle-down',false:'icon-angle-right'}[team.expand == true]"></i>
+                    </a>
+                    <ul class="left_menu_body" wt-slide-show="team.expand">
+                        <li data-ng-repeat="project in team.projects" data-ng-click="js_set_current_prj(project)">
+                            <a data-ng-class="{'active':current_pid == project.pid}" href="/project/{{project.pid}}">
+                                <i ng-class="project.pic" ng-style="{color: project.bg}"></i> {{project.name}}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="empty" ng-show="team.projects.length==0" href="javascript:;">
+                                <i class="icon-inbox"></i>没有项目
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <form id="global_file_upload" data-ng-controller="global_file_ctrl" action="{{global.config.box_url()}}"
+          method="POST"
+          enctype="multipart/form-data"
+          data-file-upload="options"
+          data-ng-class="{'fileupload-processing': processing() || loadingFiles}"
+          class="js-popbox"
+          data-placement="right"
+          ng-show="queue.length"
+          ng-class="{true: 'fileupload-processing'}[!!processing() || loadingFiles]">
+        <a href="javascript:;" class="icon icon-white icon-upload-alt"
+           ng-click="js_pop_global_fileupload($event)">
+            <span class="ml_10 collapse_hide">目前有 {{ queue.length }} 个文件在上传</span>
+            <span class="label label-danger collapse_show">{{ queue.length }}</span>
+        </a>
+
+        <div class="hr_black"></div>
+    </form>
+    <div class="hr_black"></div>
+    <ul class="left_menu_footer">
+        <li class="collapse_hide">
+            <a href="/projects/archive" tooltip-placement="top" tooltip="归档项目">
+                <i class="icon-archive"></i>
+            </a>
+        </li>
+        <li class="collapse_hide">
+            <a href="/account/teams" tooltip-placement="top" tooltip="团队管理">
+                <i class="icon-sitemap"></i>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" data-ng-click="js_left_menu_toggle()" tooltip-placement="top"
+               tooltip="{{{true:'展开',false:'折叠'}[left_panel_is_fold]}}">
+                <i class="{{{true:'icon-step-forward',false:'icon-step-backward'}[left_panel_is_fold]}}"></i>
+            </a>
+        </li>
+    </ul>
+</div>

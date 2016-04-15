@@ -1,0 +1,59 @@
+<div class="height-noheader">
+    <div class="mod_navbar clickable" ng-click="$root.global.show_inbox=false">
+        <div class="title"><h3><i class="icon-bell-alt mr_10"></i>消息中心</h3></div>
+        <div class="main">
+            <div class="pull-right"><a href="javascript:;" class="mr_10" tooltip-placement="bottom" tooltip="收起"> <i
+                    class="icon-chevron-up"></i> </a></div>
+        </div>
+    </div>
+    <div class="rightpanel-wrapper" ng-show="global.loading_done">
+        <div class="height-nonav notice-list-panel" wt-scroll>
+            <dl class="frame" data-minheight="148">
+                <dt><span> <a ng-if="vm.tab == 'unread'" href="javascript:;" ng-click="js_set_all_notice_read()">
+                    全部标为已读 </a> <a ng-if="vm.tab == 'pending'" href="javascript:;" ng-click="js_handle_all_notice()">
+                    全部标为已处理 </a> </span>
+                <ul class="tabs">
+                    <li><a ng-class="{'active':vm.tab == 'unread'}" href="javascript:;"
+                           ng-click="js_switch_tab('unread')">未读</a></li>
+                    <li><a ng-class="{'active':vm.tab == 'pending'}" href="javascript:;"
+                           ng-click="js_switch_tab('pending')">待处理</a></li>
+                    <li><a ng-class="{'active':vm.tab == 'read'}" href="javascript:;"
+                           ng-click="js_switch_tab('read')">已读</a></li>
+                </ul>
+                </dt>
+                <dd class="notice-list">
+                    <div ng-show="vm.tab =='read'">
+                        <div class="notice-item wt-row " ng-repeat="notice in vm.read_notices">
+                            <wt-notice notice-click="js_show_slide_detail($eType,notice,$entity)"></wt-notice>
+                        </div>
+                        <div class="notice-empty text-center"
+                             ng-show="vm.read_notices.length == 0 && vm.part_loading_done"><i class="icon-bell-alt"></i><br/><br/>
+                            <span>没有已读消息</span></div>
+                        <div class="loading-more-panel" ng-show="!vm.has_no_more && vm.part_loading_done">
+                            <button class="btn" ng-click="js_load_more_notice()">加载更多...</button>
+                        </div>
+                        <div class="load-more part-loading" ng-show="!vm.has_no_more && !vm.part_loading_done"></div>
+                    </div>
+                    <div ng-show="vm.tab == 'unread'">
+                        <div class="notice-item wt-row" ng-repeat="notice in vm.unread_notices">
+                            <wt-notice notice-click="js_show_slide_detail($eType,notice,$entity)"></wt-notice>
+                        </div>
+                        <div class="notice-empty text-center"
+                             ng-show="vm.unread_notices.length == 0 && vm.part_loading_done"><i
+                                class="icon-bell-alt"></i><br/><br/> <span>没有未读消息</span></div>
+                        <div class="load-more part-loading" ng-hide="vm.part_loading_done"></div>
+                    </div>
+                    <div ng-show="vm.tab == 'pending'">
+                        <div class="notice-item wt-row" ng-repeat="notice in vm.pending_notices">
+                            <wt-notice></wt-notice>
+                        </div>
+                        <div class="notice-empty text-center"
+                             ng-show="vm.pending_notices.length == 0 && vm.part_loading_done"><i
+                                class="icon-bell-alt"></i><br/><br/> <span>没有待处理的消息</span></div>
+                        <div class="load-more part-loading" ng-hide="vm.part_loading_done"></div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

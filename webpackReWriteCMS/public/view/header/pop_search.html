@@ -1,0 +1,20 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>搜索结果</h3>
+</div>
+<div class="popbox-bodywrapper" wt-scroll>
+    <div class="popbox-body fixed-width">
+        <ul class="popbox-menu">
+            <li ng-repeat="project in filter_projects">
+                <a data-ng-class="{true:'active'}[$index == current_index]" ng-href="/project/{{project.pid}}/task">
+                    <span ng-bind-html="project.name | highlight:keywords:caseSensitive"></span>
+                </a>
+            </li>
+            <li class="divider" ng-show="filter_projects.length>0"></li>
+            <li>
+                <a href="javascript:;" data-ng-click="js_to_search_result()"><i class="icon-xxx"></i>显示全部搜索结果</a>
+            </li>
+        </ul>
+    </div>
+</div>
+

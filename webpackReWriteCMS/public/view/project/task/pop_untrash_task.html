@@ -1,0 +1,17 @@
+<div class="popbox-header">
+    <button class="cancel icon-remove" ng-click="js_close()"></button>
+    <h3>恢复活动数据
+        <!--     <span ng-if="task.uid !=global.me.uid">取消收藏</span>-->
+    </h3>
+</div>
+<div class="popbox-body">
+    <span>确定要恢复该活动数据吗?</span>
+</div>
+<div class="popbox-footer">
+    <button ng-click="js_untrash_task()" class="btn btn-danger float_left">
+        <span>确定恢复</span>
+    </button>
+    <button  ng-click="js_close()" class="btn pull-right">
+        <span >取消</span>
+    </button>
+</div>

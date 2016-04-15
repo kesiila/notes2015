@@ -1,0 +1,45 @@
+<dl class="frame recommend-setting clear_frame">
+	<dt>
+		<ul class="tabs pull-left m_0">
+			<li>
+				<a class="active"> 推荐设置 </a>
+			</li>
+		</ul>
+		<div class="pull-right cursor btn btn-success" ng-click="search_setting.save_setting()">保存设置</div>
+	</dt>
+	<dd>
+		<div style="min-height: 55px" class="pt_15" ng-show="!search_setting.is_saved">
+			<div class="block-inline fs_16 pl_15">
+				<span>添加关注的产品：</span>
+				<div class="block-inline task-badges">
+					<div class="block-inline task-badge" style="padding-left: 10px; margin-right: 15px; color: #666" ng-repeat="key in search_setting.product_keys track by $index">
+						<span class="mr_5">{{key}}</span>
+						<i class="icon-remove" ng-click="search_setting.del_product_key($index)"></i>
+					</div>
+				</div>
+				<div class="block-inline product-plus" ng-click="search_setting.toggle_add_block(true)" ng-show="!search_setting.show_add_block&&search_setting.product_keys.length<5">
+					<i class="icon-plus cursor"></i>
+				</div>
+				<div class="block-inline" style="vertical-align: middle" ng-if="search_setting.show_add_block">
+					<input ng-model="search_setting.product_key" ng-click="search_setting.show_industrys()" ng-blur="search_setting.add_product_key()" wt-enter="search_setting.add_product_key()" placeholder="产品标签（最多24个字符）" wt-focus="" type="text" class="form-control w_260" />
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="search_setting.is_saved">
+			<div class="form-group">
+				<div class="success-panel">
+					<i class="imgicon-success"></i>
+					<br /> <br /> <span>设置成功！</span><br />
+				</div>
+			</div>
+
+			<div class="form-group" ng-show="!search_setting.is_setting_success">
+				<div class="success-panel">
+					<i class="imgicon-warning"></i>
+					<br /> <br /> <span>设置失败！</span><br />
+				</div>
+			</div>
+		</div>
+	</dd>
+</dl>

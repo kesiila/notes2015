@@ -1,0 +1,23 @@
+<div class="comment-list" ng-controller="item_program_ctrl">
+    <div class="part-loading mt_20" wt-loading-done="comments_loading_done"></div>
+    <ul class="comments">
+        <li class="comment-item" id="comment_item_{{program.eid}}" ng-repeat="program in programs"
+            repeat-done="js_repeat_done()">
+            <div class="comment">
+                <a href="javascript:;" class="comment-name">
+                    {{program.title}}
+                </a>
+                <span class="comment-meta">
+                    <span data-ng-class="{true:'date',false:''}[program.type==1&&global.is_login == true]">{{program.create_date | fromNow }}</span>
+                </span>
+
+                <div class="current-comment" wt-markdown='program.desc'>
+                </div>
+
+                <div class="edit-controls clearfix" id="div_comment_{{ program.cid }}" ng-show="program.is_edit"
+                     wt-show-edit="program.is_edit">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
