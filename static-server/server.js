@@ -17,6 +17,8 @@ var html_dir = 'public/';
 //app.use(bodyParser.urlencoded({extended: false}));
 //app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, 'public/')));
+
 app.get('/signin', function (req, res) {
     res.sendFile(__dirname + '/public/public.html');
 }).get('/*', function (req, res) {
@@ -39,7 +41,6 @@ app.get('/signin', function (req, res) {
     }
 });
 
-//app.use(express.static(path.join(__dirname, 'public/')));
 //app.use('/', routes);
 //app.use('/users', users);
 
